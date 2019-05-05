@@ -1,0 +1,358 @@
+2019-05-05 13:11:05,886 [main] INFO  (DfReplaceSchemaTask#begin():92) - +------------------------------------------+
+2019-05-05 13:11:05,890 [main] INFO  (DfReplaceSchemaTask#begin():93) - |                                          |
+2019-05-05 13:11:05,891 [main] INFO  (DfReplaceSchemaTask#begin():94) - |              ReplaceSchema               |
+2019-05-05 13:11:05,897 [main] INFO  (DfReplaceSchemaTask#begin():102) - |                                          |
+2019-05-05 13:11:05,898 [main] INFO  (DfReplaceSchemaTask#begin():103) - +------------------------------------------+
+2019-05-05 13:11:05,900 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():401) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2019-05-05 13:11:09,391 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-05 13:11:09,392 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-05 13:11:09,393 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-05 13:11:09,394 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-05 13:11:09,411 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-05-05 13:11:09,793 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44
+2019-05-05 13:11:09,794 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-05-05 13:11:09,819 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2019-05-05 13:11:09,819 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2019-05-05 13:11:09,820 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2019-05-05 13:11:09,822 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2019-05-05 13:11:09,822 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2019-05-05 13:11:09,823 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2019-05-05 13:11:09,844 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-05-05 13:11:09,845 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {mydb.$$NoNameSchema$$ as main}
+2019-05-05 13:11:09,846 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-05-05 13:11:09,893 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2019-05-05 13:11:09,893 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2019-05-05 13:11:09,894 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2019-05-05 13:11:09,894 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2019-05-05 13:11:09,895 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2019-05-05 13:11:09,895 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2019-05-05 13:11:09,902 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2019-05-05 13:11:09,910 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create table user(id int, name varchar(10))
+2019-05-05 13:11:10,004 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=1 failure=0
+2019-05-05 13:11:10,008 [main] INFO  (DfSqlFileFireMan#fire():93) - {Create Schema}: success=1 failure=0 (in 1 files)
+2019-05-05 13:11:10,143 [main] INFO  (DfLoadDataProcess#execute():130) - 
+2019-05-05 13:11:10,144 [main] INFO  (DfLoadDataProcess#execute():131) - * * * * * * * * * * *
+2019-05-05 13:11:10,145 [main] INFO  (DfLoadDataProcess#execute():132) - *                   *
+2019-05-05 13:11:10,147 [main] INFO  (DfLoadDataProcess#execute():133) - * Load Data         *
+2019-05-05 13:11:10,151 [main] INFO  (DfLoadDataProcess#execute():134) - *                   *
+2019-05-05 13:11:10,152 [main] INFO  (DfLoadDataProcess#execute():135) - * * * * * * * * * * *
+2019-05-05 13:11:10,197 [main] INFO  (DfTakeFinallyProcess#takeFinally():237) - 
+2019-05-05 13:11:10,197 [main] INFO  (DfTakeFinallyProcess#takeFinally():238) - * * * * * * * **
+2019-05-05 13:11:10,197 [main] INFO  (DfTakeFinallyProcess#takeFinally():239) - *              *
+2019-05-05 13:11:10,198 [main] INFO  (DfTakeFinallyProcess#takeFinally():240) - * Take Finally *
+2019-05-05 13:11:10,199 [main] INFO  (DfTakeFinallyProcess#takeFinally():241) - *              *
+2019-05-05 13:11:10,199 [main] INFO  (DfTakeFinallyProcess#takeFinally():242) - * * * * * * * **
+2019-05-05 13:11:10,237 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: take-finally.sql
+2019-05-05 13:11:10,241 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=0 failure=0
+2019-05-05 13:11:10,242 [main] INFO  (DfSqlFileFireMan#fire():93) - {Take Finally}: success=0 failure=0 (in 1 files)
+2019-05-05 13:11:10,245 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-05-05 13:11:10,265 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m04s398ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=1 failure=0 (in 1 files)
+  o replace-schema.sql
+
+ {Load Data}: loaded-files=0
+  - (no data file)
+
+ {Take Finally}: success=0 failure=0 (in 1 files)
+  o take-finally.sql
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2019-05-05 21:48:58,217 [main] INFO  (TorqueJDBCTransformTask#begin():104) - +------------------------------------------+
+2019-05-05 21:48:58,223 [main] INFO  (TorqueJDBCTransformTask#begin():105) - |                                          |
+2019-05-05 21:48:58,224 [main] INFO  (TorqueJDBCTransformTask#begin():106) - |                   JDBC                   |
+2019-05-05 21:48:58,225 [main] INFO  (TorqueJDBCTransformTask#begin():107) - |                                          |
+2019-05-05 21:48:58,225 [main] INFO  (TorqueJDBCTransformTask#begin():108) - +------------------------------------------+
+2019-05-05 21:48:58,263 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-05 21:48:58,264 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-05 21:48:58,264 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-05 21:48:58,265 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-05 21:48:58,329 [main] INFO  (DfSchemaXmlSerializer#serialize():286) - 
+2019-05-05 21:48:58,330 [main] INFO  (DfSchemaXmlSerializer#serialize():287) - ...Starting to process JDBC to SchemaXML
+2019-05-05 21:48:58,330 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1532) - ...Loading previous schema (schema diff process)
+2019-05-05 21:48:58,345 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1535) -  -> no previous (first time)
+2019-05-05 21:48:58,359 [main] INFO  (DfSchemaXmlSerializer#generateXML():360) - ...Getting DB connection
+2019-05-05 21:48:58,377 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-05-05 21:48:59,253 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44
+2019-05-05 21:48:59,255 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-05-05 21:48:59,258 [main] INFO  (DfSchemaXmlSerializer#generateXML():363) - ...Getting DB meta data
+2019-05-05 21:48:59,261 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-05-05 21:48:59,262 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {mydb.$$NoNameSchema$$ as main}
+2019-05-05 21:48:59,262 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-05-05 21:48:59,280 [main] INFO  (DfDbCommentExtractorBase#doSelectUserTabComments():121) - select table_type as OBJECT_TYPE, table_name as TABLE_NAME, table_comment as COMMENTS from information_schema.tables where table_schema = 'mydb' order by table_name asc
+2019-05-05 21:48:59,287 [main] INFO  (DfDbCommentExtractorBase#doSelectUserColComments():168) - select table_name as TABLE_NAME, column_name as COLUMN_NAME, column_comment as COMMENTS from information_schema.columns where table_schema = 'mydb' order by table_name asc, column_name asc
+2019-05-05 21:48:59,347 [main] INFO  (DfDatetimePrecisionExtractorMySQL#extractDatetimePrecisionMap():59) - select TABLE_NAME, COLUMN_NAME, DATETIME_PRECISION from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA = 'mydb' and DATA_TYPE = 'datetime'
+2019-05-05 21:48:59,374 [main] INFO  (DfSchemaXmlSerializer#processTable():420) - 
+2019-05-05 21:48:59,375 [main] INFO  (DfSchemaXmlSerializer#processTable():421) - $ /= = = = = = = = = = = = = = = = = = = = = = = = = =
+2019-05-05 21:48:59,376 [main] INFO  (DfSchemaXmlSerializer#processTable():422) - $ [Table List]
+2019-05-05 21:48:59,376 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ mydb.user(TABLE)
+2019-05-05 21:48:59,440 [main] INFO  (DfSchemaXmlSerializer#processTable():434) - $ 
+2019-05-05 21:48:59,440 [main] INFO  (DfSchemaXmlSerializer#processTable():435) - $ [Table Count]
+2019-05-05 21:48:59,441 [main] INFO  (DfSchemaXmlSerializer#processTable():436) - $ 1
+2019-05-05 21:48:59,441 [main] INFO  (DfSchemaXmlSerializer#processTable():437) - $ = = = = = = = = = =/
+2019-05-05 21:48:59,442 [main] INFO  (DfSchemaXmlSerializer#processTable():438) - 
+2019-05-05 21:48:59,444 [main] INFO  (DfSchemaXmlSerializer#processSequence():805) - ...Getting sequences
+2019-05-05 21:48:59,451 [main] INFO  (DfSchemaXmlSerializer#serialize():301) - ...Serializing XML:
+2019-05-05 21:48:59,451 [main] INFO  (DfSchemaXmlSerializer#serialize():302) -   filePath = ./schema/project-schema-oyfy.xml
+2019-05-05 21:48:59,452 [main] INFO  (DfSchemaXmlSerializer#serialize():303) -   encoding = UTF-8
+2019-05-05 21:48:59,472 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1550) - ...Loading next schema (schema diff process)
+2019-05-05 21:48:59,485 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-05-05 21:48:59,607 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1555) -  -> different from previous (schema diff)
+2019-05-05 21:48:59,609 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1557) - ...Serializing schema-diff:
+2019-05-05 21:48:59,610 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1558) -   filePath = ./schema/project-history-oyfy.diffmap
+2019-05-05 21:48:59,638 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-05-05 21:48:59,660 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s457ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {JDBC}
+2019-05-05 21:49:01,116 [main] INFO  (TorqueDocumentationTask#begin():187) - +------------------------------------------+
+2019-05-05 21:49:01,120 [main] INFO  (TorqueDocumentationTask#begin():188) - |                                          |
+2019-05-05 21:49:01,120 [main] INFO  (TorqueDocumentationTask#begin():189) - |                   Doc                    |
+2019-05-05 21:49:01,121 [main] INFO  (TorqueDocumentationTask#begin():197) - |                                          |
+2019-05-05 21:49:01,121 [main] INFO  (TorqueDocumentationTask#begin():198) - +------------------------------------------+
+2019-05-05 21:49:01,151 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-05 21:49:01,152 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-05 21:49:01,153 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-05 21:49:01,153 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-05 21:49:01,158 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():259) - 
+2019-05-05 21:49:01,159 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():260) - * * * * * * * * * * *
+2019-05-05 21:49:01,159 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():261) - *                   *
+2019-05-05 21:49:01,160 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():262) - *    Schema HTML    *
+2019-05-05 21:49:01,160 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():263) - *                   *
+2019-05-05 21:49:01,161 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():264) - * * * * * * * * * * *
+2019-05-05 21:49:01,304 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-05-05 21:49:01,387 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("doc/ControlDocument.vm", ctx);
+2019-05-05 21:49:01,575 [main] INFO  (Database#doEnableDocumentOutputDirectory():1226) - ...Setting up documentOutputDirectory: ./output/doc
+2019-05-05 21:49:01,586 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-05-05 21:49:01,586 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-05-05 21:49:01,589 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-05-05 21:49:01,591 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-05-05 21:49:01,591 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-05-05 21:49:01,593 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-05-05 21:49:01,595 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-05-05 21:49:01,596 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-05-05 21:49:01,602 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-05-05 21:49:01,618 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():233) - ...Loading schema history
+2019-05-05 21:49:01,652 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():237) -  -> found history: count=1
+2019-05-05 21:49:01,726 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():50) -  
+2019-05-05 21:49:01,727 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():51) - ...Setting up arrange queries for documents (ArrangeQueryDoc)
+2019-05-05 21:49:01,738 [main] INFO  (DfArrangeQueryDocSetupper#doExtractArrangeQuery():106) -  -> no arrange query
+2019-05-05 21:49:01,937 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-05-05 21:49:01,938 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-05-05 21:49:02,028 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-05-05 21:49:02,034 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s938ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Doc}
+2019-05-05 21:49:06,468 [main] INFO  (TorqueDataModelTask#begin():110) - +------------------------------------------+
+2019-05-05 21:49:06,471 [main] INFO  (TorqueDataModelTask#begin():111) - |                                          |
+2019-05-05 21:49:06,471 [main] INFO  (TorqueDataModelTask#begin():112) - |                 Generate                 |
+2019-05-05 21:49:06,472 [main] INFO  (TorqueDataModelTask#begin():113) - |                                          |
+2019-05-05 21:49:06,473 [main] INFO  (TorqueDataModelTask#begin():114) - +------------------------------------------+
+2019-05-05 21:49:06,506 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-05 21:49:06,507 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-05 21:49:06,507 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-05 21:49:06,508 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-05 21:49:06,532 [main] INFO  (TorqueDataModelTask#setupControlTemplate():166) - 
+2019-05-05 21:49:06,533 [main] INFO  (TorqueDataModelTask#setupControlTemplate():167) - ...Using Java control: om/ControlGenerateJava.vm
+2019-05-05 21:49:06,597 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-05-05 21:49:06,646 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlGenerateJava.vm", ctx);
+2019-05-05 21:49:06,889 [main] INFO  (Database#doEnableGenerateOutputDirectory():1194) - ...Setting up generateOutputDirectory: ../src/main/java
+2019-05-05 21:49:06,895 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-05-05 21:49:06,896 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-05-05 21:49:06,898 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-05-05 21:49:06,899 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-05-05 21:49:06,900 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-05-05 21:49:06,902 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-05-05 21:49:06,905 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-05-05 21:49:06,906 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-05-05 21:49:06,908 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-05-05 21:49:06,932 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():58) - /=============================
+2019-05-05 21:49:06,933 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():59) - ...Initializing include query.
+2019-05-05 21:49:06,933 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - String
+2019-05-05 21:49:06,934 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Number
+2019-05-05 21:49:06,935 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Date
+2019-05-05 21:49:06,935 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotEqual -> []
+2019-05-05 21:49:06,936 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   InScope -> []
+2019-05-05 21:49:06,936 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotInScope -> []
+2019-05-05 21:49:06,937 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - OrderBy
+2019-05-05 21:49:06,937 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():61) - ========/
+2019-05-05 21:49:06,959 [main] INFO  (Database#info():2807) - public void parseAllCommon() {
+2019-05-05 21:49:06,963 [main] INFO  (Database#info():2807) -     parse('DBCurrent');
+2019-05-05 21:49:06,980 [main] INFO  (Database#info():2807) -     parse('DBFluteConfig');
+2019-05-05 21:49:07,000 [main] INFO  (Database#info():2807) -     parse('DBFluteInitializer');
+2019-05-05 21:49:07,009 [main] INFO  (Database#info():2807) -     parse('DBMetaInstanceHandler');
+2019-05-05 21:49:07,040 [main] INFO  (Database#info():2807) -     parse('EntityDefinedCommonColumn');
+2019-05-05 21:49:07,047 [main] INFO  (Database#info():2807) -     parse('ImplementedBehaviorSelector');
+2019-05-05 21:49:07,058 [main] INFO  (Database#info():2807) -     parse('ImplementedCommonColumnAutoSetupper');
+2019-05-05 21:49:07,071 [main] INFO  (Database#info():2807) -     parse('ImplementedInvokerAssistant');
+2019-05-05 21:49:07,084 [main] INFO  (Database#info():2807) -     parse('ImplementedSqlClauseCreator');
+2019-05-05 21:49:07,097 [main] INFO  (Database#info():2807) - }
+2019-05-05 21:49:07,097 [main] INFO  (Database#info():2807) - public void parseContainerConfig() {
+2019-05-05 21:49:07,099 [main] INFO  (Database#info():2807) -     parse('com\oyfy\dbflute\allcommon\DBFluteBeansJavaConfig.java')
+2019-05-05 21:49:07,126 [main] INFO  (Database#info():2807) - }
+2019-05-05 21:49:07,139 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldTableClass() {
+2019-05-05 21:49:07,173 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-05-05 21:49:07,174 [main] INFO  (Database#info():2807) - public void parseTableClass() {
+2019-05-05 21:49:07,175 [main] INFO  (Database#info():2807) -     parse('user');
+2019-05-05 21:49:07,565 [main] INFO  (Database#info():2807) - }
+2019-05-05 21:49:07,565 [main] INFO  (Database#info():2807) -  
+2019-05-05 21:49:07,721 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-05-05 21:49:07,722 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-05-05 21:49:07,727 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-05-05 21:49:07,733 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s295ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Generate}
+2019-05-05 21:49:10,217 [main] INFO  (DfOutsideSqlTestTask#begin():77) - +------------------------------------------+
+2019-05-05 21:49:10,222 [main] INFO  (DfOutsideSqlTestTask#begin():78) - |                                          |
+2019-05-05 21:49:10,222 [main] INFO  (DfOutsideSqlTestTask#begin():79) - |              OutsideSqlTest              |
+2019-05-05 21:49:10,223 [main] INFO  (DfOutsideSqlTestTask#begin():80) - |                                          |
+2019-05-05 21:49:10,223 [main] INFO  (DfOutsideSqlTestTask#begin():81) - +------------------------------------------+
+2019-05-05 21:49:10,257 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-05 21:49:10,258 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-05 21:49:10,259 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-05 21:49:10,259 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-05 21:49:10,324 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=0 failure=0 (in 0 files)
+2019-05-05 21:49:10,338 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s134ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Checked SQL}
+_/_/_/_/_/_/_/_/_/_/ {OutsideSqlTest}
+2019-05-05 21:49:11,929 [main] INFO  (DfSql2EntityTask#begin():106) - +------------------------------------------+
+2019-05-05 21:49:11,932 [main] INFO  (DfSql2EntityTask#begin():107) - |                                          |
+2019-05-05 21:49:11,933 [main] INFO  (DfSql2EntityTask#begin():108) - |                Sql2Entity                |
+2019-05-05 21:49:11,934 [main] INFO  (DfSql2EntityTask#begin():109) - |                                          |
+2019-05-05 21:49:11,934 [main] INFO  (DfSql2EntityTask#begin():110) - +------------------------------------------+
+2019-05-05 21:49:11,966 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-05 21:49:11,967 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-05 21:49:11,967 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-05 21:49:11,968 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-05 21:49:11,986 [main] INFO  (DfSql2EntityTask#setupControlTemplate():177) - 
+2019-05-05 21:49:11,987 [main] INFO  (DfSql2EntityTask#setupControlTemplate():178) - ...Using Java control: om/ControlSql2EntityJava.vm
+2019-05-05 21:49:11,999 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-05-05 21:49:12,083 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=0 failure=0 (in 0 files)
+2019-05-05 21:49:12,151 [main] INFO  (DfSql2EntityTask#initControlContext():311) - 
+2019-05-05 21:49:12,152 [main] INFO  (DfSql2EntityTask#initControlContext():312) - ...Preparing generation of customize-entities and parameter-beans
+2019-05-05 21:49:12,153 [main] INFO  (DfSql2EntityTask#initControlContext():313) - * * * * * * * * * *
+2019-05-05 21:49:12,154 [main] INFO  (DfSql2EntityTask#initControlContext():314) - * CustomizeEntity *
+2019-05-05 21:49:12,154 [main] INFO  (DfSql2EntityTask#initControlContext():315) - * * * * * * * * * *
+2019-05-05 21:49:12,155 [main] INFO  (DfSql2EntityTask#showParameterBean():932) - * * * * * * * * *
+2019-05-05 21:49:12,155 [main] INFO  (DfSql2EntityTask#showParameterBean():933) - * ParameterBean *
+2019-05-05 21:49:12,156 [main] INFO  (DfSql2EntityTask#showParameterBean():934) - * * * * * * * * *
+2019-05-05 21:49:12,163 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlSql2EntityJava.vm", ctx);
+2019-05-05 21:49:12,552 [main] INFO  (Database#doEnableSql2EntityOutputDirectory():1210) - ...Setting up sql2EntityOutputDirectory: ../src/main/java
+2019-05-05 21:49:12,555 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldCustomizeClass() {
+2019-05-05 21:49:12,569 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-05-05 21:49:12,569 [main] INFO  (Database#info():2807) - public void parseCustomizeEntity() {
+2019-05-05 21:49:12,574 [main] INFO  (Database#info():2807) - }
+2019-05-05 21:49:12,601 [main] INFO  (DfSql2EntityTask#showTargetSqlFileInformation():303) - 
+/- - - - - - - - - - - - - - - - - - - - - - - -
+Target SQL files: 0
+
+- - - - - - - - - -/
+2019-05-05 21:49:12,614 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-05-05 21:49:12,615 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-05-05 21:49:12,617 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-05-05 21:49:12,625 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s714ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Sql2Entity}
