@@ -356,3 +356,161 @@ _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
     repsEnvType      = ut
     refreshProject   = $$AutoDetect$$
 _/_/_/_/_/_/_/_/_/_/ {Sql2Entity}
+2019-05-07 23:27:51,670 [main] INFO  (DfReplaceSchemaTask#begin():92) - +------------------------------------------+
+2019-05-07 23:27:51,675 [main] INFO  (DfReplaceSchemaTask#begin():93) - |                                          |
+2019-05-07 23:27:51,676 [main] INFO  (DfReplaceSchemaTask#begin():94) - |              ReplaceSchema               |
+2019-05-07 23:27:51,686 [main] INFO  (DfReplaceSchemaTask#begin():102) - |                                          |
+2019-05-07 23:27:51,687 [main] INFO  (DfReplaceSchemaTask#begin():103) - +------------------------------------------+
+2019-05-07 23:27:51,689 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():401) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2019-05-07 23:27:54,013 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-07 23:27:54,013 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-07 23:27:54,013 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-07 23:27:54,015 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-07 23:27:54,058 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-05-07 23:27:54,862 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-05-07 23:27:54,863 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-05-07 23:27:54,894 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2019-05-07 23:27:54,895 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2019-05-07 23:27:54,895 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2019-05-07 23:27:54,897 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2019-05-07 23:27:54,897 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2019-05-07 23:27:54,898 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2019-05-07 23:27:54,935 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-05-07 23:27:54,936 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {mydb.$$NoNameSchema$$ as main}
+2019-05-07 23:27:54,937 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-05-07 23:27:55,002 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table user
+2019-05-07 23:27:55,016 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table user
+2019-05-07 23:27:55,060 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2019-05-07 23:27:55,061 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2019-05-07 23:27:55,063 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2019-05-07 23:27:55,064 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2019-05-07 23:27:55,065 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2019-05-07 23:27:55,066 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2019-05-07 23:27:55,073 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2019-05-07 23:27:55,087 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create table user(id int, name varchar(10))
+2019-05-07 23:27:55,133 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=1 failure=0
+2019-05-07 23:27:55,134 [main] INFO  (DfSqlFileFireMan#fire():93) - {Create Schema}: success=1 failure=0 (in 1 files)
+2019-05-07 23:27:55,254 [main] INFO  (DfLoadDataProcess#execute():130) - 
+2019-05-07 23:27:55,254 [main] INFO  (DfLoadDataProcess#execute():131) - * * * * * * * * * * *
+2019-05-07 23:27:55,255 [main] INFO  (DfLoadDataProcess#execute():132) - *                   *
+2019-05-07 23:27:55,255 [main] INFO  (DfLoadDataProcess#execute():133) - * Load Data         *
+2019-05-07 23:27:55,256 [main] INFO  (DfLoadDataProcess#execute():134) - *                   *
+2019-05-07 23:27:55,256 [main] INFO  (DfLoadDataProcess#execute():135) - * * * * * * * * * * *
+2019-05-07 23:27:55,295 [main] INFO  (DfTakeFinallyProcess#takeFinally():237) - 
+2019-05-07 23:27:55,296 [main] INFO  (DfTakeFinallyProcess#takeFinally():238) - * * * * * * * **
+2019-05-07 23:27:55,297 [main] INFO  (DfTakeFinallyProcess#takeFinally():239) - *              *
+2019-05-07 23:27:55,298 [main] INFO  (DfTakeFinallyProcess#takeFinally():240) - * Take Finally *
+2019-05-07 23:27:55,299 [main] INFO  (DfTakeFinallyProcess#takeFinally():241) - *              *
+2019-05-07 23:27:55,299 [main] INFO  (DfTakeFinallyProcess#takeFinally():242) - * * * * * * * **
+2019-05-07 23:27:55,318 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: take-finally.sql
+2019-05-07 23:27:55,320 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=0 failure=0
+2019-05-07 23:27:55,321 [main] INFO  (DfSqlFileFireMan#fire():93) - {Take Finally}: success=0 failure=0 (in 1 files)
+2019-05-07 23:27:55,328 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-05-07 23:27:55,338 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m03s697ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=1 failure=0 (in 1 files)
+  o replace-schema.sql
+
+ {Load Data}: loaded-files=0
+  - (no data file)
+
+ {Take Finally}: success=0 failure=0 (in 1 files)
+  o take-finally.sql
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2019-05-07 23:28:50,599 [main] INFO  (DfReplaceSchemaTask#begin():92) - +------------------------------------------+
+2019-05-07 23:28:50,603 [main] INFO  (DfReplaceSchemaTask#begin():93) - |                                          |
+2019-05-07 23:28:50,604 [main] INFO  (DfReplaceSchemaTask#begin():94) - |              ReplaceSchema               |
+2019-05-07 23:28:50,610 [main] INFO  (DfReplaceSchemaTask#begin():102) - |                                          |
+2019-05-07 23:28:50,611 [main] INFO  (DfReplaceSchemaTask#begin():103) - +------------------------------------------+
+2019-05-07 23:28:50,613 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():401) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2019-05-07 23:28:52,472 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-05-07 23:28:52,473 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-05-07 23:28:52,474 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+2019-05-07 23:28:52,474 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = root
+2019-05-07 23:28:52,489 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-05-07 23:28:52,794 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-05-07 23:28:52,795 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-05-07 23:28:52,823 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2019-05-07 23:28:52,823 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2019-05-07 23:28:52,824 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2019-05-07 23:28:52,825 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2019-05-07 23:28:52,826 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2019-05-07 23:28:52,826 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2019-05-07 23:28:52,855 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-05-07 23:28:52,856 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {mydb.$$NoNameSchema$$ as main}
+2019-05-07 23:28:52,856 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-05-07 23:28:52,925 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table user
+2019-05-07 23:28:52,942 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table user
+2019-05-07 23:28:53,001 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2019-05-07 23:28:53,002 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2019-05-07 23:28:53,002 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2019-05-07 23:28:53,004 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2019-05-07 23:28:53,004 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2019-05-07 23:28:53,005 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2019-05-07 23:28:53,013 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2019-05-07 23:28:53,017 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create table user(id int, name varchar(10))
+2019-05-07 23:28:53,076 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=1 failure=0
+2019-05-07 23:28:53,077 [main] INFO  (DfSqlFileFireMan#fire():93) - {Create Schema}: success=1 failure=0 (in 1 files)
+2019-05-07 23:28:53,177 [main] INFO  (DfLoadDataProcess#execute():130) - 
+2019-05-07 23:28:53,178 [main] INFO  (DfLoadDataProcess#execute():131) - * * * * * * * * * * *
+2019-05-07 23:28:53,178 [main] INFO  (DfLoadDataProcess#execute():132) - *                   *
+2019-05-07 23:28:53,179 [main] INFO  (DfLoadDataProcess#execute():133) - * Load Data         *
+2019-05-07 23:28:53,179 [main] INFO  (DfLoadDataProcess#execute():134) - *                   *
+2019-05-07 23:28:53,179 [main] INFO  (DfLoadDataProcess#execute():135) - * * * * * * * * * * *
+2019-05-07 23:28:53,217 [main] INFO  (DfTakeFinallyProcess#takeFinally():237) - 
+2019-05-07 23:28:53,218 [main] INFO  (DfTakeFinallyProcess#takeFinally():238) - * * * * * * * **
+2019-05-07 23:28:53,218 [main] INFO  (DfTakeFinallyProcess#takeFinally():239) - *              *
+2019-05-07 23:28:53,218 [main] INFO  (DfTakeFinallyProcess#takeFinally():240) - * Take Finally *
+2019-05-07 23:28:53,219 [main] INFO  (DfTakeFinallyProcess#takeFinally():241) - *              *
+2019-05-07 23:28:53,220 [main] INFO  (DfTakeFinallyProcess#takeFinally():242) - * * * * * * * **
+2019-05-07 23:28:53,233 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: take-finally.sql
+2019-05-07 23:28:53,234 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=0 failure=0
+2019-05-07 23:28:53,234 [main] INFO  (DfSqlFileFireMan#fire():93) - {Take Finally}: success=0 failure=0 (in 1 files)
+2019-05-07 23:28:53,239 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-05-07 23:28:53,246 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m02s666ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8
+    schema = {mydb.$$NoNameSchema$$ as main}
+    user   = root
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=1 failure=0 (in 1 files)
+  o replace-schema.sql
+
+ {Load Data}: loaded-files=0
+  - (no data file)
+
+ {Take Finally}: success=0 failure=0 (in 1 files)
+  o take-finally.sql
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
