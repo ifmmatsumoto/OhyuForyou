@@ -1,4 +1,30 @@
 map:{
+    ; 2019/05/19 18:12:35 = map:{
+        ; diffDate = 2019/05/19 18:12:35
+        ; tableCount = map:{
+            ; next = 3
+            ; previous = 1
+        }
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; t_bath = map:{
+                ; tableName = t_bath
+                ; diffType = ADD
+            }
+            ; t_bath_tag = map:{
+                ; tableName = t_bath_tag
+                ; diffType = ADD
+            }
+            ; t_tag = map:{
+                ; tableName = t_tag
+                ; diffType = ADD
+            }
+            ; user = map:{
+                ; tableName = user
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2019/05/05 21:48:59 = map:{
         ; diffDate = 2019/05/05 21:48:59
         ; tableCount = map:{

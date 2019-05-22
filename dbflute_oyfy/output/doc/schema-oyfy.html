@@ -425,7 +425,7 @@ dl.procedurelist dd.column pre {
 
 <body>
 <h1>Schema for oyfy (mysql)</h1>
-<p class="mainschema">generated from <strong>mydb</strong></p>
+<p class="mainschema">generated from <strong>ohyuforyou_db</strong></p>
 <div class="navilinkarea">
 <p class="sisterlink"><a href="./history-oyfy.html">to HistoryHTML</a></p>
 </div>
@@ -502,23 +502,43 @@ dl.procedurelist dd.column pre {
 	<tbody id="table-list-body">
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="namecell" data-name="user"><a href="#user" title="type=TABLE, primaryKey={}, nameLength=4, columnCount=2">user</a></td>
+		<td class="namecell" data-name="t_bath"><a href="#t_bath" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=22">t_bath</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell user_comment"><pre>&nbsp;</pre></td>
-		<td class="subcell">User</td>
-		<td class="subcell">2019/05/05</td>
+		<td class="commentcell t_bath_comment"><pre>�K��</pre></td>
+		<td class="subcell">TBath</td>
+		<td class="subcell">2019/05/19</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="namecell" data-name="t_bath_tag"><a href="#t_bath_tag" title="type=TABLE, primaryKey={}, nameLength=10, columnCount=2">t_bath_tag</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell t_bath_tag_comment"><pre>�K���^�O</pre></td>
+		<td class="subcell">TBathTag</td>
+		<td class="subcell">2019/05/19</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="namecell" data-name="t_tag"><a href="#t_tag" title="type=TABLE, primaryKey={}, nameLength=5, columnCount=6">t_tag</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell t_tag_comment"><pre>�^�O</pre></td>
+		<td class="subcell">TTag</td>
+		<td class="subcell">2019/05/19</td>
 	</tr>
 	</tbody>
 </table>
 
-<h2 id="user" title="type=TABLE, primaryKey={}, nameLength=4, columnCount=2">
-user
-&nbsp;<span class="tablefirstdatetitle">since 2019/05/05</span>
+<h2 id="t_bath" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=22">
+t_bath
+&nbsp;<span class="tablefirstdatetitle">since 2019/05/19</span>
 </h2>
-<div class="tablecomment user_comment" data-name="user"><pre></pre></div>
-<input type="hidden" value="user">
+<div class="tablecomment t_bath_comment" data-name="t_bath"><pre>�K��</pre></div>
+<input type="hidden" value="t_bath">
 <table class="tablecontent">
 	<thead>
 	<tr>
@@ -540,22 +560,22 @@ user
 		<th>Since</th>
 	</tr>
 	</thead>
-	<tbody id="user-body">
+	<tbody id="t_bath-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="user_id">id</td>
+		<td class="flgcell" title="t_bath_idx(bath_id)">o</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_bath_id">bath_id</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">id</td>
+		<td class="commentcell"><pre>�K��ID</pre></td>
+		<td class="subcell">bathId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -565,16 +585,582 @@ user
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="user_name">name</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_bath_name_ja">bath_name_ja</td>
 		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�K�� �a��</pre></td>
+		<td class="subcell">bathNameJa</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_bath_name_en">bath_name_en</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�K�� �p��</pre></td>
+		<td class="subcell">bathNameEn</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_bath_area_code">bath_area_code</td>
+		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">name</td>
+		<td class="commentcell"><pre>�s���{���R�[�h(���y��ʏ�API�g�p�R�[�h)</pre></td>
+		<td class="subcell">bathAreaCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_bath_city_code">bath_city_code</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�s�撬���R�[�h(���y��ʏ�API�g�p�R�[�h)</pre></td>
+		<td class="subcell">bathCityCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_image">bath_image</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 2100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�T���l�C���摜</pre></td>
+		<td class="subcell">bathImage</td>
 		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_address_ja">bath_address_ja</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�Z�� �a��</pre></td>
+		<td class="subcell">bathAddressJa</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_address_en">bath_address_en</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�Z�� �p��</pre></td>
+		<td class="subcell">bathAddressEn</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_tel">bath_tel</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 15 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�d�b�ԍ�</pre></td>
+		<td class="subcell">bathTel</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">10</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_fee">bath_fee</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>��ʓ�����</pre></td>
+		<td class="subcell">bathFee</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_bath_type">bath_type</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�K�����(10:�K�� 20:�X�[�p�[�K��)</pre></td>
+		<td class="subcell">bathType</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">12</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_bath_24h_flg">bath_24h_flg</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>24���ԃt���O(1:24���ԉc��)</pre></td>
+		<td class="subcell">bath24hFlg</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">13</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_time_st">bath_time_st</td>
+		<td class="typecell">TIME</td>
+		<td class="sizecell"> 8 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�c�Ǝ��� �J�n</pre></td>
+		<td class="subcell">bathTimeSt</td>
+		<td class="subcell">LocalTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">14</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_time_ed">bath_time_ed</td>
+		<td class="typecell">TIME</td>
+		<td class="sizecell"> 8 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�c�Ǝ��� �I��</pre></td>
+		<td class="subcell">bathTimeEd</td>
+		<td class="subcell">LocalTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">15</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_place_lat">bath_place_lat</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 9, 6 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�ʒu��� �ܓx</pre></td>
+		<td class="subcell">bathPlaceLat</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">16</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_place_lon">bath_place_lon</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 9, 6 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�ʒu��� �o�x</pre></td>
+		<td class="subcell">bathPlaceLon</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">17</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_temperature_up">bath_temperature_up</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 3, 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>���x ���</pre></td>
+		<td class="subcell">bathTemperatureUp</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">18</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_temperature_low">bath_temperature_low</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 3, 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>���x ����</pre></td>
+		<td class="subcell">bathTemperatureLow</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">19</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_bath_holiday">bath_holiday</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>��x��(�r�b�g���Z�Ŕ��� 1:�� 2:�� 4:�� 8:�� 16:�� 32:�� 64:�y)</pre></td>
+		<td class="subcell">bathHoliday</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">20</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_del_flg">del_flg</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�폜�t���O(1:�폜�ς�)</pre></td>
+		<td class="subcell">delFlg</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">21</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_create_date">create_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�쐬����</pre></td>
+		<td class="subcell">createDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">22</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_bath_update_date">update_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�X�V����</pre></td>
+		<td class="subcell">updateDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="t_bath_tag" title="type=TABLE, primaryKey={}, nameLength=10, columnCount=2">
+t_bath_tag
+&nbsp;<span class="tablefirstdatetitle">since 2019/05/19</span>
+</h2>
+<div class="tablecomment t_bath_tag_comment" data-name="t_bath_tag"><pre>�K���^�O</pre></div>
+<input type="hidden" value="t_bath_tag">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="t_bath_tag-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="t_bath_tag_idx(bath_id, tag_id)">o<span class="flgplus">+</span></td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_tag_bath_id">bath_id</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�K��ID</pre></td>
+		<td class="subcell">bathId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="t_bath_tag_idx(bath_id, tag_id)"><span class="flgplus">+</span>o</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_bath_tag_tag_id">tag_id</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�^�OID</pre></td>
+		<td class="subcell">tagId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="t_tag" title="type=TABLE, primaryKey={}, nameLength=5, columnCount=6">
+t_tag
+&nbsp;<span class="tablefirstdatetitle">since 2019/05/19</span>
+</h2>
+<div class="tablecomment t_tag_comment" data-name="t_tag"><pre>�^�O</pre></div>
+<input type="hidden" value="t_tag">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="t_tag-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="t_tag_idx(tag_id)">o</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_tag_tag_id">tag_id</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�^�OID</pre></td>
+		<td class="subcell">tagId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_tag_tag_name_ja">tag_name_ja</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�^�O �a��</pre></td>
+		<td class="subcell">tagNameJa</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="t_tag_tag_name_en">tag_name_en</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�^�O �p��</pre></td>
+		<td class="subcell">tagNameEn</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_tag_tag_image">tag_image</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 2100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�^�O�摜</pre></td>
+		<td class="subcell">tagImage</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_tag_create_date">create_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�쐬����</pre></td>
+		<td class="subcell">createDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="t_tag_update_date">update_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>�X�V����</pre></td>
+		<td class="subcell">updateDate</td>
+		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -1111,14 +1697,108 @@ function StoreClient() {
 		]
 	}
 	this.pickupStore = {
-		'user': {
-			'databaseComment': ''
+		't_bath': {
+			'databaseComment': '�K��'
 			, 'columns': {
-				'id': {
-					'databaseComment': ''
+				'bath_id': {
+					'databaseComment': '�K��ID'
 				}
-				, 'name': {
-					'databaseComment': ''
+				, 'bath_name_ja': {
+					'databaseComment': '�K��&nbsp;�a��'
+				}
+				, 'bath_name_en': {
+					'databaseComment': '�K��&nbsp;�p��'
+				}
+				, 'bath_area_code': {
+					'databaseComment': '�s���{���R�[�h(���y��ʏ�API�g�p�R�[�h)'
+				}
+				, 'bath_city_code': {
+					'databaseComment': '�s�撬���R�[�h(���y��ʏ�API�g�p�R�[�h)'
+				}
+				, 'bath_image': {
+					'databaseComment': '�T���l�C���摜'
+				}
+				, 'bath_address_ja': {
+					'databaseComment': '�Z��&nbsp;�a��'
+				}
+				, 'bath_address_en': {
+					'databaseComment': '�Z��&nbsp;�p��'
+				}
+				, 'bath_tel': {
+					'databaseComment': '�d�b�ԍ�'
+				}
+				, 'bath_fee': {
+					'databaseComment': '��ʓ�����'
+				}
+				, 'bath_type': {
+					'databaseComment': '�K�����(10:�K��&nbsp;20:�X�[�p�[�K��)'
+				}
+				, 'bath_24h_flg': {
+					'databaseComment': '24���ԃt���O(1:24���ԉc��)'
+				}
+				, 'bath_time_st': {
+					'databaseComment': '�c�Ǝ���&nbsp;�J�n'
+				}
+				, 'bath_time_ed': {
+					'databaseComment': '�c�Ǝ���&nbsp;�I��'
+				}
+				, 'bath_place_lat': {
+					'databaseComment': '�ʒu���&nbsp;�ܓx'
+				}
+				, 'bath_place_lon': {
+					'databaseComment': '�ʒu���&nbsp;�o�x'
+				}
+				, 'bath_temperature_up': {
+					'databaseComment': '���x&nbsp;���'
+				}
+				, 'bath_temperature_low': {
+					'databaseComment': '���x&nbsp;����'
+				}
+				, 'bath_holiday': {
+					'databaseComment': '��x��(�r�b�g���Z�Ŕ���&nbsp;1:��&nbsp;2:��&nbsp;4:��&nbsp;8:��&nbsp;16:��&nbsp;32:��&nbsp;64:�y)'
+				}
+				, 'del_flg': {
+					'databaseComment': '�폜�t���O(1:�폜�ς�)'
+				}
+				, 'create_date': {
+					'databaseComment': '�쐬����'
+				}
+				, 'update_date': {
+					'databaseComment': '�X�V����'
+				}
+			}
+		}
+		, 't_bath_tag': {
+			'databaseComment': '�K���^�O'
+			, 'columns': {
+				'bath_id': {
+					'databaseComment': '�K��ID'
+				}
+				, 'tag_id': {
+					'databaseComment': '�^�OID'
+				}
+			}
+		}
+		, 't_tag': {
+			'databaseComment': '�^�O'
+			, 'columns': {
+				'tag_id': {
+					'databaseComment': '�^�OID'
+				}
+				, 'tag_name_ja': {
+					'databaseComment': '�^�O&nbsp;�a��'
+				}
+				, 'tag_name_en': {
+					'databaseComment': '�^�O&nbsp;�p��'
+				}
+				, 'tag_image': {
+					'databaseComment': '�^�O�摜'
+				}
+				, 'create_date': {
+					'databaseComment': '�쐬����'
+				}
+				, 'update_date': {
+					'databaseComment': '�X�V����'
 				}
 			}
 		}

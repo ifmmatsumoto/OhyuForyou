@@ -20,7 +20,8 @@ public class TestController {
     @RequestMapping("/")
     public String hello(Model model){
         int cntTest = testService.test();
+        System.out.println(cntTest);
         model.addAttribute("cntTest", cntTest);
-        return "/test/test";
+        return "test/test";
     }
 }

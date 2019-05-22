@@ -7,13 +7,13 @@ import com.oyfy.dbflute.exbhv.*;
 import com.oyfy.dbflute.exentity.*;
 
 /**
- * The referrer loader of user as TABLE. <br>
+ * The referrer loader of t_bath_tag as TABLE. <br>
  * <pre>
  * [primary key]
  *     
  *
  * [column]
- *     id, name
+ *     bath_id, tag_id
  *
  * [sequence]
  *     
@@ -38,23 +38,23 @@ import com.oyfy.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public class LoaderOfUser {
+public class LoaderOfTBathTag {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected List<User> _selectedList;
+    protected List<TBathTag> _selectedList;
     protected BehaviorSelector _selector;
-    protected UserBhv _myBhv; // lazy-loaded
+    protected TBathTagBhv _myBhv; // lazy-loaded
 
     // ===================================================================================
     //                                                                   Ready for Loading
     //                                                                   =================
-    public LoaderOfUser ready(List<User> selectedList, BehaviorSelector selector)
+    public LoaderOfTBathTag ready(List<TBathTag> selectedList, BehaviorSelector selector)
     { _selectedList = selectedList; _selector = selector; return this; }
 
-    protected UserBhv myBhv()
-    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(UserBhv.class); return _myBhv; } }
+    protected TBathTagBhv myBhv()
+    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(TBathTagBhv.class); return _myBhv; } }
 
     // ===================================================================================
     //                                                                    Pull out Foreign
@@ -62,6 +62,6 @@ public class LoaderOfUser {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    public List<User> getSelectedList() { return _selectedList; }
+    public List<TBathTag> getSelectedList() { return _selectedList; }
     public BehaviorSelector getSelector() { return _selector; }
 }

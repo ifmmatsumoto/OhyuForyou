@@ -10,13 +10,14 @@ import com.oyfy.dbflute.allcommon.DBMetaInstanceHandler;
 import com.oyfy.dbflute.exentity.*;
 
 /**
- * The entity of user as TABLE. <br>
+ * The entity of t_bath_tag as TABLE. <br>
+ * �K���^�O
  * <pre>
  * [primary-key]
  *     
  *
  * [column]
- *     id, name
+ *     bath_id, tag_id
  *
  * [sequence]
  *     
@@ -41,15 +42,15 @@ import com.oyfy.dbflute.exentity.*;
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer id = entity.getId();
- * String name = entity.getName();
- * entity.setId(id);
- * entity.setName(name);
+ * Integer bathId = entity.getBathId();
+ * Integer tagId = entity.getTagId();
+ * entity.setBathId(bathId);
+ * entity.setTagId(tagId);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsUser extends AbstractEntity implements DomainEntity {
+public abstract class BsTBathTag extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -60,11 +61,11 @@ public abstract class BsUser extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** id: {INT(10)} */
-    protected Integer _id;
+    /** bath_id: {IX+, NotNull, INT(10)} */
+    protected Integer _bathId;
 
-    /** name: {VARCHAR(10)} */
-    protected String _name;
+    /** tag_id: {NotNull, INT(10)} */
+    protected Integer _tagId;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -76,7 +77,7 @@ public abstract class BsUser extends AbstractEntity implements DomainEntity {
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "user";
+        return "t_bath_tag";
     }
 
     // ===================================================================================
@@ -102,10 +103,10 @@ public abstract class BsUser extends AbstractEntity implements DomainEntity {
     //                                                                      ==============
     @Override
     protected boolean doEquals(Object obj) {
-        if (obj instanceof BsUser) {
-            BsUser other = (BsUser)obj;
-            if (!xSV(_id, other._id)) { return false; }
-            if (!xSV(_name, other._name)) { return false; }
+        if (obj instanceof BsTBathTag) {
+            BsTBathTag other = (BsTBathTag)obj;
+            if (!xSV(_bathId, other._bathId)) { return false; }
+            if (!xSV(_tagId, other._tagId)) { return false; }
             return true;
         } else {
             return false;
@@ -116,8 +117,8 @@ public abstract class BsUser extends AbstractEntity implements DomainEntity {
     protected int doHashCode(int initial) {
         int hs = initial;
         hs = xCH(hs, asTableDbName());
-        hs = xCH(hs, _id);
-        hs = xCH(hs, _name);
+        hs = xCH(hs, _bathId);
+        hs = xCH(hs, _tagId);
         return hs;
     }
 
@@ -129,8 +130,8 @@ public abstract class BsUser extends AbstractEntity implements DomainEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(xfND(_id));
-        sb.append(dm).append(xfND(_name));
+        sb.append(dm).append(xfND(_bathId));
+        sb.append(dm).append(xfND(_tagId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -144,46 +145,50 @@ public abstract class BsUser extends AbstractEntity implements DomainEntity {
     }
 
     @Override
-    public User clone() {
-        return (User)super.clone();
+    public TBathTag clone() {
+        return (TBathTag)super.clone();
     }
 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] id: {INT(10)} <br>
-     * @return The value of the column 'id'. (NullAllowed even if selected: for no constraint)
+     * [get] bath_id: {IX+, NotNull, INT(10)} <br>
+     * �K��ID
+     * @return The value of the column 'bath_id'. (basically NotNull if selected: for the constraint)
      */
-    public Integer getId() {
-        checkSpecifiedProperty("id");
-        return _id;
+    public Integer getBathId() {
+        checkSpecifiedProperty("bathId");
+        return _bathId;
     }
 
     /**
-     * [set] id: {INT(10)} <br>
-     * @param id The value of the column 'id'. (NullAllowed: null update allowed for no constraint)
+     * [set] bath_id: {IX+, NotNull, INT(10)} <br>
+     * �K��ID
+     * @param bathId The value of the column 'bath_id'. (basically NotNull if update: for the constraint)
      */
-    public void setId(Integer id) {
-        registerModifiedProperty("id");
-        _id = id;
+    public void setBathId(Integer bathId) {
+        registerModifiedProperty("bathId");
+        _bathId = bathId;
     }
 
     /**
-     * [get] name: {VARCHAR(10)} <br>
-     * @return The value of the column 'name'. (NullAllowed even if selected: for no constraint)
+     * [get] tag_id: {NotNull, INT(10)} <br>
+     * �^�OID
+     * @return The value of the column 'tag_id'. (basically NotNull if selected: for the constraint)
      */
-    public String getName() {
-        checkSpecifiedProperty("name");
-        return _name;
+    public Integer getTagId() {
+        checkSpecifiedProperty("tagId");
+        return _tagId;
     }
 
     /**
-     * [set] name: {VARCHAR(10)} <br>
-     * @param name The value of the column 'name'. (NullAllowed: null update allowed for no constraint)
+     * [set] tag_id: {NotNull, INT(10)} <br>
+     * �^�OID
+     * @param tagId The value of the column 'tag_id'. (basically NotNull if update: for the constraint)
      */
-    public void setName(String name) {
-        registerModifiedProperty("name");
-        _name = name;
+    public void setTagId(Integer tagId) {
+        registerModifiedProperty("tagId");
+        _tagId = tagId;
     }
 }

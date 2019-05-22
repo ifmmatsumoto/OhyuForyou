@@ -12,21 +12,21 @@ import com.oyfy.dbflute.cbean.cq.bs.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of user.
+ * The condition-query for in-line of t_tag.
  * @author DBFlute(AutoGenerator)
  */
-public class UserCIQ extends AbstractBsUserCQ {
+public class TTagCIQ extends AbstractBsTTagCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsUserCQ _myCQ;
+    protected BsTTagCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public UserCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsUserCQ myCQ) {
+    public TTagCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsTTagCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -61,10 +61,14 @@ public class UserCIQ extends AbstractBsUserCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue xgetCValueId() { return _myCQ.xdfgetId(); }
-    protected ConditionValue xgetCValueName() { return _myCQ.xdfgetName(); }
+    protected ConditionValue xgetCValueTagId() { return _myCQ.xdfgetTagId(); }
+    protected ConditionValue xgetCValueTagNameJa() { return _myCQ.xdfgetTagNameJa(); }
+    protected ConditionValue xgetCValueTagNameEn() { return _myCQ.xdfgetTagNameEn(); }
+    protected ConditionValue xgetCValueTagImage() { return _myCQ.xdfgetTagImage(); }
+    protected ConditionValue xgetCValueCreateDate() { return _myCQ.xdfgetCreateDate(); }
+    protected ConditionValue xgetCValueUpdateDate() { return _myCQ.xdfgetUpdateDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(UserCQ sq)
+    public String keepScalarCondition(TTagCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
 
     protected void throwIICBOE(String name)
@@ -74,6 +78,6 @@ public class UserCIQ extends AbstractBsUserCQ {
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return UserCB.class.getName(); }
-    protected String xinCQ() { return UserCQ.class.getName(); }
+    protected String xinCB() { return TTagCB.class.getName(); }
+    protected String xinCQ() { return TTagCQ.class.getName(); }
 }

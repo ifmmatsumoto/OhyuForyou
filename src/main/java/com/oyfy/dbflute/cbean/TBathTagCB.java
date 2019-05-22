@@ -1,14 +1,14 @@
 package com.oyfy.dbflute.cbean;
 
-import com.oyfy.dbflute.cbean.bs.BsUserCB;
+import com.oyfy.dbflute.cbean.bs.BsTBathTagCB;
 
 /**
- * The condition-bean of user.
+ * The condition-bean of t_bath_tag.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class UserCB extends BsUserCB {
+public class TBathTagCB extends BsTBathTagCB {
 }

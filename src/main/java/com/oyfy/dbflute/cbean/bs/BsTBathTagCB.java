@@ -20,20 +20,20 @@ import com.oyfy.dbflute.cbean.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of user.
+ * The base condition-bean of t_bath_tag.
  * @author DBFlute(AutoGenerator)
  */
-public class BsUserCB extends AbstractConditionBean {
+public class BsTBathTagCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected UserCQ _conditionQuery;
+    protected TBathTagCQ _conditionQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsUserCB() {
+    public BsTBathTagCB() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -73,7 +73,7 @@ public class BsUserCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "user";
+        return "t_bath_tag";
     }
 
     // ===================================================================================
@@ -149,34 +149,34 @@ public class BsUserCB extends AbstractConditionBean {
      * </pre>
      * @return The instance of condition-query for base-point table to set up query. (NotNull)
      */
-    public UserCQ query() {
+    public TBathTagCQ query() {
         assertQueryPurpose(); // assert only when user-public query
         return doGetConditionQuery();
     }
 
-    public UserCQ xdfgetConditionQuery() { // public for parameter comment and internal
+    public TBathTagCQ xdfgetConditionQuery() { // public for parameter comment and internal
         return doGetConditionQuery();
     }
 
-    protected UserCQ doGetConditionQuery() {
+    protected TBathTagCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
         return _conditionQuery;
     }
 
-    protected UserCQ createLocalCQ() {
+    protected TBathTagCQ createLocalCQ() {
         return xcreateCQ(null, getSqlClause(), getSqlClause().getBasePointAliasName(), 0);
     }
 
-    protected UserCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        UserCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected TBathTagCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        TBathTagCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
         cq.xsetBaseCB(this);
         return cq;
     }
 
-    protected UserCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        return new UserCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected TBathTagCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        return new TBathTagCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
     /**
@@ -200,10 +200,10 @@ public class BsUserCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<UserCB> unionCBLambda) {
-        final UserCB cb = new UserCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void union(UnionQuery<TBathTagCB> unionCBLambda) {
+        final TBathTagCB cb = new TBathTagCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final UserCQ cq = cb.query(); query().xsetUnionQuery(cq);
+        final TBathTagCQ cq = cb.query(); query().xsetUnionQuery(cq);
     }
 
     /**
@@ -217,10 +217,10 @@ public class BsUserCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<UserCB> unionCBLambda) {
-        final UserCB cb = new UserCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void unionAll(UnionQuery<TBathTagCB> unionCBLambda) {
+        final TBathTagCB cb = new TBathTagCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final UserCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
+        final TBathTagCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
 
     // ===================================================================================
@@ -266,28 +266,28 @@ public class BsUserCB extends AbstractConditionBean {
         return _specification != null && _specification.hasSpecifiedColumn();
     }
 
-    public static class HpSpecification extends HpAbstractSpecification<UserCQ> {
-        public HpSpecification(ConditionBean baseCB, HpSpQyCall<UserCQ> qyCall
+    public static class HpSpecification extends HpAbstractSpecification<TBathTagCQ> {
+        public HpSpecification(ConditionBean baseCB, HpSpQyCall<TBathTagCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * id: {INT(10)}
+         * bath_id: {IX+, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnId() { return doColumn("id"); }
+        public SpecifiedColumn columnBathId() { return doColumn("bath_id"); }
         /**
-         * name: {VARCHAR(10)}
+         * tag_id: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnName() { return doColumn("name"); }
+        public SpecifiedColumn columnTagId() { return doColumn("tag_id"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
         }
         @Override
-        protected String getTableDbName() { return "user"; }
+        protected String getTableDbName() { return "t_bath_tag"; }
     }
 
     // ===================================================================================
@@ -298,9 +298,9 @@ public class BsUserCB extends AbstractConditionBean {
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
-    public UserCB dreamCruiseCB() {
-        UserCB cb = new UserCB();
-        cb.xsetupForDreamCruise((UserCB) this);
+    public TBathTagCB dreamCruiseCB() {
+        TBathTagCB cb = new TBathTagCB();
+        cb.xsetupForDreamCruise((TBathTagCB) this);
         return cb;
     }
 
@@ -325,15 +325,15 @@ public class BsUserCB extends AbstractConditionBean {
      * @param colCBLambda The callback for specify-query of left column. (NotNull)
      * @return The object for setting up operand and right column. (NotNull)
      */
-    public HpColQyOperand<UserCB> columnQuery(final SpecifyQuery<UserCB> colCBLambda) {
+    public HpColQyOperand<TBathTagCB> columnQuery(final SpecifyQuery<TBathTagCB> colCBLambda) {
         return xcreateColQyOperand((rightSp, operand) -> {
             return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
-    protected UserCB xcreateColumnQueryCB() {
-        UserCB cb = new UserCB();
-        cb.xsetupForColumnQuery((UserCB)this);
+    protected TBathTagCB xcreateColumnQueryCB() {
+        TBathTagCB cb = new TBathTagCB();
+        cb.xsetupForColumnQuery((TBathTagCB)this);
         return cb;
     }
 
@@ -353,8 +353,8 @@ public class BsUserCB extends AbstractConditionBean {
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
      */
-    public void orScopeQuery(OrQuery<UserCB> orCBLambda) {
-        xorSQ((UserCB)this, orCBLambda);
+    public void orScopeQuery(OrQuery<TBathTagCB> orCBLambda) {
+        xorSQ((TBathTagCB)this, orCBLambda);
     }
 
     /**
@@ -372,8 +372,8 @@ public class BsUserCB extends AbstractConditionBean {
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)
      */
-    public void orScopeQueryAndPart(AndQuery<UserCB> andCBLambda) {
-        xorSQAP((UserCB)this, andCBLambda);
+    public void orScopeQueryAndPart(AndQuery<TBathTagCB> andCBLambda) {
+        xorSQAP((TBathTagCB)this, andCBLambda);
     }
 
     // ===================================================================================
@@ -403,11 +403,11 @@ public class BsUserCB extends AbstractConditionBean {
     //                                                                        ============
     @Override
     protected void xprepareSyncQyCall(ConditionBean mainCB) {
-        final UserCB cb;
+        final TBathTagCB cb;
         if (mainCB != null) {
-            cb = (UserCB)mainCB;
+            cb = (TBathTagCB)mainCB;
         } else {
-            cb = new UserCB();
+            cb = new TBathTagCB();
         }
         specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
@@ -416,8 +416,8 @@ public class BsUserCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xgetConditionBeanClassNameInternally() { return UserCB.class.getName(); }
-    protected String xgetConditionQueryClassNameInternally() { return UserCQ.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return TBathTagCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return TBathTagCQ.class.getName(); }
     protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
     protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

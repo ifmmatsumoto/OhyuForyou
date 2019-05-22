@@ -13,20 +13,20 @@ import com.oyfy.dbflute.cbean.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of user.
+ * The base condition-query of t_tag.
  * @author DBFlute(AutoGenerator)
  */
-public class BsUserCQ extends AbstractBsUserCQ {
+public class BsTTagCQ extends AbstractBsTTagCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected UserCIQ _inlineQuery;
+    protected TTagCIQ _inlineQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsUserCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+    public BsTTagCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
     }
 
@@ -35,83 +35,163 @@ public class BsUserCQ extends AbstractBsUserCQ {
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from user) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from t_tag) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
      * @return The condition-query for InlineView query. (NotNull)
      */
-    public UserCIQ inline() {
+    public TTagCIQ inline() {
         if (_inlineQuery == null) { _inlineQuery = xcreateCIQ(); }
         _inlineQuery.xsetOnClause(false); return _inlineQuery;
     }
 
-    protected UserCIQ xcreateCIQ() {
-        UserCIQ ciq = xnewCIQ();
+    protected TTagCIQ xcreateCIQ() {
+        TTagCIQ ciq = xnewCIQ();
         ciq.xsetBaseCB(_baseCB);
         return ciq;
     }
 
-    protected UserCIQ xnewCIQ() {
-        return new UserCIQ(xgetReferrerQuery(), xgetSqlClause(), xgetAliasName(), xgetNestLevel(), this);
+    protected TTagCIQ xnewCIQ() {
+        return new TTagCIQ(xgetReferrerQuery(), xgetSqlClause(), xgetAliasName(), xgetNestLevel(), this);
     }
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join user on ... and FOO = [value] ...}
+     * {select ... from ... left outer join t_tag on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>
      * @return The condition-query for OnClause query. (NotNull)
      * @throws IllegalConditionBeanOperationException When this condition-query is base query.
      */
-    public UserCIQ on() {
+    public TTagCIQ on() {
         if (isBaseQuery()) { throw new IllegalConditionBeanOperationException("OnClause for local table is unavailable!"); }
-        UserCIQ inlineQuery = inline(); inlineQuery.xsetOnClause(true); return inlineQuery;
+        TTagCIQ inlineQuery = inline(); inlineQuery.xsetOnClause(true); return inlineQuery;
     }
 
     // ===================================================================================
     //                                                                               Query
     //                                                                               =====
-    protected ConditionValue _id;
-    public ConditionValue xdfgetId()
-    { if (_id == null) { _id = nCV(); }
-      return _id; }
-    protected ConditionValue xgetCValueId() { return xdfgetId(); }
+    protected ConditionValue _tagId;
+    public ConditionValue xdfgetTagId()
+    { if (_tagId == null) { _tagId = nCV(); }
+      return _tagId; }
+    protected ConditionValue xgetCValueTagId() { return xdfgetTagId(); }
 
     /**
      * Add order-by as ascend. <br>
-     * id: {INT(10)}
+     * tag_id: {IX, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsUserCQ addOrderBy_Id_Asc() { regOBA("id"); return this; }
+    public BsTTagCQ addOrderBy_TagId_Asc() { regOBA("tag_id"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * id: {INT(10)}
+     * tag_id: {IX, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsUserCQ addOrderBy_Id_Desc() { regOBD("id"); return this; }
+    public BsTTagCQ addOrderBy_TagId_Desc() { regOBD("tag_id"); return this; }
 
-    protected ConditionValue _name;
-    public ConditionValue xdfgetName()
-    { if (_name == null) { _name = nCV(); }
-      return _name; }
-    protected ConditionValue xgetCValueName() { return xdfgetName(); }
+    protected ConditionValue _tagNameJa;
+    public ConditionValue xdfgetTagNameJa()
+    { if (_tagNameJa == null) { _tagNameJa = nCV(); }
+      return _tagNameJa; }
+    protected ConditionValue xgetCValueTagNameJa() { return xdfgetTagNameJa(); }
 
     /**
      * Add order-by as ascend. <br>
-     * name: {VARCHAR(10)}
+     * tag_name_ja: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsUserCQ addOrderBy_Name_Asc() { regOBA("name"); return this; }
+    public BsTTagCQ addOrderBy_TagNameJa_Asc() { regOBA("tag_name_ja"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * name: {VARCHAR(10)}
+     * tag_name_ja: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsUserCQ addOrderBy_Name_Desc() { regOBD("name"); return this; }
+    public BsTTagCQ addOrderBy_TagNameJa_Desc() { regOBD("tag_name_ja"); return this; }
+
+    protected ConditionValue _tagNameEn;
+    public ConditionValue xdfgetTagNameEn()
+    { if (_tagNameEn == null) { _tagNameEn = nCV(); }
+      return _tagNameEn; }
+    protected ConditionValue xgetCValueTagNameEn() { return xdfgetTagNameEn(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * tag_name_en: {NotNull, VARCHAR(255)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_TagNameEn_Asc() { regOBA("tag_name_en"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * tag_name_en: {NotNull, VARCHAR(255)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_TagNameEn_Desc() { regOBD("tag_name_en"); return this; }
+
+    protected ConditionValue _tagImage;
+    public ConditionValue xdfgetTagImage()
+    { if (_tagImage == null) { _tagImage = nCV(); }
+      return _tagImage; }
+    protected ConditionValue xgetCValueTagImage() { return xdfgetTagImage(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * tag_image: {VARCHAR(2100)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_TagImage_Asc() { regOBA("tag_image"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * tag_image: {VARCHAR(2100)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_TagImage_Desc() { regOBD("tag_image"); return this; }
+
+    protected ConditionValue _createDate;
+    public ConditionValue xdfgetCreateDate()
+    { if (_createDate == null) { _createDate = nCV(); }
+      return _createDate; }
+    protected ConditionValue xgetCValueCreateDate() { return xdfgetCreateDate(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * create_date: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_CreateDate_Asc() { regOBA("create_date"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * create_date: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_CreateDate_Desc() { regOBD("create_date"); return this; }
+
+    protected ConditionValue _updateDate;
+    public ConditionValue xdfgetUpdateDate()
+    { if (_updateDate == null) { _updateDate = nCV(); }
+      return _updateDate; }
+    protected ConditionValue xgetCValueUpdateDate() { return xdfgetUpdateDate(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * update_date: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_UpdateDate_Asc() { regOBA("update_date"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * update_date: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsTTagCQ addOrderBy_UpdateDate_Desc() { regOBD("update_date"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -130,7 +210,7 @@ public class BsUserCQ extends AbstractBsUserCQ {
      * @param aliasName The alias name specified at (Specify)DerivedReferrer. (NotNull)
      * @return this. (NotNull)
      */
-    public BsUserCQ addSpecifiedDerivedOrderBy_Asc(String aliasName) { registerSpecifiedDerivedOrderBy_Asc(aliasName); return this; }
+    public BsTTagCQ addSpecifiedDerivedOrderBy_Asc(String aliasName) { registerSpecifiedDerivedOrderBy_Asc(aliasName); return this; }
 
     /**
      * Add order-by for specified derived column as descend.
@@ -146,7 +226,7 @@ public class BsUserCQ extends AbstractBsUserCQ {
      * @param aliasName The alias name specified at (Specify)DerivedReferrer. (NotNull)
      * @return this. (NotNull)
      */
-    public BsUserCQ addSpecifiedDerivedOrderBy_Desc(String aliasName) { registerSpecifiedDerivedOrderBy_Desc(aliasName); return this; }
+    public BsTTagCQ addSpecifiedDerivedOrderBy_Desc(String aliasName) { registerSpecifiedDerivedOrderBy_Desc(aliasName); return this; }
 
     // ===================================================================================
     //                                                                         Union Query
@@ -164,15 +244,15 @@ public class BsUserCQ extends AbstractBsUserCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, UserCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
-    public String keepScalarCondition(UserCQ sq) { return xkeepSQue("scalarCondition", sq); }
+    public Map<String, TTagCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public String keepScalarCondition(TTagCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xCB() { return UserCB.class.getName(); }
-    protected String xCQ() { return UserCQ.class.getName(); }
+    protected String xCB() { return TTagCB.class.getName(); }
+    protected String xCQ() { return TTagCQ.class.getName(); }
     protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }

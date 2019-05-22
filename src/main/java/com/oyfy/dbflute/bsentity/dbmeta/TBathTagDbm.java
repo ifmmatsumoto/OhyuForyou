@@ -13,17 +13,17 @@ import com.oyfy.dbflute.allcommon.*;
 import com.oyfy.dbflute.exentity.*;
 
 /**
- * The DB meta of user. (Singleton)
+ * The DB meta of t_bath_tag. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class UserDbm extends AbstractDBMeta {
+public class TBathTagDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final UserDbm _instance = new UserDbm();
-    private UserDbm() {}
-    public static UserDbm getInstance() { return _instance; }
+    private static final TBathTagDbm _instance = new TBathTagDbm();
+    private TBathTagDbm() {}
+    public static TBathTagDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -42,8 +42,8 @@ public class UserDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((User)et).getId(), (et, vl) -> ((User)et).setId(cti(vl)), "id");
-        setupEpg(_epgMap, et -> ((User)et).getName(), (et, vl) -> ((User)et).setName((String)vl), "name");
+        setupEpg(_epgMap, et -> ((TBathTag)et).getBathId(), (et, vl) -> ((TBathTag)et).setBathId(cti(vl)), "bathId");
+        setupEpg(_epgMap, et -> ((TBathTag)et).getTagId(), (et, vl) -> ((TBathTag)et).setTagId(cti(vl)), "tagId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -51,10 +51,10 @@ public class UserDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "user";
-    protected final String _tableDispName = "user";
-    protected final String _tablePropertyName = "user";
-    protected final TableSqlName _tableSqlName = new TableSqlName("user", _tableDbName);
+    protected final String _tableDbName = "t_bath_tag";
+    protected final String _tableDispName = "t_bath_tag";
+    protected final String _tablePropertyName = "TBathTag";
+    protected final TableSqlName _tableSqlName = new TableSqlName("t_bath_tag", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -64,24 +64,24 @@ public class UserDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnId = cci("id", "id", null, null, Integer.class, "id", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnName = cci("name", "name", null, null, String.class, "name", null, false, false, false, "VARCHAR", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTagId = cci("tag_id", "tag_id", null, null, Integer.class, "tagId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * id: {INT(10)}
+     * bath_id: {IX+, NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnId() { return _columnId; }
+    public ColumnInfo columnBathId() { return _columnBathId; }
     /**
-     * name: {VARCHAR(10)}
+     * tag_id: {NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnName() { return _columnName; }
+    public ColumnInfo columnTagId() { return _columnTagId; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnId());
-        ls.add(columnName());
+        ls.add(columnBathId());
+        ls.add(columnTagId());
         return ls;
     }
 
@@ -119,27 +119,27 @@ public class UserDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "com.oyfy.dbflute.exentity.User"; }
-    public String getConditionBeanTypeName() { return "com.oyfy.dbflute.cbean.UserCB"; }
-    public String getBehaviorTypeName() { return "com.oyfy.dbflute.exbhv.UserBhv"; }
+    public String getEntityTypeName() { return "com.oyfy.dbflute.exentity.TBathTag"; }
+    public String getConditionBeanTypeName() { return "com.oyfy.dbflute.cbean.TBathTagCB"; }
+    public String getBehaviorTypeName() { return "com.oyfy.dbflute.exbhv.TBathTagBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<User> getEntityType() { return User.class; }
+    public Class<TBathTag> getEntityType() { return TBathTag.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public User newEntity() { return new User(); }
+    public TBathTag newEntity() { return new TBathTag(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((User)et, mp); }
+    { doAcceptPrimaryKeyMap((TBathTag)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((User)et, mp); }
+    { doAcceptAllColumnMap((TBathTag)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

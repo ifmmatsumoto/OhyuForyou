@@ -16,15 +16,15 @@ import com.oyfy.dbflute.cbean.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The abstract condition-query of user.
+ * The abstract condition-query of t_bath_tag.
  * @author DBFlute(AutoGenerator)
  */
-public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
+public abstract class AbstractBsTBathTagCQ extends AbstractConditionQuery {
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public AbstractBsUserCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+    public AbstractBsTBathTagCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
     }
 
@@ -37,7 +37,7 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
     }
 
     public String asTableDbName() {
-        return "user";
+        return "t_bath_tag";
     }
 
     // ===================================================================================
@@ -45,285 +45,237 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param id The value of id as equal. (basically NotNull: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathId The value of bathId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setId_Equal(Integer id) {
-        doSetId_Equal(id);
+    public void setBathId_Equal(Integer bathId) {
+        doSetBathId_Equal(bathId);
     }
 
-    protected void doSetId_Equal(Integer id) {
-        regId(CK_EQ, id);
+    protected void doSetBathId_Equal(Integer bathId) {
+        regBathId(CK_EQ, bathId);
     }
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param id The value of id as notEqual. (basically NotNull: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathId The value of bathId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setId_NotEqual(Integer id) {
-        doSetId_NotEqual(id);
+    public void setBathId_NotEqual(Integer bathId) {
+        doSetBathId_NotEqual(bathId);
     }
 
-    protected void doSetId_NotEqual(Integer id) {
-        regId(CK_NES, id);
+    protected void doSetBathId_NotEqual(Integer bathId) {
+        regBathId(CK_NES, bathId);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param id The value of id as greaterThan. (basically NotNull: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathId The value of bathId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setId_GreaterThan(Integer id) {
-        regId(CK_GT, id);
+    public void setBathId_GreaterThan(Integer bathId) {
+        regBathId(CK_GT, bathId);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param id The value of id as lessThan. (basically NotNull: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathId The value of bathId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setId_LessThan(Integer id) {
-        regId(CK_LT, id);
+    public void setBathId_LessThan(Integer bathId) {
+        regBathId(CK_LT, bathId);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param id The value of id as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathId The value of bathId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setId_GreaterEqual(Integer id) {
-        regId(CK_GE, id);
+    public void setBathId_GreaterEqual(Integer bathId) {
+        regBathId(CK_GE, bathId);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param id The value of id as lessEqual. (basically NotNull: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathId The value of bathId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setId_LessEqual(Integer id) {
-        regId(CK_LE, id);
+    public void setBathId_LessEqual(Integer bathId) {
+        regBathId(CK_LE, bathId);
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param minNumber The min number of id. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of id. (basically NotNull: if op.allowOneSide(), null allowed)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param minNumber The min number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    public void setBathId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setBathId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     * @param minNumber The min number of id. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of id. (basically NotNull: if op.allowOneSide(), null allowed)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param minNumber The min number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    protected void setId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueId(), "id", rangeOfOption);
+    protected void setBathId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueBathId(), "bath_id", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * id: {INT(10)}
-     * @param idList The collection of id as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathIdList The collection of bathId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setId_InScope(Collection<Integer> idList) {
-        doSetId_InScope(idList);
+    public void setBathId_InScope(Collection<Integer> bathIdList) {
+        doSetBathId_InScope(bathIdList);
     }
 
-    protected void doSetId_InScope(Collection<Integer> idList) {
-        regINS(CK_INS, cTL(idList), xgetCValueId(), "id");
+    protected void doSetBathId_InScope(Collection<Integer> bathIdList) {
+        regINS(CK_INS, cTL(bathIdList), xgetCValueBathId(), "bath_id");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * id: {INT(10)}
-     * @param idList The collection of id as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * bath_id: {IX+, NotNull, INT(10)}
+     * @param bathIdList The collection of bathId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setId_NotInScope(Collection<Integer> idList) {
-        doSetId_NotInScope(idList);
+    public void setBathId_NotInScope(Collection<Integer> bathIdList) {
+        doSetBathId_NotInScope(bathIdList);
     }
 
-    protected void doSetId_NotInScope(Collection<Integer> idList) {
-        regINS(CK_NINS, cTL(idList), xgetCValueId(), "id");
+    protected void doSetBathId_NotInScope(Collection<Integer> bathIdList) {
+        regINS(CK_NINS, cTL(bathIdList), xgetCValueBathId(), "bath_id");
+    }
+
+    protected void regBathId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBathId(), "bath_id"); }
+    protected abstract ConditionValue xgetCValueBathId();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagId The value of tagId as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTagId_Equal(Integer tagId) {
+        doSetTagId_Equal(tagId);
+    }
+
+    protected void doSetTagId_Equal(Integer tagId) {
+        regTagId(CK_EQ, tagId);
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * id: {INT(10)}
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagId The value of tagId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setId_IsNull() { regId(CK_ISN, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * id: {INT(10)}
-     */
-    public void setId_IsNotNull() { regId(CK_ISNN, DOBJ); }
-
-    protected void regId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueId(), "id"); }
-    protected abstract ConditionValue xgetCValueId();
-
-    /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setName_Equal(String name) {
-        doSetName_Equal(fRES(name));
+    public void setTagId_NotEqual(Integer tagId) {
+        doSetTagId_NotEqual(tagId);
     }
 
-    protected void doSetName_Equal(String name) {
-        regName(CK_EQ, name);
+    protected void doSetTagId_NotEqual(Integer tagId) {
+        regTagId(CK_NES, tagId);
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagId The value of tagId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setName_NotEqual(String name) {
-        doSetName_NotEqual(fRES(name));
-    }
-
-    protected void doSetName_NotEqual(String name) {
-        regName(CK_NES, name);
+    public void setTagId_GreaterThan(Integer tagId) {
+        regTagId(CK_GT, tagId);
     }
 
     /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagId The value of tagId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setName_GreaterThan(String name) {
-        regName(CK_GT, fRES(name));
+    public void setTagId_LessThan(Integer tagId) {
+        regTagId(CK_LT, tagId);
     }
 
     /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagId The value of tagId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setName_LessThan(String name) {
-        regName(CK_LT, fRES(name));
+    public void setTagId_GreaterEqual(Integer tagId) {
+        regTagId(CK_GE, tagId);
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagId The value of tagId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setName_GreaterEqual(String name) {
-        regName(CK_GE, fRES(name));
+    public void setTagId_LessEqual(Integer tagId) {
+        regTagId(CK_LE, tagId);
     }
 
     /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param minNumber The min number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setName_LessEqual(String name) {
-        regName(CK_LE, fRES(name));
+    public void setTagId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setTagId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param nameList The collection of name as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param minNumber The min number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setName_InScope(Collection<String> nameList) {
-        doSetName_InScope(nameList);
-    }
-
-    protected void doSetName_InScope(Collection<String> nameList) {
-        regINS(CK_INS, cTL(nameList), xgetCValueName(), "name");
-    }
-
-    /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param nameList The collection of name as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setName_NotInScope(Collection<String> nameList) {
-        doSetName_NotInScope(nameList);
-    }
-
-    protected void doSetName_NotInScope(Collection<String> nameList) {
-        regINS(CK_NINS, cTL(nameList), xgetCValueName(), "name");
+    protected void setTagId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueTagId(), "tag_id", rangeOfOption);
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {VARCHAR(10)} <br>
-     * <pre>e.g. setName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param name The value of name as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param opLambda The callback for option of like-search. (NotNull)
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagIdList The collection of tagId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setName_LikeSearch(String name, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setName_LikeSearch(name, xcLSOP(opLambda));
+    public void setTagId_InScope(Collection<Integer> tagIdList) {
+        doSetTagId_InScope(tagIdList);
+    }
+
+    protected void doSetTagId_InScope(Collection<Integer> tagIdList) {
+        regINS(CK_INS, cTL(tagIdList), xgetCValueTagId(), "tag_id");
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {VARCHAR(10)} <br>
-     * <pre>e.g. setName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param name The value of name as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param likeSearchOption The option of like-search. (NotNull)
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * tag_id: {NotNull, INT(10)}
+     * @param tagIdList The collection of tagId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setName_LikeSearch(String name, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(name), xgetCValueName(), "name", likeSearchOption);
+    public void setTagId_NotInScope(Collection<Integer> tagIdList) {
+        doSetTagId_NotInScope(tagIdList);
     }
 
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param opLambda The callback for option of like-search. (NotNull)
-     */
-    public void setName_NotLikeSearch(String name, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setName_NotLikeSearch(name, xcLSOP(opLambda));
+    protected void doSetTagId_NotInScope(Collection<Integer> tagIdList) {
+        regINS(CK_NINS, cTL(tagIdList), xgetCValueTagId(), "tag_id");
     }
 
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {VARCHAR(10)}
-     * @param name The value of name as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param likeSearchOption The option of not-like-search. (NotNull)
-     */
-    protected void setName_NotLikeSearch(String name, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(name), xgetCValueName(), "name", likeSearchOption);
-    }
-
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     */
-    public void setName_IsNull() { regName(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     */
-    public void setName_IsNullOrEmpty() { regName(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * name: {VARCHAR(10)}
-     */
-    public void setName_IsNotNull() { regName(CK_ISNN, DOBJ); }
-
-    protected void regName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueName(), "name"); }
-    protected abstract ConditionValue xgetCValueName();
+    protected void regTagId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTagId(), "tag_id"); }
+    protected abstract ConditionValue xgetCValueTagId();
 
     // ===================================================================================
     //                                                                     ScalarCondition
@@ -339,8 +291,8 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<UserCB> scalar_Equal() {
-        return xcreateSLCFunction(CK_EQ, UserCB.class);
+    public HpSLCFunction<TBathTagCB> scalar_Equal() {
+        return xcreateSLCFunction(CK_EQ, TBathTagCB.class);
     }
 
     /**
@@ -354,8 +306,8 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<UserCB> scalar_NotEqual() {
-        return xcreateSLCFunction(CK_NES, UserCB.class);
+    public HpSLCFunction<TBathTagCB> scalar_NotEqual() {
+        return xcreateSLCFunction(CK_NES, TBathTagCB.class);
     }
 
     /**
@@ -369,8 +321,8 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<UserCB> scalar_GreaterThan() {
-        return xcreateSLCFunction(CK_GT, UserCB.class);
+    public HpSLCFunction<TBathTagCB> scalar_GreaterThan() {
+        return xcreateSLCFunction(CK_GT, TBathTagCB.class);
     }
 
     /**
@@ -384,8 +336,8 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<UserCB> scalar_LessThan() {
-        return xcreateSLCFunction(CK_LT, UserCB.class);
+    public HpSLCFunction<TBathTagCB> scalar_LessThan() {
+        return xcreateSLCFunction(CK_LT, TBathTagCB.class);
     }
 
     /**
@@ -399,16 +351,16 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<UserCB> scalar_GreaterEqual() {
-        return xcreateSLCFunction(CK_GE, UserCB.class);
+    public HpSLCFunction<TBathTagCB> scalar_GreaterEqual() {
+        return xcreateSLCFunction(CK_GE, TBathTagCB.class);
     }
 
     /**
      * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)}
      * <pre>
-     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;UserCB&gt;() {
-     *     public void query(UserCB subCB) {
+     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;TBathTagCB&gt;() {
+     *     public void query(TBathTagCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
      *     }
@@ -416,26 +368,26 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<UserCB> scalar_LessEqual() {
-        return xcreateSLCFunction(CK_LE, UserCB.class);
+    public HpSLCFunction<TBathTagCB> scalar_LessEqual() {
+        return xcreateSLCFunction(CK_LE, TBathTagCB.class);
     }
 
     @SuppressWarnings("unchecked")
     protected <CB extends ConditionBean> void xscalarCondition(String fn, SubQuery<CB> sq, String rd, HpSLCCustomized<CB> cs, ScalarConditionOption op) {
         assertObjectNotNull("subQuery", sq);
-        UserCB cb = xcreateScalarConditionCB(); sq.query((CB)cb);
+        TBathTagCB cb = xcreateScalarConditionCB(); sq.query((CB)cb);
         String pp = keepScalarCondition(cb.query()); // for saving query-value
         cs.setPartitionByCBean((CB)xcreateScalarConditionPartitionByCB()); // for using partition-by
         registerScalarCondition(fn, cb.query(), pp, rd, cs, op);
     }
-    public abstract String keepScalarCondition(UserCQ sq);
+    public abstract String keepScalarCondition(TBathTagCQ sq);
 
-    protected UserCB xcreateScalarConditionCB() {
-        UserCB cb = newMyCB(); cb.xsetupForScalarCondition(this); return cb;
+    protected TBathTagCB xcreateScalarConditionCB() {
+        TBathTagCB cb = newMyCB(); cb.xsetupForScalarCondition(this); return cb;
     }
 
-    protected UserCB xcreateScalarConditionPartitionByCB() {
-        UserCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
+    protected TBathTagCB xcreateScalarConditionPartitionByCB() {
+        TBathTagCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
     }
 
     // ===================================================================================
@@ -480,12 +432,12 @@ public abstract class AbstractBsUserCQ extends AbstractConditionQuery {
     // ===================================================================================
     //                                                                       Very Internal
     //                                                                       =============
-    protected UserCB newMyCB() {
-        return new UserCB();
+    protected TBathTagCB newMyCB() {
+        return new TBathTagCB();
     }
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xabUDT() { return Date.class.getName(); }
-    protected String xabCQ() { return UserCQ.class.getName(); }
+    protected String xabCQ() { return TBathTagCQ.class.getName(); }
     protected String xabLSO() { return LikeSearchOption.class.getName(); }
     protected String xabSLCS() { return HpSLCSetupper.class.getName(); }
     protected String xabSCP() { return SubQuery.class.getName(); }
