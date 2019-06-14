@@ -502,43 +502,63 @@ dl.procedurelist dd.column pre {
 	<tbody id="table-list-body">
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="namecell" data-name="t_bath"><a href="#t_bath" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=22">t_bath</a></td>
+		<td class="namecell" data-name="area"><a href="#area" title="type=TABLE, primaryKey={}, nameLength=4, columnCount=7">area</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell t_bath_comment"><pre>�K��</pre></td>
-		<td class="subcell">TBath</td>
-		<td class="subcell">2019/05/19</td>
+		<td class="commentcell area_comment"><pre>エリア</pre></td>
+		<td class="subcell">Area</td>
+		<td class="subcell">2019/06/13</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">2</td>
-		<td class="namecell" data-name="t_bath_tag"><a href="#t_bath_tag" title="type=TABLE, primaryKey={}, nameLength=10, columnCount=2">t_bath_tag</a></td>
+		<td class="namecell" data-name="bath"><a href="#bath" title="type=TABLE, primaryKey={}, nameLength=4, columnCount=22">bath</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell t_bath_tag_comment"><pre>�K���^�O</pre></td>
-		<td class="subcell">TBathTag</td>
-		<td class="subcell">2019/05/19</td>
+		<td class="commentcell bath_comment"><pre>銭湯</pre></td>
+		<td class="subcell">Bath</td>
+		<td class="subcell">2019/06/13</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">3</td>
-		<td class="namecell" data-name="t_tag"><a href="#t_tag" title="type=TABLE, primaryKey={}, nameLength=5, columnCount=6">t_tag</a></td>
+		<td class="namecell" data-name="bath_tag"><a href="#bath_tag" title="type=TABLE, primaryKey={}, nameLength=8, columnCount=2">bath_tag</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell t_tag_comment"><pre>�^�O</pre></td>
-		<td class="subcell">TTag</td>
-		<td class="subcell">2019/05/19</td>
+		<td class="commentcell bath_tag_comment"><pre>銭湯タグ</pre></td>
+		<td class="subcell">BathTag</td>
+		<td class="subcell">2019/06/13</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="namecell" data-name="station"><a href="#station" title="type=TABLE, primaryKey={}, nameLength=7, columnCount=14">station</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell station_comment"><pre>駅</pre></td>
+		<td class="subcell">Station</td>
+		<td class="subcell">2019/06/13</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="namecell" data-name="tag"><a href="#tag" title="type=TABLE, primaryKey={}, nameLength=3, columnCount=6">tag</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell tag_comment"><pre>タグ</pre></td>
+		<td class="subcell">Tag</td>
+		<td class="subcell">2019/06/13</td>
 	</tr>
 	</tbody>
 </table>
 
-<h2 id="t_bath" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=22">
-t_bath
-&nbsp;<span class="tablefirstdatetitle">since 2019/05/19</span>
+<h2 id="area" title="type=TABLE, primaryKey={}, nameLength=4, columnCount=7">
+area
+&nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
 </h2>
-<div class="tablecomment t_bath_comment" data-name="t_bath"><pre>�K��</pre></div>
-<input type="hidden" value="t_bath">
+<div class="tablecomment area_comment" data-name="area"><pre>エリア</pre></div>
+<input type="hidden" value="area">
 <table class="tablecontent">
 	<thead>
 	<tr>
@@ -560,21 +580,178 @@ t_bath
 		<th>Since</th>
 	</tr>
 	</thead>
-	<tbody id="t_bath-body">
+	<tbody id="area-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="t_bath_idx(bath_id)">o</td>
+		<td class="flgcell" title="area_idx(city_code)">o</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_bath_id">bath_id</td>
+		<td class=" columnnamecell" id="area_city_code">city_code</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�K��ID</pre></td>
+		<td class="commentcell"><pre>市区町村コード</pre></td>
+		<td class="subcell">cityCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="area_city_name_ja">city_name_ja</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>市区町村名 和名</pre></td>
+		<td class="subcell">cityNameJa</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="area_city_name_en">city_name_en</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>市区町村名 英名</pre></td>
+		<td class="subcell">cityNameEn</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="area_city_image">city_image</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 2100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>アイコン画像</pre></td>
+		<td class="subcell">cityImage</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="area_city_color">city_color</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>カラーコード</pre></td>
+		<td class="subcell">cityColor</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="area_create_date">create_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>作成日時</pre></td>
+		<td class="subcell">createDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="area_update_date">update_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>更新日時</pre></td>
+		<td class="subcell">updateDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="bath" title="type=TABLE, primaryKey={}, nameLength=4, columnCount=22">
+bath
+&nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
+</h2>
+<div class="tablecomment bath_comment" data-name="bath"><pre>銭湯</pre></div>
+<input type="hidden" value="bath">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="bath-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="bath_idx(bath_id)">o</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="bath_bath_id">bath_id</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>銭湯ID</pre></td>
 		<td class="subcell">bathId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -586,13 +763,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_bath_name_ja">bath_name_ja</td>
+		<td class=" columnnamecell" id="bath_bath_name_ja">bath_name_ja</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�K�� �a��</pre></td>
+		<td class="commentcell"><pre>銭湯 和名</pre></td>
 		<td class="subcell">bathNameJa</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -604,13 +781,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_bath_name_en">bath_name_en</td>
+		<td class=" columnnamecell" id="bath_bath_name_en">bath_name_en</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�K�� �p��</pre></td>
+		<td class="commentcell"><pre>銭湯 英名</pre></td>
 		<td class="subcell">bathNameEn</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -622,13 +799,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_bath_area_code">bath_area_code</td>
+		<td class=" columnnamecell" id="bath_bath_area_code">bath_area_code</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�s���{���R�[�h(���y��ʏ�API�g�p�R�[�h)</pre></td>
+		<td class="commentcell"><pre>都道府県コード(国土交通省API使用コード)</pre></td>
 		<td class="subcell">bathAreaCode</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -640,13 +817,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_bath_city_code">bath_city_code</td>
+		<td class=" columnnamecell" id="bath_bath_city_code">bath_city_code</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�s�撬���R�[�h(���y��ʏ�API�g�p�R�[�h)</pre></td>
+		<td class="commentcell"><pre>市区町村コード(国土交通省API使用コード)</pre></td>
 		<td class="subcell">bathCityCode</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -658,13 +835,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_image">bath_image</td>
+		<td class=" columnnamecell" id="bath_bath_image">bath_image</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 2100 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�T���l�C���摜</pre></td>
+		<td class="commentcell"><pre>サムネイル画像</pre></td>
 		<td class="subcell">bathImage</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -676,13 +853,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_address_ja">bath_address_ja</td>
+		<td class=" columnnamecell" id="bath_bath_address_ja">bath_address_ja</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�Z�� �a��</pre></td>
+		<td class="commentcell"><pre>住所 和名</pre></td>
 		<td class="subcell">bathAddressJa</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -694,13 +871,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_address_en">bath_address_en</td>
+		<td class=" columnnamecell" id="bath_bath_address_en">bath_address_en</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�Z�� �p��</pre></td>
+		<td class="commentcell"><pre>住所 英名</pre></td>
 		<td class="subcell">bathAddressEn</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -712,13 +889,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_tel">bath_tel</td>
+		<td class=" columnnamecell" id="bath_bath_tel">bath_tel</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 15 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�d�b�ԍ�</pre></td>
+		<td class="commentcell"><pre>電話番号</pre></td>
 		<td class="subcell">bathTel</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -730,13 +907,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_fee">bath_fee</td>
+		<td class=" columnnamecell" id="bath_bath_fee">bath_fee</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>��ʓ�����</pre></td>
+		<td class="commentcell"><pre>一般入浴料</pre></td>
 		<td class="subcell">bathFee</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -748,13 +925,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_bath_type">bath_type</td>
+		<td class=" columnnamecell" id="bath_bath_type">bath_type</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�K�����(10:�K�� 20:�X�[�p�[�K��)</pre></td>
+		<td class="commentcell"><pre>銭湯種別(10:銭湯 20:スーパー銭湯)</pre></td>
 		<td class="subcell">bathType</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -766,13 +943,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_bath_24h_flg">bath_24h_flg</td>
+		<td class=" columnnamecell" id="bath_bath_24h_flg">bath_24h_flg</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>24���ԃt���O(1:24���ԉc��)</pre></td>
+		<td class="commentcell"><pre>24時間フラグ(1:24時間営業)</pre></td>
 		<td class="subcell">bath24hFlg</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -784,13 +961,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_time_st">bath_time_st</td>
+		<td class=" columnnamecell" id="bath_bath_time_st">bath_time_st</td>
 		<td class="typecell">TIME</td>
 		<td class="sizecell"> 8 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�c�Ǝ��� �J�n</pre></td>
+		<td class="commentcell"><pre>営業時間 開始</pre></td>
 		<td class="subcell">bathTimeSt</td>
 		<td class="subcell">LocalTime</td>
 		<td class="subcell">first</td>
@@ -802,13 +979,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_time_ed">bath_time_ed</td>
+		<td class=" columnnamecell" id="bath_bath_time_ed">bath_time_ed</td>
 		<td class="typecell">TIME</td>
 		<td class="sizecell"> 8 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�c�Ǝ��� �I��</pre></td>
+		<td class="commentcell"><pre>営業時間 終了</pre></td>
 		<td class="subcell">bathTimeEd</td>
 		<td class="subcell">LocalTime</td>
 		<td class="subcell">first</td>
@@ -820,13 +997,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_place_lat">bath_place_lat</td>
+		<td class=" columnnamecell" id="bath_bath_place_lat">bath_place_lat</td>
 		<td class="typecell">DOUBLE</td>
 		<td class="sizecell"> 9, 6 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�ʒu��� �ܓx</pre></td>
+		<td class="commentcell"><pre>位置情報 緯度</pre></td>
 		<td class="subcell">bathPlaceLat</td>
 		<td class="subcell">BigDecimal</td>
 		<td class="subcell">first</td>
@@ -838,13 +1015,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_place_lon">bath_place_lon</td>
+		<td class=" columnnamecell" id="bath_bath_place_lon">bath_place_lon</td>
 		<td class="typecell">DOUBLE</td>
 		<td class="sizecell"> 9, 6 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�ʒu��� �o�x</pre></td>
+		<td class="commentcell"><pre>位置情報 経度</pre></td>
 		<td class="subcell">bathPlaceLon</td>
 		<td class="subcell">BigDecimal</td>
 		<td class="subcell">first</td>
@@ -856,13 +1033,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_temperature_up">bath_temperature_up</td>
+		<td class=" columnnamecell" id="bath_bath_temperature_up">bath_temperature_up</td>
 		<td class="typecell">DOUBLE</td>
 		<td class="sizecell"> 3, 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>���x ���</pre></td>
+		<td class="commentcell"><pre>温度 上限</pre></td>
 		<td class="subcell">bathTemperatureUp</td>
 		<td class="subcell">BigDecimal</td>
 		<td class="subcell">first</td>
@@ -874,13 +1051,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_temperature_low">bath_temperature_low</td>
+		<td class=" columnnamecell" id="bath_bath_temperature_low">bath_temperature_low</td>
 		<td class="typecell">DOUBLE</td>
 		<td class="sizecell"> 3, 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>���x ����</pre></td>
+		<td class="commentcell"><pre>温度 下限</pre></td>
 		<td class="subcell">bathTemperatureLow</td>
 		<td class="subcell">BigDecimal</td>
 		<td class="subcell">first</td>
@@ -892,13 +1069,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_bath_holiday">bath_holiday</td>
+		<td class=" columnnamecell" id="bath_bath_holiday">bath_holiday</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>��x��(�r�b�g���Z�Ŕ��� 1:�� 2:�� 4:�� 8:�� 16:�� 32:�� 64:�y)</pre></td>
+		<td class="commentcell"><pre>定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)</pre></td>
 		<td class="subcell">bathHoliday</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -910,13 +1087,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_del_flg">del_flg</td>
+		<td class=" columnnamecell" id="bath_del_flg">del_flg</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�폜�t���O(1:�폜�ς�)</pre></td>
+		<td class="commentcell"><pre>削除フラグ(1:削除済み)</pre></td>
 		<td class="subcell">delFlg</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -928,13 +1105,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_create_date">create_date</td>
+		<td class=" columnnamecell" id="bath_create_date">create_date</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�쐬����</pre></td>
+		<td class="commentcell"><pre>作成日時</pre></td>
 		<td class="subcell">createDate</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -946,13 +1123,13 @@ t_bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_bath_update_date">update_date</td>
+		<td class=" columnnamecell" id="bath_update_date">update_date</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�X�V����</pre></td>
+		<td class="commentcell"><pre>更新日時</pre></td>
 		<td class="subcell">updateDate</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -960,12 +1137,12 @@ t_bath
 	</tbody>
 </table>
 
-<h2 id="t_bath_tag" title="type=TABLE, primaryKey={}, nameLength=10, columnCount=2">
-t_bath_tag
-&nbsp;<span class="tablefirstdatetitle">since 2019/05/19</span>
+<h2 id="bath_tag" title="type=TABLE, primaryKey={}, nameLength=8, columnCount=2">
+bath_tag
+&nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
 </h2>
-<div class="tablecomment t_bath_tag_comment" data-name="t_bath_tag"><pre>�K���^�O</pre></div>
-<input type="hidden" value="t_bath_tag">
+<div class="tablecomment bath_tag_comment" data-name="bath_tag"><pre>銭湯タグ</pre></div>
+<input type="hidden" value="bath_tag">
 <table class="tablecontent">
 	<thead>
 	<tr>
@@ -987,21 +1164,21 @@ t_bath_tag
 		<th>Since</th>
 	</tr>
 	</thead>
-	<tbody id="t_bath_tag-body">
+	<tbody id="bath_tag-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="t_bath_tag_idx(bath_id, tag_id)">o<span class="flgplus">+</span></td>
+		<td class="flgcell" title="bath_tag_idx(bath_id, tag_id)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_tag_bath_id">bath_id</td>
+		<td class=" columnnamecell" id="bath_tag_bath_id">bath_id</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�K��ID</pre></td>
+		<td class="commentcell"><pre>銭湯ID</pre></td>
 		<td class="subcell">bathId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1011,15 +1188,15 @@ t_bath_tag
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="t_bath_tag_idx(bath_id, tag_id)"><span class="flgplus">+</span>o</td>
+		<td class="flgcell" title="bath_tag_idx(bath_id, tag_id)"><span class="flgplus">+</span>o</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_bath_tag_tag_id">tag_id</td>
+		<td class=" columnnamecell" id="bath_tag_tag_id">tag_id</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�^�OID</pre></td>
+		<td class="commentcell"><pre>タグID</pre></td>
 		<td class="subcell">tagId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1027,12 +1204,12 @@ t_bath_tag
 	</tbody>
 </table>
 
-<h2 id="t_tag" title="type=TABLE, primaryKey={}, nameLength=5, columnCount=6">
-t_tag
-&nbsp;<span class="tablefirstdatetitle">since 2019/05/19</span>
+<h2 id="station" title="type=TABLE, primaryKey={}, nameLength=7, columnCount=14">
+station
+&nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
 </h2>
-<div class="tablecomment t_tag_comment" data-name="t_tag"><pre>�^�O</pre></div>
-<input type="hidden" value="t_tag">
+<div class="tablecomment station_comment" data-name="station"><pre>駅</pre></div>
+<input type="hidden" value="station">
 <table class="tablecontent">
 	<thead>
 	<tr>
@@ -1054,21 +1231,304 @@ t_tag
 		<th>Since</th>
 	</tr>
 	</thead>
-	<tbody id="t_tag-body">
+	<tbody id="station-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="t_tag_idx(tag_id)">o</td>
+		<td class="flgcell" title="station_idx(station_code)">o</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_tag_tag_id">tag_id</td>
+		<td class=" columnnamecell" id="station_station_code">station_code</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�^�OID</pre></td>
+		<td class="commentcell"><pre>駅コード</pre></td>
+		<td class="subcell">stationCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="station_station_area_code">station_area_code</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>都道府県コード</pre></td>
+		<td class="subcell">stationAreaCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="station_station_line_code">station_line_code</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>沿線コード</pre></td>
+		<td class="subcell">stationLineCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_line_name_ja">station_line_name_ja</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>沿線名 和名</pre></td>
+		<td class="subcell">stationLineNameJa</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_line_name_en">station_line_name_en</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>沿線名 英名</pre></td>
+		<td class="subcell">stationLineNameEn</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_g_cd">station_g_cd</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>駅グループコード</pre></td>
+		<td class="subcell">stationGCd</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_name_ja">station_name_ja</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>駅名 和名</pre></td>
+		<td class="subcell">stationNameJa</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_name_en">station_name_en</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>駅名 英名</pre></td>
+		<td class="subcell">stationNameEn</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_lon">station_lon</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 9, 6 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>経度</pre></td>
+		<td class="subcell">stationLon</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">10</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_lat">station_lat</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 9, 6 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>緯度</pre></td>
+		<td class="subcell">stationLat</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_image">station_image</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 2100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>アイコン画像</pre></td>
+		<td class="subcell">stationImage</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">12</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_station_color">station_color</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>カラーコード</pre></td>
+		<td class="subcell">stationColor</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">13</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_create_date">create_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>作成日時</pre></td>
+		<td class="subcell">createDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">14</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="station_update_date">update_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>更新日時</pre></td>
+		<td class="subcell">updateDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="tag" title="type=TABLE, primaryKey={}, nameLength=3, columnCount=6">
+tag
+&nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
+</h2>
+<div class="tablecomment tag_comment" data-name="tag"><pre>タグ</pre></div>
+<input type="hidden" value="tag">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="tag-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="tag_idx(tag_id)">o</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="tag_tag_id">tag_id</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>タグID</pre></td>
 		<td class="subcell">tagId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1080,13 +1540,13 @@ t_tag
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_tag_tag_name_ja">tag_name_ja</td>
+		<td class=" columnnamecell" id="tag_tag_name_ja">tag_name_ja</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�^�O �a��</pre></td>
+		<td class="commentcell"><pre>タグ 和名</pre></td>
 		<td class="subcell">tagNameJa</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -1098,13 +1558,13 @@ t_tag
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="t_tag_tag_name_en">tag_name_en</td>
+		<td class=" columnnamecell" id="tag_tag_name_en">tag_name_en</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�^�O �p��</pre></td>
+		<td class="commentcell"><pre>タグ 英名</pre></td>
 		<td class="subcell">tagNameEn</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -1116,13 +1576,13 @@ t_tag
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_tag_tag_image">tag_image</td>
+		<td class=" columnnamecell" id="tag_tag_image">tag_image</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 2100 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�^�O�摜</pre></td>
+		<td class="commentcell"><pre>タグ画像</pre></td>
 		<td class="subcell">tagImage</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -1134,13 +1594,13 @@ t_tag
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_tag_create_date">create_date</td>
+		<td class=" columnnamecell" id="tag_create_date">create_date</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�쐬����</pre></td>
+		<td class="commentcell"><pre>作成日時</pre></td>
 		<td class="subcell">createDate</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -1152,13 +1612,13 @@ t_tag
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="t_tag_update_date">update_date</td>
+		<td class=" columnnamecell" id="tag_update_date">update_date</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>�X�V����</pre></td>
+		<td class="commentcell"><pre>更新日時</pre></td>
 		<td class="subcell">updateDate</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -1697,108 +2157,181 @@ function StoreClient() {
 		]
 	}
 	this.pickupStore = {
-		't_bath': {
-			'databaseComment': '�K��'
+		'area': {
+			'databaseComment': 'エリア'
+			, 'columns': {
+				'city_code': {
+					'databaseComment': '市区町村コード'
+				}
+				, 'city_name_ja': {
+					'databaseComment': '市区町村名&nbsp;和名'
+				}
+				, 'city_name_en': {
+					'databaseComment': '市区町村名&nbsp;英名'
+				}
+				, 'city_image': {
+					'databaseComment': 'アイコン画像'
+				}
+				, 'city_color': {
+					'databaseComment': 'カラーコード'
+				}
+				, 'create_date': {
+					'databaseComment': '作成日時'
+				}
+				, 'update_date': {
+					'databaseComment': '更新日時'
+				}
+			}
+		}
+		, 'bath': {
+			'databaseComment': '銭湯'
 			, 'columns': {
 				'bath_id': {
-					'databaseComment': '�K��ID'
+					'databaseComment': '銭湯ID'
 				}
 				, 'bath_name_ja': {
-					'databaseComment': '�K��&nbsp;�a��'
+					'databaseComment': '銭湯&nbsp;和名'
 				}
 				, 'bath_name_en': {
-					'databaseComment': '�K��&nbsp;�p��'
+					'databaseComment': '銭湯&nbsp;英名'
 				}
 				, 'bath_area_code': {
-					'databaseComment': '�s���{���R�[�h(���y��ʏ�API�g�p�R�[�h)'
+					'databaseComment': '都道府県コード(国土交通省API使用コード)'
 				}
 				, 'bath_city_code': {
-					'databaseComment': '�s�撬���R�[�h(���y��ʏ�API�g�p�R�[�h)'
+					'databaseComment': '市区町村コード(国土交通省API使用コード)'
 				}
 				, 'bath_image': {
-					'databaseComment': '�T���l�C���摜'
+					'databaseComment': 'サムネイル画像'
 				}
 				, 'bath_address_ja': {
-					'databaseComment': '�Z��&nbsp;�a��'
+					'databaseComment': '住所&nbsp;和名'
 				}
 				, 'bath_address_en': {
-					'databaseComment': '�Z��&nbsp;�p��'
+					'databaseComment': '住所&nbsp;英名'
 				}
 				, 'bath_tel': {
-					'databaseComment': '�d�b�ԍ�'
+					'databaseComment': '電話番号'
 				}
 				, 'bath_fee': {
-					'databaseComment': '��ʓ�����'
+					'databaseComment': '一般入浴料'
 				}
 				, 'bath_type': {
-					'databaseComment': '�K�����(10:�K��&nbsp;20:�X�[�p�[�K��)'
+					'databaseComment': '銭湯種別(10:銭湯&nbsp;20:スーパー銭湯)'
 				}
 				, 'bath_24h_flg': {
-					'databaseComment': '24���ԃt���O(1:24���ԉc��)'
+					'databaseComment': '24時間フラグ(1:24時間営業)'
 				}
 				, 'bath_time_st': {
-					'databaseComment': '�c�Ǝ���&nbsp;�J�n'
+					'databaseComment': '営業時間&nbsp;開始'
 				}
 				, 'bath_time_ed': {
-					'databaseComment': '�c�Ǝ���&nbsp;�I��'
+					'databaseComment': '営業時間&nbsp;終了'
 				}
 				, 'bath_place_lat': {
-					'databaseComment': '�ʒu���&nbsp;�ܓx'
+					'databaseComment': '位置情報&nbsp;緯度'
 				}
 				, 'bath_place_lon': {
-					'databaseComment': '�ʒu���&nbsp;�o�x'
+					'databaseComment': '位置情報&nbsp;経度'
 				}
 				, 'bath_temperature_up': {
-					'databaseComment': '���x&nbsp;���'
+					'databaseComment': '温度&nbsp;上限'
 				}
 				, 'bath_temperature_low': {
-					'databaseComment': '���x&nbsp;����'
+					'databaseComment': '温度&nbsp;下限'
 				}
 				, 'bath_holiday': {
-					'databaseComment': '��x��(�r�b�g���Z�Ŕ���&nbsp;1:��&nbsp;2:��&nbsp;4:��&nbsp;8:��&nbsp;16:��&nbsp;32:��&nbsp;64:�y)'
+					'databaseComment': '定休日(ビット演算で判定&nbsp;1:日&nbsp;2:月&nbsp;4:火&nbsp;8:水&nbsp;16:木&nbsp;32:金&nbsp;64:土)'
 				}
 				, 'del_flg': {
-					'databaseComment': '�폜�t���O(1:�폜�ς�)'
+					'databaseComment': '削除フラグ(1:削除済み)'
 				}
 				, 'create_date': {
-					'databaseComment': '�쐬����'
+					'databaseComment': '作成日時'
 				}
 				, 'update_date': {
-					'databaseComment': '�X�V����'
+					'databaseComment': '更新日時'
 				}
 			}
 		}
-		, 't_bath_tag': {
-			'databaseComment': '�K���^�O'
+		, 'bath_tag': {
+			'databaseComment': '銭湯タグ'
 			, 'columns': {
 				'bath_id': {
-					'databaseComment': '�K��ID'
+					'databaseComment': '銭湯ID'
 				}
 				, 'tag_id': {
-					'databaseComment': '�^�OID'
+					'databaseComment': 'タグID'
 				}
 			}
 		}
-		, 't_tag': {
-			'databaseComment': '�^�O'
+		, 'station': {
+			'databaseComment': '駅'
 			, 'columns': {
-				'tag_id': {
-					'databaseComment': '�^�OID'
+				'station_code': {
+					'databaseComment': '駅コード'
 				}
-				, 'tag_name_ja': {
-					'databaseComment': '�^�O&nbsp;�a��'
+				, 'station_area_code': {
+					'databaseComment': '都道府県コード'
 				}
-				, 'tag_name_en': {
-					'databaseComment': '�^�O&nbsp;�p��'
+				, 'station_line_code': {
+					'databaseComment': '沿線コード'
 				}
-				, 'tag_image': {
-					'databaseComment': '�^�O�摜'
+				, 'station_line_name_ja': {
+					'databaseComment': '沿線名&nbsp;和名'
+				}
+				, 'station_line_name_en': {
+					'databaseComment': '沿線名&nbsp;英名'
+				}
+				, 'station_g_cd': {
+					'databaseComment': '駅グループコード'
+				}
+				, 'station_name_ja': {
+					'databaseComment': '駅名&nbsp;和名'
+				}
+				, 'station_name_en': {
+					'databaseComment': '駅名&nbsp;英名'
+				}
+				, 'station_lon': {
+					'databaseComment': '経度'
+				}
+				, 'station_lat': {
+					'databaseComment': '緯度'
+				}
+				, 'station_image': {
+					'databaseComment': 'アイコン画像'
+				}
+				, 'station_color': {
+					'databaseComment': 'カラーコード'
 				}
 				, 'create_date': {
-					'databaseComment': '�쐬����'
+					'databaseComment': '作成日時'
 				}
 				, 'update_date': {
-					'databaseComment': '�X�V����'
+					'databaseComment': '更新日時'
+				}
+			}
+		}
+		, 'tag': {
+			'databaseComment': 'タグ'
+			, 'columns': {
+				'tag_id': {
+					'databaseComment': 'タグID'
+				}
+				, 'tag_name_ja': {
+					'databaseComment': 'タグ&nbsp;和名'
+				}
+				, 'tag_name_en': {
+					'databaseComment': 'タグ&nbsp;英名'
+				}
+				, 'tag_image': {
+					'databaseComment': 'タグ画像'
+				}
+				, 'create_date': {
+					'databaseComment': '作成日時'
+				}
+				, 'update_date': {
+					'databaseComment': '更新日時'
 				}
 			}
 		}

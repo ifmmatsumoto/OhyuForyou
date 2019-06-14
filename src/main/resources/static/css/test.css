@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-body {
+body p{
  margin: 0 0;
 }
 
@@ -23,7 +23,6 @@ ul {
 
 #indexType > ul > li {
  display: inline-block;
- background-color: #cccccc;
  padding: 5px 5px;
 }
 
@@ -34,6 +33,39 @@ ul {
 .category-title {
  margin-right: 20px;
 }
-.a {
-	background-color: #cccccc;
+
+.ridius {
+ -webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+
+
+
+.list-sento__body {
+ position: relative;
+ height: 180px;
+ padding: 0 10px 0 182px;
+}
+
+.list-sento__photo {
+ position: absolute;
+ top: 10px;
+ left: 10px;
+ width: 160px;
+}
+
+.list-sento__photo > ul {
+    display: table;
+    table-layout: fixed;
+
+}
+
+.list-sento__photo > ul > li {
+     width: 100%;
+     display: table-cell;
+}
+
+.list-sento__photo > ul > li > img {
+  width: 28px;
 }

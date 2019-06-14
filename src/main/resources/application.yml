@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://13.114.89.192:3306/ohyuforyou_db
+    username: ohyuforyou
+    password: k7t4FZmQ
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: ConnectionPool
+      leakDetectionThreshold: 5000
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      maximum-pool-size: 1
+      auto-commit: false
+logging:
+  level:
+    org.dbflute: DEBUG
+    org.docksidestage : DEBUG
+    org.springframework.jdbc.datasource.DataSourceTransactionManager: DEBUG      

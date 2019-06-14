@@ -22,6 +22,6 @@ public class TestController {
         int cntTest = testService.test();
         System.out.println(cntTest);
         model.addAttribute("cntTest", cntTest);
-        return "test/test";
+        return "test/test2";
     }
 }
