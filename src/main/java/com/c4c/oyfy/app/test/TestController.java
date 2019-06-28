@@ -17,7 +17,7 @@ public class TestController {
     public TestController(TestService testService) {
         this.testService = testService;
     }
-// commitTest
+// commitTest aa
     @RequestMapping(method = RequestMethod.GET)
     public String hello(Model model, TestForm form){
         int cntTest = testService.test();
