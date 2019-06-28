@@ -24,7 +24,8 @@
             <p style="width: 960px; margin: 0 auto; text-align: center; padding-bottom: 20px;">
                 <img src="/img/top.png"/>
             </p>
-            <form action="/" style="width: 960px; margin: 0 auto; text-align: center; padding-bottom: 20px;">
+
+       <form method="get" th:object="${testForm}" style="width: 960px; margin: 0 auto; text-align: center; padding-bottom: 20px;">
                 <div id="indexType">
                      <ul>
                         <li><a class="btn btn-danger"  data-toggle="modal" data-target="#modal1">キーワード</a></li>
@@ -33,7 +34,7 @@
                     </ul>
                 </div>
                 <div class="group">
-                    <input type="text" class="ridius"  placeholder="キーワード検索"/>
+                    <input type="text"  th:field="*{keyword}" class="ridius"  placeholder="キーワード検索"/>
                     <button type="submit" class="btn btn-primary btn-sm " style="margin-bottom: 6px;">検索</button>
                 </div>
             </form>

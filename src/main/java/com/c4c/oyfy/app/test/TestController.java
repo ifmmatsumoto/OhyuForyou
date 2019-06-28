@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.c4c.oyfy.domain.service.test.TestService;
 
@@ -17,11 +18,10 @@ public class TestController {
         this.testService = testService;
     }
 
-    @RequestMapping("/")
-    public String hello(Model model){
+    @RequestMapping(method = RequestMethod.GET)
+    public String hello(Model model, TestForm form){
         int cntTest = testService.test();
-        System.out.println(cntTest);
         model.addAttribute("cntTest", cntTest);
-        return "test/test2";
+        return "test/test";
     }
 }
