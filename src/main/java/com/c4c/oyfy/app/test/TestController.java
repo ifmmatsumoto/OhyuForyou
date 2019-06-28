@@ -17,7 +17,7 @@ public class TestController {
         this.testService = testService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/test")
     public String hello(Model model){
         int cntTest = testService.test();
         System.out.println(cntTest);
