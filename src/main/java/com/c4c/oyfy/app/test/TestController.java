@@ -17,9 +17,8 @@ public class TestController {
     public TestController(TestService testService) {
         this.testService = testService;
     }
-// commitTest aa
-    @RequestMapping(method = RequestMethod.GET)
-    public String hello(Model model, TestForm form){
+    @RequestMapping("/test")
+    public String hello(Model model){
         int cntTest = testService.test();
         model.addAttribute("cntTest", cntTest);
         return "test/test";

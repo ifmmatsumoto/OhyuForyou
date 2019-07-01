@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+</head>
+<body>
+    <div>
+        <header style="width: 100%; background-color: #ffef11">
+            <nav id="menu" style="padding-top: 10px;">
+                <!--中身-->
+                <div id="nav-content">
+                    <ul class="category">
+                        <li class="category-title" style="margin-left: 10px;"><a>Oh!湯ForYouとは</a></li>
+                        <li class="category-title"><a>テスト1</a></li>
+                        <li class="category-title"><a>テスト2</a></li>
+                        <li class="category-title"><a>テスト3</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <p style="width: 960px; margin: 0 auto;text-align: center;padding-bottom: 20px;">
+                <img src="/img/top.png"/>
+            </p>
+            <form action="/" style="width: 960px; margin: 0 auto; text-align: center;">
+                <div id="indexType">
+                     <ul>
+                        <li><a>キーワード</a></li>
+                        <li><a>エリア</a></li>
+                        <li><a>イラスト</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="text"/>
+                    <button type="submit" class="btn btn-primary">検索</button>
+                </div>
+            </form>
+        </header>
+        <div class="container" style="width: 960px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="well"  style="width: 80%;">
+                       サイトのニュースなんかを書いたりして<br>
+                       縦のピクセルは100px取っている
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <p class="well"  style="width: 80%;">
+                       一覧をここに出力するのかな？<br>
+                       縦のピクセルは100px取っている
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 bg-success">col-md-4のクラスで色もクラスでつけている</div>
+                <div class="col-md-8 bg-info">col-md-8のクラスで色もクラスでつけている</div>
+            </div>
+        </div>
+        <footer style="width: 100%;">
+            <p style="width: 960px; margin: 0 auto; text-align: center;">一応フッターも</p>
+        </footer>
+    </div>
+
+</body>
+</html>
