@@ -1,5 +1,8 @@
 package com.c4c.oyfy.app.form;
 
-public class PrefectureForm extends _CommonForm {
+import lombok.Data;
+
+@Data
+public class PrefectureForm {
 
 }

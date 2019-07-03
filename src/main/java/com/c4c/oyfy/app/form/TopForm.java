@@ -1,5 +1,9 @@
 package com.c4c.oyfy.app.form;
 
-public class TopForm extends _CommonForm {
+import lombok.Data;
 
+@Data
+public class TopForm {
+	/** キーワード */
+	String keyword;
 }

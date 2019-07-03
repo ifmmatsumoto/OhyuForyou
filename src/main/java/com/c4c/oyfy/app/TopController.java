@@ -65,6 +65,8 @@ public class TopController extends _CommonController {
 
 		System.out.println("キーワード検索"); // TODO
 
+		System.out.println("キーワード：" + form.getKeyword());
+
 		// 検索結果一覧画面表示
 		return "searchResult";
 	}
