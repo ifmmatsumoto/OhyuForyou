@@ -14,8 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.c4c.oyfy.app.test.TestController;
-import com.c4c.oyfy.domain.service.test.TestService;
+import com.c4c.oyfy.app.TestController;
+import com.c4c.oyfy.domain.service.TestService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

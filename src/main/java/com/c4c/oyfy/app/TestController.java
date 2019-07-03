@@ -1,12 +1,11 @@
-package com.c4c.oyfy.app.test;
+package com.c4c.oyfy.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.c4c.oyfy.domain.service.test.TestService;
+import com.c4c.oyfy.domain.service.TestService;
 
 @Controller
 public class TestController {

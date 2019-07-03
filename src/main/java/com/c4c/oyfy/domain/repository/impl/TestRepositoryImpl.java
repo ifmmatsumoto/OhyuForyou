@@ -1,8 +1,9 @@
-package com.c4c.oyfy.domain.repository.test;
+package com.c4c.oyfy.domain.repository.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.c4c.oyfy.domain.repository.TestRepository;
 import com.oyfy.dbflute.exbhv.BathBhv;
 
 
