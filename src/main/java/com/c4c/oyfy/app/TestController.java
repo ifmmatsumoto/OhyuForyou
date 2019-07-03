@@ -5,21 +5,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.c4c.oyfy.app.form.TestForm;
 import com.c4c.oyfy.domain.service.TestService;
 
 @Controller
+@RequestMapping("/test")
 public class TestController {
 
-    final TestService testService;
+	@Autowired
+	TestService testService;
 
-    @Autowired
-    public TestController(TestService testService) {
-        this.testService = testService;
-    }
-    @RequestMapping("/test")
-    public String hello(Model model){
-        int cntTest = testService.test();
-        model.addAttribute("cntTest", cntTest);
-        return "test/test";
-    }
+	@RequestMapping
+	public String test(Model model, TestForm form){
+		int cntTest = testService.test();
+		model.addAttribute("cntTest", cntTest);
+		return "test/test";
+	}
 }
