@@ -12,10 +12,14 @@
 	<li><a href="/place">現在地検索</a></li>
 	<li><a href="/prefecture">都道府県検索</a></li>
 	<li><a href="/illust">イラスト検索</a></li>
-	<li><a href="/keyword">キーワード検索</a></li>
 </ul>
+<form th:action="@{/keyword}" th:object="${testForm}" method="post" enctype="multipart/form-data">
+	<input type="text" name="keyword" placeholder="キーワード検索"/>
+	<input type="submit" value="検索" />
+</form>
 
 <!-- 共通フッター -->
 <div th:replace="footer"></div>
+
 </body>
 </html>

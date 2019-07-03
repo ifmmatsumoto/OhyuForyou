@@ -1,5 +1,5 @@
 package com.c4c.oyfy.app.form;
 
-public class BathForm extends _CommonForm {
+public class BathForm {
 
 }
