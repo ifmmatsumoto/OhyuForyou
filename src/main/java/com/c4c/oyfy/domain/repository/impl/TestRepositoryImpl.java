@@ -1,10 +1,11 @@
-package com.c4c.oyfy.domain.repository.test;
+package com.c4c.oyfy.domain.repository.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.c4c.oyfy.domain.repository.TestRepository;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exentity.Bath;
 
@@ -31,7 +32,7 @@ public class TestRepositoryImpl implements TestRepository {
     @Override
     public List<Bath> searchPathList(String keyword) {
         List<Bath> bath =  BathBhv.selectList(cb -> {
-            cb.query().setBathFee_GreaterEqual(460);
+            cb.query().setBathFee_GreaterEqual(450);
         });
         return bath;
     }

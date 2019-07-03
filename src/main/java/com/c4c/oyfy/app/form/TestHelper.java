@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.test;
+package com.c4c.oyfy.app.form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,12 @@ public class TestHelper {
 
     public static List<TestForm> toForm(List<Bath> entityList) {
         List<TestForm> formList = new ArrayList<>();
-        TestForm form = new TestForm();
+
         entityList.forEach(entity -> {
+            TestForm form = new TestForm();
             form.setBathNameJa(entity.getBathNameJa());
             form.setBathNameEn(entity.getBathNameEn());
+            System.out.println(form.getBathNameEn());
             form.setBathAreaCode(entity.getBathAreaCode());
             form.setBathCityCode(entity.getBathCityCode());
             form.setBathImage(entity.getBathImage());
@@ -28,7 +30,6 @@ public class TestHelper {
             form.setBathPlaceLon(entity.getBathPlaceLon());
             form.setBathTemperatureUp(entity.getBathTemperatureUp());
             form.setBathTemperatureLow(entity.getBathTemperatureLow());
-            form.setBathHoliday(entity.getBathHoliday());
             form.setDelFlg(entity.getDelFlg());
             form.setCreateDate(entity.getCreateDate());
             form.setUpdateDate(entity.getUpdateDate());
