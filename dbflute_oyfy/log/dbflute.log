@@ -3760,3 +3760,777 @@ _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
  {Take Finally}: success=0 failure=0 (in 1 files)
   o take-finally.sql
 _/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2019-07-02 19:39:00,988 [main] INFO  (DfReplaceSchemaTask#begin():92) - +------------------------------------------+
+2019-07-02 19:39:01,001 [main] INFO  (DfReplaceSchemaTask#begin():93) - |                                          |
+2019-07-02 19:39:01,001 [main] INFO  (DfReplaceSchemaTask#begin():94) - |              ReplaceSchema               |
+2019-07-02 19:39:01,013 [main] INFO  (DfReplaceSchemaTask#begin():102) - |                                          |
+2019-07-02 19:39:01,013 [main] INFO  (DfReplaceSchemaTask#begin():103) - +------------------------------------------+
+2019-07-02 19:39:01,013 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():401) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2019-07-02 19:39:10,546 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-07-02 19:39:10,546 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-07-02 19:39:10,546 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-07-02 19:39:10,550 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-07-02 19:39:10,576 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-07-02 19:39:11,386 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-07-02 19:39:11,386 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-07-02 19:39:11,426 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2019-07-02 19:39:11,426 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2019-07-02 19:39:11,426 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2019-07-02 19:39:11,430 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2019-07-02 19:39:11,430 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2019-07-02 19:39:11,430 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2019-07-02 19:39:11,482 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-07-02 19:39:11,482 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-07-02 19:39:11,482 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-07-02 19:39:11,609 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table area
+2019-07-02 19:39:11,631 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath
+2019-07-02 19:39:11,664 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath_tag
+2019-07-02 19:39:11,694 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table station
+2019-07-02 19:39:11,718 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table tag
+2019-07-02 19:39:11,742 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table area
+2019-07-02 19:39:11,760 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath
+2019-07-02 19:39:11,776 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath_tag
+2019-07-02 19:39:11,792 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table station
+2019-07-02 19:39:11,812 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table tag
+2019-07-02 19:39:11,892 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2019-07-02 19:39:11,896 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2019-07-02 19:39:11,896 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2019-07-02 19:39:11,896 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2019-07-02 19:39:11,896 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2019-07-02 19:39:11,896 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2019-07-02 19:39:11,912 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2019-07-02 19:39:11,916 [main] INFO  (DfSqlFileRunnerBase#removeUTF8BomIfNeeds():529) - ...Removing UTF-8 bom: ﻿CREA...
+2019-07-02 19:39:11,920 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath_tag` (
+  `bath_id` int(10) NOT NULL COMMENT '銭湯ID',
+  `tag_id` int(10) NOT NULL COMMENT 'タグID',
+  KEY `bath_tag_idx` (`bath_id`,`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='銭湯タグ'
+2019-07-02 19:39:11,964 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `tag` (
+  `tag_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'タグID',
+  `tag_name_ja` varchar(255) NOT NULL COMMENT 'タグ 和名',
+  `tag_name_en` varchar(255) NOT NULL COMMENT 'タグ 英名',
+  `tag_image` varchar(2100) COMMENT 'タグ画像',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `tag_idx` (`tag_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='タグ'
+2019-07-02 19:39:12,008 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath` (
+  `bath_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '銭湯ID',
+  `bath_name_ja` varchar(255) NOT NULL COMMENT '銭湯 和名',
+  `bath_name_en` varchar(255) NOT NULL COMMENT '銭湯 英名',
+  `bath_area_code` int(10) NOT NULL COMMENT '都道府県コード(国土交通省API使用コード)',
+  `bath_city_code` int(10) NOT NULL COMMENT '市区町村コード(国土交通省API使用コード)',
+  `bath_image` varchar(2100) COMMENT 'サムネイル画像',
+  `bath_address_ja` varchar(255) COMMENT '住所 和名',
+  `bath_address_en` varchar(255) COMMENT '住所 英名',
+  `bath_tel` varchar(15) COMMENT '電話番号',
+  `bath_fee` int COMMENT '一般入浴料',
+  `bath_type` int(2) NOT NULL COMMENT '銭湯種別(10:銭湯 20:スーパー銭湯)',
+  `bath_24h_flg` int(1) NOT NULL COMMENT '24時間フラグ(1:24時間営業)',
+  `bath_time_st` TIME COMMENT '営業時間 開始',
+  `bath_time_ed` TIME COMMENT '営業時間 終了',
+  `bath_place_lat` DOUBLE(9,6) COMMENT '位置情報 緯度',
+  `bath_place_lon` DOUBLE(9,6) COMMENT '位置情報 経度',
+  `bath_temperature_up` DOUBLE(3,3) COMMENT '温度 上限',
+  `bath_temperature_low` DOUBLE(3,3) COMMENT '温度 下限',
+  `bath_holiday` int(3) COMMENT '定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)',
+  `del_flg` int(1) NOT NULL COMMENT '削除フラグ(1:削除済み)',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `bath_idx` (`bath_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='銭湯'
+2019-07-02 19:39:12,058 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `area` (
+  `city_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '市区町村コード',
+  `city_name_ja` varchar(255) NOT NULL COMMENT '市区町村名 和名',
+  `city_name_en` varchar(255) NOT NULL COMMENT '市区町村名 英名',
+  `city_image` varchar(2100) COMMENT 'アイコン画像',
+  `city_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `area_idx` (`city_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='エリア'
+2019-07-02 19:39:12,104 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `station` (
+  `station_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '駅コード',
+  `station_area_code` varchar(255) NOT NULL COMMENT '都道府県コード',
+  `station_line_code` varchar(255) NOT NULL COMMENT '沿線コード',
+  `station_line_name_ja` varchar(255) COMMENT '沿線名 和名',
+  `station_line_name_en` varchar(255) COMMENT '沿線名 英名',
+  `station_g_cd` varchar(255) COMMENT '駅グループコード',
+  `station_name_ja` varchar(255) COMMENT '駅名 和名',
+  `station_name_en` varchar(255) COMMENT '駅名 英名',
+  `station_lon` DOUBLE(9,6) COMMENT '経度',
+  `station_lat` DOUBLE(9,6) COMMENT '緯度',
+  `station_image` varchar(2100) COMMENT 'アイコン画像',
+  `station_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `station_idx` (`station_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='駅'
+2019-07-02 19:39:12,144 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=5 failure=0
+2019-07-02 19:39:12,148 [main] INFO  (DfSqlFileFireMan#fire():93) - {Create Schema}: success=5 failure=0 (in 1 files)
+2019-07-02 19:39:12,263 [main] INFO  (DfLoadDataProcess#execute():130) - 
+2019-07-02 19:39:12,263 [main] INFO  (DfLoadDataProcess#execute():131) - * * * * * * * * * * *
+2019-07-02 19:39:12,267 [main] INFO  (DfLoadDataProcess#execute():132) - *                   *
+2019-07-02 19:39:12,267 [main] INFO  (DfLoadDataProcess#execute():133) - * Load Data         *
+2019-07-02 19:39:12,267 [main] INFO  (DfLoadDataProcess#execute():134) - *                   *
+2019-07-02 19:39:12,267 [main] INFO  (DfLoadDataProcess#execute():135) - * * * * * * * * * * *
+2019-07-02 19:39:12,316 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():128) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2019-07-02 19:39:12,316 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():129) - writeData(playsql\data\ut\xls\bath.xlsx)
+2019-07-02 19:39:12,316 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():130) - = = = = = = =/
+2019-07-02 19:39:12,332 [main] ERROR (DfDBFluteTaskUtil#logException():150) - Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to execute DBFlute Task 'ReplaceSchema'.
+
+[Advice]
+Check the exception messages and the stack traces.
+
+[Database Product]
+MySQL 5.6.44-log
+
+[JDBC Driver]
+MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+* * * * * * * * * */
+java.lang.IllegalStateException: Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Not found poi-ooxml.
+
+[Advice]
+You should put the poi-ooxml jar file to the 'extlib' directory
+on DBFlute client when you use xlsx handling.
+For example:
+  {DBFluteClient}
+    |-dfprop
+    |-extlib
+    |  |-poi-ooxml-3.12.jar
+    |  |-poi-ooxml-schemas-3.12.jar
+    |  |-stax-api-1.0.1.jar
+    |  |-xmlbeans-2.6.0.jar
+    |-...
+
+[Resource File]
+bath.xlsx
+* * * * * * * * * */
+	at org.dbflute.helper.io.xls.DfXlsFactory.throwXSSFTypeNotFoundException(DfXlsFactory.java:149)
+	at org.dbflute.helper.io.xls.DfXlsFactory.createXSSFWorkbook(DfXlsFactory.java:92)
+	at org.dbflute.helper.io.xls.DfXlsFactory.createWorkbook(DfXlsFactory.java:82)
+	at org.dbflute.helper.io.xls.DfTableXlsReader.<init>(DfTableXlsReader.java:125)
+	at org.dbflute.logic.replaceschema.loaddata.impl.DfXlsDataHandlerImpl.createTableXlsReader(DfXlsDataHandlerImpl.java:556)
+	at org.dbflute.logic.replaceschema.loaddata.impl.DfXlsDataHandlerImpl.writeSeveralData(DfXlsDataHandlerImpl.java:131)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromXls(DfLoadDataProcess.java:322)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromXls(DfLoadDataProcess.java:310)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromXlsAsLoadingTypeData(DfLoadDataProcess.java:294)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.execute(DfLoadDataProcess.java:160)
+	at org.dbflute.task.DfReplaceSchemaTask.loadData(DfReplaceSchemaTask.java:339)
+	at org.dbflute.task.DfReplaceSchemaTask.executeCoreProcess(DfReplaceSchemaTask.java:251)
+	at org.dbflute.task.DfReplaceSchemaTask.processReplaceSchema(DfReplaceSchemaTask.java:232)
+	at org.dbflute.task.DfReplaceSchemaTask.doExecute(DfReplaceSchemaTask.java:158)
+	at org.dbflute.task.bs.DfAbstractTexenTask$1.callActualExecute(DfAbstractTexenTask.java:129)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.doExecute(DfTaskBasicController.java:192)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.execute(DfTaskBasicController.java:78)
+	at org.dbflute.task.bs.DfAbstractTexenTask.execute(DfAbstractTexenTask.java:151)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1298)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.Main.runBuild(Main.java:698)
+	at org.apache.tools.ant.Main.startAnt(Main.java:199)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:257)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:104)
+2019-07-02 19:39:12,384 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-07-02 19:39:12,392 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m11s440ms *Abort
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=5 failure=0 (in 1 files)
+  o replace-schema.sql
+
+ {Load Data}: loaded-files=0
+  x (failed: Look at the exception message)
+    * * * * * *
+    * Failure *
+    * * * * * *
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2019-07-02 19:42:25,693 [main] INFO  (DfReplaceSchemaTask#begin():92) - +------------------------------------------+
+2019-07-02 19:42:25,697 [main] INFO  (DfReplaceSchemaTask#begin():93) - |                                          |
+2019-07-02 19:42:25,697 [main] INFO  (DfReplaceSchemaTask#begin():94) - |              ReplaceSchema               |
+2019-07-02 19:42:25,712 [main] INFO  (DfReplaceSchemaTask#begin():102) - |                                          |
+2019-07-02 19:42:25,712 [main] INFO  (DfReplaceSchemaTask#begin():103) - +------------------------------------------+
+2019-07-02 19:42:25,720 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():401) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2019-07-02 19:42:27,518 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-07-02 19:42:27,518 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-07-02 19:42:27,522 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-07-02 19:42:27,522 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-07-02 19:42:27,535 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-07-02 19:42:27,978 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-07-02 19:42:27,978 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-07-02 19:42:28,011 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2019-07-02 19:42:28,011 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2019-07-02 19:42:28,015 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2019-07-02 19:42:28,015 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2019-07-02 19:42:28,015 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2019-07-02 19:42:28,015 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2019-07-02 19:42:28,059 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-07-02 19:42:28,059 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-07-02 19:42:28,059 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-07-02 19:42:28,122 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table area
+2019-07-02 19:42:28,153 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath
+2019-07-02 19:42:28,202 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath_tag
+2019-07-02 19:42:28,230 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table station
+2019-07-02 19:42:28,271 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table tag
+2019-07-02 19:42:28,296 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table area
+2019-07-02 19:42:28,322 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath
+2019-07-02 19:42:28,346 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath_tag
+2019-07-02 19:42:28,391 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table station
+2019-07-02 19:42:28,411 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table tag
+2019-07-02 19:42:28,505 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2019-07-02 19:42:28,505 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2019-07-02 19:42:28,505 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2019-07-02 19:42:28,505 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2019-07-02 19:42:28,509 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2019-07-02 19:42:28,509 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2019-07-02 19:42:28,513 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2019-07-02 19:42:28,517 [main] INFO  (DfSqlFileRunnerBase#removeUTF8BomIfNeeds():529) - ...Removing UTF-8 bom: ﻿CREA...
+2019-07-02 19:42:28,521 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath_tag` (
+  `bath_id` int(10) NOT NULL COMMENT '銭湯ID',
+  `tag_id` int(10) NOT NULL COMMENT 'タグID',
+  KEY `bath_tag_idx` (`bath_id`,`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='銭湯タグ'
+2019-07-02 19:42:28,569 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `tag` (
+  `tag_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'タグID',
+  `tag_name_ja` varchar(255) NOT NULL COMMENT 'タグ 和名',
+  `tag_name_en` varchar(255) NOT NULL COMMENT 'タグ 英名',
+  `tag_image` varchar(2100) COMMENT 'タグ画像',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `tag_idx` (`tag_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='タグ'
+2019-07-02 19:42:28,619 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath` (
+  `bath_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '銭湯ID',
+  `bath_name_ja` varchar(255) NOT NULL COMMENT '銭湯 和名',
+  `bath_name_en` varchar(255) NOT NULL COMMENT '銭湯 英名',
+  `bath_area_code` int(10) NOT NULL COMMENT '都道府県コード(国土交通省API使用コード)',
+  `bath_city_code` int(10) NOT NULL COMMENT '市区町村コード(国土交通省API使用コード)',
+  `bath_image` varchar(2100) COMMENT 'サムネイル画像',
+  `bath_address_ja` varchar(255) COMMENT '住所 和名',
+  `bath_address_en` varchar(255) COMMENT '住所 英名',
+  `bath_tel` varchar(15) COMMENT '電話番号',
+  `bath_fee` int COMMENT '一般入浴料',
+  `bath_type` int(2) NOT NULL COMMENT '銭湯種別(10:銭湯 20:スーパー銭湯)',
+  `bath_24h_flg` int(1) NOT NULL COMMENT '24時間フラグ(1:24時間営業)',
+  `bath_time_st` TIME COMMENT '営業時間 開始',
+  `bath_time_ed` TIME COMMENT '営業時間 終了',
+  `bath_place_lat` DOUBLE(9,6) COMMENT '位置情報 緯度',
+  `bath_place_lon` DOUBLE(9,6) COMMENT '位置情報 経度',
+  `bath_temperature_up` DOUBLE(3,3) COMMENT '温度 上限',
+  `bath_temperature_low` DOUBLE(3,3) COMMENT '温度 下限',
+  `bath_holiday` int(3) COMMENT '定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)',
+  `del_flg` int(1) NOT NULL COMMENT '削除フラグ(1:削除済み)',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `bath_idx` (`bath_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='銭湯'
+2019-07-02 19:42:28,667 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `area` (
+  `city_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '市区町村コード',
+  `city_name_ja` varchar(255) NOT NULL COMMENT '市区町村名 和名',
+  `city_name_en` varchar(255) NOT NULL COMMENT '市区町村名 英名',
+  `city_image` varchar(2100) COMMENT 'アイコン画像',
+  `city_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `area_idx` (`city_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='エリア'
+2019-07-02 19:42:28,727 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `station` (
+  `station_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '駅コード',
+  `station_area_code` varchar(255) NOT NULL COMMENT '都道府県コード',
+  `station_line_code` varchar(255) NOT NULL COMMENT '沿線コード',
+  `station_line_name_ja` varchar(255) COMMENT '沿線名 和名',
+  `station_line_name_en` varchar(255) COMMENT '沿線名 英名',
+  `station_g_cd` varchar(255) COMMENT '駅グループコード',
+  `station_name_ja` varchar(255) COMMENT '駅名 和名',
+  `station_name_en` varchar(255) COMMENT '駅名 英名',
+  `station_lon` DOUBLE(9,6) COMMENT '経度',
+  `station_lat` DOUBLE(9,6) COMMENT '緯度',
+  `station_image` varchar(2100) COMMENT 'アイコン画像',
+  `station_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `station_idx` (`station_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='駅'
+2019-07-02 19:42:28,784 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=5 failure=0
+2019-07-02 19:42:28,784 [main] INFO  (DfSqlFileFireMan#fire():93) - {Create Schema}: success=5 failure=0 (in 1 files)
+2019-07-02 19:42:28,882 [main] INFO  (DfLoadDataProcess#execute():130) - 
+2019-07-02 19:42:28,882 [main] INFO  (DfLoadDataProcess#execute():131) - * * * * * * * * * * *
+2019-07-02 19:42:28,886 [main] INFO  (DfLoadDataProcess#execute():132) - *                   *
+2019-07-02 19:42:28,886 [main] INFO  (DfLoadDataProcess#execute():133) - * Load Data         *
+2019-07-02 19:42:28,886 [main] INFO  (DfLoadDataProcess#execute():134) - *                   *
+2019-07-02 19:42:28,886 [main] INFO  (DfLoadDataProcess#execute():135) - * * * * * * * * * * *
+2019-07-02 19:42:28,929 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():128) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2019-07-02 19:42:28,929 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():129) - writeData(playsql\data\ut\xls\bath.xls)
+2019-07-02 19:42:28,929 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():130) - = = = = = = =/
+2019-07-02 19:42:29,980 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-07-02 19:42:29,980 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-07-02 19:42:29,984 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-07-02 19:42:29,999 [main] ERROR (DfDBFluteTaskUtil#logException():150) - Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to execute DBFlute Task 'ReplaceSchema'.
+
+[Advice]
+Check the exception messages and the stack traces.
+
+[Database Product]
+MySQL 5.6.44-log
+
+[JDBC Driver]
+MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+* * * * * * * * * */
+org.dbflute.exception.DfXlsDataTableNotFoundException: Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+The table specified on the xls file was not found in the schema.
+
+[Advice]
+Please confirm the name about its spelling.
+And confirm that whether the DLL executions have errors.
+
+[Xls File]
+playsql\data\ut\xls\bath.xls
+
+[Table]
+Sheet1
+* * * * * * * * * */
+	at org.dbflute.logic.replaceschema.loaddata.impl.DfXlsDataHandlerImpl.throwTableNotFoundException(DfXlsDataHandlerImpl.java:285)
+	at org.dbflute.logic.replaceschema.loaddata.impl.DfXlsDataHandlerImpl.doWriteDataTable(DfXlsDataHandlerImpl.java:171)
+	at org.dbflute.logic.replaceschema.loaddata.impl.DfXlsDataHandlerImpl.doWriteDataSet(DfXlsDataHandlerImpl.java:154)
+	at org.dbflute.logic.replaceschema.loaddata.impl.DfXlsDataHandlerImpl.writeSeveralData(DfXlsDataHandlerImpl.java:135)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromXls(DfLoadDataProcess.java:322)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromXls(DfLoadDataProcess.java:310)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromXlsAsLoadingTypeData(DfLoadDataProcess.java:294)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.execute(DfLoadDataProcess.java:160)
+	at org.dbflute.task.DfReplaceSchemaTask.loadData(DfReplaceSchemaTask.java:339)
+	at org.dbflute.task.DfReplaceSchemaTask.executeCoreProcess(DfReplaceSchemaTask.java:251)
+	at org.dbflute.task.DfReplaceSchemaTask.processReplaceSchema(DfReplaceSchemaTask.java:232)
+	at org.dbflute.task.DfReplaceSchemaTask.doExecute(DfReplaceSchemaTask.java:158)
+	at org.dbflute.task.bs.DfAbstractTexenTask$1.callActualExecute(DfAbstractTexenTask.java:129)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.doExecute(DfTaskBasicController.java:192)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.execute(DfTaskBasicController.java:78)
+	at org.dbflute.task.bs.DfAbstractTexenTask.execute(DfAbstractTexenTask.java:151)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1298)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.Main.runBuild(Main.java:698)
+	at org.apache.tools.ant.Main.startAnt(Main.java:199)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:257)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:104)
+2019-07-02 19:42:30,051 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-07-02 19:42:30,067 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m04s422ms *Abort
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=5 failure=0 (in 1 files)
+  o replace-schema.sql
+
+ {Load Data}: loaded-files=0
+  x (failed: Look at the exception message)
+    * * * * * *
+    * Failure *
+    * * * * * *
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2019-07-02 19:43:18,176 [main] INFO  (DfReplaceSchemaTask#begin():92) - +------------------------------------------+
+2019-07-02 19:43:18,180 [main] INFO  (DfReplaceSchemaTask#begin():93) - |                                          |
+2019-07-02 19:43:18,180 [main] INFO  (DfReplaceSchemaTask#begin():94) - |              ReplaceSchema               |
+2019-07-02 19:43:18,188 [main] INFO  (DfReplaceSchemaTask#begin():102) - |                                          |
+2019-07-02 19:43:18,188 [main] INFO  (DfReplaceSchemaTask#begin():103) - +------------------------------------------+
+2019-07-02 19:43:18,188 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():401) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2019-07-02 19:43:19,919 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-07-02 19:43:19,919 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-07-02 19:43:19,919 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-07-02 19:43:19,919 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-07-02 19:43:19,935 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-07-02 19:43:20,235 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-07-02 19:43:20,235 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-07-02 19:43:20,259 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2019-07-02 19:43:20,263 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2019-07-02 19:43:20,263 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2019-07-02 19:43:20,263 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2019-07-02 19:43:20,263 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2019-07-02 19:43:20,263 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2019-07-02 19:43:20,287 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-07-02 19:43:20,287 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-07-02 19:43:20,287 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-07-02 19:43:20,344 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table area
+2019-07-02 19:43:20,384 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath
+2019-07-02 19:43:20,422 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath_tag
+2019-07-02 19:43:20,467 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table station
+2019-07-02 19:43:20,491 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table tag
+2019-07-02 19:43:20,507 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table area
+2019-07-02 19:43:20,540 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath
+2019-07-02 19:43:20,568 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath_tag
+2019-07-02 19:43:20,596 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table station
+2019-07-02 19:43:20,628 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table tag
+2019-07-02 19:43:20,704 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2019-07-02 19:43:20,704 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2019-07-02 19:43:20,704 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2019-07-02 19:43:20,704 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2019-07-02 19:43:20,704 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2019-07-02 19:43:20,704 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2019-07-02 19:43:20,712 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2019-07-02 19:43:20,716 [main] INFO  (DfSqlFileRunnerBase#removeUTF8BomIfNeeds():529) - ...Removing UTF-8 bom: ﻿CREA...
+2019-07-02 19:43:20,716 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath_tag` (
+  `bath_id` int(10) NOT NULL COMMENT '銭湯ID',
+  `tag_id` int(10) NOT NULL COMMENT 'タグID',
+  KEY `bath_tag_idx` (`bath_id`,`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='銭湯タグ'
+2019-07-02 19:43:20,761 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `tag` (
+  `tag_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'タグID',
+  `tag_name_ja` varchar(255) NOT NULL COMMENT 'タグ 和名',
+  `tag_name_en` varchar(255) NOT NULL COMMENT 'タグ 英名',
+  `tag_image` varchar(2100) COMMENT 'タグ画像',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `tag_idx` (`tag_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='タグ'
+2019-07-02 19:43:20,810 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath` (
+  `bath_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '銭湯ID',
+  `bath_name_ja` varchar(255) NOT NULL COMMENT '銭湯 和名',
+  `bath_name_en` varchar(255) NOT NULL COMMENT '銭湯 英名',
+  `bath_area_code` int(10) NOT NULL COMMENT '都道府県コード(国土交通省API使用コード)',
+  `bath_city_code` int(10) NOT NULL COMMENT '市区町村コード(国土交通省API使用コード)',
+  `bath_image` varchar(2100) COMMENT 'サムネイル画像',
+  `bath_address_ja` varchar(255) COMMENT '住所 和名',
+  `bath_address_en` varchar(255) COMMENT '住所 英名',
+  `bath_tel` varchar(15) COMMENT '電話番号',
+  `bath_fee` int COMMENT '一般入浴料',
+  `bath_type` int(2) NOT NULL COMMENT '銭湯種別(10:銭湯 20:スーパー銭湯)',
+  `bath_24h_flg` int(1) NOT NULL COMMENT '24時間フラグ(1:24時間営業)',
+  `bath_time_st` TIME COMMENT '営業時間 開始',
+  `bath_time_ed` TIME COMMENT '営業時間 終了',
+  `bath_place_lat` DOUBLE(9,6) COMMENT '位置情報 緯度',
+  `bath_place_lon` DOUBLE(9,6) COMMENT '位置情報 経度',
+  `bath_temperature_up` DOUBLE(3,3) COMMENT '温度 上限',
+  `bath_temperature_low` DOUBLE(3,3) COMMENT '温度 下限',
+  `bath_holiday` int(3) COMMENT '定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)',
+  `del_flg` int(1) NOT NULL COMMENT '削除フラグ(1:削除済み)',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `bath_idx` (`bath_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='銭湯'
+2019-07-02 19:43:20,872 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `area` (
+  `city_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '市区町村コード',
+  `city_name_ja` varchar(255) NOT NULL COMMENT '市区町村名 和名',
+  `city_name_en` varchar(255) NOT NULL COMMENT '市区町村名 英名',
+  `city_image` varchar(2100) COMMENT 'アイコン画像',
+  `city_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `area_idx` (`city_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='エリア'
+2019-07-02 19:43:20,933 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `station` (
+  `station_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '駅コード',
+  `station_area_code` varchar(255) NOT NULL COMMENT '都道府県コード',
+  `station_line_code` varchar(255) NOT NULL COMMENT '沿線コード',
+  `station_line_name_ja` varchar(255) COMMENT '沿線名 和名',
+  `station_line_name_en` varchar(255) COMMENT '沿線名 英名',
+  `station_g_cd` varchar(255) COMMENT '駅グループコード',
+  `station_name_ja` varchar(255) COMMENT '駅名 和名',
+  `station_name_en` varchar(255) COMMENT '駅名 英名',
+  `station_lon` DOUBLE(9,6) COMMENT '経度',
+  `station_lat` DOUBLE(9,6) COMMENT '緯度',
+  `station_image` varchar(2100) COMMENT 'アイコン画像',
+  `station_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `station_idx` (`station_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='駅'
+2019-07-02 19:43:20,982 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=5 failure=0
+2019-07-02 19:43:20,982 [main] INFO  (DfSqlFileFireMan#fire():93) - {Create Schema}: success=5 failure=0 (in 1 files)
+2019-07-02 19:43:21,068 [main] INFO  (DfLoadDataProcess#execute():130) - 
+2019-07-02 19:43:21,068 [main] INFO  (DfLoadDataProcess#execute():131) - * * * * * * * * * * *
+2019-07-02 19:43:21,068 [main] INFO  (DfLoadDataProcess#execute():132) - *                   *
+2019-07-02 19:43:21,072 [main] INFO  (DfLoadDataProcess#execute():133) - * Load Data         *
+2019-07-02 19:43:21,072 [main] INFO  (DfLoadDataProcess#execute():134) - *                   *
+2019-07-02 19:43:21,072 [main] INFO  (DfLoadDataProcess#execute():135) - * * * * * * * * * * *
+2019-07-02 19:43:21,126 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():128) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2019-07-02 19:43:21,126 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():129) - writeData(playsql\data\ut\xls\bath.xls)
+2019-07-02 19:43:21,126 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():130) - = = = = = = =/
+2019-07-02 19:43:21,956 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-07-02 19:43:21,956 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-07-02 19:43:21,960 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-07-02 19:43:22,008 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1083) - bath:{1, テスト, テスト, 1, 1, テスト, テスト, テスト, 1, 1, 1, 1, null, null, null, null, null, null, null, 0, null, null}
+2019-07-02 19:43:22,122 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1099) -  -> 1 rows are loaded to bath
+2019-07-02 19:43:22,126 [main] INFO  (DfLoadDataProcess#lazyCheckLoadedClassifiaction():381) - ...Checking implicit set of classification
+2019-07-02 19:43:22,154 [main] INFO  (DfTakeFinallyProcess#takeFinally():237) - 
+2019-07-02 19:43:22,154 [main] INFO  (DfTakeFinallyProcess#takeFinally():238) - * * * * * * * **
+2019-07-02 19:43:22,158 [main] INFO  (DfTakeFinallyProcess#takeFinally():239) - *              *
+2019-07-02 19:43:22,158 [main] INFO  (DfTakeFinallyProcess#takeFinally():240) - * Take Finally *
+2019-07-02 19:43:22,158 [main] INFO  (DfTakeFinallyProcess#takeFinally():241) - *              *
+2019-07-02 19:43:22,158 [main] INFO  (DfTakeFinallyProcess#takeFinally():242) - * * * * * * * **
+2019-07-02 19:43:22,172 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: take-finally.sql
+2019-07-02 19:43:22,176 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=0 failure=0
+2019-07-02 19:43:22,176 [main] INFO  (DfSqlFileFireMan#fire():93) - {Take Finally}: success=0 failure=0 (in 1 files)
+2019-07-02 19:43:22,180 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-07-02 19:43:22,188 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m04s033ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=5 failure=0 (in 1 files)
+  o replace-schema.sql
+
+ {Load Data}: loaded-files=1
+  (ut)
+  o bath.xls
+
+ {Take Finally}: success=0 failure=0 (in 1 files)
+  o take-finally.sql
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2019-07-02 19:47:20,451 [main] INFO  (DfReplaceSchemaTask#begin():92) - +------------------------------------------+
+2019-07-02 19:47:20,463 [main] INFO  (DfReplaceSchemaTask#begin():93) - |                                          |
+2019-07-02 19:47:20,463 [main] INFO  (DfReplaceSchemaTask#begin():94) - |              ReplaceSchema               |
+2019-07-02 19:47:20,472 [main] INFO  (DfReplaceSchemaTask#begin():102) - |                                          |
+2019-07-02 19:47:20,472 [main] INFO  (DfReplaceSchemaTask#begin():103) - +------------------------------------------+
+2019-07-02 19:47:20,475 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():401) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2019-07-02 19:47:22,389 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-07-02 19:47:22,389 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-07-02 19:47:22,389 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://13.114.89.192:3306/ohyuforyou_db?characterEncoding=utf8
+2019-07-02 19:47:22,393 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-07-02 19:47:22,409 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-07-02 19:47:24,459 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.7.18
+2019-07-02 19:47:24,459 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-07-02 19:47:24,487 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2019-07-02 19:47:24,487 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2019-07-02 19:47:24,491 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2019-07-02 19:47:24,491 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2019-07-02 19:47:24,491 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2019-07-02 19:47:24,491 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2019-07-02 19:47:24,519 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-07-02 19:47:24,519 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-07-02 19:47:24,523 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-07-02 19:47:24,663 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table area
+2019-07-02 19:47:24,706 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath
+2019-07-02 19:47:24,755 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table bath_tag
+2019-07-02 19:47:24,790 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table station
+2019-07-02 19:47:24,830 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - truncate table tag
+2019-07-02 19:47:24,894 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table area
+2019-07-02 19:47:24,940 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath
+2019-07-02 19:47:24,976 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table bath_tag
+2019-07-02 19:47:25,012 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table station
+2019-07-02 19:47:25,047 [main] INFO  (DfSchemaInitializerJdbc#logReplaceSql():614) - drop table tag
+2019-07-02 19:47:25,158 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2019-07-02 19:47:25,158 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2019-07-02 19:47:25,158 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2019-07-02 19:47:25,158 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2019-07-02 19:47:25,161 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2019-07-02 19:47:25,161 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2019-07-02 19:47:25,173 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2019-07-02 19:47:25,179 [main] INFO  (DfSqlFileRunnerBase#removeUTF8BomIfNeeds():529) - ...Removing UTF-8 bom: ﻿CREA...
+2019-07-02 19:47:25,191 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath_tag` (
+  `bath_id` int(10) NOT NULL COMMENT '銭湯ID',
+  `tag_id` int(10) NOT NULL COMMENT 'タグID',
+  KEY `bath_tag_idx` (`bath_id`,`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='銭湯タグ'
+2019-07-02 19:47:25,267 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `tag` (
+  `tag_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'タグID',
+  `tag_name_ja` varchar(255) NOT NULL COMMENT 'タグ 和名',
+  `tag_name_en` varchar(255) NOT NULL COMMENT 'タグ 英名',
+  `tag_image` varchar(2100) COMMENT 'タグ画像',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `tag_idx` (`tag_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='タグ'
+2019-07-02 19:47:25,319 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `bath` (
+  `bath_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '銭湯ID',
+  `bath_name_ja` varchar(255) NOT NULL COMMENT '銭湯 和名',
+  `bath_name_en` varchar(255) NOT NULL COMMENT '銭湯 英名',
+  `bath_area_code` int(10) NOT NULL COMMENT '都道府県コード(国土交通省API使用コード)',
+  `bath_city_code` int(10) NOT NULL COMMENT '市区町村コード(国土交通省API使用コード)',
+  `bath_image` varchar(2100) COMMENT 'サムネイル画像',
+  `bath_address_ja` varchar(255) COMMENT '住所 和名',
+  `bath_address_en` varchar(255) COMMENT '住所 英名',
+  `bath_tel` varchar(15) COMMENT '電話番号',
+  `bath_fee` int COMMENT '一般入浴料',
+  `bath_type` int(2) NOT NULL COMMENT '銭湯種別(10:銭湯 20:スーパー銭湯)',
+  `bath_24h_flg` int(1) NOT NULL COMMENT '24時間フラグ(1:24時間営業)',
+  `bath_time_st` TIME COMMENT '営業時間 開始',
+  `bath_time_ed` TIME COMMENT '営業時間 終了',
+  `bath_place_lat` DOUBLE(9,6) COMMENT '位置情報 緯度',
+  `bath_place_lon` DOUBLE(9,6) COMMENT '位置情報 経度',
+  `bath_temperature_up` DOUBLE(3,3) COMMENT '温度 上限',
+  `bath_temperature_low` DOUBLE(3,3) COMMENT '温度 下限',
+  `bath_holiday` int(3) COMMENT '定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)',
+  `del_flg` int(1) NOT NULL COMMENT '削除フラグ(1:削除済み)',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `bath_idx` (`bath_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='銭湯'
+2019-07-02 19:47:25,391 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `area` (
+  `city_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '市区町村コード',
+  `city_name_ja` varchar(255) NOT NULL COMMENT '市区町村名 和名',
+  `city_name_en` varchar(255) NOT NULL COMMENT '市区町村名 英名',
+  `city_image` varchar(2100) COMMENT 'アイコン画像',
+  `city_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `area_idx` (`city_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='エリア'
+2019-07-02 19:47:25,459 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE `station` (
+  `station_code` int(10) NOT NULL AUTO_INCREMENT COMMENT '駅コード',
+  `station_area_code` varchar(255) NOT NULL COMMENT '都道府県コード',
+  `station_line_code` varchar(255) NOT NULL COMMENT '沿線コード',
+  `station_line_name_ja` varchar(255) COMMENT '沿線名 和名',
+  `station_line_name_en` varchar(255) COMMENT '沿線名 英名',
+  `station_g_cd` varchar(255) COMMENT '駅グループコード',
+  `station_name_ja` varchar(255) COMMENT '駅名 和名',
+  `station_name_en` varchar(255) COMMENT '駅名 英名',
+  `station_lon` DOUBLE(9,6) COMMENT '経度',
+  `station_lat` DOUBLE(9,6) COMMENT '緯度',
+  `station_image` varchar(2100) COMMENT 'アイコン画像',
+  `station_color` varchar(255) COMMENT 'カラーコード',
+  `create_date` datetime COMMENT '作成日時',
+  `update_date` datetime COMMENT '更新日時',
+  KEY `station_idx` (`station_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='駅'
+2019-07-02 19:47:25,523 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=5 failure=0
+2019-07-02 19:47:25,523 [main] INFO  (DfSqlFileFireMan#fire():93) - {Create Schema}: success=5 failure=0 (in 1 files)
+2019-07-02 19:47:25,571 [main] INFO  (DfLoadDataProcess#execute():130) - 
+2019-07-02 19:47:25,575 [main] INFO  (DfLoadDataProcess#execute():131) - * * * * * * * * * * *
+2019-07-02 19:47:25,575 [main] INFO  (DfLoadDataProcess#execute():132) - *                   *
+2019-07-02 19:47:25,575 [main] INFO  (DfLoadDataProcess#execute():133) - * Load Data         *
+2019-07-02 19:47:25,575 [main] INFO  (DfLoadDataProcess#execute():134) - *                   *
+2019-07-02 19:47:25,575 [main] INFO  (DfLoadDataProcess#execute():135) - * * * * * * * * * * *
+2019-07-02 19:47:25,677 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():128) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2019-07-02 19:47:25,677 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():129) - writeData(playsql\data\ut\xls\bath.xls)
+2019-07-02 19:47:25,677 [main] INFO  (DfXlsDataHandlerImpl#writeSeveralData():130) - = = = = = = =/
+2019-07-02 19:47:26,590 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-07-02 19:47:26,590 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-07-02 19:47:26,590 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-07-02 19:47:26,681 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1083) - bath:{1, テスト, テスト, 1, 1, テスト, テスト, テスト, 1, 1, 1, 1, null, null, null, null, null, null, null, 0, null, null}
+2019-07-02 19:47:26,798 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1083) - bath:{2, テスト, テスト, 1, 1, テスト, テスト, テスト, 1, 1, 1, 1, null, null, null, null, null, null, null, 0, null, null}
+2019-07-02 19:47:26,798 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1083) - bath:{3, テスト, テスト, 1, 1, テスト, テスト, テスト, 1, 1, 1, 1, null, null, null, null, null, null, null, 0, null, null}
+2019-07-02 19:47:26,798 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1083) - bath:{4, テスト, テスト, 1, 1, テスト, テスト, テスト, 1, 1, 1, 1, null, null, null, null, null, null, null, 0, null, null}
+2019-07-02 19:47:26,802 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1083) - bath:{5, テスト, テスト, 1, 1, テスト, テスト, テスト, 1, 1, 1, 1, null, null, null, null, null, null, null, 0, null, null}
+2019-07-02 19:47:26,802 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1083) - bath:{6, テスト, テスト, 1, 1, テスト, テスト, テスト, 1, 1, 1, 1, null, null, null, null, null, null, null, 0, null, null}
+2019-07-02 19:47:26,915 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1099) -  -> 6 rows are loaded to bath
+2019-07-02 19:47:26,928 [main] INFO  (DfLoadDataProcess#lazyCheckLoadedClassifiaction():381) - ...Checking implicit set of classification
+2019-07-02 19:47:26,948 [main] INFO  (DfTakeFinallyProcess#takeFinally():237) - 
+2019-07-02 19:47:26,948 [main] INFO  (DfTakeFinallyProcess#takeFinally():238) - * * * * * * * **
+2019-07-02 19:47:26,952 [main] INFO  (DfTakeFinallyProcess#takeFinally():239) - *              *
+2019-07-02 19:47:26,952 [main] INFO  (DfTakeFinallyProcess#takeFinally():240) - * Take Finally *
+2019-07-02 19:47:26,952 [main] INFO  (DfTakeFinallyProcess#takeFinally():241) - *              *
+2019-07-02 19:47:26,952 [main] INFO  (DfTakeFinallyProcess#takeFinally():242) - * * * * * * * **
+2019-07-02 19:47:26,970 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: take-finally.sql
+2019-07-02 19:47:26,982 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=0 failure=0
+2019-07-02 19:47:26,982 [main] INFO  (DfSqlFileFireMan#fire():93) - {Take Finally}: success=0 failure=0 (in 1 files)
+2019-07-02 19:47:26,989 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-07-02 19:47:27,017 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m06s578ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.7.18)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://13.114.89.192:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=5 failure=0 (in 1 files)
+  o replace-schema.sql
+
+ {Load Data}: loaded-files=1
+  (ut)
+  o bath.xls
+
+ {Take Finally}: success=0 failure=0 (in 1 files)
+  o take-finally.sql
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
