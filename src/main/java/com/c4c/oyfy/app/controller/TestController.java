@@ -20,7 +20,7 @@ public class TestController {
 
 	@RequestMapping
 	public String test(Model model, TestForm form){
-
+// q
 	    List<TestForm> bath = TestHelper.toForm(testService.searchPathList(""));
 	    model.addAttribute("bath", bath);
 	    return "test";
