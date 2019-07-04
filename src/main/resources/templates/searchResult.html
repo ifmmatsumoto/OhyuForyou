@@ -8,10 +8,19 @@
 </head>
 <body>
 <h3>検索結果一覧</h3>
-<ul>
-	<li><a href="/bath">銭湯詳細画面へ</a></li>
-	<li><a href="javascript:history.back();">戻る</a></li>
+
+検索キーワード：
+<span th:text="${keyword}"></span>
+<span th:if="${#strings.isEmpty(keyword)}">キーワード未設定</span>
+
+<!-- ループして検索結果一覧をリンク表示 -->
+<p th:if="${#lists.isEmpty(bathList)}">検索条件に該当する銭湯が見つかりませんでした。</p>
+<ul th:each="bath:${bathList}" th:object="${bath}">
+	<!-- 銭湯詳細画面へのリンク -->
+	<li><a href="/bath" th:text="*{bathNameJa}"></a></li>
 </ul>
+
+<a href="javascript:history.back();">戻る</a>
 
 <!-- 共通フッター -->
 <div th:replace="footer"></div>

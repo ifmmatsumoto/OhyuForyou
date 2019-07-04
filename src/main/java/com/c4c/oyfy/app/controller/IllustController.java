@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app;
+package com.c4c.oyfy.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

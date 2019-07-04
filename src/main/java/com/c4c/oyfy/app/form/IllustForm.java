@@ -1,8 +1,10 @@
 package com.c4c.oyfy.app.form;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class IllustForm {
+@EqualsAndHashCode(callSuper=true)
+public class IllustForm extends _Common_Form {
 
 }

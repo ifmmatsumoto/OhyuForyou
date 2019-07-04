@@ -1,8 +1,10 @@
 package com.c4c.oyfy.app.form;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class PrefectureForm {
+@EqualsAndHashCode(callSuper=true)
+public class PrefectureForm extends _Common_Form {
 
 }
