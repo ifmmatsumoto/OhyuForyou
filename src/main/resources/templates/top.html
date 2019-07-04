@@ -13,8 +13,8 @@
 	<li><a href="/prefecture">都道府県検索</a></li>
 	<li><a href="/illust">イラスト検索</a></li>
 </ul>
-<form th:action="@{/keyword}" th:object="${testForm}" method="post" enctype="multipart/form-data">
-	<input type="text" name="keyword" placeholder="キーワード検索"/>
+<form th:action="@{/keyword}" th:object="${topForm}" method="post" enctype="multipart/form-data">
+	<input type="text" th:field="*{keyword}" placeholder="キーワード検索"/>
 	<input type="submit" value="検索" />
 </form>
 
