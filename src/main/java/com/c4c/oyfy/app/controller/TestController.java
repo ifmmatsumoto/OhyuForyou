@@ -22,7 +22,7 @@ public class TestController {
 	public String test(Model model, TestForm form){
 
 	    List<TestForm> bath = TestHelper.toForm(testService.searchPathList(""));
-	    model.addAttribute("bath", bath);
+//	    model.addAttribute("bath", bath);
 	    return "test";
 	}
 }

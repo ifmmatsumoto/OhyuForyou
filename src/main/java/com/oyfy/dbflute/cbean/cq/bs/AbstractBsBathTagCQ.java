@@ -45,7 +45,136 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagId The value of bathTagId as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setBathTagId_Equal(Integer bathTagId) {
+        doSetBathTagId_Equal(bathTagId);
+    }
+
+    protected void doSetBathTagId_Equal(Integer bathTagId) {
+        regBathTagId(CK_EQ, bathTagId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagId The value of bathTagId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setBathTagId_NotEqual(Integer bathTagId) {
+        doSetBathTagId_NotEqual(bathTagId);
+    }
+
+    protected void doSetBathTagId_NotEqual(Integer bathTagId) {
+        regBathTagId(CK_NES, bathTagId);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagId The value of bathTagId as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setBathTagId_GreaterThan(Integer bathTagId) {
+        regBathTagId(CK_GT, bathTagId);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagId The value of bathTagId as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setBathTagId_LessThan(Integer bathTagId) {
+        regBathTagId(CK_LT, bathTagId);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagId The value of bathTagId as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setBathTagId_GreaterEqual(Integer bathTagId) {
+        regBathTagId(CK_GE, bathTagId);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagId The value of bathTagId as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setBathTagId_LessEqual(Integer bathTagId) {
+        regBathTagId(CK_LE, bathTagId);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param minNumber The min number of bathTagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of bathTagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setBathTagId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setBathTagId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param minNumber The min number of bathTagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of bathTagId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    protected void setBathTagId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueBathTagId(), "bath_tag_id", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagIdList The collection of bathTagId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathTagId_InScope(Collection<Integer> bathTagIdList) {
+        doSetBathTagId_InScope(bathTagIdList);
+    }
+
+    protected void doSetBathTagId_InScope(Collection<Integer> bathTagIdList) {
+        regINS(CK_INS, cTL(bathTagIdList), xgetCValueBathTagId(), "bath_tag_id");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @param bathTagIdList The collection of bathTagId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathTagId_NotInScope(Collection<Integer> bathTagIdList) {
+        doSetBathTagId_NotInScope(bathTagIdList);
+    }
+
+    protected void doSetBathTagId_NotInScope(Collection<Integer> bathTagIdList) {
+        regINS(CK_NINS, cTL(bathTagIdList), xgetCValueBathTagId(), "bath_tag_id");
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     */
+    public void setBathTagId_IsNull() { regBathTagId(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     */
+    public void setBathTagId_IsNotNull() { regBathTagId(CK_ISNN, DOBJ); }
+
+    protected void regBathTagId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBathTagId(), "bath_tag_id"); }
+    protected abstract ConditionValue xgetCValueBathTagId();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathId The value of bathId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_Equal(Integer bathId) {
@@ -58,7 +187,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathId The value of bathId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_NotEqual(Integer bathId) {
@@ -71,7 +200,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathId The value of bathId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_GreaterThan(Integer bathId) {
@@ -80,7 +209,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathId The value of bathId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_LessThan(Integer bathId) {
@@ -89,7 +218,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathId The value of bathId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_GreaterEqual(Integer bathId) {
@@ -98,7 +227,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathId The value of bathId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_LessEqual(Integer bathId) {
@@ -109,7 +238,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param minNumber The min number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -122,7 +251,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param minNumber The min number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -133,7 +262,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathIdList The collection of bathId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBathId_InScope(Collection<Integer> bathIdList) {
@@ -146,7 +275,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @param bathIdList The collection of bathId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBathId_NotInScope(Collection<Integer> bathIdList) {
@@ -162,7 +291,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagId The value of tagId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_Equal(Integer tagId) {
@@ -175,7 +304,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagId The value of tagId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_NotEqual(Integer tagId) {
@@ -188,7 +317,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagId The value of tagId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_GreaterThan(Integer tagId) {
@@ -197,7 +326,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagId The value of tagId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_LessThan(Integer tagId) {
@@ -206,7 +335,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagId The value of tagId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_GreaterEqual(Integer tagId) {
@@ -215,7 +344,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagId The value of tagId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_LessEqual(Integer tagId) {
@@ -226,7 +355,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param minNumber The min number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -239,7 +368,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param minNumber The min number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -250,7 +379,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagIdList The collection of tagId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagId_InScope(Collection<Integer> tagIdList) {
@@ -263,7 +392,7 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @param tagIdList The collection of tagId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagId_NotInScope(Collection<Integer> tagIdList) {
@@ -389,6 +518,51 @@ public abstract class AbstractBsBathTagCQ extends AbstractConditionQuery {
     protected BathTagCB xcreateScalarConditionPartitionByCB() {
         BathTagCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
     }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public void xsmyselfDerive(String fn, SubQuery<BathTagCB> sq, String al, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        BathTagCB cb = new BathTagCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "bath_tag_id";
+        registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
+    }
+    public abstract String keepSpecifyMyselfDerived(BathTagCQ sq);
+
+    /**
+     * Prepare for (Query)MyselfDerived (correlated sub-query).
+     * @return The object to set up a function for myself table. (NotNull)
+     */
+    public HpQDRFunction<BathTagCB> myselfDerived() {
+        return xcreateQDRFunctionMyselfDerived(BathTagCB.class);
+    }
+    @SuppressWarnings("unchecked")
+    protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        BathTagCB cb = new BathTagCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
+        String pk = "bath_tag_id";
+        String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
+        String prpp = keepQueryMyselfDerivedParameter(vl);
+        registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);
+    }
+    public abstract String keepQueryMyselfDerived(BathTagCQ sq);
+    public abstract String keepQueryMyselfDerivedParameter(Object vl);
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    /**
+     * Prepare for MyselfExists (correlated sub-query).
+     * @param subCBLambda The implementation of sub-query. (NotNull)
+     */
+    public void myselfExists(SubQuery<BathTagCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        BathTagCB cb = new BathTagCB(); cb.xsetupForMyselfExists(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
+        registerMyselfExists(cb.query(), pp);
+    }
+    public abstract String keepMyselfExists(BathTagCQ sq);
 
     // ===================================================================================
     //                                                                        Manual Order

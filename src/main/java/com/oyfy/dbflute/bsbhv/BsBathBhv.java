@@ -6,11 +6,13 @@ import org.dbflute.*;
 import org.dbflute.bhv.*;
 import org.dbflute.bhv.core.BehaviorCommandInvoker;
 import org.dbflute.bhv.readable.*;
+import org.dbflute.bhv.writable.*;
 import org.dbflute.bhv.referrer.*;
 import org.dbflute.cbean.*;
 import org.dbflute.cbean.chelper.HpSLSFunction;
 import org.dbflute.cbean.result.*;
 import org.dbflute.exception.*;
+import org.dbflute.hook.CommonColumnAutoSetupper;
 import org.dbflute.optional.OptionalEntity;
 import org.dbflute.outsidesql.executor.*;
 import com.oyfy.dbflute.exbhv.*;
@@ -23,7 +25,7 @@ import com.oyfy.dbflute.cbean.*;
  * The behavior of bath as TABLE. <br>
  * <pre>
  * [primary key]
- *     
+ *     bath_id
  *
  * [column]
  *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
@@ -32,26 +34,26 @@ import com.oyfy.dbflute.cbean.*;
  *     
  *
  * [identity]
- *     
+ *     bath_id
  *
  * [version-no]
  *     
  *
  * [foreign table]
- *     
+ *     bath_tag
  *
  * [referrer table]
- *     
+ *     bath_tag
  *
  * [foreign property]
- *     
+ *     bathTag
  *
  * [referrer property]
- *     
+ *     bathTagList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsBathBhv extends AbstractBehaviorReadable<Bath, BathCB> {
+public abstract class BsBathBhv extends AbstractBehaviorWritable<Bath, BathCB> {
 
     // ===================================================================================
     //                                                                          Definition
@@ -153,6 +155,35 @@ public abstract class BsBathBhv extends AbstractBehaviorReadable<Bath, BathCB> {
      */
     public Bath selectEntityWithDeletedCheck(CBCall<BathCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
+    }
+
+    /**
+     * Select the entity by the primary-key value.
+     * @param bathId : PK, ID, NotNull, INT(10), FK to bath_tag. (NotNull)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     */
+    public OptionalEntity<Bath> selectByPK(Integer bathId) {
+        return facadeSelectByPK(bathId);
+    }
+
+    protected OptionalEntity<Bath> facadeSelectByPK(Integer bathId) {
+        return doSelectOptionalByPK(bathId, typeOfSelectedEntity());
+    }
+
+    protected <ENTITY extends Bath> ENTITY doSelectByPK(Integer bathId, Class<? extends ENTITY> tp) {
+        return doSelectEntity(xprepareCBAsPK(bathId), tp);
+    }
+
+    protected <ENTITY extends Bath> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer bathId, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectByPK(bathId, tp), bathId);
+    }
+
+    protected BathCB xprepareCBAsPK(Integer bathId) {
+        assertObjectNotNull("bathId", bathId);
+        return newConditionBean().acceptPK(bathId);
     }
 
     // ===================================================================================
@@ -330,12 +361,508 @@ public abstract class BsBathBhv extends AbstractBehaviorReadable<Bath, BathCB> {
         loaderLambda.handle(new LoaderOfBath().ready(xnewLRAryLs(bath), _behaviorSelector));
     }
 
+    /**
+     * Load referrer of bathTagList by the set-upper of referrer. <br>
+     * bath_tag by bath_id, named 'bathTagList'.
+     * <pre>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">loadBathTag</span>(<span style="color: #553000">bathList</span>, <span style="color: #553000">tagCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">tagCB</span>.setupSelect...
+     *     <span style="color: #553000">tagCB</span>.query().set...
+     *     <span style="color: #553000">tagCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (Bath bath : <span style="color: #553000">bathList</span>) {
+     *     ... = bath.<span style="color: #CC4747">getBathTagList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setBathId_InScope(pkList);
+     * cb.query().addOrderBy_BathId_Asc();
+     * </pre>
+     * @param bathList The entity list of bath. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<BathTag> loadBathTag(List<Bath> bathList, ReferrerConditionSetupper<BathTagCB> refCBLambda) {
+        xassLRArg(bathList, refCBLambda);
+        return doLoadBathTag(bathList, new LoadReferrerOption<BathTagCB, BathTag>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of bathTagList by the set-upper of referrer. <br>
+     * bath_tag by bath_id, named 'bathTagList'.
+     * <pre>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">loadBathTag</span>(<span style="color: #553000">bath</span>, <span style="color: #553000">tagCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">tagCB</span>.setupSelect...
+     *     <span style="color: #553000">tagCB</span>.query().set...
+     *     <span style="color: #553000">tagCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">bath</span>.<span style="color: #CC4747">getBathTagList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setBathId_InScope(pkList);
+     * cb.query().addOrderBy_BathId_Asc();
+     * </pre>
+     * @param bath The entity of bath. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<BathTag> loadBathTag(Bath bath, ReferrerConditionSetupper<BathTagCB> refCBLambda) {
+        xassLRArg(bath, refCBLambda);
+        return doLoadBathTag(xnewLRLs(bath), new LoadReferrerOption<BathTagCB, BathTag>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<BathTag> doLoadBathTag(List<Bath> bathList, LoadReferrerOption<BathTagCB, BathTag> option) {
+        return helpLoadReferrerInternally(bathList, option, "bathTagList");
+    }
+
     // ===================================================================================
     //                                                                   Pull out Relation
     //                                                                   =================
+    /**
+     * Pull out the list of foreign table 'BathTag'.
+     * @param bathList The list of bath. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<BathTag> pulloutBathTag(List<Bath> bathList)
+    { return helpPulloutInternally(bathList, "bathTag"); }
+
     // ===================================================================================
     //                                                                      Extract Column
     //                                                                      ==============
+    /**
+     * Extract the value list of (single) primary key bathId.
+     * @param bathList The list of bath. (NotNull, EmptyAllowed)
+     * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<Integer> extractBathIdList(List<Bath> bathList)
+    { return helpExtractListInternally(bathList, "bathId"); }
+
+    // ===================================================================================
+    //                                                                       Entity Update
+    //                                                                       =============
+    /**
+     * Insert the entity modified-only. (DefaultConstraintsEnabled)
+     * <pre>
+     * Bath bath = <span style="color: #70226C">new</span> Bath();
+     * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
+     * bath.setFoo...(value);
+     * bath.setBar...(value);
+     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     * <span style="color: #3F7E5E">//bath.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//bath.set...;</span>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">insert</span>(bath);
+     * ... = bath.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * </pre>
+     * <p>While, when the entity is created by select, all columns are registered.</p>
+     * @param bath The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void insert(Bath bath) {
+        doInsert(bath, null);
+    }
+
+    /**
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
+     * <pre>
+     * Bath bath = <span style="color: #70226C">new</span> Bath();
+     * bath.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * bath.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     * <span style="color: #3F7E5E">//bath.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//bath.set...;</span>
+     * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
+     * bath.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">update</span>(bath);
+     * </pre>
+     * @param bath The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void update(Bath bath) {
+        doUpdate(bath, null);
+    }
+
+    /**
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
+     * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
+     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
+     * @param bath The entity of insert or update. (NotNull, ...depends on insert or update)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void insertOrUpdate(Bath bath) {
+        doInsertOrUpdate(bath, null, null);
+    }
+
+    /**
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
+     * <pre>
+     * Bath bath = <span style="color: #70226C">new</span> Bath();
+     * bath.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
+     * bath.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #70226C">try</span> {
+     *     <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">delete</span>(bath);
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     *     ...
+     * }
+     * </pre>
+     * @param bath The entity of delete. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     */
+    public void delete(Bath bath) {
+        doDelete(bath, null);
+    }
+
+    // ===================================================================================
+    //                                                                        Batch Update
+    //                                                                        ============
+    /**
+     * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <pre>
+     * <span style="color: #70226C">for</span> (... : ...) {
+     *     Bath bath = <span style="color: #70226C">new</span> Bath();
+     *     bath.setFooName("foo");
+     *     <span style="color: #70226C">if</span> (...) {
+     *         bath.setFooPrice(123);
+     *     }
+     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
+     *     <span style="color: #3F7E5E">// FOO_PRICE not-called in any entities are registered as null without default value</span>
+     *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
+     *     bathList.add(bath);
+     * }
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">batchInsert</span>(bathList);
+     * </pre>
+     * <p>While, when the entities are created by select, all columns are registered.</p>
+     * <p>And if the table has an identity, entities after the process don't have incremented values.
+     * (When you use the (normal) insert(), you can get the incremented value from your entity)</p>
+     * @param bathList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
+     * @return The array of inserted count. (NotNull, EmptyAllowed)
+     */
+    public int[] batchInsert(List<Bath> bathList) {
+        return doBatchInsert(bathList, null);
+    }
+
+    /**
+     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <pre>
+     * for (... : ...) {
+     *     Bath bath = <span style="color: #70226C">new</span> Bath();
+     *     bath.setFooName("foo");
+     *     <span style="color: #70226C">if</span> (...) {
+     *         bath.setFooPrice(123);
+     *     } <span style="color: #70226C">else</span> {
+     *         bath.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
+     *         <span style="color: #3F7E5E">//bath.setFooDate(...); // *not allowed, fragmented</span>
+     *     }
+     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
+     *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
+     *     bathList.add(bath);
+     * }
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">batchUpdate</span>(bathList);
+     * </pre>
+     * @param bathList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @return The array of updated count. (NotNull, EmptyAllowed)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     */
+    public int[] batchUpdate(List<Bath> bathList) {
+        return doBatchUpdate(bathList, null);
+    }
+
+    /**
+     * Batch-delete the entity list. (NonExclusiveControl) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement.
+     * @param bathList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @return The array of deleted count. (NotNull, EmptyAllowed)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     */
+    public int[] batchDelete(List<Bath> bathList) {
+        return doBatchDelete(bathList, null);
+    }
+
+    // ===================================================================================
+    //                                                                        Query Update
+    //                                                                        ============
+    /**
+     * Insert the several entities by query (modified-only for fixed value).
+     * <pre>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;Bath, BathCB&gt;() {
+     *     public ConditionBean setup(Bath entity, BathCB intoCB) {
+     *         FooCB cb = FooCB();
+     *         cb.setupSelect_Bar();
+     *
+     *         <span style="color: #3F7E5E">// mapping</span>
+     *         intoCB.specify().columnMyName().mappedFrom(cb.specify().columnFooName());
+     *         intoCB.specify().columnMyCount().mappedFrom(cb.specify().columnFooCount());
+     *         intoCB.specify().columnMyDate().mappedFrom(cb.specify().specifyBar().columnBarDate());
+     *         entity.setMyFixedValue("foo"); <span style="color: #3F7E5E">// fixed value</span>
+     *         <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     *         <span style="color: #3F7E5E">//entity.setRegisterUser(value);</span>
+     *         <span style="color: #3F7E5E">//entity.set...;</span>
+     *         <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
+     *         <span style="color: #3F7E5E">//entity.setVersionNo(value);</span>
+     *
+     *         return cb;
+     *     }
+     * });
+     * </pre>
+     * @param manyArgLambda The callback to set up query-insert. (NotNull)
+     * @return The inserted count.
+     */
+    public int queryInsert(QueryInsertSetupper<Bath, BathCB> manyArgLambda) {
+        return doQueryInsert(manyArgLambda, null);
+    }
+
+    /**
+     * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
+     * <pre>
+     * Bath bath = <span style="color: #70226C">new</span> Bath();
+     * <span style="color: #3F7E5E">// you don't need to set PK value</span>
+     * <span style="color: #3F7E5E">//bath.setPK...(value);</span>
+     * bath.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     * <span style="color: #3F7E5E">//bath.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//bath.set...;</span>
+     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
+     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
+     * <span style="color: #3F7E5E">//bath.setVersionNo(value);</span>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">queryUpdate</span>(bath, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
+     * </pre>
+     * @param bath The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
+     * @param cbLambda The callback for condition-bean of Bath. (NotNull)
+     * @return The updated count.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
+     */
+    public int queryUpdate(Bath bath, CBCall<BathCB> cbLambda) {
+        return doQueryUpdate(bath, createCB(cbLambda), null);
+    }
+
+    /**
+     * Delete the several entities by query. (NonExclusiveControl)
+     * <pre>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">queryDelete</span>(bath, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
+     * </pre>
+     * @param cbLambda The callback for condition-bean of Bath. (NotNull)
+     * @return The deleted count.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
+     */
+    public int queryDelete(CBCall<BathCB> cbLambda) {
+        return doQueryDelete(createCB(cbLambda), null);
+    }
+
+    // ===================================================================================
+    //                                                                      Varying Update
+    //                                                                      ==============
+    // -----------------------------------------------------
+    //                                         Entity Update
+    //                                         -------------
+    /**
+     * Insert the entity with varying requests. <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
+     * Other specifications are same as insert(entity).
+     * <pre>
+     * Bath bath = <span style="color: #70226C">new</span> Bath();
+     * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
+     * bath.setFoo...(value);
+     * bath.setBar...(value);
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">varyingInsert</span>(bath, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
+     * ... = bath.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * </pre>
+     * @param bath The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param opLambda The callback for option of insert for varying requests. (NotNull)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void varyingInsert(Bath bath, WritableOptionCall<BathCB, InsertOption<BathCB>> opLambda) {
+        doInsert(bath, createInsertOption(opLambda));
+    }
+
+    /**
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
+     * Other specifications are same as update(entity).
+     * <pre>
+     * Bath bath = <span style="color: #70226C">new</span> Bath();
+     * bath.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * bath.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
+     * bath.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(bath, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
+     * });
+     * </pre>
+     * @param bath The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of update for varying requests. (NotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void varyingUpdate(Bath bath, WritableOptionCall<BathCB, UpdateOption<BathCB>> opLambda) {
+        doUpdate(bath, createUpdateOption(opLambda));
+    }
+
+    /**
+     * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
+     * Other specifications are same as insertOrUpdate(entity).
+     * @param bath The entity of insert or update. (NotNull)
+     * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
+     * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void varyingInsertOrUpdate(Bath bath, WritableOptionCall<BathCB, InsertOption<BathCB>> insertOpLambda, WritableOptionCall<BathCB, UpdateOption<BathCB>> updateOpLambda) {
+        doInsertOrUpdate(bath, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
+    }
+
+    /**
+     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
+     * Now a valid option does not exist. <br>
+     * Other specifications are same as delete(entity).
+     * @param bath The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param opLambda The callback for option of delete for varying requests. (NotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     */
+    public void varyingDelete(Bath bath, WritableOptionCall<BathCB, DeleteOption<BathCB>> opLambda) {
+        doDelete(bath, createDeleteOption(opLambda));
+    }
+
+    // -----------------------------------------------------
+    //                                          Batch Update
+    //                                          ------------
+    /**
+     * Batch-insert the list with varying requests. <br>
+     * For example, disableCommonColumnAutoSetup()
+     * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br>
+     * Other specifications are same as batchInsert(entityList).
+     * @param bathList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of insert for varying requests. (NotNull)
+     * @return The array of updated count. (NotNull, EmptyAllowed)
+     */
+    public int[] varyingBatchInsert(List<Bath> bathList, WritableOptionCall<BathCB, InsertOption<BathCB>> opLambda) {
+        return doBatchInsert(bathList, createInsertOption(opLambda));
+    }
+
+    /**
+     * Batch-update the list with varying requests. <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
+     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
+     * Other specifications are same as batchUpdate(entityList).
+     * @param bathList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of update for varying requests. (NotNull)
+     * @return The array of updated count. (NotNull, EmptyAllowed)
+     */
+    public int[] varyingBatchUpdate(List<Bath> bathList, WritableOptionCall<BathCB, UpdateOption<BathCB>> opLambda) {
+        return doBatchUpdate(bathList, createUpdateOption(opLambda));
+    }
+
+    /**
+     * Batch-delete the list with varying requests. <br>
+     * For example, limitBatchDeleteLogging(). <br>
+     * Other specifications are same as batchDelete(entityList).
+     * @param bathList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of delete for varying requests. (NotNull)
+     * @return The array of deleted count. (NotNull, EmptyAllowed)
+     */
+    public int[] varyingBatchDelete(List<Bath> bathList, WritableOptionCall<BathCB, DeleteOption<BathCB>> opLambda) {
+        return doBatchDelete(bathList, createDeleteOption(opLambda));
+    }
+
+    // -----------------------------------------------------
+    //                                          Query Update
+    //                                          ------------
+    /**
+     * Insert the several entities by query with varying requests (modified-only for fixed value). <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
+     * Other specifications are same as queryInsert(entity, setupper).
+     * @param manyArgLambda The set-upper of query-insert. (NotNull)
+     * @param opLambda The callback for option of insert for varying requests. (NotNull)
+     * @return The inserted count.
+     */
+    public int varyingQueryInsert(QueryInsertSetupper<Bath, BathCB> manyArgLambda, WritableOptionCall<BathCB, InsertOption<BathCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
+    }
+
+    /**
+     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
+     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br>
+     * Other specifications are same as queryUpdate(entity, cb).
+     * <pre>
+     * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
+     * Bath bath = <span style="color: #70226C">new</span> Bath();
+     * <span style="color: #3F7E5E">// you don't need to set PK value</span>
+     * <span style="color: #3F7E5E">//bath.setPK...(value);</span>
+     * bath.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
+     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
+     * <span style="color: #3F7E5E">//bath.setVersionNo(value);</span>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(bath, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
+     * </pre>
+     * @param bath The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
+     * @param cbLambda The callback for condition-bean of Bath. (NotNull)
+     * @param opLambda The callback for option of update for varying requests. (NotNull)
+     * @return The updated count.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     */
+    public int varyingQueryUpdate(Bath bath, CBCall<BathCB> cbLambda, WritableOptionCall<BathCB, UpdateOption<BathCB>> opLambda) {
+        return doQueryUpdate(bath, createCB(cbLambda), createUpdateOption(opLambda));
+    }
+
+    /**
+     * Delete the several entities by query with varying requests non-strictly. <br>
+     * For example, allowNonQueryDelete(). <br>
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #CC4747">queryDelete</span>(bath, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
+     * @param cbLambda The callback for condition-bean of Bath. (NotNull)
+     * @param opLambda The callback for option of delete for varying requests. (NotNull)
+     * @return The deleted count.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     */
+    public int varyingQueryDelete(CBCall<BathCB> cbLambda, WritableOptionCall<BathCB, DeleteOption<BathCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
+    }
 
     // ===================================================================================
     //                                                                          OutsideSql
@@ -392,5 +919,11 @@ public abstract class BsBathBhv extends AbstractBehaviorReadable<Bath, BathCB> {
     @javax.annotation.Resource(name="behaviorSelector")
     public void setBehaviorSelector(BehaviorSelector behaviorSelector) {
         super.setBehaviorSelector(behaviorSelector);
+    }
+
+    @Override
+    @javax.annotation.Resource(name="commonColumnAutoSetupper")
+    public void setCommonColumnAutoSetupper(CommonColumnAutoSetupper commonColumnAutoSetupper) {
+        super.setCommonColumnAutoSetupper(commonColumnAutoSetupper);
     }
 }

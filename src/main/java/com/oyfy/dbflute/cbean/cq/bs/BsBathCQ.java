@@ -79,16 +79,30 @@ public class BsBathCQ extends AbstractBsBathCQ {
       return _bathId; }
     protected ConditionValue xgetCValueBathId() { return xdfgetBathId(); }
 
+    public Map<String, BathTagCQ> xdfgetBathId_ExistsReferrer_BathTagList() { return xgetSQueMap("bathId_ExistsReferrer_BathTagList"); }
+    public String keepBathId_ExistsReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_ExistsReferrer_BathTagList", sq); }
+
+    public Map<String, BathTagCQ> xdfgetBathId_NotExistsReferrer_BathTagList() { return xgetSQueMap("bathId_NotExistsReferrer_BathTagList"); }
+    public String keepBathId_NotExistsReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_NotExistsReferrer_BathTagList", sq); }
+
+    public Map<String, BathTagCQ> xdfgetBathId_SpecifyDerivedReferrer_BathTagList() { return xgetSQueMap("bathId_SpecifyDerivedReferrer_BathTagList"); }
+    public String keepBathId_SpecifyDerivedReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_SpecifyDerivedReferrer_BathTagList", sq); }
+
+    public Map<String, BathTagCQ> xdfgetBathId_QueryDerivedReferrer_BathTagList() { return xgetSQueMap("bathId_QueryDerivedReferrer_BathTagList"); }
+    public String keepBathId_QueryDerivedReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_QueryDerivedReferrer_BathTagList", sq); }
+    public Map<String, Object> xdfgetBathId_QueryDerivedReferrer_BathTagListParameter() { return xgetSQuePmMap("bathId_QueryDerivedReferrer_BathTagList"); }
+    public String keepBathId_QueryDerivedReferrer_BathTagListParameter(Object pm) { return xkeepSQuePm("bathId_QueryDerivedReferrer_BathTagList", pm); }
+
     /**
      * Add order-by as ascend. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathId_Asc() { regOBA("bath_id"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathId_Desc() { regOBD("bath_id"); return this; }
@@ -552,11 +566,36 @@ public class BsBathCQ extends AbstractBsBathCQ {
     //                                                                         Union Query
     //                                                                         ===========
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
+        BathCQ bq = (BathCQ)bqs;
+        BathCQ uq = (BathCQ)uqs;
+        if (bq.hasConditionQueryBathTag()) {
+            uq.queryBathTag().reflectRelationOnUnionQuery(bq.queryBathTag(), uq.queryBathTag());
+        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
+    /**
+     * Get the condition-query for relation table. <br>
+     * bath_tag by my bath_id, named 'bathTag'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public BathTagCQ queryBathTag() {
+        return xdfgetConditionQueryBathTag();
+    }
+    public BathTagCQ xdfgetConditionQueryBathTag() {
+        String prop = "bathTag";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryBathTag()); xsetupOuterJoinBathTag(); }
+        return xgetQueRlMap(prop);
+    }
+    protected BathTagCQ xcreateQueryBathTag() {
+        String nrp = xresolveNRP("bath", "bathTag"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new BathTagCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "bathTag", nrp);
+    }
+    protected void xsetupOuterJoinBathTag() { xregOutJo("bathTag"); }
+    public boolean hasConditionQueryBathTag() { return xhasQueRlMap("bathTag"); }
+
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;
     }
@@ -566,6 +605,30 @@ public class BsBathCQ extends AbstractBsBathCQ {
     //                                                                     ===============
     public Map<String, BathCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(BathCQ sq) { return xkeepSQue("scalarCondition", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public Map<String, BathCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public String keepSpecifyMyselfDerived(BathCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
+
+    public Map<String, BathCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerived(BathCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    protected Map<String, BathCQ> _myselfExistsMap;
+    public Map<String, BathCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public String keepMyselfExists(BathCQ sq) { return xkeepSQue("myselfExists", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfInScope
+    //                                                                       =============
+    public Map<String, BathCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public String keepMyselfInScope(BathCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
     //                                                                       Very Internal

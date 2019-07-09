@@ -213,6 +213,234 @@ dl.column-content dd span {
 <p class="sisterlink"><a href="./schema-oyfy.html">to SchemaHTML</a></p>
 </div>
 
+<div class="section diffCode_20190708211222">
+	<h2>
+		<span class="titlediffno">diffNo. 12:</span> <span class="titlediffdatepart">2019/07/08</span> <span class="titledifftimepart">21:12:22</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+	<p class="tablecount">table count: 5&nbsp;-&gt;&nbsp;6</p>
+
+	<h3>Add Table</h3>
+	<ul class="table-content">
+		<li><a href="./schema-oyfy.html#member">member</a></li>
+	</ul>
+</div>
+<div class="section diffCode_20190708105750">
+	<h2>
+		<span class="titlediffno">diffNo. 11:</span> <span class="titlediffdatepart">2019/07/08</span> <span class="titledifftimepart">10:57:50</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>bath_tag</h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>bath_tag_id</li>
+			</ul>
+			<h5>Change PK</h5>
+			<dl class="column-content">
+				<dt>PRIMARY</dt>
+				<dd><span>Column</span>tag_id&nbsp;-&gt;&nbsp;bath_tag_id</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div class="section diffCode_20190708103636">
+	<h2>
+		<span class="titlediffno">diffNo. 10:</span> <span class="titlediffdatepart">2019/07/08</span> <span class="titledifftimepart">10:36:36</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>tag</h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>tag_id</dt>
+				<dd><span>Identity</span>false&nbsp;-&gt;&nbsp;true</dd>
+			</dl>
+			<h5>Add PK</h5>
+			<ul class="column-content">
+				<li>PRIMARY</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>tag_idx</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section diffCode_20190707165407">
+	<h2>
+		<span class="titlediffno">diffNo. 9:</span> <span class="titlediffdatepart">2019/07/07</span> <span class="titledifftimepart">16:54:07</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>bath_tag</h4>
+		<div class="change-table-content">
+			<h5>Change PK</h5>
+			<dl class="column-content">
+				<dt>PRIMARY</dt>
+				<dd><span>Column</span>bath_id,&nbsp;tag_id&nbsp;-&gt;&nbsp;tag_id</dd>
+			</dl>
+			<h5>Add UQ</h5>
+			<ul class="column-content">
+				<li>bath_id</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section diffCode_20190707145020">
+	<h2>
+		<span class="titlediffno">diffNo. 8:</span> <span class="titlediffdatepart">2019/07/07</span> <span class="titledifftimepart">14:50:20</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>bath</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_BATH_ID</li>
+			</ul>
+		</div>
+		<h4>bath_tag</h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_BATH_ID</li>
+			</ul>
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>bath_tag_ibfk_1(old)</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>tag_id</li>
+			</ul>
+		</div>
+		<h4>tag</h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>tag_name_ja</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+				<dt>tag_name_en</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div class="section diffCode_20190706113116">
+	<h2>
+		<span class="titlediffno">diffNo. 7:</span> <span class="titlediffdatepart">2019/07/06</span> <span class="titledifftimepart">11:31:16</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>bath_tag</h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>bath_tag_ibfk_1(new)</li>
+			</ul>
+			<h5>Add Index</h5>
+			<ul class="column-content">
+				<li>tag_id</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section diffCode_20190706103214">
+	<h2>
+		<span class="titlediffno">diffNo. 6:</span> <span class="titlediffdatepart">2019/07/06</span> <span class="titledifftimepart">10:32:14</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>bath</h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_BATH_ID</li>
+			</ul>
+		</div>
+		<h4>bath_tag</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>bath_tag_ibfk_1(old)</li>
+				<li>bath_tag_ibfk_2(old)</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>tag_id</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section diffCode_20190704230536">
+	<h2>
+		<span class="titlediffno">diffNo. 5:</span> <span class="titlediffdatepart">2019/07/04</span> <span class="titledifftimepart">23:05:36</span>
+		<span class="titlediffauthor">by mmasa</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>bath</h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>bath_id</dt>
+				<dd><span>Identity</span>false&nbsp;-&gt;&nbsp;true</dd>
+			</dl>
+			<h5>Add PK</h5>
+			<ul class="column-content">
+				<li>PRIMARY</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>bath_idx</li>
+			</ul>
+		</div>
+		<h4>bath_tag</h4>
+		<div class="change-table-content">
+			<h5>Add PK</h5>
+			<ul class="column-content">
+				<li>PRIMARY</li>
+			</ul>
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>bath_tag_ibfk_1(new)</li>
+				<li>bath_tag_ibfk_2(new)</li>
+			</ul>
+			<h5>Add Index</h5>
+			<ul class="column-content">
+				<li>tag_id</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>bath_tag_idx</li>
+			</ul>
+		</div>
+	</div>
+</div>
 <div class="section diffCode_20190613220626">
 	<h2>
 		<span class="titlediffno">diffNo. 4:</span> <span class="titlediffdatepart">2019/06/13</span> <span class="titledifftimepart">22:06:26</span>
@@ -222,11 +450,11 @@ dl.column-content dd span {
 
 	<h3>Add Table</h3>
 	<ul class="table-content">
-		<li><a href="./schema-oyfy.html#area">area</a></li>
-		<li><a href="./schema-oyfy.html#bath">bath</a></li>
-		<li><a href="./schema-oyfy.html#bath_tag">bath_tag</a></li>
-		<li><a href="./schema-oyfy.html#station">station</a></li>
-		<li><a href="./schema-oyfy.html#tag">tag</a></li>
+		<li>area</li>
+		<li>bath</li>
+		<li>bath_tag</li>
+		<li>station</li>
+		<li>tag</li>
 	</ul>
 	<h3>Delete Table</h3>
 	<ul class="table-content">
@@ -447,7 +675,39 @@ dl.column-content dd span {
             ]
         };
         this.pickupStore = {
-            '20190613220626' : {
+            '20190708211222' : {
+                'diffDate' : '2019/07/08 21:12:22',
+                'diffComment' : ''
+            }
+            , '20190708105750' : {
+                'diffDate' : '2019/07/08 10:57:50',
+                'diffComment' : ''
+            }
+            , '20190708103636' : {
+                'diffDate' : '2019/07/08 10:36:36',
+                'diffComment' : ''
+            }
+            , '20190707165407' : {
+                'diffDate' : '2019/07/07 16:54:07',
+                'diffComment' : ''
+            }
+            , '20190707145020' : {
+                'diffDate' : '2019/07/07 14:50:20',
+                'diffComment' : ''
+            }
+            , '20190706113116' : {
+                'diffDate' : '2019/07/06 11:31:16',
+                'diffComment' : ''
+            }
+            , '20190706103214' : {
+                'diffDate' : '2019/07/06 10:32:14',
+                'diffComment' : ''
+            }
+            , '20190704230536' : {
+                'diffDate' : '2019/07/04 23:05:36',
+                'diffComment' : ''
+            }
+            , '20190613220626' : {
                 'diffDate' : '2019/06/13 22:06:26',
                 'diffComment' : ''
             }

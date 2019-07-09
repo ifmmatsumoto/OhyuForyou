@@ -55,9 +55,11 @@
                 </div>
                 </div>
             </div>
-            <th:block th:each="fruit:${bath}">
-                <span th:text="${fruit.bathNameJa}"></span>
+
+            <th:block th:each="bath:${bath}">
+                <span th:text="${bath.bathNameJa}"></span>
             </th:block>
+
             <div class="row">
                 <div class="col-md-4 bg-success">col-md-4のクラスで色もクラスでつけている</div>
                 <div class="col-md-8">

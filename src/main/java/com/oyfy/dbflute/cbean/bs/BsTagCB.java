@@ -79,14 +79,26 @@ public class BsTagCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                 PrimaryKey Handling
     //                                                                 ===================
+    /**
+     * Accept the query condition of primary key as equal.
+     * @param tagId : PK, ID, NotNull, INT(10). (NotNull)
+     * @return this. (NotNull)
+     */
+    public TagCB acceptPK(Integer tagId) {
+        assertObjectNotNull("tagId", tagId);
+        BsTagCB cb = this;
+        cb.query().setTagId_Equal(tagId);
+        return (TagCB)this;
+    }
+
     public ConditionBean addOrderBy_PK_Asc() {
-        String msg = "The table has no primary-keys: " + asTableDbName();
-        throw new UnsupportedOperationException(msg);
+        query().addOrderBy_TagId_Asc();
+        return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        String msg = "The table has no primary-keys: " + asTableDbName();
-        throw new UnsupportedOperationException(msg);
+        query().addOrderBy_TagId_Desc();
+        return this;
     }
 
     // ===================================================================================
@@ -272,17 +284,17 @@ public class BsTagCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * tag_id: {IX, NotNull, INT(10)}
+         * tag_id: {PK, ID, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTagId() { return doColumn("tag_id"); }
         /**
-         * tag_name_ja: {NotNull, VARCHAR(255)}
+         * tag_name_ja: {VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTagNameJa() { return doColumn("tag_name_ja"); }
         /**
-         * tag_name_en: {NotNull, VARCHAR(255)}
+         * tag_name_en: {VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTagNameEn() { return doColumn("tag_name_en"); }
@@ -305,9 +317,19 @@ public class BsTagCB extends AbstractConditionBean {
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
+            columnTagId(); // PK
         }
         @Override
         protected String getTableDbName() { return "tag"; }
+        /**
+         * Prepare for (Specify)MyselfDerived (SubQuery).
+         * @return The object to set up a function for myself table. (NotNull)
+         */
+        public HpSDRFunction<TagCB, TagCQ> myselfDerived() {
+            assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<TagCB> sq, TagCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+        }
     }
 
     // ===================================================================================

@@ -14,7 +14,7 @@ import com.oyfy.dbflute.exentity.*;
  * タグ
  * <pre>
  * [primary-key]
- *     
+ *     tag_id
  *
  * [column]
  *     tag_id, tag_name_ja, tag_name_en, tag_image, create_date, update_date
@@ -23,7 +23,7 @@ import com.oyfy.dbflute.exentity.*;
  *     
  *
  * [identity]
- *     
+ *     tag_id
  *
  * [version-no]
  *     
@@ -69,13 +69,13 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** tag_id: {IX, NotNull, INT(10)} */
+    /** tag_id: {PK, ID, NotNull, INT(10)} */
     protected Integer _tagId;
 
-    /** tag_name_ja: {NotNull, VARCHAR(255)} */
+    /** tag_name_ja: {VARCHAR(255)} */
     protected String _tagNameJa;
 
-    /** tag_name_en: {NotNull, VARCHAR(255)} */
+    /** tag_name_en: {VARCHAR(255)} */
     protected String _tagNameEn;
 
     /** tag_image: {VARCHAR(2100)} */
@@ -105,7 +105,8 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        return false;
+        if (_tagId == null) { return false; }
+        return true;
     }
 
     // ===================================================================================
@@ -126,11 +127,6 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
         if (obj instanceof BsTag) {
             BsTag other = (BsTag)obj;
             if (!xSV(_tagId, other._tagId)) { return false; }
-            if (!xSV(_tagNameJa, other._tagNameJa)) { return false; }
-            if (!xSV(_tagNameEn, other._tagNameEn)) { return false; }
-            if (!xSV(_tagImage, other._tagImage)) { return false; }
-            if (!xSV(_createDate, other._createDate)) { return false; }
-            if (!xSV(_updateDate, other._updateDate)) { return false; }
             return true;
         } else {
             return false;
@@ -142,11 +138,6 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
         int hs = initial;
         hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _tagId);
-        hs = xCH(hs, _tagNameJa);
-        hs = xCH(hs, _tagNameEn);
-        hs = xCH(hs, _tagImage);
-        hs = xCH(hs, _createDate);
-        hs = xCH(hs, _updateDate);
         return hs;
     }
 
@@ -185,7 +176,7 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] tag_id: {IX, NotNull, INT(10)} <br>
+     * [get] tag_id: {PK, ID, NotNull, INT(10)} <br>
      * タグID
      * @return The value of the column 'tag_id'. (basically NotNull if selected: for the constraint)
      */
@@ -195,7 +186,7 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] tag_id: {IX, NotNull, INT(10)} <br>
+     * [set] tag_id: {PK, ID, NotNull, INT(10)} <br>
      * タグID
      * @param tagId The value of the column 'tag_id'. (basically NotNull if update: for the constraint)
      */
@@ -205,9 +196,9 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] tag_name_ja: {NotNull, VARCHAR(255)} <br>
+     * [get] tag_name_ja: {VARCHAR(255)} <br>
      * タグ 和名
-     * @return The value of the column 'tag_name_ja'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'tag_name_ja'. (NullAllowed even if selected: for no constraint)
      */
     public String getTagNameJa() {
         checkSpecifiedProperty("tagNameJa");
@@ -215,9 +206,9 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] tag_name_ja: {NotNull, VARCHAR(255)} <br>
+     * [set] tag_name_ja: {VARCHAR(255)} <br>
      * タグ 和名
-     * @param tagNameJa The value of the column 'tag_name_ja'. (basically NotNull if update: for the constraint)
+     * @param tagNameJa The value of the column 'tag_name_ja'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTagNameJa(String tagNameJa) {
         registerModifiedProperty("tagNameJa");
@@ -225,9 +216,9 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] tag_name_en: {NotNull, VARCHAR(255)} <br>
+     * [get] tag_name_en: {VARCHAR(255)} <br>
      * タグ 英名
-     * @return The value of the column 'tag_name_en'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'tag_name_en'. (NullAllowed even if selected: for no constraint)
      */
     public String getTagNameEn() {
         checkSpecifiedProperty("tagNameEn");
@@ -235,9 +226,9 @@ public abstract class BsTag extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] tag_name_en: {NotNull, VARCHAR(255)} <br>
+     * [set] tag_name_en: {VARCHAR(255)} <br>
      * タグ 英名
-     * @param tagNameEn The value of the column 'tag_name_en'. (basically NotNull if update: for the constraint)
+     * @param tagNameEn The value of the column 'tag_name_en'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTagNameEn(String tagNameEn) {
         registerModifiedProperty("tagNameEn");
