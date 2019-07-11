@@ -42,24 +42,6 @@ public class TopController extends _CommonController {
 	}
 
 	/**
-	 * 現在地検索
-	 * @param form
-	 * @param model
-	 * @param req
-	 * @param res
-	 * @return
-	 * @throws OyfyException
-	 */
-	@RequestMapping("place")
-	public String place(TopForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-
-		System.out.println("現在地検索"); // TODO
-
-		// 検索結果一覧画面表示
-		return "searchResult";
-	}
-
-	/**
 	 * キーワード検索
 	 * @param form
 	 * @param result
