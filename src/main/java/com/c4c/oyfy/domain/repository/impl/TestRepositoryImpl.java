@@ -13,7 +13,6 @@ import com.oyfy.dbflute.exbhv.BathTagBhv;
 import com.oyfy.dbflute.exbhv.MemberBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exentity.Bath;
-import com.oyfy.dbflute.exentity.Member;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -44,38 +43,20 @@ public class TestRepositoryImpl implements TestRepository {
 
     @Override
     public List<Bath> searchPathList(String keyword) {
-        String keyword1 = "a";
-        System.out.println(System.getProperty("file.encoding"));
+
         ListResultBean<Tag> tagList = tagBhv.selectList(cb -> {
-            cb.query().setTagNameEn_Equal(keyword1);
+            cb.query().setTagNameJa_Equal(keyword);
         });
+        // 銭湯検索用に使うタグIDリストを取得する。
         List<Integer> bathTagIdList = new ArrayList<>();
-//        tagList.forEach(tag -> {
-//            bathTagIdList.add(tag.getTagId());
-//        });
-//
-        ListResultBean<Member> selectList = memberBhv.selectList(cb -> {
-            cb.query().setMemberName_Equal("あ");
+        tagList.forEach(tag -> {
+            bathTagIdList.add(tag.getTagId());
         });
-
-        System.out.println(selectList);
-        Tag tag = new Tag();
-        tag.setTagNameJa("あ");
-
-        tagBhv.insert(tag);
-
-        //        int selectCount = bathBhv.selectCount(cb -> {
-//            cb.query().setBathNameJa_Equal("適当銭湯");
-//        });
         // exitstリファラーを使ってBathTagテーブルのデータで抽出
-//        bathBhv.selectList(cb -> {
-//            cb.query().existsBathTag(bathTagCB -> {
-//                bathTagCB.query().setTagId_InScope(bathTagIdList);
-//            });
-//        });
-
         return bathBhv.selectList(cb -> {
-            cb.query().setBath24hFlg_Equal(1);
+            cb.query().existsBathTag(bathTagCB -> {
+                bathTagCB.query().setTagId_InScope(bathTagIdList);
+            });
         });
     }
 }

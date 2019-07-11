@@ -56,13 +56,14 @@
                 </div>
             </div>
 
-            <th:block th:each="bath:${bath}">
-                <span th:text="${bath.bathNameJa}"></span>
+            <th:block th:each="bath:${baths}">
+                <div ></div>
             </th:block>
 
             <div class="row">
                 <div class="col-md-4 bg-success">col-md-4のクラスで色もクラスでつけている</div>
                 <div class="col-md-8">
+                <th:block th:each="bath:${baths}">
                     <ul class="list-unstyled">
                         <li class="media">
                             <p>
@@ -73,14 +74,15 @@
                             <img src="/img/hisamatsuyu.jpg" alt="64x64" class="mr-1" style="width: 30px;" >
                             </p>
                             <div class="media-body">
-                                <span>HTML 5.2</span>
-                                <p>
+                                <h2 th:text="${bath.bathNameJa}" >銭湯の名前</h2>
+                                <p>1
                                 This specification defines the 5th major version, second minor revision of the core language of the World Wide Web: the Hypertext Markup Language (HTML). In this
                                 version, new features continue...
                                 </p>
                             </div>
                         </li>
                     </ul>
+                  </th:block>
                 </div>
             </div>
 

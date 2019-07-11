@@ -72,26 +72,5 @@ CREATE TABLE `station` (
   KEY `station_idx` (`station_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='駅';
 
-create table MEMBER(
-    MEMBER_ID INTEGER AUTO_INCREMENT NOT NULL COMMENT '会員ID: 会員を識別するID。連番として基本的に自動採番される。
-（会員IDだけに限らず）採番方法はDBMSによって変わる。',
-    MEMBER_NAME VARCHAR(160) NOT NULL COMMENT '会員名称: 会員のフルネームの名称。',
-    MEMBER_ACCOUNT VARCHAR(50) NOT NULL COMMENT '会員アカウント: 会員がログイン時に利用するアカウントNO。',
-    MEMBER_STATUS_CODE CHAR(3) NOT NULL COMMENT '会員ステータスコード',
-    FORMALIZED_DATETIME DATETIME COMMENT '正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。
-仮会員のときはnull。',
-    BIRTHDATE DATE COMMENT '生年月日: 必須項目ではないので、このデータがない会員もいる。',
-    REGISTER_DATETIME DATETIME NOT NULL COMMENT '登録日時: レコードが登録された日時。共通カラムの一つ。',
-    REGISTER_USER VARCHAR(200) NOT NULL COMMENT '登録ユーザ: レコードを登録したユーザ。共通カラムの一つ。',
-    UPDATE_DATETIME DATETIME NOT NULL COMMENT '更新日時: レコードが（最後に）更新された日時。共通カラムの一つ。',
-    UPDATE_USER VARCHAR(200) NOT NULL COMMENT '更新ユーザ: レコードを更新したユーザ。',
-    VERSION_NO BIGINT NOT NULL COMMENT 'バージョンNO: レコードのバージョンを示すNO。
-更新回数と等しく、主に排他制御のために利用される。',
-    PRIMARY KEY (MEMBER_ID),
-    UNIQUE (MEMBER_ACCOUNT)
-) COMMENT='会員: 会員登録時にデータが登録される。
-基本的に物理削除はなく、退会したらステータスが退会会員になる。';
-
-
 alter table bath_tag add constraint FK_BATH_ID
     foreign key (bath_id) references bath (bath_id);

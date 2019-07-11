@@ -21,8 +21,9 @@ public class TestController {
 	@RequestMapping
 	public String test(Model model, TestForm form){
 
-	    List<TestForm> bath = TestHelper.toForm(testService.searchPathList(""));
-//	    model.addAttribute("bath", bath);
+	    List<TestForm> baths = TestHelper.toForm(testService.searchPathList(form.getKeyword()));
+	    model.addAttribute("baths", baths);
 	    return "test";
 	}
+
 }
