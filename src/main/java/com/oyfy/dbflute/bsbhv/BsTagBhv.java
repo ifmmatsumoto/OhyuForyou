@@ -6,11 +6,13 @@ import org.dbflute.*;
 import org.dbflute.bhv.*;
 import org.dbflute.bhv.core.BehaviorCommandInvoker;
 import org.dbflute.bhv.readable.*;
+import org.dbflute.bhv.writable.*;
 import org.dbflute.bhv.referrer.*;
 import org.dbflute.cbean.*;
 import org.dbflute.cbean.chelper.HpSLSFunction;
 import org.dbflute.cbean.result.*;
 import org.dbflute.exception.*;
+import org.dbflute.hook.CommonColumnAutoSetupper;
 import org.dbflute.optional.OptionalEntity;
 import org.dbflute.outsidesql.executor.*;
 import com.oyfy.dbflute.exbhv.*;
@@ -23,7 +25,7 @@ import com.oyfy.dbflute.cbean.*;
  * The behavior of tag as TABLE. <br>
  * <pre>
  * [primary key]
- *     
+ *     tag_id
  *
  * [column]
  *     tag_id, tag_name_ja, tag_name_en, tag_image, create_date, update_date
@@ -32,7 +34,7 @@ import com.oyfy.dbflute.cbean.*;
  *     
  *
  * [identity]
- *     
+ *     tag_id
  *
  * [version-no]
  *     
@@ -51,7 +53,7 @@ import com.oyfy.dbflute.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsTagBhv extends AbstractBehaviorReadable<Tag, TagCB> {
+public abstract class BsTagBhv extends AbstractBehaviorWritable<Tag, TagCB> {
 
     // ===================================================================================
     //                                                                          Definition
@@ -153,6 +155,35 @@ public abstract class BsTagBhv extends AbstractBehaviorReadable<Tag, TagCB> {
      */
     public Tag selectEntityWithDeletedCheck(CBCall<TagCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
+    }
+
+    /**
+     * Select the entity by the primary-key value.
+     * @param tagId : PK, ID, NotNull, INT(10). (NotNull)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     */
+    public OptionalEntity<Tag> selectByPK(Integer tagId) {
+        return facadeSelectByPK(tagId);
+    }
+
+    protected OptionalEntity<Tag> facadeSelectByPK(Integer tagId) {
+        return doSelectOptionalByPK(tagId, typeOfSelectedEntity());
+    }
+
+    protected <ENTITY extends Tag> ENTITY doSelectByPK(Integer tagId, Class<? extends ENTITY> tp) {
+        return doSelectEntity(xprepareCBAsPK(tagId), tp);
+    }
+
+    protected <ENTITY extends Tag> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer tagId, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectByPK(tagId, tp), tagId);
+    }
+
+    protected TagCB xprepareCBAsPK(Integer tagId) {
+        assertObjectNotNull("tagId", tagId);
+        return newConditionBean().acceptPK(tagId);
     }
 
     // ===================================================================================
@@ -336,6 +367,430 @@ public abstract class BsTagBhv extends AbstractBehaviorReadable<Tag, TagCB> {
     // ===================================================================================
     //                                                                      Extract Column
     //                                                                      ==============
+    /**
+     * Extract the value list of (single) primary key tagId.
+     * @param tagList The list of tag. (NotNull, EmptyAllowed)
+     * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<Integer> extractTagIdList(List<Tag> tagList)
+    { return helpExtractListInternally(tagList, "tagId"); }
+
+    // ===================================================================================
+    //                                                                       Entity Update
+    //                                                                       =============
+    /**
+     * Insert the entity modified-only. (DefaultConstraintsEnabled)
+     * <pre>
+     * Tag tag = <span style="color: #70226C">new</span> Tag();
+     * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
+     * tag.setFoo...(value);
+     * tag.setBar...(value);
+     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     * <span style="color: #3F7E5E">//tag.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//tag.set...;</span>
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">insert</span>(tag);
+     * ... = tag.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * </pre>
+     * <p>While, when the entity is created by select, all columns are registered.</p>
+     * @param tag The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void insert(Tag tag) {
+        doInsert(tag, null);
+    }
+
+    /**
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
+     * <pre>
+     * Tag tag = <span style="color: #70226C">new</span> Tag();
+     * tag.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * tag.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     * <span style="color: #3F7E5E">//tag.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//tag.set...;</span>
+     * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
+     * tag.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">update</span>(tag);
+     * </pre>
+     * @param tag The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void update(Tag tag) {
+        doUpdate(tag, null);
+    }
+
+    /**
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
+     * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
+     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
+     * @param tag The entity of insert or update. (NotNull, ...depends on insert or update)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void insertOrUpdate(Tag tag) {
+        doInsertOrUpdate(tag, null, null);
+    }
+
+    /**
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
+     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
+     * <pre>
+     * Tag tag = <span style="color: #70226C">new</span> Tag();
+     * tag.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
+     * tag.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #70226C">try</span> {
+     *     <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">delete</span>(tag);
+     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
+     *     ...
+     * }
+     * </pre>
+     * @param tag The entity of delete. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     */
+    public void delete(Tag tag) {
+        doDelete(tag, null);
+    }
+
+    // ===================================================================================
+    //                                                                        Batch Update
+    //                                                                        ============
+    /**
+     * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <pre>
+     * <span style="color: #70226C">for</span> (... : ...) {
+     *     Tag tag = <span style="color: #70226C">new</span> Tag();
+     *     tag.setFooName("foo");
+     *     <span style="color: #70226C">if</span> (...) {
+     *         tag.setFooPrice(123);
+     *     }
+     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
+     *     <span style="color: #3F7E5E">// FOO_PRICE not-called in any entities are registered as null without default value</span>
+     *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
+     *     tagList.add(tag);
+     * }
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">batchInsert</span>(tagList);
+     * </pre>
+     * <p>While, when the entities are created by select, all columns are registered.</p>
+     * <p>And if the table has an identity, entities after the process don't have incremented values.
+     * (When you use the (normal) insert(), you can get the incremented value from your entity)</p>
+     * @param tagList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
+     * @return The array of inserted count. (NotNull, EmptyAllowed)
+     */
+    public int[] batchInsert(List<Tag> tagList) {
+        return doBatchInsert(tagList, null);
+    }
+
+    /**
+     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <pre>
+     * for (... : ...) {
+     *     Tag tag = <span style="color: #70226C">new</span> Tag();
+     *     tag.setFooName("foo");
+     *     <span style="color: #70226C">if</span> (...) {
+     *         tag.setFooPrice(123);
+     *     } <span style="color: #70226C">else</span> {
+     *         tag.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
+     *         <span style="color: #3F7E5E">//tag.setFooDate(...); // *not allowed, fragmented</span>
+     *     }
+     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
+     *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
+     *     tagList.add(tag);
+     * }
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">batchUpdate</span>(tagList);
+     * </pre>
+     * @param tagList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @return The array of updated count. (NotNull, EmptyAllowed)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     */
+    public int[] batchUpdate(List<Tag> tagList) {
+        return doBatchUpdate(tagList, null);
+    }
+
+    /**
+     * Batch-delete the entity list. (NonExclusiveControl) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement.
+     * @param tagList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @return The array of deleted count. (NotNull, EmptyAllowed)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     */
+    public int[] batchDelete(List<Tag> tagList) {
+        return doBatchDelete(tagList, null);
+    }
+
+    // ===================================================================================
+    //                                                                        Query Update
+    //                                                                        ============
+    /**
+     * Insert the several entities by query (modified-only for fixed value).
+     * <pre>
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;Tag, TagCB&gt;() {
+     *     public ConditionBean setup(Tag entity, TagCB intoCB) {
+     *         FooCB cb = FooCB();
+     *         cb.setupSelect_Bar();
+     *
+     *         <span style="color: #3F7E5E">// mapping</span>
+     *         intoCB.specify().columnMyName().mappedFrom(cb.specify().columnFooName());
+     *         intoCB.specify().columnMyCount().mappedFrom(cb.specify().columnFooCount());
+     *         intoCB.specify().columnMyDate().mappedFrom(cb.specify().specifyBar().columnBarDate());
+     *         entity.setMyFixedValue("foo"); <span style="color: #3F7E5E">// fixed value</span>
+     *         <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     *         <span style="color: #3F7E5E">//entity.setRegisterUser(value);</span>
+     *         <span style="color: #3F7E5E">//entity.set...;</span>
+     *         <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
+     *         <span style="color: #3F7E5E">//entity.setVersionNo(value);</span>
+     *
+     *         return cb;
+     *     }
+     * });
+     * </pre>
+     * @param manyArgLambda The callback to set up query-insert. (NotNull)
+     * @return The inserted count.
+     */
+    public int queryInsert(QueryInsertSetupper<Tag, TagCB> manyArgLambda) {
+        return doQueryInsert(manyArgLambda, null);
+    }
+
+    /**
+     * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
+     * <pre>
+     * Tag tag = <span style="color: #70226C">new</span> Tag();
+     * <span style="color: #3F7E5E">// you don't need to set PK value</span>
+     * <span style="color: #3F7E5E">//tag.setPK...(value);</span>
+     * tag.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
+     * <span style="color: #3F7E5E">//tag.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//tag.set...;</span>
+     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
+     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
+     * <span style="color: #3F7E5E">//tag.setVersionNo(value);</span>
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">queryUpdate</span>(tag, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
+     * </pre>
+     * @param tag The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
+     * @param cbLambda The callback for condition-bean of Tag. (NotNull)
+     * @return The updated count.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
+     */
+    public int queryUpdate(Tag tag, CBCall<TagCB> cbLambda) {
+        return doQueryUpdate(tag, createCB(cbLambda), null);
+    }
+
+    /**
+     * Delete the several entities by query. (NonExclusiveControl)
+     * <pre>
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">queryDelete</span>(tag, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
+     * </pre>
+     * @param cbLambda The callback for condition-bean of Tag. (NotNull)
+     * @return The deleted count.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
+     */
+    public int queryDelete(CBCall<TagCB> cbLambda) {
+        return doQueryDelete(createCB(cbLambda), null);
+    }
+
+    // ===================================================================================
+    //                                                                      Varying Update
+    //                                                                      ==============
+    // -----------------------------------------------------
+    //                                         Entity Update
+    //                                         -------------
+    /**
+     * Insert the entity with varying requests. <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
+     * Other specifications are same as insert(entity).
+     * <pre>
+     * Tag tag = <span style="color: #70226C">new</span> Tag();
+     * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
+     * tag.setFoo...(value);
+     * tag.setBar...(value);
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">varyingInsert</span>(tag, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
+     * ... = tag.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * </pre>
+     * @param tag The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param opLambda The callback for option of insert for varying requests. (NotNull)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void varyingInsert(Tag tag, WritableOptionCall<TagCB, InsertOption<TagCB>> opLambda) {
+        doInsert(tag, createInsertOption(opLambda));
+    }
+
+    /**
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
+     * Other specifications are same as update(entity).
+     * <pre>
+     * Tag tag = <span style="color: #70226C">new</span> Tag();
+     * tag.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * tag.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
+     * tag.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(tag, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
+     * });
+     * </pre>
+     * @param tag The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of update for varying requests. (NotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void varyingUpdate(Tag tag, WritableOptionCall<TagCB, UpdateOption<TagCB>> opLambda) {
+        doUpdate(tag, createUpdateOption(opLambda));
+    }
+
+    /**
+     * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
+     * Other specifications are same as insertOrUpdate(entity).
+     * @param tag The entity of insert or update. (NotNull)
+     * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
+     * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     */
+    public void varyingInsertOrUpdate(Tag tag, WritableOptionCall<TagCB, InsertOption<TagCB>> insertOpLambda, WritableOptionCall<TagCB, UpdateOption<TagCB>> updateOpLambda) {
+        doInsertOrUpdate(tag, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
+    }
+
+    /**
+     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
+     * Now a valid option does not exist. <br>
+     * Other specifications are same as delete(entity).
+     * @param tag The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param opLambda The callback for option of delete for varying requests. (NotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     */
+    public void varyingDelete(Tag tag, WritableOptionCall<TagCB, DeleteOption<TagCB>> opLambda) {
+        doDelete(tag, createDeleteOption(opLambda));
+    }
+
+    // -----------------------------------------------------
+    //                                          Batch Update
+    //                                          ------------
+    /**
+     * Batch-insert the list with varying requests. <br>
+     * For example, disableCommonColumnAutoSetup()
+     * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br>
+     * Other specifications are same as batchInsert(entityList).
+     * @param tagList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of insert for varying requests. (NotNull)
+     * @return The array of updated count. (NotNull, EmptyAllowed)
+     */
+    public int[] varyingBatchInsert(List<Tag> tagList, WritableOptionCall<TagCB, InsertOption<TagCB>> opLambda) {
+        return doBatchInsert(tagList, createInsertOption(opLambda));
+    }
+
+    /**
+     * Batch-update the list with varying requests. <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
+     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
+     * Other specifications are same as batchUpdate(entityList).
+     * @param tagList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of update for varying requests. (NotNull)
+     * @return The array of updated count. (NotNull, EmptyAllowed)
+     */
+    public int[] varyingBatchUpdate(List<Tag> tagList, WritableOptionCall<TagCB, UpdateOption<TagCB>> opLambda) {
+        return doBatchUpdate(tagList, createUpdateOption(opLambda));
+    }
+
+    /**
+     * Batch-delete the list with varying requests. <br>
+     * For example, limitBatchDeleteLogging(). <br>
+     * Other specifications are same as batchDelete(entityList).
+     * @param tagList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param opLambda The callback for option of delete for varying requests. (NotNull)
+     * @return The array of deleted count. (NotNull, EmptyAllowed)
+     */
+    public int[] varyingBatchDelete(List<Tag> tagList, WritableOptionCall<TagCB, DeleteOption<TagCB>> opLambda) {
+        return doBatchDelete(tagList, createDeleteOption(opLambda));
+    }
+
+    // -----------------------------------------------------
+    //                                          Query Update
+    //                                          ------------
+    /**
+     * Insert the several entities by query with varying requests (modified-only for fixed value). <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
+     * Other specifications are same as queryInsert(entity, setupper).
+     * @param manyArgLambda The set-upper of query-insert. (NotNull)
+     * @param opLambda The callback for option of insert for varying requests. (NotNull)
+     * @return The inserted count.
+     */
+    public int varyingQueryInsert(QueryInsertSetupper<Tag, TagCB> manyArgLambda, WritableOptionCall<TagCB, InsertOption<TagCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
+    }
+
+    /**
+     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
+     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br>
+     * Other specifications are same as queryUpdate(entity, cb).
+     * <pre>
+     * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
+     * Tag tag = <span style="color: #70226C">new</span> Tag();
+     * <span style="color: #3F7E5E">// you don't need to set PK value</span>
+     * <span style="color: #3F7E5E">//tag.setPK...(value);</span>
+     * tag.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
+     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
+     * <span style="color: #3F7E5E">//tag.setVersionNo(value);</span>
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(tag, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
+     * </pre>
+     * @param tag The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
+     * @param cbLambda The callback for condition-bean of Tag. (NotNull)
+     * @param opLambda The callback for option of update for varying requests. (NotNull)
+     * @return The updated count.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     */
+    public int varyingQueryUpdate(Tag tag, CBCall<TagCB> cbLambda, WritableOptionCall<TagCB, UpdateOption<TagCB>> opLambda) {
+        return doQueryUpdate(tag, createCB(cbLambda), createUpdateOption(opLambda));
+    }
+
+    /**
+     * Delete the several entities by query with varying requests non-strictly. <br>
+     * For example, allowNonQueryDelete(). <br>
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">tagBhv</span>.<span style="color: #CC4747">queryDelete</span>(tag, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
+     * @param cbLambda The callback for condition-bean of Tag. (NotNull)
+     * @param opLambda The callback for option of delete for varying requests. (NotNull)
+     * @return The deleted count.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     */
+    public int varyingQueryDelete(CBCall<TagCB> cbLambda, WritableOptionCall<TagCB, DeleteOption<TagCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
+    }
 
     // ===================================================================================
     //                                                                          OutsideSql
@@ -392,5 +847,11 @@ public abstract class BsTagBhv extends AbstractBehaviorReadable<Tag, TagCB> {
     @javax.annotation.Resource(name="behaviorSelector")
     public void setBehaviorSelector(BehaviorSelector behaviorSelector) {
         super.setBehaviorSelector(behaviorSelector);
+    }
+
+    @Override
+    @javax.annotation.Resource(name="commonColumnAutoSetupper")
+    public void setCommonColumnAutoSetupper(CommonColumnAutoSetupper commonColumnAutoSetupper) {
+        super.setCommonColumnAutoSetupper(commonColumnAutoSetupper);
     }
 }

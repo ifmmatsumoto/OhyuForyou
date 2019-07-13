@@ -45,7 +45,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagId The value of tagId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_Equal(Integer tagId) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagId The value of tagId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_NotEqual(Integer tagId) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagId The value of tagId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_GreaterThan(Integer tagId) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagId The value of tagId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_LessThan(Integer tagId) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagId The value of tagId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_GreaterEqual(Integer tagId) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagId The value of tagId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTagId_LessEqual(Integer tagId) {
@@ -109,7 +109,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param minNumber The min number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -122,7 +122,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param minNumber The min number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of tagId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -133,7 +133,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagIdList The collection of tagId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagId_InScope(Collection<Integer> tagIdList) {
@@ -146,7 +146,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @param tagIdList The collection of tagId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagId_NotInScope(Collection<Integer> tagIdList) {
@@ -157,12 +157,24 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
         regINS(CK_NINS, cTL(tagIdList), xgetCValueTagId(), "tag_id");
     }
 
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * tag_id: {PK, ID, NotNull, INT(10)}
+     */
+    public void setTagId_IsNull() { regTagId(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * tag_id: {PK, ID, NotNull, INT(10)}
+     */
+    public void setTagId_IsNotNull() { regTagId(CK_ISNN, DOBJ); }
+
     protected void regTagId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTagId(), "tag_id"); }
     protected abstract ConditionValue xgetCValueTagId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_Equal(String tagNameJa) {
@@ -175,7 +187,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_NotEqual(String tagNameJa) {
@@ -188,7 +200,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_GreaterThan(String tagNameJa) {
@@ -197,7 +209,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_LessThan(String tagNameJa) {
@@ -206,7 +218,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_GreaterEqual(String tagNameJa) {
@@ -215,7 +227,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_LessEqual(String tagNameJa) {
@@ -224,7 +236,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJaList The collection of tagNameJa as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_InScope(Collection<String> tagNameJaList) {
@@ -237,7 +249,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJaList The collection of tagNameJa as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameJa_NotInScope(Collection<String> tagNameJaList) {
@@ -250,7 +262,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)} <br>
+     * tag_name_ja: {VARCHAR(255)} <br>
      * <pre>e.g. setTagNameJa_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param tagNameJa The value of tagNameJa as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -261,7 +273,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)} <br>
+     * tag_name_ja: {VARCHAR(255)} <br>
      * <pre>e.g. setTagNameJa_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param tagNameJa The value of tagNameJa as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -273,7 +285,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -284,7 +296,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @param tagNameJa The value of tagNameJa as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -292,12 +304,30 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(tagNameJa), xgetCValueTagNameJa(), "tag_name_ja", likeSearchOption);
     }
 
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * tag_name_ja: {VARCHAR(255)}
+     */
+    public void setTagNameJa_IsNull() { regTagNameJa(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * tag_name_ja: {VARCHAR(255)}
+     */
+    public void setTagNameJa_IsNullOrEmpty() { regTagNameJa(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * tag_name_ja: {VARCHAR(255)}
+     */
+    public void setTagNameJa_IsNotNull() { regTagNameJa(CK_ISNN, DOBJ); }
+
     protected void regTagNameJa(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTagNameJa(), "tag_name_ja"); }
     protected abstract ConditionValue xgetCValueTagNameJa();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_Equal(String tagNameEn) {
@@ -310,7 +340,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_NotEqual(String tagNameEn) {
@@ -323,7 +353,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_GreaterThan(String tagNameEn) {
@@ -332,7 +362,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_LessThan(String tagNameEn) {
@@ -341,7 +371,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_GreaterEqual(String tagNameEn) {
@@ -350,7 +380,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_LessEqual(String tagNameEn) {
@@ -359,7 +389,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEnList The collection of tagNameEn as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_InScope(Collection<String> tagNameEnList) {
@@ -372,7 +402,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEnList The collection of tagNameEn as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTagNameEn_NotInScope(Collection<String> tagNameEnList) {
@@ -385,7 +415,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)} <br>
+     * tag_name_en: {VARCHAR(255)} <br>
      * <pre>e.g. setTagNameEn_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param tagNameEn The value of tagNameEn as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -396,7 +426,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)} <br>
+     * tag_name_en: {VARCHAR(255)} <br>
      * <pre>e.g. setTagNameEn_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param tagNameEn The value of tagNameEn as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -408,7 +438,7 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -419,13 +449,31 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @param tagNameEn The value of tagNameEn as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setTagNameEn_NotLikeSearch(String tagNameEn, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(tagNameEn), xgetCValueTagNameEn(), "tag_name_en", likeSearchOption);
     }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * tag_name_en: {VARCHAR(255)}
+     */
+    public void setTagNameEn_IsNull() { regTagNameEn(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * tag_name_en: {VARCHAR(255)}
+     */
+    public void setTagNameEn_IsNullOrEmpty() { regTagNameEn(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * tag_name_en: {VARCHAR(255)}
+     */
+    public void setTagNameEn_IsNotNull() { regTagNameEn(CK_ISNN, DOBJ); }
 
     protected void regTagNameEn(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTagNameEn(), "tag_name_en"); }
     protected abstract ConditionValue xgetCValueTagNameEn();
@@ -869,6 +917,51 @@ public abstract class AbstractBsTagCQ extends AbstractConditionQuery {
     protected TagCB xcreateScalarConditionPartitionByCB() {
         TagCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
     }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public void xsmyselfDerive(String fn, SubQuery<TagCB> sq, String al, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        TagCB cb = new TagCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "tag_id";
+        registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
+    }
+    public abstract String keepSpecifyMyselfDerived(TagCQ sq);
+
+    /**
+     * Prepare for (Query)MyselfDerived (correlated sub-query).
+     * @return The object to set up a function for myself table. (NotNull)
+     */
+    public HpQDRFunction<TagCB> myselfDerived() {
+        return xcreateQDRFunctionMyselfDerived(TagCB.class);
+    }
+    @SuppressWarnings("unchecked")
+    protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        TagCB cb = new TagCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
+        String pk = "tag_id";
+        String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
+        String prpp = keepQueryMyselfDerivedParameter(vl);
+        registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);
+    }
+    public abstract String keepQueryMyselfDerived(TagCQ sq);
+    public abstract String keepQueryMyselfDerivedParameter(Object vl);
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    /**
+     * Prepare for MyselfExists (correlated sub-query).
+     * @param subCBLambda The implementation of sub-query. (NotNull)
+     */
+    public void myselfExists(SubQuery<TagCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        TagCB cb = new TagCB(); cb.xsetupForMyselfExists(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
+        registerMyselfExists(cb.query(), pp);
+    }
+    public abstract String keepMyselfExists(TagCQ sq);
 
     // ===================================================================================
     //                                                                        Manual Order

@@ -18,23 +18,22 @@ import com.oyfy.dbflute.allcommon.ImplementedInvokerAssistant;
 import com.oyfy.dbflute.allcommon.ImplementedSqlClauseCreator;
 import com.oyfy.dbflute.cbean.*;
 import com.oyfy.dbflute.cbean.cq.*;
-import com.oyfy.dbflute.cbean.nss.*;
 
 /**
- * The base condition-bean of bath.
+ * The base condition-bean of member.
  * @author DBFlute(AutoGenerator)
  */
-public class BsBathCB extends AbstractConditionBean {
+public class BsMemberCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BathCQ _conditionQuery;
+    protected MemberCQ _conditionQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsBathCB() {
+    public BsMemberCB() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -74,7 +73,7 @@ public class BsBathCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "bath";
+        return "member";
     }
 
     // ===================================================================================
@@ -82,23 +81,35 @@ public class BsBathCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param bathId : PK, ID, NotNull, INT(10), FK to bath_tag. (NotNull)
+     * @param memberId : PK, ID, NotNull, INT(10). (NotNull)
      * @return this. (NotNull)
      */
-    public BathCB acceptPK(Integer bathId) {
-        assertObjectNotNull("bathId", bathId);
-        BsBathCB cb = this;
-        cb.query().setBathId_Equal(bathId);
-        return (BathCB)this;
+    public MemberCB acceptPK(Integer memberId) {
+        assertObjectNotNull("memberId", memberId);
+        BsMemberCB cb = this;
+        cb.query().setMemberId_Equal(memberId);
+        return (MemberCB)this;
+    }
+
+    /**
+     * Accept the query condition of unique key as equal.
+     * @param memberAccount : UQ, NotNull, VARCHAR(50). (NotNull)
+     * @return this. (NotNull)
+     */
+    public MemberCB acceptUniqueOf(String memberAccount) {
+        assertObjectNotNull("memberAccount", memberAccount);
+        BsMemberCB cb = this;
+        cb.query().setMemberAccount_Equal(memberAccount);
+        return (MemberCB)this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
-        query().addOrderBy_BathId_Asc();
+        query().addOrderBy_MemberId_Asc();
         return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        query().addOrderBy_BathId_Desc();
+        query().addOrderBy_MemberId_Desc();
         return this;
     }
 
@@ -162,34 +173,34 @@ public class BsBathCB extends AbstractConditionBean {
      * </pre>
      * @return The instance of condition-query for base-point table to set up query. (NotNull)
      */
-    public BathCQ query() {
+    public MemberCQ query() {
         assertQueryPurpose(); // assert only when user-public query
         return doGetConditionQuery();
     }
 
-    public BathCQ xdfgetConditionQuery() { // public for parameter comment and internal
+    public MemberCQ xdfgetConditionQuery() { // public for parameter comment and internal
         return doGetConditionQuery();
     }
 
-    protected BathCQ doGetConditionQuery() {
+    protected MemberCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
         return _conditionQuery;
     }
 
-    protected BathCQ createLocalCQ() {
+    protected MemberCQ createLocalCQ() {
         return xcreateCQ(null, getSqlClause(), getSqlClause().getBasePointAliasName(), 0);
     }
 
-    protected BathCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        BathCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected MemberCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        MemberCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
         cq.xsetBaseCB(this);
         return cq;
     }
 
-    protected BathCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        return new BathCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected MemberCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        return new MemberCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
     /**
@@ -213,10 +224,10 @@ public class BsBathCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<BathCB> unionCBLambda) {
-        final BathCB cb = new BathCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void union(UnionQuery<MemberCB> unionCBLambda) {
+        final MemberCB cb = new MemberCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final BathCQ cq = cb.query(); query().xsetUnionQuery(cq);
+        final MemberCQ cq = cb.query(); query().xsetUnionQuery(cq);
     }
 
     /**
@@ -230,41 +241,15 @@ public class BsBathCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<BathCB> unionCBLambda) {
-        final BathCB cb = new BathCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void unionAll(UnionQuery<MemberCB> unionCBLambda) {
+        final MemberCB cb = new MemberCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final BathCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
+        final MemberCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
 
     // ===================================================================================
     //                                                                         SetupSelect
     //                                                                         ===========
-    protected BathTagNss _nssBathTag;
-    public BathTagNss xdfgetNssBathTag() {
-        if (_nssBathTag == null) { _nssBathTag = new BathTagNss(null); }
-        return _nssBathTag;
-    }
-    /**
-     * Set up relation columns to select clause. <br>
-     * bath_tag by my bath_id, named 'bathTag'.
-     * <pre>
-     * <span style="color: #0000C0">bathBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_BathTag()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     *     <span style="color: #553000">cb</span>.query().set...
-     * }).alwaysPresent(<span style="color: #553000">bath</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">bath</span>.<span style="color: #CC4747">getBathTag()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
-     * });
-     * </pre>
-     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
-     */
-    public BathTagNss setupSelect_BathTag() {
-        assertSetupSelectPurpose("bathTag");
-        doSetupSelect(() -> query().queryBathTag());
-        if (_nssBathTag == null || !_nssBathTag.hasConditionQuery())
-        { _nssBathTag = new BathTagNss(query().queryBathTag()); }
-        return _nssBathTag;
-    }
-
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -305,174 +290,81 @@ public class BsBathCB extends AbstractConditionBean {
         return _specification != null && _specification.hasSpecifiedColumn();
     }
 
-    public static class HpSpecification extends HpAbstractSpecification<BathCQ> {
-        protected BathTagCB.HpSpecification _bathTag;
-        public HpSpecification(ConditionBean baseCB, HpSpQyCall<BathCQ> qyCall
+    public static class HpSpecification extends HpAbstractSpecification<MemberCQ> {
+        public HpSpecification(ConditionBean baseCB, HpSpQyCall<MemberCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
+         * MEMBER_ID: {PK, ID, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathId() { return doColumn("bath_id"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * bath_name_ja: {NotNull, VARCHAR(255)}
+         * MEMBER_NAME: {NotNull, VARCHAR(160)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathNameJa() { return doColumn("bath_name_ja"); }
+        public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
         /**
-         * bath_name_en: {NotNull, VARCHAR(255)}
+         * MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathNameEn() { return doColumn("bath_name_en"); }
+        public SpecifiedColumn columnMemberAccount() { return doColumn("MEMBER_ACCOUNT"); }
         /**
-         * bath_area_code: {NotNull, INT(10)}
+         * MEMBER_STATUS_CODE: {NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathAreaCode() { return doColumn("bath_area_code"); }
+        public SpecifiedColumn columnMemberStatusCode() { return doColumn("MEMBER_STATUS_CODE"); }
         /**
-         * bath_city_code: {NotNull, INT(10)}
+         * FORMALIZED_DATETIME: {DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathCityCode() { return doColumn("bath_city_code"); }
+        public SpecifiedColumn columnFormalizedDatetime() { return doColumn("FORMALIZED_DATETIME"); }
         /**
-         * bath_image: {VARCHAR(2100)}
+         * BIRTHDATE: {DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathImage() { return doColumn("bath_image"); }
+        public SpecifiedColumn columnBirthdate() { return doColumn("BIRTHDATE"); }
         /**
-         * bath_address_ja: {VARCHAR(255)}
+         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathAddressJa() { return doColumn("bath_address_ja"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * bath_address_en: {VARCHAR(255)}
+         * REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathAddressEn() { return doColumn("bath_address_en"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * bath_tel: {VARCHAR(15)}
+         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathTel() { return doColumn("bath_tel"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * bath_fee: {INT(10)}
+         * UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathFee() { return doColumn("bath_fee"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         /**
-         * bath_type: {NotNull, INT(10)}
+         * VERSION_NO: {NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBathType() { return doColumn("bath_type"); }
-        /**
-         * bath_24h_flg: {NotNull, INT(10)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBath24hFlg() { return doColumn("bath_24h_flg"); }
-        /**
-         * bath_time_st: {TIME(8)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBathTimeSt() { return doColumn("bath_time_st"); }
-        /**
-         * bath_time_ed: {TIME(8)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBathTimeEd() { return doColumn("bath_time_ed"); }
-        /**
-         * bath_place_lat: {DOUBLE(9, 6)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBathPlaceLat() { return doColumn("bath_place_lat"); }
-        /**
-         * bath_place_lon: {DOUBLE(9, 6)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBathPlaceLon() { return doColumn("bath_place_lon"); }
-        /**
-         * bath_temperature_up: {DOUBLE(3, 3)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBathTemperatureUp() { return doColumn("bath_temperature_up"); }
-        /**
-         * bath_temperature_low: {DOUBLE(3, 3)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBathTemperatureLow() { return doColumn("bath_temperature_low"); }
-        /**
-         * bath_holiday: {INT(10)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBathHoliday() { return doColumn("bath_holiday"); }
-        /**
-         * del_flg: {NotNull, INT(10)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnDelFlg() { return doColumn("del_flg"); }
-        /**
-         * create_date: {DATETIME(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnCreateDate() { return doColumn("create_date"); }
-        /**
-         * update_date: {DATETIME(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnUpdateDate() { return doColumn("update_date"); }
+        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
-            columnBathId(); // PK
+            columnMemberId(); // PK
         }
         @Override
-        protected String getTableDbName() { return "bath"; }
-        /**
-         * Prepare to specify functions about relation table. <br>
-         * bath_tag by my bath_id, named 'bathTag'.
-         * @return The instance for specification for relation table to specify. (NotNull)
-         */
-        public BathTagCB.HpSpecification specifyBathTag() {
-            assertRelation("bathTag");
-            if (_bathTag == null) {
-                _bathTag = new BathTagCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryBathTag()
-                                    , () -> _qyCall.qy().queryBathTag())
-                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
-                if (xhasSyncQyCall()) { // inherits it
-                    _bathTag.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryBathTag()
-                      , () -> xsyncQyCall().qy().queryBathTag()));
-                }
-            }
-            return _bathTag;
-        }
-        /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from bath_tag where ...) as FOO_MAX} <br>
-         * bath_tag by bath_id, named 'bathTagList'.
-         * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(tagCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-         *     tagCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     tagCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
-         * }, BathTag.<span style="color: #CC4747">ALIAS_foo...</span>);
-         * </pre>
-         * @return The object to set up a function for referrer table. (NotNull)
-         */
-        public HpSDRFunction<BathTagCB, BathCQ> derivedBathTag() {
-            assertDerived("bathTagList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<BathTagCB> sq, BathCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsderiveBathTagList(fn, sq, al, op), _dbmetaProvider);
-        }
+        protected String getTableDbName() { return "member"; }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<BathCB, BathCQ> myselfDerived() {
+        public HpSDRFunction<MemberCB, MemberCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<BathCB> sq, BathCQ cq, String al, DerivedReferrerOption op)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<MemberCB> sq, MemberCQ cq, String al, DerivedReferrerOption op)
                     -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
@@ -485,9 +377,9 @@ public class BsBathCB extends AbstractConditionBean {
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
-    public BathCB dreamCruiseCB() {
-        BathCB cb = new BathCB();
-        cb.xsetupForDreamCruise((BathCB) this);
+    public MemberCB dreamCruiseCB() {
+        MemberCB cb = new MemberCB();
+        cb.xsetupForDreamCruise((MemberCB) this);
         return cb;
     }
 
@@ -512,15 +404,15 @@ public class BsBathCB extends AbstractConditionBean {
      * @param colCBLambda The callback for specify-query of left column. (NotNull)
      * @return The object for setting up operand and right column. (NotNull)
      */
-    public HpColQyOperand<BathCB> columnQuery(final SpecifyQuery<BathCB> colCBLambda) {
+    public HpColQyOperand<MemberCB> columnQuery(final SpecifyQuery<MemberCB> colCBLambda) {
         return xcreateColQyOperand((rightSp, operand) -> {
             return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
-    protected BathCB xcreateColumnQueryCB() {
-        BathCB cb = new BathCB();
-        cb.xsetupForColumnQuery((BathCB)this);
+    protected MemberCB xcreateColumnQueryCB() {
+        MemberCB cb = new MemberCB();
+        cb.xsetupForColumnQuery((MemberCB)this);
         return cb;
     }
 
@@ -540,8 +432,8 @@ public class BsBathCB extends AbstractConditionBean {
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
      */
-    public void orScopeQuery(OrQuery<BathCB> orCBLambda) {
-        xorSQ((BathCB)this, orCBLambda);
+    public void orScopeQuery(OrQuery<MemberCB> orCBLambda) {
+        xorSQ((MemberCB)this, orCBLambda);
     }
 
     /**
@@ -559,8 +451,8 @@ public class BsBathCB extends AbstractConditionBean {
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)
      */
-    public void orScopeQueryAndPart(AndQuery<BathCB> andCBLambda) {
-        xorSQAP((BathCB)this, andCBLambda);
+    public void orScopeQueryAndPart(AndQuery<MemberCB> andCBLambda) {
+        xorSQAP((MemberCB)this, andCBLambda);
     }
 
     // ===================================================================================
@@ -590,11 +482,11 @@ public class BsBathCB extends AbstractConditionBean {
     //                                                                        ============
     @Override
     protected void xprepareSyncQyCall(ConditionBean mainCB) {
-        final BathCB cb;
+        final MemberCB cb;
         if (mainCB != null) {
-            cb = (BathCB)mainCB;
+            cb = (MemberCB)mainCB;
         } else {
-            cb = new BathCB();
+            cb = new MemberCB();
         }
         specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
@@ -603,8 +495,8 @@ public class BsBathCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xgetConditionBeanClassNameInternally() { return BathCB.class.getName(); }
-    protected String xgetConditionQueryClassNameInternally() { return BathCQ.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return MemberCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return MemberCQ.class.getName(); }
     protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
     protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

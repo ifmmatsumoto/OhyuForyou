@@ -1,4 +1,280 @@
 map:{
+    ; 2019/07/08 21:12:22 = map:{
+        ; diffDate = 2019/07/08 21:12:22
+        ; tableCount = map:{
+            ; next = 6
+            ; previous = 5
+        }
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; member = map:{
+                ; tableName = member
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2019/07/08 10:57:50 = map:{
+        ; diffDate = 2019/07/08 10:57:50
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; bath_tag = map:{
+                ; tableName = bath_tag
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; bath_tag_id = map:{
+                        ; columnName = bath_tag_id
+                        ; diffType = ADD
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = bath_tag_id
+                            ; previous = tag_id
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/07/08 10:36:36 = map:{
+        ; diffDate = 2019/07/08 10:36:36
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; tag = map:{
+                ; tableName = tag
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; tag_id = map:{
+                        ; columnName = tag_id
+                        ; diffType = CHANGE
+                        ; autoIncrementDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; tag_idx = map:{
+                        ; constraintName = tag_idx
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/07/07 16:54:07 = map:{
+        ; diffDate = 2019/07/07 16:54:07
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; bath_tag = map:{
+                ; tableName = bath_tag
+                ; diffType = CHANGE
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = tag_id
+                            ; previous = bath_id, tag_id
+                        }
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; bath_id = map:{
+                        ; constraintName = bath_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/07/07 14:50:20 = map:{
+        ; diffDate = 2019/07/07 14:50:20
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_BATH_ID = map:{
+                        ; constraintName = FK_BATH_ID
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; bath_tag = map:{
+                ; tableName = bath_tag
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_BATH_ID = map:{
+                        ; constraintName = FK_BATH_ID
+                        ; diffType = ADD
+                    }
+                    ; bath_tag_ibfk_1(old) = map:{
+                        ; constraintName = bath_tag_ibfk_1(old)
+                        ; diffType = DELETE
+                    }
+                }
+                ; indexDiff = map:{
+                    ; tag_id = map:{
+                        ; constraintName = tag_id
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; tag = map:{
+                ; tableName = tag
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; tag_name_ja = map:{
+                        ; columnName = tag_name_ja
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; tag_name_en = map:{
+                        ; columnName = tag_name_en
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/07/06 11:31:16 = map:{
+        ; diffDate = 2019/07/06 11:31:16
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; bath_tag = map:{
+                ; tableName = bath_tag
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; bath_tag_ibfk_1(new) = map:{
+                        ; constraintName = bath_tag_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; tag_id = map:{
+                        ; constraintName = tag_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/07/06 10:32:14 = map:{
+        ; diffDate = 2019/07/06 10:32:14
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_BATH_ID = map:{
+                        ; constraintName = FK_BATH_ID
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; bath_tag = map:{
+                ; tableName = bath_tag
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; bath_tag_ibfk_1(old) = map:{
+                        ; constraintName = bath_tag_ibfk_1(old)
+                        ; diffType = DELETE
+                    }
+                    ; bath_tag_ibfk_2(old) = map:{
+                        ; constraintName = bath_tag_ibfk_2(old)
+                        ; diffType = DELETE
+                    }
+                }
+                ; indexDiff = map:{
+                    ; tag_id = map:{
+                        ; constraintName = tag_id
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/07/04 23:05:36 = map:{
+        ; diffDate = 2019/07/04 23:05:36
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; bath_id = map:{
+                        ; columnName = bath_id
+                        ; diffType = CHANGE
+                        ; autoIncrementDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; bath_idx = map:{
+                        ; constraintName = bath_idx
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; bath_tag = map:{
+                ; tableName = bath_tag
+                ; diffType = CHANGE
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = ADD
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; bath_tag_ibfk_1(new) = map:{
+                        ; constraintName = bath_tag_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                    ; bath_tag_ibfk_2(new) = map:{
+                        ; constraintName = bath_tag_ibfk_2(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; tag_id = map:{
+                        ; constraintName = tag_id
+                        ; diffType = ADD
+                    }
+                    ; bath_tag_idx = map:{
+                        ; constraintName = bath_tag_idx
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
     ; 2019/06/13 22:06:26 = map:{
         ; diffDate = 2019/06/13 22:06:26
         ; diffAuthor = mmasa

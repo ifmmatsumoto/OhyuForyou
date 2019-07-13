@@ -81,14 +81,14 @@ public class BsTagCQ extends AbstractBsTagCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsTagCQ addOrderBy_TagId_Asc() { regOBA("tag_id"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsTagCQ addOrderBy_TagId_Desc() { regOBD("tag_id"); return this; }
@@ -101,14 +101,14 @@ public class BsTagCQ extends AbstractBsTagCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsTagCQ addOrderBy_TagNameJa_Asc() { regOBA("tag_name_ja"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsTagCQ addOrderBy_TagNameJa_Desc() { regOBD("tag_name_ja"); return this; }
@@ -121,14 +121,14 @@ public class BsTagCQ extends AbstractBsTagCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsTagCQ addOrderBy_TagNameEn_Asc() { regOBA("tag_name_en"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsTagCQ addOrderBy_TagNameEn_Desc() { regOBD("tag_name_en"); return this; }
@@ -246,6 +246,30 @@ public class BsTagCQ extends AbstractBsTagCQ {
     //                                                                     ===============
     public Map<String, TagCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(TagCQ sq) { return xkeepSQue("scalarCondition", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public Map<String, TagCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public String keepSpecifyMyselfDerived(TagCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
+
+    public Map<String, TagCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerived(TagCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    protected Map<String, TagCQ> _myselfExistsMap;
+    public Map<String, TagCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public String keepMyselfExists(TagCQ sq) { return xkeepSQue("myselfExists", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfInScope
+    //                                                                       =============
+    public Map<String, TagCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public String keepMyselfInScope(TagCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
     //                                                                       Very Internal

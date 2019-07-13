@@ -45,7 +45,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathId The value of bathId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_Equal(Integer bathId) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathId The value of bathId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_NotEqual(Integer bathId) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathId The value of bathId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_GreaterThan(Integer bathId) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathId The value of bathId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_LessThan(Integer bathId) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathId The value of bathId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_GreaterEqual(Integer bathId) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathId The value of bathId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBathId_LessEqual(Integer bathId) {
@@ -109,7 +109,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param minNumber The min number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -122,7 +122,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param minNumber The min number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of bathId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -133,7 +133,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathIdList The collection of bathId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBathId_InScope(Collection<Integer> bathIdList) {
@@ -146,7 +146,7 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @param bathIdList The collection of bathId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBathId_NotInScope(Collection<Integer> bathIdList) {
@@ -156,6 +156,91 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
     protected void doSetBathId_NotInScope(Collection<Integer> bathIdList) {
         regINS(CK_NINS, cTL(bathIdList), xgetCValueBathId(), "bath_id");
     }
+
+    /**
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select bath_id from bath_tag where ...)} <br>
+     * bath_tag by bath_id, named 'bathTagAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">existsBathTag</span>(tagCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     tagCB.query().set...
+     * });
+     * </pre>
+     * @param subCBLambda The callback for sub-query of BathTagList for 'exists'. (NotNull)
+     */
+    public void existsBathTag(SubQuery<BathTagCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        BathTagCB cb = new BathTagCB(); cb.xsetupForExistsReferrer(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepBathId_ExistsReferrer_BathTagList(cb.query());
+        registerExistsReferrer(cb.query(), "bath_id", "bath_id", pp, "bathTagList");
+    }
+    public abstract String keepBathId_ExistsReferrer_BathTagList(BathTagCQ sq);
+
+    /**
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select bath_id from bath_tag where ...)} <br>
+     * bath_tag by bath_id, named 'bathTagAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">notExistsBathTag</span>(tagCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     tagCB.query().set...
+     * });
+     * </pre>
+     * @param subCBLambda The callback for sub-query of BathId_NotExistsReferrer_BathTagList for 'not exists'. (NotNull)
+     */
+    public void notExistsBathTag(SubQuery<BathTagCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        BathTagCB cb = new BathTagCB(); cb.xsetupForExistsReferrer(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepBathId_NotExistsReferrer_BathTagList(cb.query());
+        registerNotExistsReferrer(cb.query(), "bath_id", "bath_id", pp, "bathTagList");
+    }
+    public abstract String keepBathId_NotExistsReferrer_BathTagList(BathTagCQ sq);
+
+    public void xsderiveBathTagList(String fn, SubQuery<BathTagCB> sq, String al, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        BathTagCB cb = new BathTagCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String pp = keepBathId_SpecifyDerivedReferrer_BathTagList(cb.query());
+        registerSpecifyDerivedReferrer(fn, cb.query(), "bath_id", "bath_id", pp, "bathTagList", al, op);
+    }
+    public abstract String keepBathId_SpecifyDerivedReferrer_BathTagList(BathTagCQ sq);
+
+    /**
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from bath_tag where ...)} <br>
+     * bath_tag by bath_id, named 'bathTagAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">derivedBathTag()</span>.<span style="color: #CC4747">max</span>(tagCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     tagCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     tagCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
+     * </pre>
+     * @return The object to set up a function for referrer table. (NotNull)
+     */
+    public HpQDRFunction<BathTagCB> derivedBathTag() {
+        return xcreateQDRFunctionBathTagList();
+    }
+    protected HpQDRFunction<BathTagCB> xcreateQDRFunctionBathTagList() {
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveBathTagList(fn, sq, rd, vl, op));
+    }
+    public void xqderiveBathTagList(String fn, SubQuery<BathTagCB> sq, String rd, Object vl, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        BathTagCB cb = new BathTagCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String sqpp = keepBathId_QueryDerivedReferrer_BathTagList(cb.query()); String prpp = keepBathId_QueryDerivedReferrer_BathTagListParameter(vl);
+        registerQueryDerivedReferrer(fn, cb.query(), "bath_id", "bath_id", sqpp, "bathTagList", rd, vl, prpp, op);
+    }
+    public abstract String keepBathId_QueryDerivedReferrer_BathTagList(BathTagCQ sq);
+    public abstract String keepBathId_QueryDerivedReferrer_BathTagListParameter(Object vl);
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
+     */
+    public void setBathId_IsNull() { regBathId(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
+     */
+    public void setBathId_IsNotNull() { regBathId(CK_ISNN, DOBJ); }
 
     protected void regBathId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBathId(), "bath_id"); }
     protected abstract ConditionValue xgetCValueBathId();
@@ -2807,6 +2892,51 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
     protected BathCB xcreateScalarConditionPartitionByCB() {
         BathCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
     }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public void xsmyselfDerive(String fn, SubQuery<BathCB> sq, String al, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        BathCB cb = new BathCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "bath_id";
+        registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
+    }
+    public abstract String keepSpecifyMyselfDerived(BathCQ sq);
+
+    /**
+     * Prepare for (Query)MyselfDerived (correlated sub-query).
+     * @return The object to set up a function for myself table. (NotNull)
+     */
+    public HpQDRFunction<BathCB> myselfDerived() {
+        return xcreateQDRFunctionMyselfDerived(BathCB.class);
+    }
+    @SuppressWarnings("unchecked")
+    protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        BathCB cb = new BathCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
+        String pk = "bath_id";
+        String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
+        String prpp = keepQueryMyselfDerivedParameter(vl);
+        registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);
+    }
+    public abstract String keepQueryMyselfDerived(BathCQ sq);
+    public abstract String keepQueryMyselfDerivedParameter(Object vl);
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    /**
+     * Prepare for MyselfExists (correlated sub-query).
+     * @param subCBLambda The implementation of sub-query. (NotNull)
+     */
+    public void myselfExists(SubQuery<BathCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        BathCB cb = new BathCB(); cb.xsetupForMyselfExists(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
+        registerMyselfExists(cb.query(), pp);
+    }
+    public abstract String keepMyselfExists(BathCQ sq);
 
     // ===================================================================================
     //                                                                        Manual Order

@@ -3,9 +3,11 @@ package com.oyfy.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import com.oyfy.dbflute.allcommon.DBMetaInstanceHandler;
 import com.oyfy.dbflute.exentity.*;
 
@@ -14,7 +16,7 @@ import com.oyfy.dbflute.exentity.*;
  * 銭湯
  * <pre>
  * [primary-key]
- *     
+ *     bath_id
  *
  * [column]
  *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
@@ -23,22 +25,22 @@ import com.oyfy.dbflute.exentity.*;
  *     
  *
  * [identity]
- *     
+ *     bath_id
  *
  * [version-no]
  *     
  *
  * [foreign table]
- *     
+ *     bath_tag
  *
  * [referrer table]
- *     
+ *     bath_tag
  *
  * [foreign property]
- *     
+ *     bathTag
  *
  * [referrer property]
- *     
+ *     bathTagList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -101,7 +103,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** bath_id: {IX, NotNull, INT(10)} */
+    /** bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag} */
     protected Integer _bathId;
 
     /** bath_name_ja: {NotNull, VARCHAR(255)} */
@@ -185,15 +187,57 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        return false;
+        if (_bathId == null) { return false; }
+        return true;
     }
 
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
+    /** bath_tag by my bath_id, named 'bathTag'. */
+    protected OptionalEntity<BathTag> _bathTag;
+
+    /**
+     * [get] bath_tag by my bath_id, named 'bathTag'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'bathTag'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<BathTag> getBathTag() {
+        if (_bathTag == null) { _bathTag = OptionalEntity.relationEmpty(this, "bathTag"); }
+        return _bathTag;
+    }
+
+    /**
+     * [set] bath_tag by my bath_id, named 'bathTag'.
+     * @param bathTag The entity of foreign property 'bathTag'. (NullAllowed)
+     */
+    public void setBathTag(OptionalEntity<BathTag> bathTag) {
+        _bathTag = bathTag;
+    }
+
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
+    /** bath_tag by bath_id, named 'bathTagList'. */
+    protected List<BathTag> _bathTagList;
+
+    /**
+     * [get] bath_tag by bath_id, named 'bathTagList'.
+     * @return The entity list of referrer property 'bathTagList'. (NotNull: even if no loading, returns empty list)
+     */
+    public List<BathTag> getBathTagList() {
+        if (_bathTagList == null) { _bathTagList = newReferrerList(); }
+        return _bathTagList;
+    }
+
+    /**
+     * [set] bath_tag by bath_id, named 'bathTagList'.
+     * @param bathTagList The entity list of referrer property 'bathTagList'. (NullAllowed)
+     */
+    public void setBathTagList(List<BathTag> bathTagList) {
+        _bathTagList = bathTagList;
+    }
+
     protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
@@ -206,27 +250,6 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         if (obj instanceof BsBath) {
             BsBath other = (BsBath)obj;
             if (!xSV(_bathId, other._bathId)) { return false; }
-            if (!xSV(_bathNameJa, other._bathNameJa)) { return false; }
-            if (!xSV(_bathNameEn, other._bathNameEn)) { return false; }
-            if (!xSV(_bathAreaCode, other._bathAreaCode)) { return false; }
-            if (!xSV(_bathCityCode, other._bathCityCode)) { return false; }
-            if (!xSV(_bathImage, other._bathImage)) { return false; }
-            if (!xSV(_bathAddressJa, other._bathAddressJa)) { return false; }
-            if (!xSV(_bathAddressEn, other._bathAddressEn)) { return false; }
-            if (!xSV(_bathTel, other._bathTel)) { return false; }
-            if (!xSV(_bathFee, other._bathFee)) { return false; }
-            if (!xSV(_bathType, other._bathType)) { return false; }
-            if (!xSV(_bath24hFlg, other._bath24hFlg)) { return false; }
-            if (!xSV(_bathTimeSt, other._bathTimeSt)) { return false; }
-            if (!xSV(_bathTimeEd, other._bathTimeEd)) { return false; }
-            if (!xSV(_bathPlaceLat, other._bathPlaceLat)) { return false; }
-            if (!xSV(_bathPlaceLon, other._bathPlaceLon)) { return false; }
-            if (!xSV(_bathTemperatureUp, other._bathTemperatureUp)) { return false; }
-            if (!xSV(_bathTemperatureLow, other._bathTemperatureLow)) { return false; }
-            if (!xSV(_bathHoliday, other._bathHoliday)) { return false; }
-            if (!xSV(_delFlg, other._delFlg)) { return false; }
-            if (!xSV(_createDate, other._createDate)) { return false; }
-            if (!xSV(_updateDate, other._updateDate)) { return false; }
             return true;
         } else {
             return false;
@@ -238,33 +261,20 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         int hs = initial;
         hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _bathId);
-        hs = xCH(hs, _bathNameJa);
-        hs = xCH(hs, _bathNameEn);
-        hs = xCH(hs, _bathAreaCode);
-        hs = xCH(hs, _bathCityCode);
-        hs = xCH(hs, _bathImage);
-        hs = xCH(hs, _bathAddressJa);
-        hs = xCH(hs, _bathAddressEn);
-        hs = xCH(hs, _bathTel);
-        hs = xCH(hs, _bathFee);
-        hs = xCH(hs, _bathType);
-        hs = xCH(hs, _bath24hFlg);
-        hs = xCH(hs, _bathTimeSt);
-        hs = xCH(hs, _bathTimeEd);
-        hs = xCH(hs, _bathPlaceLat);
-        hs = xCH(hs, _bathPlaceLon);
-        hs = xCH(hs, _bathTemperatureUp);
-        hs = xCH(hs, _bathTemperatureLow);
-        hs = xCH(hs, _bathHoliday);
-        hs = xCH(hs, _delFlg);
-        hs = xCH(hs, _createDate);
-        hs = xCH(hs, _updateDate);
         return hs;
     }
 
     @Override
     protected String doBuildStringWithRelation(String li) {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        if (_bathTag != null && _bathTag.isPresent())
+        { sb.append(li).append(xbRDS(_bathTag, "bathTag")); }
+        if (_bathTagList != null) { for (BathTag et : _bathTagList)
+        { if (et != null) { sb.append(li).append(xbRDS(et, "bathTagList")); } } }
+        return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -301,7 +311,15 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
 
     @Override
     protected String doBuildRelationString(String dm) {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        if (_bathTag != null && _bathTag.isPresent())
+        { sb.append(dm).append("bathTag"); }
+        if (_bathTagList != null && !_bathTagList.isEmpty())
+        { sb.append(dm).append("bathTagList"); }
+        if (sb.length() > dm.length()) {
+            sb.delete(0, dm.length()).insert(0, "(").append(")");
+        }
+        return sb.toString();
     }
 
     @Override
@@ -313,7 +331,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] bath_id: {IX, NotNull, INT(10)} <br>
+     * [get] bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag} <br>
      * 銭湯ID
      * @return The value of the column 'bath_id'. (basically NotNull if selected: for the constraint)
      */
@@ -323,7 +341,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_id: {IX, NotNull, INT(10)} <br>
+     * [set] bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag} <br>
      * 銭湯ID
      * @param bathId The value of the column 'bath_id'. (basically NotNull if update: for the constraint)
      */

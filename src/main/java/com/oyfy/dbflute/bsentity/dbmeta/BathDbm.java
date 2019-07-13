@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -68,6 +69,18 @@ public class BathDbm extends AbstractDBMeta {
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
 
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+    protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
+    { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((Bath)et).getBathTag(), (et, vl) -> ((Bath)et).setBathTag((OptionalEntity<BathTag>)vl), "bathTag");
+    }
+    public PropertyGateway findForeignPropertyGateway(String prop)
+    { return doFindEfpg(_efpgMap, prop); }
+
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
@@ -84,7 +97,7 @@ public class BathDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, true, true, true, "INT", 10, 0, null, null, false, null, null, "bathTag", "bathTagList", null, false);
     protected final ColumnInfo _columnBathNameJa = cci("bath_name_ja", "bath_name_ja", null, null, String.class, "bathNameJa", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathNameEn = cci("bath_name_en", "bath_name_en", null, null, String.class, "bathNameEn", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAreaCode = cci("bath_area_code", "bath_area_code", null, null, Integer.class, "bathAreaCode", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
@@ -108,7 +121,7 @@ public class BathDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnUpdateDate = cci("update_date", "update_date", null, null, java.time.LocalDateTime.class, "updateDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * bath_id: {IX, NotNull, INT(10)}
+     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathId() { return _columnBathId; }
@@ -253,10 +266,8 @@ public class BathDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() {
-        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
+    protected UniqueInfo cpui() { return hpcpui(columnBathId()); }
+    public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
     // ===================================================================================
@@ -267,14 +278,31 @@ public class BathDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                      Foreign Property
     //                                      ----------------
+    /**
+     * bath_tag by my bath_id, named 'bathTag'.
+     * @return The information object of foreign property. (NotNull)
+     */
+    public ForeignInfo foreignBathTag() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBathId(), BathTagDbm.getInstance().columnBathId());
+        return cfi("FK_BATH_ID", "bathTag", this, BathTagDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, true, null, null, false, "bathAsOne", false);
+    }
 
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
+    /**
+     * bath_tag by bath_id, named 'bathTagList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerBathTagList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBathId(), BathTagDbm.getInstance().columnBathId());
+        return cri("FK_BATH_ID", "bathTagList", this, BathTagDbm.getInstance(), mp, false, "bath");
+    }
 
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
+    public boolean hasIdentity() { return true; }
 
     // ===================================================================================
     //                                                                           Type Name

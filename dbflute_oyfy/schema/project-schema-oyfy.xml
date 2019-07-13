@@ -26,8 +26,9 @@
     </table>
     <table comment="銭湯" name="bath"
         schema="ohyuforyou_db.$$NoNameSchema$$" type="TABLE">
-        <column comment="銭湯ID" dbType="INT" javaType="Integer"
-            name="bath_id" required="true" size="10" type="INTEGER"/>
+        <column autoIncrement="true" comment="銭湯ID" dbType="INT"
+            javaType="Integer" name="bath_id" pkName="PRIMARY"
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="銭湯 和名" dbType="VARCHAR" javaType="String"
             name="bath_name_ja" required="true" size="255" type="VARCHAR"/>
         <column comment="銭湯 英名" dbType="VARCHAR" javaType="String"
@@ -81,20 +82,66 @@
         <column comment="更新日時" dbType="DATETIME"
             javaType="java.time.LocalDateTime" name="update_date"
             size="19" type="TIMESTAMP"/>
-        <index name="bath_idx">
-            <index-column name="bath_id" position="1"/>
-        </index>
     </table>
     <table comment="銭湯タグ" name="bath_tag"
         schema="ohyuforyou_db.$$NoNameSchema$$" type="TABLE">
         <column comment="銭湯ID" dbType="INT" javaType="Integer"
+            name="bath_tag_id" pkName="PRIMARY" pkPosition="1"
+            primaryKey="true" required="true" size="10" type="INTEGER"/>
+        <column comment="銭湯ID" dbType="INT" javaType="Integer"
             name="bath_id" required="true" size="10" type="INTEGER"/>
         <column comment="タグID" dbType="INT" javaType="Integer"
             name="tag_id" required="true" size="10" type="INTEGER"/>
-        <index name="bath_tag_idx">
-            <index-column name="bath_id" position="1"/>
-            <index-column name="tag_id" position="2"/>
-        </index>
+        <foreign-key foreignSchema="ohyuforyou_db.$$NoNameSchema$$"
+            foreignTable="bath" name="FK_BATH_ID">
+            <reference foreign="bath_id" local="bath_id"/>
+        </foreign-key>
+        <unique name="bath_id">
+            <unique-column name="bath_id" position="1"/>
+            <unique-column name="tag_id" position="2"/>
+        </unique>
+    </table>
+    <table
+        comment="会員: 会員登録時にデータが登録される。&#xa;基本的に物理削除はなく、退会したらステータスが退会会員になる。"
+        name="member" schema="ohyuforyou_db.$$NoNameSchema$$" type="TABLE">
+        <column autoIncrement="true"
+            comment="会員ID: 会員を識別するID。連番として基本的に自動採番される。&#xa;（会員IDだけに限らず）採番方法はDBMSによって変わる。"
+            dbType="INT" javaType="Integer" name="MEMBER_ID"
+            pkName="PRIMARY" pkPosition="1" primaryKey="true"
+            required="true" size="10" type="INTEGER"/>
+        <column comment="会員名称: 会員のフルネームの名称。" dbType="VARCHAR"
+            javaType="String" name="MEMBER_NAME" required="true"
+            size="160" type="VARCHAR"/>
+        <column comment="会員アカウント: 会員がログイン時に利用するアカウントNO。"
+            dbType="VARCHAR" javaType="String" name="MEMBER_ACCOUNT"
+            required="true" size="50" type="VARCHAR"/>
+        <column comment="会員ステータスコード" dbType="CHAR" javaType="String"
+            name="MEMBER_STATUS_CODE" required="true" size="3" type="CHAR"/>
+        <column
+            comment="正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。&#xa;仮会員のときはnull。"
+            dbType="DATETIME" javaType="java.time.LocalDateTime"
+            name="FORMALIZED_DATETIME" size="19" type="TIMESTAMP"/>
+        <column comment="生年月日: 必須項目ではないので、このデータがない会員もいる。" dbType="DATE"
+            javaType="java.time.LocalDate" name="BIRTHDATE" size="10" type="DATE"/>
+        <column comment="登録日時: レコードが登録された日時。共通カラムの一つ。" dbType="DATETIME"
+            javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
+            required="true" size="19" type="TIMESTAMP"/>
+        <column comment="登録ユーザ: レコードを登録したユーザ。共通カラムの一つ。" dbType="VARCHAR"
+            javaType="String" name="REGISTER_USER" required="true"
+            size="200" type="VARCHAR"/>
+        <column comment="更新日時: レコードが（最後に）更新された日時。共通カラムの一つ。"
+            dbType="DATETIME" javaType="java.time.LocalDateTime"
+            name="UPDATE_DATETIME" required="true" size="19" type="TIMESTAMP"/>
+        <column comment="更新ユーザ: レコードを更新したユーザ。" dbType="VARCHAR"
+            javaType="String" name="UPDATE_USER" required="true"
+            size="200" type="VARCHAR"/>
+        <column
+            comment="バージョンNO: レコードのバージョンを示すNO。&#xa;更新回数と等しく、主に排他制御のために利用される。"
+            dbType="BIGINT" javaType="Long" name="VERSION_NO"
+            required="true" size="19" type="BIGINT"/>
+        <unique name="MEMBER_ACCOUNT">
+            <unique-column name="MEMBER_ACCOUNT" position="1"/>
+        </unique>
     </table>
     <table comment="駅" name="station"
         schema="ohyuforyou_db.$$NoNameSchema$$" type="TABLE">
@@ -136,12 +183,13 @@
     </table>
     <table comment="タグ" name="tag"
         schema="ohyuforyou_db.$$NoNameSchema$$" type="TABLE">
-        <column comment="タグID" dbType="INT" javaType="Integer"
-            name="tag_id" required="true" size="10" type="INTEGER"/>
+        <column autoIncrement="true" comment="タグID" dbType="INT"
+            javaType="Integer" name="tag_id" pkName="PRIMARY"
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="タグ 和名" dbType="VARCHAR" javaType="String"
-            name="tag_name_ja" required="true" size="255" type="VARCHAR"/>
+            name="tag_name_ja" size="255" type="VARCHAR"/>
         <column comment="タグ 英名" dbType="VARCHAR" javaType="String"
-            name="tag_name_en" required="true" size="255" type="VARCHAR"/>
+            name="tag_name_en" size="255" type="VARCHAR"/>
         <column comment="タグ画像" dbType="VARCHAR" javaType="String"
             name="tag_image" size="2100" type="VARCHAR"/>
         <column comment="作成日時" dbType="DATETIME"
@@ -150,8 +198,5 @@
         <column comment="更新日時" dbType="DATETIME"
             javaType="java.time.LocalDateTime" name="update_date"
             size="19" type="TIMESTAMP"/>
-        <index name="tag_idx">
-            <index-column name="tag_id" position="1"/>
-        </index>
     </table>
 </database>

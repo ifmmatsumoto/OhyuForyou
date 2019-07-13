@@ -68,25 +68,25 @@ public class TagDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnTagId = cci("tag_id", "tag_id", null, null, Integer.class, "tagId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTagNameJa = cci("tag_name_ja", "tag_name_ja", null, null, String.class, "tagNameJa", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTagNameEn = cci("tag_name_en", "tag_name_en", null, null, String.class, "tagNameEn", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTagId = cci("tag_id", "tag_id", null, null, Integer.class, "tagId", null, true, true, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTagNameJa = cci("tag_name_ja", "tag_name_ja", null, null, String.class, "tagNameJa", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTagNameEn = cci("tag_name_en", "tag_name_en", null, null, String.class, "tagNameEn", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTagImage = cci("tag_image", "tag_image", null, null, String.class, "tagImage", null, false, false, false, "VARCHAR", 2100, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnCreateDate = cci("create_date", "create_date", null, null, java.time.LocalDateTime.class, "createDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnUpdateDate = cci("update_date", "update_date", null, null, java.time.LocalDateTime.class, "updateDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * tag_id: {IX, NotNull, INT(10)}
+     * tag_id: {PK, ID, NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTagId() { return _columnTagId; }
     /**
-     * tag_name_ja: {NotNull, VARCHAR(255)}
+     * tag_name_ja: {VARCHAR(255)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTagNameJa() { return _columnTagNameJa; }
     /**
-     * tag_name_en: {NotNull, VARCHAR(255)}
+     * tag_name_en: {VARCHAR(255)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTagNameEn() { return _columnTagNameEn; }
@@ -125,10 +125,8 @@ public class TagDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() {
-        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
-    }
-    public boolean hasPrimaryKey() { return false; }
+    protected UniqueInfo cpui() { return hpcpui(columnTagId()); }
+    public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
     // ===================================================================================
@@ -147,6 +145,7 @@ public class TagDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
+    public boolean hasIdentity() { return true; }
 
     // ===================================================================================
     //                                                                           Type Name

@@ -73,6 +73,26 @@ public class BsBathTagCQ extends AbstractBsBathTagCQ {
     // ===================================================================================
     //                                                                               Query
     //                                                                               =====
+    protected ConditionValue _bathTagId;
+    public ConditionValue xdfgetBathTagId()
+    { if (_bathTagId == null) { _bathTagId = nCV(); }
+      return _bathTagId; }
+    protected ConditionValue xgetCValueBathTagId() { return xdfgetBathTagId(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @return this. (NotNull)
+     */
+    public BsBathTagCQ addOrderBy_BathTagId_Asc() { regOBA("bath_tag_id"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * bath_tag_id: {PK, NotNull, INT(10)}
+     * @return this. (NotNull)
+     */
+    public BsBathTagCQ addOrderBy_BathTagId_Desc() { regOBD("bath_tag_id"); return this; }
+
     protected ConditionValue _bathId;
     public ConditionValue xdfgetBathId()
     { if (_bathId == null) { _bathId = nCV(); }
@@ -81,14 +101,14 @@ public class BsBathTagCQ extends AbstractBsBathTagCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @return this. (NotNull)
      */
     public BsBathTagCQ addOrderBy_BathId_Asc() { regOBA("bath_id"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_id: {IX+, NotNull, INT(10)}
+     * bath_id: {UQ+, NotNull, INT(10), FK to bath}
      * @return this. (NotNull)
      */
     public BsBathTagCQ addOrderBy_BathId_Desc() { regOBD("bath_id"); return this; }
@@ -101,14 +121,14 @@ public class BsBathTagCQ extends AbstractBsBathTagCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathTagCQ addOrderBy_TagId_Asc() { regOBA("tag_id"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * tag_id: {NotNull, INT(10)}
+     * tag_id: {+UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathTagCQ addOrderBy_TagId_Desc() { regOBD("tag_id"); return this; }
@@ -152,11 +172,57 @@ public class BsBathTagCQ extends AbstractBsBathTagCQ {
     //                                                                         Union Query
     //                                                                         ===========
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
+        BathTagCQ bq = (BathTagCQ)bqs;
+        BathTagCQ uq = (BathTagCQ)uqs;
+        if (bq.hasConditionQueryBath()) {
+            uq.queryBath().reflectRelationOnUnionQuery(bq.queryBath(), uq.queryBath());
+        }
+        if (bq.hasConditionQueryBathAsOne()) {
+            uq.queryBathAsOne().reflectRelationOnUnionQuery(bq.queryBathAsOne(), uq.queryBathAsOne());
+        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
+    /**
+     * Get the condition-query for relation table. <br>
+     * bath by my bath_id, named 'bath'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public BathCQ queryBath() {
+        return xdfgetConditionQueryBath();
+    }
+    public BathCQ xdfgetConditionQueryBath() {
+        String prop = "bath";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryBath()); xsetupOuterJoinBath(); }
+        return xgetQueRlMap(prop);
+    }
+    protected BathCQ xcreateQueryBath() {
+        String nrp = xresolveNRP("bath_tag", "bath"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new BathCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "bath", nrp);
+    }
+    protected void xsetupOuterJoinBath() { xregOutJo("bath"); }
+    public boolean hasConditionQueryBath() { return xhasQueRlMap("bath"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * bath by bath_id, named 'bathAsOne'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public BathCQ queryBathAsOne() { return xdfgetConditionQueryBathAsOne(); }
+    public BathCQ xdfgetConditionQueryBathAsOne() {
+        String prop = "bathAsOne";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryBathAsOne()); xsetupOuterJoinBathAsOne(); }
+        return xgetQueRlMap(prop);
+    }
+    protected BathCQ xcreateQueryBathAsOne() {
+        String nrp = xresolveNRP("bath_tag", "bathAsOne"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new BathCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "bathAsOne", nrp);
+    }
+    protected void xsetupOuterJoinBathAsOne() { xregOutJo("bathAsOne"); }
+    public boolean hasConditionQueryBathAsOne() { return xhasQueRlMap("bathAsOne"); }
+
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;
     }
@@ -166,6 +232,30 @@ public class BsBathTagCQ extends AbstractBsBathTagCQ {
     //                                                                     ===============
     public Map<String, BathTagCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(BathTagCQ sq) { return xkeepSQue("scalarCondition", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public Map<String, BathTagCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public String keepSpecifyMyselfDerived(BathTagCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
+
+    public Map<String, BathTagCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerived(BathTagCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    protected Map<String, BathTagCQ> _myselfExistsMap;
+    public Map<String, BathTagCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public String keepMyselfExists(BathTagCQ sq) { return xkeepSQue("myselfExists", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfInScope
+    //                                                                       =============
+    public Map<String, BathTagCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public String keepMyselfInScope(BathTagCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
     //                                                                       Very Internal

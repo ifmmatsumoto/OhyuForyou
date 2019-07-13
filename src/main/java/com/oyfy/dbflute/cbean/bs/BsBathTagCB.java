@@ -18,6 +18,7 @@ import com.oyfy.dbflute.allcommon.ImplementedInvokerAssistant;
 import com.oyfy.dbflute.allcommon.ImplementedSqlClauseCreator;
 import com.oyfy.dbflute.cbean.*;
 import com.oyfy.dbflute.cbean.cq.*;
+import com.oyfy.dbflute.cbean.nss.*;
 
 /**
  * The base condition-bean of bath_tag.
@@ -79,14 +80,39 @@ public class BsBathTagCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                 PrimaryKey Handling
     //                                                                 ===================
+    /**
+     * Accept the query condition of primary key as equal.
+     * @param bathTagId : PK, NotNull, INT(10). (NotNull)
+     * @return this. (NotNull)
+     */
+    public BathTagCB acceptPK(Integer bathTagId) {
+        assertObjectNotNull("bathTagId", bathTagId);
+        BsBathTagCB cb = this;
+        cb.query().setBathTagId_Equal(bathTagId);
+        return (BathTagCB)this;
+    }
+
+    /**
+     * Accept the query condition of unique key as equal.
+     * @param bathId : UQ+, NotNull, INT(10), FK to bath. (NotNull)
+     * @param tagId : +UQ, NotNull, INT(10). (NotNull)
+     * @return this. (NotNull)
+     */
+    public BathTagCB acceptUniqueOf(Integer bathId, Integer tagId) {
+        assertObjectNotNull("bathId", bathId);assertObjectNotNull("tagId", tagId);
+        BsBathTagCB cb = this;
+        cb.query().setBathId_Equal(bathId);cb.query().setTagId_Equal(tagId);
+        return (BathTagCB)this;
+    }
+
     public ConditionBean addOrderBy_PK_Asc() {
-        String msg = "The table has no primary-keys: " + asTableDbName();
-        throw new UnsupportedOperationException(msg);
+        query().addOrderBy_BathTagId_Asc();
+        return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        String msg = "The table has no primary-keys: " + asTableDbName();
-        throw new UnsupportedOperationException(msg);
+        query().addOrderBy_BathTagId_Desc();
+        return this;
     }
 
     // ===================================================================================
@@ -226,6 +252,61 @@ public class BsBathTagCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                         SetupSelect
     //                                                                         ===========
+    protected BathNss _nssBath;
+    public BathNss xdfgetNssBath() {
+        if (_nssBath == null) { _nssBath = new BathNss(null); }
+        return _nssBath;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * bath by my bath_id, named 'bath'.
+     * <pre>
+     * <span style="color: #0000C0">bathTagBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Bath()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">bathTag</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">bathTag</span>.<span style="color: #CC4747">getBath()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public BathNss setupSelect_Bath() {
+        assertSetupSelectPurpose("bath");
+        if (hasSpecifiedLocalColumn()) {
+            specify().columnBathId();
+        }
+        doSetupSelect(() -> query().queryBath());
+        if (_nssBath == null || !_nssBath.hasConditionQuery())
+        { _nssBath = new BathNss(query().queryBath()); }
+        return _nssBath;
+    }
+
+    protected BathNss _nssBathAsOne;
+    public BathNss xdfgetNssBathAsOne() {
+        if (_nssBathAsOne == null) { _nssBathAsOne = new BathNss(null); }
+        return _nssBathAsOne;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * bath by bath_id, named 'bathAsOne'.
+     * <pre>
+     * <span style="color: #0000C0">bathTagBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_BathAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">bathTag</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">bathTag</span>.<span style="color: #CC4747">getBathAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public BathNss setupSelect_BathAsOne() {
+        assertSetupSelectPurpose("bathAsOne");
+        doSetupSelect(() -> query().queryBathAsOne());
+        if (_nssBathAsOne == null || !_nssBathAsOne.hasConditionQuery())
+        { _nssBathAsOne = new BathNss(query().queryBathAsOne()); }
+        return _nssBathAsOne;
+    }
+
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -267,17 +348,24 @@ public class BsBathTagCB extends AbstractConditionBean {
     }
 
     public static class HpSpecification extends HpAbstractSpecification<BathTagCQ> {
+        protected BathCB.HpSpecification _bath;
+        protected BathCB.HpSpecification _bathAsOne;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<BathTagCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * bath_id: {IX+, NotNull, INT(10)}
+         * bath_tag_id: {PK, NotNull, INT(10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathTagId() { return doColumn("bath_tag_id"); }
+        /**
+         * bath_id: {UQ+, NotNull, INT(10), FK to bath}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathId() { return doColumn("bath_id"); }
         /**
-         * tag_id: {NotNull, INT(10)}
+         * tag_id: {+UQ, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTagId() { return doColumn("tag_id"); }
@@ -285,9 +373,63 @@ public class BsBathTagCB extends AbstractConditionBean {
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
+            columnBathTagId(); // PK
+            if (qyCall().qy().hasConditionQueryBath()
+                    || qyCall().qy().xgetReferrerQuery() instanceof BathCQ) {
+                columnBathId(); // FK or one-to-one referrer
+            }
         }
         @Override
         protected String getTableDbName() { return "bath_tag"; }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * bath by my bath_id, named 'bath'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public BathCB.HpSpecification specifyBath() {
+            assertRelation("bath");
+            if (_bath == null) {
+                _bath = new BathCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryBath()
+                                    , () -> _qyCall.qy().queryBath())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _bath.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryBath()
+                      , () -> xsyncQyCall().qy().queryBath()));
+                }
+            }
+            return _bath;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * bath by bath_id, named 'bathAsOne'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public BathCB.HpSpecification specifyBathAsOne() {
+            assertRelation("bathAsOne");
+            if (_bathAsOne == null) {
+                _bathAsOne = new BathCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryBathAsOne()
+                                    , () -> _qyCall.qy().queryBathAsOne())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _bathAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryBathAsOne()
+                      , () -> xsyncQyCall().qy().queryBathAsOne()));
+                }
+            }
+            return _bathAsOne;
+        }
+        /**
+         * Prepare for (Specify)MyselfDerived (SubQuery).
+         * @return The object to set up a function for myself table. (NotNull)
+         */
+        public HpSDRFunction<BathTagCB, BathTagCQ> myselfDerived() {
+            assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<BathTagCB> sq, BathTagCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+        }
     }
 
     // ===================================================================================
