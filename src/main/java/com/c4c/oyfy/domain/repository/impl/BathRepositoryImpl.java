@@ -16,12 +16,25 @@ public class BathRepositoryImpl implements BathRepository {
 	@Autowired
 	BathBhv BathBhv;
 
-	/** 銭湯リストを取得 */
-	@Override
-	public List<Bath> getBathList() {
-		// 銭湯ID順で銭湯リストを取得
-		return BathBhv.selectList(cb -> {
-			cb.query().addOrderBy_BathId_Asc();
-		});
-	}
+    /**
+     * 銭湯リストを取得(全件取得)
+     */
+    @Override
+    public List<Bath> getBathList() {
+        // 銭湯ID順で銭湯リストを取得
+        return BathBhv.selectList(cb -> {
+            cb.query().addOrderBy_BathId_Asc();
+        });
+    }
+
+    /**
+     * 銭湯リストを取得(キーワード検索)
+     */
+    @Override
+    public List<Bath> getBathList(String[] keywords) {
+        // 銭湯ID順で銭湯リストを取得
+        return BathBhv.selectList(cb -> {
+        	cb.query().addOrderBy_BathId_Asc();
+        });
+    }
 }

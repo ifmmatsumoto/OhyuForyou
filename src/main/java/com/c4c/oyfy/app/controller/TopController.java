@@ -58,7 +58,7 @@ public class TopController extends _CommonController {
 
 		// TODO DBから銭湯リストを取得するサンプル ST -------------------------------
 		System.out.println("入力したキーワード：" + form.getKeyword());
-		List<Bath> bathList = bathService.getBathList();
+		List<Bath> bathList = bathService.getBathList(form.getKeyword());
 		model.addAttribute("keyword", form.getKeyword());
 		model.addAttribute("bathList", bathList);
 		// TODO DBから銭湯リストを取得するサンプル ED -------------------------------
