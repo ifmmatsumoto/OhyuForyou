@@ -27,11 +27,10 @@ public class BathService {
         List<Bath> bathList = new ArrayList<Bath>();
         if (StringUtils.isEmpty(keyword)) {
             // 全銭湯を取得
-            bathList = bathRepository.getBathList();
+            bathList = bathRepository.searchBathList();
         } else {
-            // 全角スペースを半角スペースに置換した後、半角スペースで分解
-            String[] keywords = keyword.replaceAll("　", " ").split(" ", 0);
-            bathList = bathRepository.getBathList(keywords);
+            // 全角スペースを半角スペースに置換した後、キーワード検索
+            bathList = bathRepository.searchBathList(keyword.replaceAll("　", " "));
         }
         return bathList;
     }
