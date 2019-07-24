@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.controller;
+package com.c4c.oyfy.app.test;
 
 import java.util.List;
 
@@ -7,9 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.c4c.oyfy.app.form.TestForm;
-import com.c4c.oyfy.app.form.TestHelper;
-import com.c4c.oyfy.domain.service.TestService;
+import com.c4c.oyfy.domain.test.TestService;
 
 @Controller
 @RequestMapping("/test")

@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.form;
+package com.c4c.oyfy.app;
 
 import lombok.Data;
 

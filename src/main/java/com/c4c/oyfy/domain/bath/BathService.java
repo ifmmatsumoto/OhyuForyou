@@ -1,4 +1,4 @@
-package com.c4c.oyfy.domain.service;
+package com.c4c.oyfy.domain.bath;
 
 import java.util.List;
 
@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.c4c.oyfy.domain.repository.BathRepository;
 import com.oyfy.dbflute.exentity.Bath;
 
 @Service

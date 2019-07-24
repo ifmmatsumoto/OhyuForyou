@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.controller;
+package com.c4c.oyfy.app.bath;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4c.oyfy.OyfyException;
-import com.c4c.oyfy.app.form.BathForm;
 
 @Controller
 @RequestMapping("/bath")

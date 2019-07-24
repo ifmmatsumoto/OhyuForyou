@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.controller;
+package com.c4c.oyfy.app;
 
 import org.springframework.stereotype.Controller;
 

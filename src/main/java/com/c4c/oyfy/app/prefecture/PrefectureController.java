@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.controller;
+package com.c4c.oyfy.app.prefecture;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4c.oyfy.OyfyException;
-import com.c4c.oyfy.app.form.PrefectureForm;
-import com.c4c.oyfy.app.form.TopForm;
+import com.c4c.oyfy.app._CommonController;
+import com.c4c.oyfy.app.test.TopForm;
 
 @Controller
 @RequestMapping("/prefecture")

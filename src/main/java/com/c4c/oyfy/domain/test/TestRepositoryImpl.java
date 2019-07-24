@@ -1,4 +1,4 @@
-package com.c4c.oyfy.domain.repository.impl;
+package com.c4c.oyfy.domain.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import org.dbflute.cbean.result.ListResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.c4c.oyfy.domain.repository.TestRepository;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.BathTagBhv;
 import com.oyfy.dbflute.exbhv.MemberBhv;

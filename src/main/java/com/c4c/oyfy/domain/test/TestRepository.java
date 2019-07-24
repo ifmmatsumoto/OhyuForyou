@@ -1,4 +1,4 @@
-package com.c4c.oyfy.domain.repository;
+package com.c4c.oyfy.domain.test;
 
 import java.util.List;
 

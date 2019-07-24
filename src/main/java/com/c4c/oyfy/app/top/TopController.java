@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.controller;
+package com.c4c.oyfy.app.top;
 
 import java.util.List;
 
@@ -11,8 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4c.oyfy.OyfyException;
-import com.c4c.oyfy.app.form.TopForm;
-import com.c4c.oyfy.domain.service.BathService;
+import com.c4c.oyfy.app._CommonController;
+import com.c4c.oyfy.app.test.TopForm;
+import com.c4c.oyfy.domain.bath.BathService;
 import com.oyfy.dbflute.exentity.Bath;
 
 @Controller

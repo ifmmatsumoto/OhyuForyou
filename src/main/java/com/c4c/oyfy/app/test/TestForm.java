@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.form;
+package com.c4c.oyfy.app.test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
