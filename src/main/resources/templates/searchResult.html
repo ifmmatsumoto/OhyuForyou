@@ -15,20 +15,20 @@
 
 <!-- ループして検索結果一覧をリンク表示 -->
 <p th:if="${#lists.isEmpty(resultList)}">検索条件に該当する銭湯が見つかりませんでした。</p>
-
-<!-- ページャー -->
-<div>
-	<a th:if="${resultList.page.existsPreviousPage()}" th:href="@{/keyword(page=${resultList.page.previousPageNumber})}">前へ</a>
-	<span th:text="${resultList.page.currentPageNumber}"></span> /
-	<span th:text="${resultList.page.allPageCount}"></span>
-	(<span th:text="${resultList.page.allRecordCount}"></span>件)
-	<a th:if="${resultList.page.existsNextPage()}" th:href="@{/keyword(page=${resultList.page.nextPageNumber})}">次へ</a>
+<div th:if="!${#lists.isEmpty(resultList)}">
+	<!-- ページャー -->
+	<section>
+		<a th:if="${resultList.page.existsPreviousPage()}" th:href="@{/keyword(page=${resultList.page.previousPageNumber})}">前へ</a>
+		<span th:text="${resultList.page.currentPageNumber}"></span> /
+		<span th:text="${resultList.page.allPageCount}"></span>
+		(<span th:text="${resultList.page.allRecordCount}"></span>件)
+		<a th:if="${resultList.page.existsNextPage()}" th:href="@{/keyword(page=${resultList.page.nextPageNumber})}">次へ</a>
+	</section>
+	<ul th:each="bath:${resultList.page}" th:object="${bath}">
+		<!-- 銭湯詳細画面へのリンク -->
+		<li><a href="/bath" th:text="*{bathNameJa}"></a></li>
+	</ul>
 </div>
-
-<ul th:each="bath:${resultList.page}" th:object="${bath}">
-	<!-- 銭湯詳細画面へのリンク -->
-	<li><a href="/bath" th:text="*{bathNameJa}"></a></li>
-</ul>
 
 <a href="javascript:history.back();">戻る</a>
 
