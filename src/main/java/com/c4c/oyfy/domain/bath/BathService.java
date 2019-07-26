@@ -1,12 +1,10 @@
 package com.c4c.oyfy.domain.bath;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oyfy.dbflute.exentity.Bath;
+import com.c4c.oyfy.util.ResultList;
 
 @Service
 @Transactional
@@ -15,8 +13,12 @@ public class BathService {
 	@Autowired
     BathRepository bathRepository;
 
-	/** 銭湯リストを取得 */
-    public List<Bath> getBathList() {
-        return bathRepository.getBathList();
+	/**
+	 * 銭湯リストを取得
+	 * @param page
+	 * @return
+	 */
+    public ResultList getBathList(int page) {
+        return bathRepository.getBathList(page);
     }
 }
