@@ -14,7 +14,6 @@ public class TestHelper {
             TestForm form = new TestForm();
             form.setBathNameJa(entity.getBathNameJa());
             form.setBathNameEn(entity.getBathNameEn());
-            System.out.println(form.getBathNameEn());
             form.setBathAreaCode(entity.getBathAreaCode());
             form.setBathCityCode(entity.getBathCityCode());
             form.setBathImage(entity.getBathImage());

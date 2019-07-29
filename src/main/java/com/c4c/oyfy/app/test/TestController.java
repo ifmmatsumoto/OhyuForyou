@@ -21,7 +21,7 @@ public class TestController {
 
 	    List<TestForm> baths = TestHelper.toForm(testService.searchPathList(form.getKeyword()));
 	    model.addAttribute("baths", baths);
-	    return "test";
+	    return "test/test";
 	}
 
 }

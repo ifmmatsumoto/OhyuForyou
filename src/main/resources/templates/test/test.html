@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{common/layout}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/test/test.css}" />
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.min.css}" />
-
 </head>
 <body>
-    <div>
-        <header style="wi dth: 100%; background-color: #ffef11">
+    <div layout:fragment="contents">
+        <header style="width: 100%; background-color: #ffef11">
             <nav id="menu" style="padding-top: 10px;">
                 <!--中身-->
                 <div id="nav-content">
                     <ul class="category">
                         <li class="category-title" style="margin-left: 10px;"><a>Oh!湯ForYouとは</a></li>
-                        <li class="category-title"><a>テスト1</a></li>
+                        <li class="category-title"><a>TOP</a></li>
                         <li class="category-title"><a>テスト2</a></li>
                         <li class="category-title"><a>テスト3</a></li>
                     </ul>
@@ -40,55 +42,48 @@
             </form>
         </header>
         <div class="container-fluid" style="width: 960px;">
-            <div class="row">
-                <div class="col text-center">
-                    <p>
-                       サイトのニュースなんかを書いたりして<br>
-                       縦のピクセルは100px取っている
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 bg-info text-center">
-                <div>
-                col-md-8のクラスで色もクラスでつけている
-                </div>
-                </div>
-            </div>
 
-            <th:block th:each="bath:${baths}">
-                <div ></div>
-            </th:block>
-
-            <div class="row">
-                <div class="col-md-4 bg-success">col-md-4のクラスで色もクラスでつけている</div>
-                <div class="col-md-8">
-                <th:block th:each="bath:${baths}">
+            <div style="width: 100%;">
+                <div class="" style="width: 70%; margin: 0 auto;">
                     <ul class="list-unstyled">
-                        <li class="media">
-                            <p>
-                            <img src="/img/hisamatsuyu.jpg" alt="64x64" class="mr-3" style="width: 150px;" ><br/>
-                            <img src="/img/hisamatsuyu.jpg" alt="64x64" class="mr-1" style="width: 30px;" >
-                            <img src="/img/hisamatsuyu.jpg" alt="64x64" class="mr-1" style="width: 30px;" >
-                            <img src="/img/hisamatsuyu.jpg" alt="64x64" class="mr-1" style="width: 30px;" >
-                            <img src="/img/hisamatsuyu.jpg" alt="64x64" class="mr-1" style="width: 30px;" >
-                            </p>
-                            <div class="media-body">
-                                <h2 th:text="${bath.bathNameJa}" >銭湯の名前</h2>
-                                <p>1
-                                This specification defines the 5th major version, second minor revision of the core language of the World Wide Web: the Hypertext Markup Language (HTML). In this
-                                version, new features continue...
-                                </p>
-                            </div>
-                        </li>
+                        <th:block th:each="bath:${baths}">
+                            <!-- 銭湯単位 -->
+                            <li class="bath" style="border-bottom: 1px solid #aaa; height: 150px;">
+                                <!-- ヘッダー -->
+                                <div class="bath-header">
+                                    <h3 style="margin-bottom: 0;">
+                                        <span th:text="${bath.bathNameJa}">銭湯の名前</span>
+                                    </h3>
+                                    <span th:text="${bath.bathNameEn}">銭湯の名前</span>
+                                </div>
+
+                                <div class="bath-content">
+                                    <p class="bath_img">
+                                        <img src="/img/hisamatsuyu.jpg" alt="64x64" class="mr-3">
+                                    </p>
+
+                                    <div class="bath_detail">
+                                        <p class="bath_info">
+                                          <img src="/img/fee.png" />
+                                          <span th:text="${bath.bathFee}">460円</span>円
+                                        </p>
+                                        <p class="bath_info">
+                                          <img src="/img/time.png" />
+                                          <span th:text="${bath.bathTimeSt}">12時</span>～<span th:text="${bath.bathTimeEd}">23時</span>
+                                        </p>
+                                        <p class="bath_info">
+                                          <img src="/img/address.png" />
+                                          <span th:text="${bath.bathAddressJa}">台東区寿</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </th:block>
                     </ul>
-                  </th:block>
                 </div>
             </div>
-
-
-
-
+  
         </div>
 
         <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
@@ -113,8 +108,6 @@
             <p style="width: 960px; margin: 0 auto; text-align: center;">一応フッターも</p>
         </footer>
     </div>
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
