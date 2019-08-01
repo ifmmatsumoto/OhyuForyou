@@ -6,25 +6,32 @@
 <meta charset="UTF-8">
 <title>Oh!湯 for you</title>
 <meta name="description" content="common-meta">
+<link rel="stylesheet" media="all" th:href="@{/css/layout/layout.css}" />
 </head>
 <body>
     <header style="width: 100%; background-color: #ffef11;">
         <nav id="menu" style="padding-top: 10px;">
-            <!--中身-->
             <div id="nav-content">
-                <!-- bootstrapの機能でmargin-bottomに1rem設定されているから無理やり0にした -->
-                <ul class="category"  style="margin-bottom: 0;">
-                    <li class="category-title" style="margin-left: 10px;"><a class="nav-a" href="#">Oh!湯ForYouとは</a></li>
-                    <li class="category-title"><a class="nav-a" href="#">駅</a></li>
-                    <li class="category-title"><a class="nav-a" href="#">都道府県</a></li>
-                    <li class="category-title"><a class="nav-a" href="#">イラスト</a></li>
+                <ul class="category" >
+                    <li class="category-title" style="margin-left: 10px;">
+                        <a class="nav-a" href="#"><span>Oh!湯ForYouとは</span></a>
+                    </li>
+                    <li class="category-title">
+                        <a class="nav-a" href="#"><span>駅</span></a>
+                    </li>
+                    <li class="category-title">
+                        <a class="nav-a" href="#"><span>都道府県</span></a>
+                    </li>
+                    <li class="category-title">
+                        <a class="nav-a" href="#"><span>イラスト</span></a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
     <div layout:fragment="contents"></div>
         <footer style="width: 100%;">
-            <p style="width: 960px; margin: 0 auto; text-align: center;">
+            <p style="margin: 0 auto; text-align: center;">
                  <a href="/top">TOP</a>
                  <a href="/station">駅</a>
                  <a href="/prefecture">都道府県</a>

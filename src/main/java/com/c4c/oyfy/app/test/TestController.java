@@ -19,6 +19,10 @@ public class TestController {
 	@RequestMapping
 	public String test(Model model, TestForm form){
 
+	    String keyword = form.getKeyword();
+	    if(keyword.isEmpty()) {
+	        return "test/test";
+	    }
 	    List<TestForm> baths = TestHelper.toForm(testService.searchPathList(form.getKeyword()));
 	    model.addAttribute("baths", baths);
 	    return "test/test";
