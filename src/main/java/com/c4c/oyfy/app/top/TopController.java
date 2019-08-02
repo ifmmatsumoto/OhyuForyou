@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
+import com.c4c.oyfy.app.resultlist.ResultList;
 import com.c4c.oyfy.app.test.TopForm;
 import com.c4c.oyfy.domain.bath.BathService;
-import com.c4c.oyfy.util.ResultList;
 
 @Controller
 @RequestMapping(value = {"/top", "/"})
@@ -55,9 +55,7 @@ public class TopController extends _CommonController {
 		System.out.println("キーワード検索"); // TODO
 
 		// TODO DBから銭湯リストを取得するサンプル ST -------------------------------
-		System.out.println("入力したキーワード：" + form.getKeyword());
-		ResultList resultList = bathService.getBathList(form.getPage());
-		model.addAttribute("keyword", form.getKeyword());
+		ResultList resultList = bathService.getBathList(form.getKeyword(), form.getPage());
 		model.addAttribute("resultList", resultList);
 		// TODO DBから銭湯リストを取得するサンプル ED -------------------------------
 
