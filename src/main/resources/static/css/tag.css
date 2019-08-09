@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+/* タグリスト */
+ul.tags {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+/* タグリスト項目 */
+ul.tags li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+/* タグのマウスオーバー時動作 */
+ul.tags li a {
+    display: inline-block;
+    max-width: 100px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+    font-size: 11px;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+/* タグのマウスオーバー時動作 */
+ul.tags li a:hover {
+    background-color: #3498db;
+    border: 1px solid #3498db;
+    color: #fff;
+}

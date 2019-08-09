@@ -1,10 +1,13 @@
 package com.c4c.oyfy.domain.bath;
 
-import java.util.List;
-
-import com.oyfy.dbflute.exentity.Bath;
+import com.c4c.oyfy.app.resultlist.ResultList;
 
 public interface BathRepository {
-	/** 銭湯リストを取得 */
-	public List<Bath> getBathList();
+	/**
+	 * キーワードを元に銭湯リストを取得
+	 * @param keyword
+	 * @param page
+	 * @return
+	 */
+	public ResultList getBathList(String keyword, int page);
 }
