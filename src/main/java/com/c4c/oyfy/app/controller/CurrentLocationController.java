@@ -1,7 +1,5 @@
 package com.c4c.oyfy.app.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
+import com.c4c.oyfy.app.resultlist.ResultList;
 import com.c4c.oyfy.app.test.TopForm;
 import com.c4c.oyfy.domain.bath.BathService;
-import com.oyfy.dbflute.exentity.Bath;
 
 @Controller
 @RequestMapping("/currentLocation")
@@ -58,9 +56,9 @@ public class CurrentLocationController extends _CommonController {
 
 		// TODO DBから銭湯リストを取得するサンプル ST -------------------------------
 		System.out.println("入力したキーワード：" + form.getKeyword());
-		List<Bath> bathList = bathService.getBathList();
+		ResultList resultList = bathService.getBathList(form.getKeyword(), form.getPage());
 		model.addAttribute("keyword", form.getKeyword());
-		model.addAttribute("bathList", bathList);
+		model.addAttribute("resultList", resultList);
 		// TODO DBから銭湯リストを取得するサンプル ED -------------------------------
 
 		// 検索結果一覧画面表示
@@ -83,9 +81,9 @@ public class CurrentLocationController extends _CommonController {
 
         // TODO DBから銭湯リストを取得するサンプル ST -------------------------------
         System.out.println("入力したキーワード：" + form.getKeyword());
-        List<Bath> bathList = bathService.getBathList();
+        ResultList resultList = bathService.getBathList(form.getKeyword(), form.getPage());
         model.addAttribute("keyword", form.getKeyword());
-        model.addAttribute("bathList", bathList);
+        model.addAttribute("resultList", resultList);
         // TODO DBから銭湯リストを取得するサンプル ED -------------------------------
 
         // 検索結果一覧画面表示
