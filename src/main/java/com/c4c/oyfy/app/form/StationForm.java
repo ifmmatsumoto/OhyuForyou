@@ -1,10 +1,15 @@
 package com.c4c.oyfy.app.form;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=true)
-public class StationForm extends _Common_Form {
+public class StationForm {
+
+    /** 路線リスト */
+    List<String> line
+    = new ArrayList<String>();
 
 }
