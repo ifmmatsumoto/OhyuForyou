@@ -24,4 +24,13 @@ public class BathRepositoryImpl implements BathRepository {
 			cb.query().addOrderBy_BathId_Asc();
 		});
 	}
+
+	/** 銭湯リストを取得 */
+    @Override
+    public Bath findBath(int bathId) {
+        // 銭湯ID順で銭湯リストを取得
+        return BathBhv.selectByPK(bathId).get();
+    }
+
+
 }

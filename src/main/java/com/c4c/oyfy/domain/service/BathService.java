@@ -20,4 +20,8 @@ public class BathService {
     public List<Bath> getBathList() {
         return bathRepository.getBathList();
     }
+
+    public Bath findBath(int bathId) {
+        return bathRepository.findBath(bathId);
+    }
 }
