@@ -19,9 +19,6 @@ public class TestService {
     public TestService(TestRepository testRepository) {
         this.testRepository = testRepository;
     }
-    public int test() {
-        return testRepository.test();
-    }
 
     public List<Bath> searchPathList(String keyword) {
         return testRepository.searchPathList(keyword);

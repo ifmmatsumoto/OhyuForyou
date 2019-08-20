@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.BathTagBhv;
-import com.oyfy.dbflute.exbhv.MemberBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.Tag;
@@ -24,21 +23,6 @@ public class TestRepositoryImpl implements TestRepository {
     TagBhv tagBhv;
     @Autowired
     BathTagBhv bathTagBhv;
-    @Autowired
-    MemberBhv memberBhv;
-
-    @Override
-    public int test() {
-        System.out.println(1);
-
-        bathBhv.selectList(cb -> {
-            cb.query().addOrderBy_Bath24hFlg_Asc();
-        });
-        return bathBhv.selectCount(cb -> {
-            cb.query().setBath24hFlg_Equal(1);
-        });
-
-    }
 
     @Override
     public List<Bath> searchPathList(String keyword) {
