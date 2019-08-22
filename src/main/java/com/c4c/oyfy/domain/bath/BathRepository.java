@@ -1,13 +1,15 @@
 package com.c4c.oyfy.domain.bath;
 
-import com.c4c.oyfy.app.resultlist.ResultList;
+import com.c4c.oyfy.app.search.ResultList;
 
 public interface BathRepository {
-	/**
-	 * キーワードを元に銭湯リストを取得
-	 * @param keyword
-	 * @param page
-	 * @return
-	 */
-	public ResultList getBathList(String keyword, int page);
+    /**
+     * 検索条件を元に銭湯リストを取得
+     * @param keyword
+     * @param page
+     * @param feeFrom
+     * @param feeTo
+     * @return
+     */
+    public ResultList findBathList(String keyword, Integer feeFrom, Integer feeTo, int page);
 }

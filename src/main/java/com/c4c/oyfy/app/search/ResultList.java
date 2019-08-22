@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.resultlist;
+package com.c4c.oyfy.app.search;
 
 import java.util.List;
 

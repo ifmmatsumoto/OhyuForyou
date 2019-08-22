@@ -8,6 +8,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=true)
 public class TopForm extends _Common_Form {
-	/** キーワード */
-	String keyword;
+    /** キーワード */
+    String keyword;
 }

@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
-import com.c4c.oyfy.app.resultlist.ResultList;
+import com.c4c.oyfy.app.search.Conditions;
+import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.app.test.TopForm;
 import com.c4c.oyfy.domain.bath.BathService;
 
@@ -18,49 +19,50 @@ import com.c4c.oyfy.domain.bath.BathService;
 @RequestMapping(value = {"/top", "/"})
 public class TopController extends _CommonController {
 
-	@Autowired
-	BathService bathService;
+    @Autowired
+    BathService bathService;
 
-	/**
-	 * TOP画面表示
-	 * @param form
-	 * @param model
-	 * @param req
-	 * @param res
-	 * @return
-	 * @throws OyfyException
-	 */
-	@RequestMapping
-	public String top(TopForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+    /**
+     * TOP画面表示
+     * @param form
+     * @param model
+     * @param req
+     * @param res
+     * @return
+     * @throws OyfyException
+     */
+    @RequestMapping
+    public String top(TopForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
 
-		System.out.println("TOP画面表示"); // TODO
+        System.out.println("TOP画面表示"); // TODO
 
-		// TOP画面表示
-		return "top";
-	}
+        // TOP画面表示
+        return "top";
+    }
 
-	/**
-	 * キーワード検索
-	 * @param form
-	 * @param result
-	 * @param model
-	 * @param req
-	 * @param res
-	 * @return
-	 * @throws OyfyException
-	 */
-	@RequestMapping("keyword")
-	public String keyword(TopForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+    /**
+     * キーワード検索
+     * @param form
+     * @param result
+     * @param model
+     * @param req
+     * @param res
+     * @return
+     * @throws OyfyException
+     */
+    @RequestMapping("keyword")
+    public String keyword(TopForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+        System.out.println("キーワード検索"); // TODO
+        // 検索条件をセット
+        Conditions cond = new Conditions();
+        cond.setKeyword(form.getKeyword());
+        cond.setPage(form.getPage());
+        // キーワード検索
+        ResultList resultList = bathService.findBathList(cond);
+        model.addAttribute("resultList", resultList);
 
-		System.out.println("キーワード検索"); // TODO
-
-		// TODO DBから銭湯リストを取得するサンプル ST -------------------------------
-		ResultList resultList = bathService.getBathList(form.getKeyword(), form.getPage());
-		model.addAttribute("resultList", resultList);
-		// TODO DBから銭湯リストを取得するサンプル ED -------------------------------
-
-		// 検索結果一覧画面表示
-		return "searchResult";
-	}
+        // 検索結果一覧画面表示
+        return "searchResult";
+    }
 
 }

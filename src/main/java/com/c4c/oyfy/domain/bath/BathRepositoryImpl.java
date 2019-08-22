@@ -3,12 +3,13 @@ package com.c4c.oyfy.domain.bath;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dbflute.cbean.coption.RangeOfOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import com.c4c.oyfy.app.resultlist.ResultList;
+import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
@@ -27,10 +28,12 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
      * キーワードを元に銭湯リストを取得
      * @param keyword
      * @param page
+     * @param feeFrom
+     * @param feeTo
      * @return
      */
     @Override
-    public ResultList getBathList(String keyword, int page) {
+    public ResultList findBathList(String keyword, Integer feeFrom, Integer feeTo, int page) {
         // ページ情報を含めた検索結果
         ResultList resultList = new ResultList();
 
@@ -38,6 +41,10 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         if (StringUtils.isEmpty(keyword)) {
             resultList.setPage(BathBhv.selectPage(cb -> {
                 cb.query().setDelFlg_Equal(0);
+                // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
+                if(feeFrom != null && feeTo != null) {
+                    cb.query().setBathFee_RangeOf(feeFrom, feeTo, new RangeOfOption().orIsNull());
+                }
                 cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
             }));
             return resultList;
@@ -58,6 +65,10 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         // TODO OR検索になってる
         resultList.setPage(BathBhv.selectPage(cb -> {
             cb.query().setDelFlg_Equal(0);
+            // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
+            if(feeFrom != null && feeTo != null) {
+                cb.query().setBathFee_RangeOf(feeFrom, feeTo, new RangeOfOption().orIsNull());
+            }
             cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
             cb.query().existsBathTag(bathTagCB -> {
                 bathTagCB.query().setTagId_InScope(bathTagIdList);
