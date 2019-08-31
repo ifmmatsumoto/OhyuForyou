@@ -3,3 +3,77 @@
 img {
 /*  width: 80px; */
 }
+
+
+@charset "UTF-8";
+
+/* タグリスト */
+ul.tags {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+/* タグリスト項目 */
+ul.tags li {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    padding: 0;
+}
+/* タグのマウスオーバー時動作 */
+ul.tags li a {
+    display: inline-block;
+/*     max-width: 100px; */
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+/*     overflow: hidden; */
+    color: #333;
+    font-size: 11px;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+/* タグのマウスオーバー時動作 */
+ul.tags li a.tag:hover {
+    background-color: #3498db;
+    border: 1px solid #3498db;
+    color: #fff;
+}
+
+/* 検索条件 */
+div.searchCond {
+    background: #65ace4;
+    box-shadow: 0px 0px 0px 10px #65ace4;
+    border: dashed 2px #0074bf;
+    border-radius: 9px;
+    margin-top: 10px;;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+
+}
+/* 検索条件タイトル */
+div.searchCond label.title {
+    display: block;
+}
+
+/* 画面幅が480pxまで*/
+@media screen and (max-width:576px) {
+ .fee-box-right {
+ padding-left:10px;
+
+ }
+ .fee-img {
+  width: 60px;
+ }
+/*  .illust-img {
+   width: 80px;
+ }
+  .illust-box-img {
+   padding-left: 10px;
+ } */
+}

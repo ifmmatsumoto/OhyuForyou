@@ -3,24 +3,26 @@
  */
 function chooseTag(tag){
     $id_num = tag.getAttribute('id').substring(3);
-    $id = '#' + $id_num;
+    $id = '.' + $id_num;
 
     //選択させたimgのチェック用
-    $seleceted_tag = '#checked_' + $id_num;
+    $checked_tag = '#checked_' + $id_num;
     // 検索条件として表示/非表示を制御する
     if ($($id).length) {
         $($id).remove();
-        $($seleceted_tag).css('z-index', -1);
+        $($checked_tag).css('z-index', -1);
     } else {
         // クリックした画像のIDを設定
         $tag_id = '#' + tag.getAttribute('id');
         $tag_detail = $($tag_id).children('input');
         $tag_ja = $tag_detail.attr('value');
 
-        $($seleceted_tag).css('z-index', 0);
+        $($checked_tag).css('z-index', 0);
 
-        $selectedtag = '<div id=' + $id_num + '>';
-        $selectedtag += '<div class=\'dummy\'><span>' + $tag_ja + '</span></div>';
+        $tag_dips = '<li class=' + $id_num + '><a><span>' + $tag_ja + '</span></a></li>';
+        $('.tags').append($tag_dips);
+
+        $selectedtag = '<div class=' + $id_num + '>';
         $selectedtag += '<input class=\'itemList\' type="hidden" value=' + '\'' + $tag_ja + '\'/>';
         $selectedtag += '</div>'
         $('#form').append($selectedtag);
@@ -48,38 +50,45 @@ function addName() {
 //
 $(function() {
     // 料金スライダー
-    $('#fee-slider').slider( {
+    $("#slider").slider({
         range: true,
-        values: [ 460, 1000],
-        step:10,
-        min: 50,
-        max: 3000,
-        slide: function( event, ui ) {
-            $('#fee_low').val(ui.values[ 0 ]);
-            $('#fee_high').val(ui.values[ 1 ]);
-            $('#fee_low_disp').text(ui.values[ 0 ]);
-            $('#fee_high_disp').text(ui.values[ 1 ]);
-        }
-    } );
-    // 初期値のセット
-    $('#fee_low').val($('#fee-slider').slider( 'values', 0 ));
-    $('#fee_high').val($('#fee-slider').slider( 'values', 1 ));
-    $('#fee_low_disp').text($('#fee-slider').slider( 'values', 0 ));
-    $('#fee_high_disp').text($('#fee-slider').slider( 'values', 1 ));
+        min: 100,
+        max: 500,
+        step: 10,
+        values: [100, 500],
+        slide: function(event, ui) {
+            var delay = function() {
+                var handleIndex = $(ui.handle).data('index.uiSliderHandle');
+                var label = handleIndex == 0 ? '#min' : '#max';
+                $(label).html('$' + ui.value).position({
+                    my: 'center top',
+                    at: 'center bottom',
+                    of: ui.handle,
+                    offset: "0, 10"
+                });
+            };
 
-    // 温度スライダー
-    $('#temperature-slider').slider( {
-        range: true,
-        values: [ 20, 45],
-        min: 10,
-        max: 50,
-        slide: function( event, ui ) {
-            $('#temperature_low').val(ui.values[ 0 ]);
-            $('#temperature_high').val(ui.values[ 1 ]);
+            // wait for the ui.handle to set its position
+            setTimeout(delay, 5);
         }
-    } );
-    $('#temperature_low').val($('#temperature-slider').slider( 'values', 0 ));
-    $('#temperature_high').val($('#temperature-slider').slider( 'values', 1 ));
+    });
+
+    $('#min').html('$' + $('#slider').slider('values', 0)).position({
+        my: 'center top',
+        at: 'center bottom',
+        of: $('#slider a:eq(0)'),
+        offset: "0, 10"
+    });
+
+    $('#max').html('$' + $('#slider').slider('values', 1)).position({
+        my: 'center top',
+        at: 'center bottom',
+        of: $('#slider a:eq(1)'),
+        offset: "0, 10"
+    });
+    // 初期値のセット
+    $('#fee_low').val($('#slider').slider( 'values', 0 ));
+    $('#fee_high').val($('#slider').slider( 'values', 1 ));
 } );
 
 

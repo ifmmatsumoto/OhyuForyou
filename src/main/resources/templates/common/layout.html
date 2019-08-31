@@ -7,39 +7,11 @@
 <title>Oh!湯 for you</title>
 <meta name="description" content="common-meta">
 <link rel="stylesheet" media="all" th:href="@{/css/layout/layout.css}" />
-</head>
-<body>
-    <header style="width: 100%; background-color: #ffef11;">
-        <nav id="menu" style="padding-top: 10px;">
-            <div id="nav-content">
-                <ul class="category" >
-                    <li class="category-title" style="margin-left: 10px;">
-                        <a class="nav-a" href="#"><span>Oh!湯ForYouとは</span></a>
-                    </li>
-                    <li class="category-title">
-                        <a class="nav-a" href="#"><span>駅</span></a>
-                    </li>
-                    <li class="category-title">
-                        <a class="nav-a" href="#"><span>都道府県</span></a>
-                    </li>
-                    <li class="category-title">
-                        <a class="nav-a" href="#"><span>イラスト</span></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div layout:fragment="contents"></div>
-        <footer style="width: 100%;">
-            <p style="margin: 0 auto; text-align: center;">
-                 <a href="/top">TOP</a>
-                 <a href="/station">駅</a>
-                 <a href="/prefecture">都道府県</a>
-                 <a href="/illust">イラスト</a>
-            </p>
-        </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div layout:fragment="contents"></div>
 </body>
 </html>

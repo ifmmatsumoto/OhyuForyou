@@ -11,11 +11,9 @@ public class IllustSearchForm {
     // どうパフォーマンスに影響するのかはよくわからない
     // プリミティブで対応できるならそっちのほうがいいらしい
     // Effective Javaより。勘違いかも
-    boolean temperature_low;
-    boolean temperature_high;
-    int fee_low;
+/*    int fee_low;
     int fee_high;
-
+*/
     List<IllustItemForm> illustItemList = new ArrayList<>();
 
     public void add(IllustItemForm item) {
