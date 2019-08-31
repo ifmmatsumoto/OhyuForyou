@@ -61,6 +61,36 @@ div.searchCond label.title {
     display: block;
 }
 
+
+ .checked {
+  position: absolute;
+  right:4px;
+  left:0px;
+  z-index:-1;
+  opacity: 0.3;
+ }
+
+.btn-square-little-rich {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #03A9F4;/*色*/
+  border: solid 1px #0f9ada;/*線色*/
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.btn-square-little-rich:active {
+  /*押したとき*/
+  border: solid 1px #03A9F4;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+
 /* 画面幅が480pxまで*/
 @media screen and (max-width:576px) {
  .fee-box-right {
@@ -70,10 +100,15 @@ div.searchCond label.title {
  .fee-img {
   width: 60px;
  }
-/*  .illust-img {
-   width: 80px;
+
+ .illust-box {
+   margin-left: 5%;
  }
-  .illust-box-img {
-   padding-left: 10px;
- } */
+.illust-img-box {
+  margin-right: 2px;
+}
+ .illust-img {
+   width: 80px;
+   margin-bottom: 10px;
+ }
 }

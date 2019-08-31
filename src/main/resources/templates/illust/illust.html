@@ -42,30 +42,29 @@
             </div>
         </div>
         <!-- イラスト選択 -->
+        <!-- ここで編集 -->
         <div class="row">
-            <div class="col-md-4 offset-md-4 col-12 illustImg" style="margin-top: 30px;">
-                <div th:object="${illustSearchForm}" class="ml-md-3">
-                    <div class="d-inline mr-md-2" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.illustTag)}" onclick="chooseTag(this);">
+            <div class="col-md-4 offset-md-4 col-12">
+                <div th:object="${illustSearchForm}" class="ml-md-3 illust-box">
+                    <div class="d-inline mr-md-2 illust-img-box" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.illustTag)}" onclick="chooseTag(this);">
                         <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
-                        <div class="d-inline " style="position: relative;" >
-                            <img class="rounded-circle mt-md-2" th:src="*{illustItemList[__${itemStat.index}__].illustTag}" />
-                            <img class="rounded-circle mt-md-2" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" style="position: absolute;right:4px;left:0px;z-index:-1;opacity: 0.3;" />
+                        <div class="d-inline illust-img-box" style="position: relative;" >
+                            <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].illustTag}" />
+                            <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
                         </div>
-                        <!-- レイアウトを整えるダミー用 -->
-                        <div class="d-inline"></div>
                     </div>
                  </div>
             </div>
         </div>
         <!-- 温度選択 -->
         <div class="row">
-            <div class="col-md-4 offset-md-4 col-12 illustImg" >
-                <div th:object="${illustSearchForm}" class="ml-md-3">
-                    <div class="d-inline mr-md-2" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.temperatureTag)}" onclick="chooseTag(this);">
+            <div class="col-md-4 offset-md-4 col-12" >
+                <div th:object="${illustSearchForm}" class="ml-md-3  illust-box">
+                    <div class="d-inline mr-md-2 illust-img-box" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.temperatureTag)}" onclick="chooseTag(this);">
                         <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                         <div class="d-inline " style="position: relative;" >
-                            <img class="rounded-circle mt-md-2" th:src="*{illustItemList[__${itemStat.index}__].temperatureTag}" />
-                            <img class="rounded-circle mt-md-2" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" style="position: absolute;right:4px;left:0px;z-index:-1;opacity: 0.3;" />
+                            <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].temperatureTag}" />
+                            <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
                         </div>
                         <!-- レイアウトを整えるダミー用 -->
                         <div class="d-inline"></div>
@@ -75,36 +74,42 @@
         </div>
         <!-- タグ選択 -->
         <div class="row mt-md-2">
-            <div class="col-md-4 offset-md-4 col-12 illustImg">
+            <div class="col-md-4 offset-md-4 col-12 illust-box">
                 <div th:object="${illustSearchForm}" class="ml-md-3">
-                    <div class="d-inline  mr-md-2" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.ojijiTag)}" onclick="chooseTag(this);">
+                    <div class="d-inline  mr-md-2 illust-img-box" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.ojijiTag)}" onclick="chooseTag(this);">
                         <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                         <p class="d-inline" style="position: relative;" >
-                            <img class="rounded-circle mt-md-2" th:src="*{illustItemList[__${itemStat.index}__].ojijiTag}"/>
-                            <img class="rounded-circle mt-md-2" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" style="position: absolute;right:4px;left:0px;z-index:-1;opacity: 0.3;"  />
+                            <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].ojijiTag}"/>
+                            <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
                         </p>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- 検索条件 -->
-        <div class="row  mt-md-2">
-
-        <div class="searchCond offset-md-4 col-md-4">
-            <ul class="tags">
-            </ul>
+        <div class="row mt-4">
+            <div class="offset-md-4 col-md-4 text-center">
+                <div class="btn-square-little-rich" onclick="addName();" style="width: 100%">検索</div>
+            </div>
         </div>
-            <div class="col-md-4 offset-md-4 text-right">
+        <div class="row mt-4 mb-5">
+            <div class="searchCond offset-md-4 col-md-4 offset-1" style="width: 85%">
+                <ul class="tags">
+                </ul>
+            </div>
+            <div>
                 <form id="form" class="form-inline" action="#" th:action="@{/illust}" th:object="${illustSearchForm}" method="post">
                     <input type="hidden" id="fee_low" name="fee_low" />
                     <input type="hidden" id="fee_high" name="fee_high" />
                 </form>
-                <div class="btn btn-primary btn-lg mt-md-2" onclick="addName();">検索</div>
             </div>
+
         </div>
-<script src="https://code.jquery.com/jquery-1.6.2.js" ></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-<script type="text/javascript" th:src="@{/js/illust/illust.js}"></script>
+
+
+        <script src="https://code.jquery.com/jquery-1.6.2.js" ></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+        <script type="text/javascript" th:src="@{/js/illust/illust.js}"></script>
     </div>
 </html>
