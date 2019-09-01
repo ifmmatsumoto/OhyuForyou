@@ -52,15 +52,15 @@ $(function() {
     // 料金スライダー
     $("#slider").slider({
         range: true,
-        min: 100,
-        max: 500,
+        min: 80,
+        max: 3000,
         step: 10,
-        values: [100, 500],
+        values: [460, 2000],
         slide: function(event, ui) {
             var delay = function() {
                 var handleIndex = $(ui.handle).data('index.uiSliderHandle');
                 var label = handleIndex == 0 ? '#min' : '#max';
-                $(label).html('$' + ui.value).position({
+                $(label).html('￥' + ui.value).position({
                     my: 'center top',
                     at: 'center bottom',
                     of: ui.handle,
@@ -73,14 +73,14 @@ $(function() {
         }
     });
 
-    $('#min').html('$' + $('#slider').slider('values', 0)).position({
+    $('#min').html('￥' + $('#slider').slider('values', 0)).position({
         my: 'center top',
         at: 'center bottom',
         of: $('#slider a:eq(0)'),
         offset: "0, 10"
     });
 
-    $('#max').html('$' + $('#slider').slider('values', 1)).position({
+    $('#max').html('￥   ' + $('#slider').slider('values', 1)).position({
         my: 'center top',
         at: 'center bottom',
         of: $('#slider a:eq(1)'),

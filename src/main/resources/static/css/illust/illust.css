@@ -17,13 +17,12 @@ ul.tags {
 /* タグリスト項目 */
 ul.tags li {
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 5px 5px 0;
     padding: 0;
 }
 /* タグのマウスオーバー時動作 */
 ul.tags li a {
     display: inline-block;
-/*     max-width: 100px; */
     height: 28px;
     line-height: 28px;
     padding: 0 5px;
@@ -32,7 +31,6 @@ ul.tags li a {
     border-radius: 3px;
     white-space: nowrap;
     text-overflow: ellipsis;
-/*     overflow: hidden; */
     color: #333;
     font-size: 11px;
     text-decoration: none;
