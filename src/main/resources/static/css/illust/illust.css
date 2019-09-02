@@ -1,112 +1,129 @@
 @charset "UTF-8";
 
-img {
-/*  width: 80px; */
-}
-
-
-@charset "UTF-8";
-
 /* タグリスト */
 ul.tags {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: inline-block;
+ margin: 0;
+ padding: 0;
+ list-style: none;
+ display: inline-block;
 }
 /* タグリスト項目 */
 ul.tags li {
-    display: inline-block;
-    margin: 0 5px 5px 0;
-    padding: 0;
+ display: inline-block;
+ margin: 0 5px 5px 0;
+ padding: 0;
 }
 /* タグのマウスオーバー時動作 */
 ul.tags li a {
-    display: inline-block;
-    height: 28px;
-    line-height: 28px;
-    padding: 0 5px;
-    background-color: #fff;
-    border: 1px solid #aaa;
-    border-radius: 3px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #333;
-    font-size: 11px;
-    text-decoration: none;
-    -webkit-transition: .2s;
-    transition: .2s;
+ display: inline-block;
+ height: 28px;
+ line-height: 28px;
+ padding: 0 5px;
+ background-color: #fff;
+ border: 1px solid #aaa;
+ border-radius: 3px;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ color: #333;
+ font-size: 11px;
+ text-decoration: none;
+ -webkit-transition: .2s;
+ transition: .2s;
 }
 /* タグのマウスオーバー時動作 */
 ul.tags li a.tag:hover {
-    background-color: #3498db;
-    border: 1px solid #3498db;
-    color: #fff;
+ background-color: #3498db;
+ border: 1px solid #3498db;
+ color: #fff;
 }
 
 /* 検索条件 */
 div.searchCond {
-    background: #65ace4;
-    box-shadow: 0px 0px 0px 10px #65ace4;
-    border: dashed 2px #0074bf;
-    border-radius: 9px;
-    margin-top: 10px;;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-
+ background: #65ace4;
+ box-shadow: 0px 0px 0px 10px #65ace4;
+ border: dashed 2px #0074bf;
+ border-radius: 9px;
+ margin-top: 10px;;
+ padding: 0.5em 0.5em 0.5em 0.5em;
 }
 /* 検索条件タイトル */
 div.searchCond label.title {
-    display: block;
+ display: block;
 }
 
-
- .checked {
-  position: absolute;
-  right:4px;
-  left:0px;
-  z-index:-1;
-  opacity: 0.3;
- }
+.checked {
+ position: absolute;
+ right: 4px;
+ left: 0px;
+ z-index: -1;
+ opacity: 0.3;
+}
 
 .btn-square-little-rich {
-  position: relative;
-  display: inline-block;
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-  color: #FFF;
-  background: #03A9F4;/*色*/
-  border: solid 1px #0f9ada;/*線色*/
-  border-radius: 4px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+ position: relative;
+ display: inline-block;
+ padding: 0.25em 0.5em;
+ text-decoration: none;
+ color: #FFF;
+ background: #03A9F4; /*色*/
+ border: solid 1px #0f9ada; /*線色*/
+ border-radius: 4px;
+ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+ text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .btn-square-little-rich:active {
-  /*押したとき*/
-  border: solid 1px #03A9F4;
-  box-shadow: none;
-  text-shadow: none;
+ /*押したとき*/
+ border: solid 1px #03A9F4;
+ box-shadow: none;
+ text-shadow: none;
+}
+/* css つまみサイズ調整 */
+#slider .ui-slider-handle {
+ border-radius: 50%;
 }
 
+#slider {
+ width: 100%;
+}
 
+#min, #max {
+ width: 100%;
+ text-align: center;
+}
+
+.ui-slider-horizontal {
+ height: .4em;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+ top: -.5em;
+}
+#outline {
+  margin-top: 20px;
+}
 /* 画面幅が480pxまで*/
 @media screen and (max-width:576px) {
  .fee-box-right {
- padding-left:10px;
-
+  padding-left: 10px;
  }
  .fee-img {
   width: 60px;
  }
-
  .illust-box {
-   margin-left: 5%;
+  margin-left: 5%;
  }
-.illust-img-box {
+ .illust-img-box {
   margin-right: 2px;
-}
- .illust-img {
-   width: 80px;
-   margin-bottom: 10px;
  }
+ .illust-img {
+  width: 80px;
+  margin-bottom: 10px;
+ }
+ .serchButton {
+  margin-left: 3px;
+ }
+#outline {
+  margin-top: 0;
+}
 }
