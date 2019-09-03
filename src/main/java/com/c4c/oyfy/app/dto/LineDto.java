@@ -1,16 +1,15 @@
 package com.c4c.oyfy.app.dto;
 
-import java.io.IOException;
+import lombok.Data;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+@Data
+public class LineDto {
+    /** APIの戻り値 */
+     Line response;
 
-public class StationDataDto extends JsonDeserializer<String> {
-    @Override
-    public String deserialize(JsonParser p, DeserializationContext ctxt)
-        throws IOException, JsonProcessingException {
-        return p.getCodec().readTree(p).toString();
+    @Data
+    /** 沿線配列 */
+    public class Line {
+        String[] line;
     }
-  }
+}
