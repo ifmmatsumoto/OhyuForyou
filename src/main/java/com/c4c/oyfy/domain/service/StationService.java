@@ -10,16 +10,18 @@ import com.c4c.oyfy.app.dto.StationDto;
 @Transactional
 public class StationService {
 
-    private RestTemplate restTemplate = new RestTemplate();
+    RestTemplate restTemplate = new RestTemplate();
 
 	public StationDto findLineList(String areaname) {
 
 	    /** 沿線検索API リクエストURL */
-	    String URL = "http://express.heartrails.com/api/json?method=getLines&prefecture=" + areaname;
+	    String URL = "http://express.heartrails.com/api/json?method=getAreas";
 
 	    System.out.println(URL);
 
-	    return restTemplate.getForObject(URL, StationDto.class);
+	     StationDto forObject = restTemplate.getForObject(URL, StationDto.class);
+	     System.out.println();
+	     return null;
 	}
 
 	public StationDto findStationList(String areaname) {

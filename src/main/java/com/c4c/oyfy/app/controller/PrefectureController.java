@@ -1,7 +1,5 @@
 package com.c4c.oyfy.app.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.c4c.oyfy.OyfyException;
-import com.c4c.oyfy.app.dto.StationDto;
 import com.c4c.oyfy.app.form.PrefectureForm;
 import com.c4c.oyfy.app.form.StationForm;
 import com.c4c.oyfy.domain.service.StationService;
@@ -53,7 +50,7 @@ public class PrefectureController extends _CommonController {
      */
     @RequestMapping("area")
     public String area(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res, @RequestParam("areacode") String areaname) throws OyfyException {
-
+/*
         System.out.println("都道府県検索(地域)画面表示");
 
         StationDto stationDto = stationService.findLineList(areaname);
@@ -63,7 +60,7 @@ public class PrefectureController extends _CommonController {
         System.out.println(lines);
 
         model.addAttribute("line", lines);
-
+*/
         // 都道府県検索(地域)画面表示
         return "prefectureArea";
     }
@@ -77,16 +74,16 @@ public class PrefectureController extends _CommonController {
 	 * @return
 	 * @throws OyfyException
 	 */
-	@RequestMapping("station")
-	public String station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res, @RequestParam("areacode") String areaname) throws OyfyException {
+    @RequestMapping("station")
+    public String station(StationForm form, Model model, @RequestParam("areacode") String areaname) {
 
-		System.out.println("駅検索(地域)画面表示");
+        System.out.println("駅検索(地域)画面表示");
 
-		StationDto stationDto = stationService.findLineList(areaname);
+        stationService.findLineList(areaname);
 
-		List<String> lines = stationDto.findResponse();
+        //List<String> lines = stationDto.findResponse();
 
-		System.out.println(lines);
+        //System.out.println(lines);
 
         // TODO:linesから値を取り出して駅検索のAPIを実行→実行結果を取得する
         // StationDto stationDto = stationService.findStationList(lines);
@@ -94,11 +91,11 @@ public class PrefectureController extends _CommonController {
         // [山手線:["品川","田町"....]のような連想配列にして画面へ返して表示させる
 
         // TODO:画面表示確認のため路線結果を仮指定
-		model.addAttribute("line", lines);
+        //model.addAttribute("line", lines);
 
-		// 駅検索(地域選択)画面表示
-		return "stationArea";
-	}
+        // 駅検索(地域選択)画面表示
+        return "stationArea";
+    }
 
 	/**
 	 * 駅検索
