@@ -7,4 +7,5 @@ public class IllustItemForm {
     private String tagNameJa;
     private String illustTag;
     private String ojijiTag;
+    private String temperatureTag;
 }
