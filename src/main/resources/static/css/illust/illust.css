@@ -102,6 +102,16 @@ div.searchCond label.title {
 #outline {
   margin-top: 20px;
 }
+ .illust-img-box {
+  margin-right: 4px;
+ }
+
+ .illust-box > div {
+   display: inline-block;
+ }
+ .illust-div {
+  margin-right: 5px;
+ }
 /* 画面幅が480pxまで*/
 @media screen and (max-width:576px) {
  .fee-box-right {
@@ -111,10 +121,10 @@ div.searchCond label.title {
   width: 60px;
  }
  .illust-box {
-  margin-left: 5%;
+  margin-left: 6%;
  }
  .illust-img-box {
-  margin-right: 2px;
+  margin-right: 4px;
  }
  .illust-img {
   width: 80px;
@@ -123,7 +133,7 @@ div.searchCond label.title {
  .serchButton {
   margin-left: 3px;
  }
-#outline {
-  margin-top: 0;
-}
+ #outline {
+   margin-top: 0;
+ }
 }

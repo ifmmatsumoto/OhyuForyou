@@ -30,10 +30,10 @@
                 <!-- イラスト選択 -->
                 <div class="row pt-md-3 pt-2">
                     <div class="col-md-6 offset-md-3 col-12" >
-                        <div th:object="${illustSearchForm}">
-                            <div style="display: inline-block;" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.illustTag)}" onclick="chooseTag(this);">
+                        <div th:object="${illustSearchForm}" class="illust-box">
+                            <div th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.illustTag)}" onclick="chooseTag(this);">
                                 <input th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
-                                <div  style="position: relative;" >
+                                <div  class="illust-div" style="position: relative;">
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].illustTag}" />
                                     <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
                                 </div>
@@ -46,9 +46,9 @@
                 <div class="row pt-md-3 pt-2">
                     <div class="col-md-6 offset-md-3 col-12" >
                         <div th:object="${illustSearchForm}" class="illust-box">
-                            <div class="d-inline mr-md-2 illust-img-box" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.temperatureTag)}" onclick="chooseTag(this);">
+                            <div th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.temperatureTag)}" onclick="chooseTag(this);">
                                 <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
-                                <div class="d-inline " style="position: relative;" >
+                                <div class="illust-div" style="position: relative;">
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].temperatureTag}" />
                                     <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
                                 </div>
@@ -62,7 +62,7 @@
                 <div class="row pt-md-3 pt-2">
                     <div class="col-md-6 offset-md-3 col-12">
                         <div th:object="${illustSearchForm}" class="illust-box">
-                            <div class="d-inline  mr-md-2 illust-img-box" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.ojijiTag)}" onclick="chooseTag(this);">
+                            <div class="illust-div" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.ojijiTag)}" onclick="chooseTag(this);">
                                 <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                                 <p class="d-inline" style="position: relative;" >
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].ojijiTag}"/>
