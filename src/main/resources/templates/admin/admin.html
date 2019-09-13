@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/admin/admin.css}" />
+</head>
+<body>
+<div class="container">
+  <h1>管理画面</h1>
+  <section class="list">
+    <h3>銭湯一覧</h3>
+    <p th:if="${#lists.isEmpty(adminForm.resultList.page)}">銭湯は未登録です。</p>
+    <div th:if="!${#lists.isEmpty(adminForm.resultList.page)}">
+      <!-- ページャー -->
+      <section class="pager">
+        <a th:if="${adminForm.resultList.page.existsPreviousPage()}" th:href="@{/keyword(keyword=${adminForm.resultList.keyword}, page=${adminForm.resultList.page.previousPageNumber})}">前へ</a>
+        <span th:text="${adminForm.resultList.page.currentPageNumber}"></span> /
+        <span th:text="${adminForm.resultList.page.allPageCount}"></span>
+        (<span th:text="${adminForm.resultList.page.allRecordCount}"></span>件)
+        <a th:if="${adminForm.resultList.page.existsNextPage()}" th:href="@{/keyword(keyword=${adminForm.resultList.keyword}, page=${adminForm.resultList.page.nextPageNumber})}">次へ</a>
+      </section>
+      <!-- ページャー -->
+      <table>
+        <tr><th class="id">銭湯ID</th><th>銭湯名</th><th class="date">作成日時</th><th class="date">更新日時</th><th class="action"></th></tr>
+        <!-- 検索結果一覧でループ -->
+        <tr th:each="bath:${adminForm.resultList.page}" th:object="${bath}">
+            <!-- 銭湯詳細画面へのリンク -->
+            <td class="id"><label th:text="*{bathId}"></label></td>
+            <td><label th:text="*{bathNameJa}"></label></td>
+            <td><label th:text="*{createDate}"></label></td>
+            <td><label th:text="*{updateDate}"></label></td>
+            <td class="actionBtn"><a th:href="@{/bath(bathId=*{bathId})}">詳細</a><a th:href="@{/bath(bathId=*{bathId})}">編集</a></td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="regist">
+    <h3>銭湯登録</h3>
+    <form th:action="@{/admin/regist}" name="adminForm" th:object="${adminForm}" method="post" enctype="multipart/form-data">
+    <table>
+      <tr>
+        <th>銭湯ID</th>
+        <td>自動発行</td>
+      </tr>
+      <tr>
+        <th>銭湯 和名</th>
+        <td><input type="text" name="bath.bathNameJa" /></td>
+      </tr>
+      <tr>
+        <th>銭湯 英名</th>
+        <td><input type="text" name="bath.bathNameEn" /></td>
+      </tr>
+      <tr>
+        <th>都道府県コード</th>
+        <td><input type="text" name="bath.bathAreaCode" /></td>
+      </tr>
+      <tr>
+        <th>市区町村コード</th>
+        <td><input type="text" name="bathCityCode" /></td>
+      </tr>
+      <tr>
+        <th>サムネイル画像</th>
+        <td><input type="file" name="bath.bathImage" /></td>
+      </tr>
+      <tr>
+        <th>住所 和名</th>
+        <td><input type="text" name="bath.bathAddressJa" /></td>
+      </tr>
+      <tr>
+        <th>住所 英名</th>
+        <td><input type="text" name="bath.bathAddressEn" /></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><input type="number" name="bath.bathTel" /></td>
+      </tr>
+      <!-- DBfluteの更新が必要<tr><th>詳細</th><td><input type="text" name="bath.bathDetail" /></td></tr> -->
+      <tr>
+        <th>一般入浴料</th>
+        <td><input type="number" name="bath.bathFee" /></td>
+      </tr>
+      <tr>
+        <th>銭湯種別</th>
+        <td>
+          <input type="radio" name="bath.bathType" value="10" id="rdo1" checked><label for="rdo1">銭湯</label>
+          <input type="radio" name="bath.bathType" value="20" id="rdo2"><label for="rdo2">スーパー銭湯</label>
+        </td>
+      </tr>
+      <tr>
+        <th>営業時間 開始</th>
+        <td><input type="time" name="bath.bathTimeSt" /></td>
+      </tr>
+      <tr>
+        <th>営業時間 終了</th>
+        <td><input type="time" name="bath.bathTimeEd" /></td>
+      </tr>
+      <tr>
+        <th>位置情報 緯度</th>
+        <td><input type="text" name="bath.bathPlaceLat" /></td>
+      </tr>
+      <tr>
+        <th>位置情報 経度</th>
+        <td><input type="text" name="bath.bathPlaceLon" /></td>
+      </tr>
+      <tr>
+        <th>温度 上限</th>
+        <td><input type="number" name="bath.bathTemperatureUp" /></td>
+      </tr>
+      <tr>
+        <th>温度 下限</th>
+        <td><input type="number" name="bath.bathTemperatureLow" /></td>
+      </tr>
+      <tr>
+        <th>定休日</th>
+        <td>
+          <label><input type="checkbox" name="bath.bathHoliday" value="1"><span class="checkbox-parts">日</span></label>
+          <label><input type="checkbox" name="bath.bathHoliday" value="2"><span class="checkbox-parts">月</span></label>
+          <label><input type="checkbox" name="bath.bathHoliday" value="4"><span class="checkbox-parts">火</span></label>
+          <label><input type="checkbox" name="bath.bathHoliday" value="8"><span class="checkbox-parts">水</span></label>
+          <label><input type="checkbox" name="bath.bathHoliday" value="16"><span class="checkbox-parts">木</span></label>
+          <label><input type="checkbox" name="bath.bathHoliday" value="32"><span class="checkbox-parts">金</span></label>
+          <label><input type="checkbox" name="bath.bathHoliday" value="64"><span class="checkbox-parts">土</span></label>
+        </td>
+      </tr>
+      <tr>
+        <th>削除フラグ</th>
+        <td>
+          <label><input type="checkbox" name="bath.delFlg" value="1"><span class="checkbox-parts">削除</span></label>
+        </td>
+      </tr>
+      <tr>
+        <th>作成日時</th>
+        <td>自動設定</td>
+      </tr>
+      <tr>
+        <th>更新日時</th>
+        <td>自動設定</td>
+      </tr>
+     </table>
+     <div class="registBtn"><a href="javascript:adminForm.submit()">登　録</a></div>
+   </form>
+  </section>
+</div>
+</body>
+</html>

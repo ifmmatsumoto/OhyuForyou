@@ -13,6 +13,7 @@ import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
+import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -75,5 +76,14 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
             });
         }));
         return resultList;
+    }
+
+    /**
+     * 銭湯登録
+     * @param bath
+     */
+    @Override
+    public void registBath(Bath bath) {
+        BathBhv.insert(bath);
     }
 }
