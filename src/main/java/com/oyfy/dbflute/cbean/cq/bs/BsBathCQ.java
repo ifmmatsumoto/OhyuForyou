@@ -267,6 +267,26 @@ public class BsBathCQ extends AbstractBsBathCQ {
      */
     public BsBathCQ addOrderBy_BathTel_Desc() { regOBD("bath_tel"); return this; }
 
+    protected ConditionValue _bathDetail;
+    public ConditionValue xdfgetBathDetail()
+    { if (_bathDetail == null) { _bathDetail = nCV(); }
+      return _bathDetail; }
+    protected ConditionValue xgetCValueBathDetail() { return xdfgetBathDetail(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @return this. (NotNull)
+     */
+    public BsBathCQ addOrderBy_BathDetail_Asc() { regOBA("bath_detail"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @return this. (NotNull)
+     */
+    public BsBathCQ addOrderBy_BathDetail_Desc() { regOBD("bath_detail"); return this; }
+
     protected ConditionValue _bathFee;
     public ConditionValue xdfgetBathFee()
     { if (_bathFee == null) { _bathFee = nCV(); }

@@ -1362,6 +1362,159 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueBathTel();
 
     /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_Equal(String bathDetail) {
+        doSetBathDetail_Equal(fRES(bathDetail));
+    }
+
+    protected void doSetBathDetail_Equal(String bathDetail) {
+        regBathDetail(CK_EQ, bathDetail);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_NotEqual(String bathDetail) {
+        doSetBathDetail_NotEqual(fRES(bathDetail));
+    }
+
+    protected void doSetBathDetail_NotEqual(String bathDetail) {
+        regBathDetail(CK_NES, bathDetail);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_GreaterThan(String bathDetail) {
+        regBathDetail(CK_GT, fRES(bathDetail));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_LessThan(String bathDetail) {
+        regBathDetail(CK_LT, fRES(bathDetail));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_GreaterEqual(String bathDetail) {
+        regBathDetail(CK_GE, fRES(bathDetail));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_LessEqual(String bathDetail) {
+        regBathDetail(CK_LE, fRES(bathDetail));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetailList The collection of bathDetail as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_InScope(Collection<String> bathDetailList) {
+        doSetBathDetail_InScope(bathDetailList);
+    }
+
+    protected void doSetBathDetail_InScope(Collection<String> bathDetailList) {
+        regINS(CK_INS, cTL(bathDetailList), xgetCValueBathDetail(), "bath_detail");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetailList The collection of bathDetail as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathDetail_NotInScope(Collection<String> bathDetailList) {
+        doSetBathDetail_NotInScope(bathDetailList);
+    }
+
+    protected void doSetBathDetail_NotInScope(Collection<String> bathDetailList) {
+        regINS(CK_NINS, cTL(bathDetailList), xgetCValueBathDetail(), "bath_detail");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_detail: {VARCHAR(255)} <br>
+     * <pre>e.g. setBathDetail_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param bathDetail The value of bathDetail as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setBathDetail_LikeSearch(String bathDetail, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setBathDetail_LikeSearch(bathDetail, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_detail: {VARCHAR(255)} <br>
+     * <pre>e.g. setBathDetail_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param bathDetail The value of bathDetail as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setBathDetail_LikeSearch(String bathDetail, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(bathDetail), xgetCValueBathDetail(), "bath_detail", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setBathDetail_NotLikeSearch(String bathDetail, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setBathDetail_NotLikeSearch(bathDetail, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     * @param bathDetail The value of bathDetail as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setBathDetail_NotLikeSearch(String bathDetail, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(bathDetail), xgetCValueBathDetail(), "bath_detail", likeSearchOption);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     */
+    public void setBathDetail_IsNull() { regBathDetail(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     */
+    public void setBathDetail_IsNullOrEmpty() { regBathDetail(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * bath_detail: {VARCHAR(255)}
+     */
+    public void setBathDetail_IsNotNull() { regBathDetail(CK_ISNN, DOBJ); }
+
+    protected void regBathDetail(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBathDetail(), "bath_detail"); }
+    protected abstract ConditionValue xgetCValueBathDetail();
+
+    /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * bath_fee: {INT(10)}
      * @param bathFee The value of bathFee as equal. (basically NotNull: error as default, or no condition as option)

@@ -19,7 +19,7 @@ import com.oyfy.dbflute.exentity.*;
  *     bath_id
  *
  * [column]
- *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
+ *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_detail, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
  *
  * [sequence]
  *     
@@ -53,6 +53,7 @@ import com.oyfy.dbflute.exentity.*;
  * String bathAddressJa = entity.getBathAddressJa();
  * String bathAddressEn = entity.getBathAddressEn();
  * String bathTel = entity.getBathTel();
+ * String bathDetail = entity.getBathDetail();
  * Integer bathFee = entity.getBathFee();
  * Integer bathType = entity.getBathType();
  * Integer bath24hFlg = entity.getBath24hFlg();
@@ -75,6 +76,7 @@ import com.oyfy.dbflute.exentity.*;
  * entity.setBathAddressJa(bathAddressJa);
  * entity.setBathAddressEn(bathAddressEn);
  * entity.setBathTel(bathTel);
+ * entity.setBathDetail(bathDetail);
  * entity.setBathFee(bathFee);
  * entity.setBathType(bathType);
  * entity.setBath24hFlg(bath24hFlg);
@@ -129,6 +131,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
 
     /** bath_tel: {VARCHAR(15)} */
     protected String _bathTel;
+
+    /** bath_detail: {VARCHAR(255)} */
+    protected String _bathDetail;
 
     /** bath_fee: {INT(10)} */
     protected Integer _bathFee;
@@ -289,6 +294,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         sb.append(dm).append(xfND(_bathAddressJa));
         sb.append(dm).append(xfND(_bathAddressEn));
         sb.append(dm).append(xfND(_bathTel));
+        sb.append(dm).append(xfND(_bathDetail));
         sb.append(dm).append(xfND(_bathFee));
         sb.append(dm).append(xfND(_bathType));
         sb.append(dm).append(xfND(_bath24hFlg));
@@ -508,6 +514,26 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     public void setBathTel(String bathTel) {
         registerModifiedProperty("bathTel");
         _bathTel = bathTel;
+    }
+
+    /**
+     * [get] bath_detail: {VARCHAR(255)} <br>
+     * 詳細情報
+     * @return The value of the column 'bath_detail'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getBathDetail() {
+        checkSpecifiedProperty("bathDetail");
+        return _bathDetail;
+    }
+
+    /**
+     * [set] bath_detail: {VARCHAR(255)} <br>
+     * 詳細情報
+     * @param bathDetail The value of the column 'bath_detail'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setBathDetail(String bathDetail) {
+        registerModifiedProperty("bathDetail");
+        _bathDetail = bathDetail;
     }
 
     /**

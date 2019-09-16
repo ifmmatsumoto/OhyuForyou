@@ -1,4 +1,29 @@
 map:{
+    ; 2019/09/06 21:23:33 = map:{
+        ; diffDate = 2019/09/06 21:23:33
+        ; tableCount = map:{
+            ; next = 5
+            ; previous = 6
+        }
+        ; diffAuthor = s13m1
+        ; diffGitBranch = kadai_nakagawa
+        ; tableDiff = map:{
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; bath_detail = map:{
+                        ; columnName = bath_detail
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; member = map:{
+                ; tableName = member
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2019/07/08 21:12:22 = map:{
         ; diffDate = 2019/07/08 21:12:22
         ; tableCount = map:{

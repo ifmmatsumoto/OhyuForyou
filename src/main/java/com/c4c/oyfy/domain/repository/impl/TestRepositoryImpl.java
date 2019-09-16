@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import com.c4c.oyfy.domain.repository.TestRepository;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.BathTagBhv;
-import com.oyfy.dbflute.exbhv.MemberBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.Tag;
@@ -25,8 +24,6 @@ public class TestRepositoryImpl implements TestRepository {
     TagBhv tagBhv;
     @Autowired
     BathTagBhv bathTagBhv;
-    @Autowired
-    MemberBhv memberBhv;
 
     @Override
     public int test() {

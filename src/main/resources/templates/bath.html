@@ -7,10 +7,50 @@
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 </head>
 
+<style type="text/css">
+th {
+background-color: #bde9ba
+}
+</style>
 <body>
-<h3>銭湯詳細画面</h3>
-<p th:text="${bath.bathNameJa}"></p>
+<div style="text-align:center; font-size:30px">銭湯詳細画面</div>
+<p style="text-align:center" th:text="${bath.bathNameJa}"></p>
+<div class="table-responsive; center-block">
+ <table class="list" border="1" style="border-collapse: collapse">
 
+    <tr>
+      <th>種別</th><td th:text="${bath.bathType}"></td>
+    </tr>
+    <tr>
+      <th>営業時間</th><td th:text="${bath.bathTimeSt}+'～'+${bath.bathTimeEd}"></td>
+    </tr>
+    <tr>
+      <th>定休日</th><td th:text="${bath.bathHoliday}"></td>
+    </tr>
+    <tr>
+      <th>一般入浴料</th><td th:text="'\\'+${bath.bathFee}"></td>
+    </tr>
+    <tr>
+      <th>電話番号</th><td th:text="${bath.bathTel}"></td>
+    </tr>
+    <tr>
+      <th>詳細</th><td th:text="${bath.bathDetail}"></td>
+    </tr>
+    <tr>
+      <th>温度</th><td th:text="${bath.bathTemperatureUp}"></td>
+    </tr>
+    <tr>
+      <th>ウェブサイト</th><td>http://www.xxxxxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <th>住所</th><td th:text="${bath.bathAddressJa}"></td>
+    </tr>
+    <tr>
+      <th>タグ</th><td></td>
+    </tr>
+
+  </table>
+</div>
 <ul>
 	<li><a href="javascript:history.back();">戻る</a></li>
 </ul>

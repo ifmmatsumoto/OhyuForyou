@@ -512,7 +512,7 @@ dl.procedurelist dd.column pre {
 	</tr>
 	<tr>
 		<td class="rownumcell">2</td>
-		<td class="namecell" data-name="bath"><a href="#bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=22">bath</a></td>
+		<td class="namecell" data-name="bath"><a href="#bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=23">bath</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#bath_tag" class="additionalfk" title="FK_BATH_ID">bath_tag</a></td>
 		<td class="relcell"><a href="#bath_tag" title="FK_BATH_ID">bath_tag</a></td>
@@ -532,17 +532,6 @@ dl.procedurelist dd.column pre {
 	</tr>
 	<tr>
 		<td class="rownumcell">4</td>
-		<td class="namecell" data-name="member"><a href="#member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">member</a></td>
-		<td class="typecell">TABLE</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="commentcell member_comment"><pre>会員: 会員登録時にデータが登録される。
-基本的に物理削除はなく、退会したらステータスが退会会員になる。</pre></td>
-		<td class="subcell">Member</td>
-		<td class="subcell">2019/07/08</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">5</td>
 		<td class="namecell" data-name="station"><a href="#station" title="type=TABLE, primaryKey={}, nameLength=7, columnCount=14">station</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
@@ -552,7 +541,7 @@ dl.procedurelist dd.column pre {
 		<td class="subcell">2019/06/13</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">6</td>
+		<td class="rownumcell">5</td>
 		<td class="namecell" data-name="tag"><a href="#tag" title="type=TABLE, primaryKey={tag_id}, nameLength=3, columnCount=6">tag</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
@@ -721,7 +710,7 @@ area
 	</tbody>
 </table>
 
-<h2 id="bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=22">
+<h2 id="bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=23">
 bath
 &nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
 </h2>
@@ -918,6 +907,24 @@ bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_bath_detail">bath_detail</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>詳細情報</pre></td>
+		<td class="subcell">bathDetail</td>
+		<td class="subcell">String</td>
+		<td class="subcell">2019/09/06</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
 		<td class=" columnnamecell" id="bath_bath_fee">bath_fee</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
@@ -930,7 +937,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">11</td>
+		<td class="rownumcell">12</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -948,7 +955,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">12</td>
+		<td class="rownumcell">13</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -966,7 +973,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">13</td>
+		<td class="rownumcell">14</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -984,7 +991,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">14</td>
+		<td class="rownumcell">15</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1002,7 +1009,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">15</td>
+		<td class="rownumcell">16</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1020,7 +1027,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">16</td>
+		<td class="rownumcell">17</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1038,7 +1045,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">17</td>
+		<td class="rownumcell">18</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1056,7 +1063,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">18</td>
+		<td class="rownumcell">19</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1074,7 +1081,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">19</td>
+		<td class="rownumcell">20</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1092,7 +1099,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">20</td>
+		<td class="rownumcell">21</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1110,7 +1117,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">21</td>
+		<td class="rownumcell">22</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1128,7 +1135,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">22</td>
+		<td class="rownumcell">23</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1228,239 +1235,6 @@ bath_tag
 		<td class="commentcell"><pre>タグID</pre></td>
 		<td class="subcell">tagId</td>
 		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
-	</tr>
-	</tbody>
-</table>
-
-<h2 id="member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">
-member
-&nbsp;<span class="tablefirstdatetitle">since 2019/07/08</span>
-</h2>
-<div class="tablecomment member_comment" data-name="member"><pre>会員: 会員登録時にデータが登録される。
-基本的に物理削除はなく、退会したらステータスが退会会員になる。</pre></div>
-<input type="hidden" value="member">
-<table class="tablecontent">
-	<thead>
-	<tr>
-		<th class="rownumhead">No.</th>
-		<th>PK</th>
-		<th>ID</th>
-		<th>UQ</th>
-		<th>IX</th>
-		<th>Not<br />Null</th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Size</th>
-		<th>ForeignTable</th>
-		<th>ReferrerTable</th>
-		<th>Classification</th>
-		<th>ColumnComment</th>
-		<th>PropertyName</th>
-		<th>JavaType</th>
-		<th>Since</th>
-	</tr>
-	</thead>
-	<tbody id="member-body">
-	<tr>
-		<td class="rownumcell">1</td>
-		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell">o</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_id">MEMBER_ID</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員ID: 会員を識別するID。連番として基本的に自動採番される。
-（会員IDだけに限らず）採番方法はDBMSによって変わる。</pre></td>
-		<td class="subcell">memberId</td>
-		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">2</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_name">MEMBER_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 160 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員名称: 会員のフルネームの名称。</pre></td>
-		<td class="subcell">memberName</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">3</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="MEMBER_ACCOUNT(MEMBER_ACCOUNT)">o</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_account">MEMBER_ACCOUNT</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員アカウント: 会員がログイン時に利用するアカウントNO。</pre></td>
-		<td class="subcell">memberAccount</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">4</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_status_code">MEMBER_STATUS_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員ステータスコード</pre></td>
-		<td class="subcell">memberStatusCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">5</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="member_formalized_datetime">FORMALIZED_DATETIME</td>
-		<td class="typecell">DATETIME</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。
-仮会員のときはnull。</pre></td>
-		<td class="subcell">formalizedDatetime</td>
-		<td class="subcell">LocalDateTime</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">6</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="member_birthdate">BIRTHDATE</td>
-		<td class="typecell">DATE</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>生年月日: 必須項目ではないので、このデータがない会員もいる。</pre></td>
-		<td class="subcell">birthdate</td>
-		<td class="subcell">LocalDate</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">7</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_register_datetime">REGISTER_DATETIME</td>
-		<td class="typecell">DATETIME</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>登録日時: レコードが登録された日時。共通カラムの一つ。</pre></td>
-		<td class="subcell">registerDatetime</td>
-		<td class="subcell">LocalDateTime</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">8</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_register_user">REGISTER_USER</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>登録ユーザ: レコードを登録したユーザ。共通カラムの一つ。</pre></td>
-		<td class="subcell">registerUser</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">9</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_update_datetime">UPDATE_DATETIME</td>
-		<td class="typecell">DATETIME</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>更新日時: レコードが（最後に）更新された日時。共通カラムの一つ。</pre></td>
-		<td class="subcell">updateDatetime</td>
-		<td class="subcell">LocalDateTime</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">10</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_update_user">UPDATE_USER</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>更新ユーザ: レコードを更新したユーザ。</pre></td>
-		<td class="subcell">updateUser</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">11</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="optcell columnnamecell" id="member_version_no">VERSION_NO</td>
-		<td class="typecell">BIGINT</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>バージョンNO: レコードのバージョンを示すNO。
-更新回数と等しく、主に排他制御のために利用される。</pre></td>
-		<td class="subcell">versionNo</td>
-		<td class="subcell">Long</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -2475,6 +2249,9 @@ function StoreClient() {
 				, 'bath_tel': {
 					'databaseComment': '電話番号'
 				}
+				, 'bath_detail': {
+					'databaseComment': '詳細情報'
+				}
 				, 'bath_fee': {
 					'databaseComment': '一般入浴料'
 				}
@@ -2527,44 +2304,6 @@ function StoreClient() {
 				}
 				, 'tag_id': {
 					'databaseComment': 'タグID'
-				}
-			}
-		}
-		, 'member': {
-			'databaseComment': '会員:&nbsp;会員登録時にデータが登録される。<br>基本的に物理削除はなく、退会したらステータスが退会会員になる。'
-			, 'columns': {
-				'MEMBER_ID': {
-					'databaseComment': '会員ID:&nbsp;会員を識別するID。連番として基本的に自動採番される。<br>（会員IDだけに限らず）採番方法はDBMSによって変わる。'
-				}
-				, 'MEMBER_NAME': {
-					'databaseComment': '会員名称:&nbsp;会員のフルネームの名称。'
-				}
-				, 'MEMBER_ACCOUNT': {
-					'databaseComment': '会員アカウント:&nbsp;会員がログイン時に利用するアカウントNO。'
-				}
-				, 'MEMBER_STATUS_CODE': {
-					'databaseComment': '会員ステータスコード'
-				}
-				, 'FORMALIZED_DATETIME': {
-					'databaseComment': '正式会員日時:&nbsp;会員が正式に確定した日時。一度確定したら更新されない。<br>仮会員のときはnull。'
-				}
-				, 'BIRTHDATE': {
-					'databaseComment': '生年月日:&nbsp;必須項目ではないので、このデータがない会員もいる。'
-				}
-				, 'REGISTER_DATETIME': {
-					'databaseComment': '登録日時:&nbsp;レコードが登録された日時。共通カラムの一つ。'
-				}
-				, 'REGISTER_USER': {
-					'databaseComment': '登録ユーザ:&nbsp;レコードを登録したユーザ。共通カラムの一つ。'
-				}
-				, 'UPDATE_DATETIME': {
-					'databaseComment': '更新日時:&nbsp;レコードが（最後に）更新された日時。共通カラムの一つ。'
-				}
-				, 'UPDATE_USER': {
-					'databaseComment': '更新ユーザ:&nbsp;レコードを更新したユーザ。'
-				}
-				, 'VERSION_NO': {
-					'databaseComment': 'バージョンNO:&nbsp;レコードのバージョンを示すNO。<br>更新回数と等しく、主に排他制御のために利用される。'
 				}
 			}
 		}

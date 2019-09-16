@@ -36,12 +36,29 @@ public class BathController {
 
 		Bath bath = bathService.findBath(form.getBathId());
 
-		model.addAttribute("bath", bath);
+		form.setBathNameJa(bath.getBathNameJa());
+		form.setBathNameEn(bath.getBathNameEn());
+		form.setBathAreaCode(bath.getBathAreaCode());
+		form.setBathCityCode(bath.getBathCityCode());
+		form.setBathImage(bath.getBathImage());
+		form.setBathAddressJa(bath.getBathAddressJa());
+		form.setBathAddressEn(bath.getBathAddressEn());
+		form.setBathTel(bath.getBathTel());
+		form.setBathDetail(bath.getBathDetail());
+		form.setBathFee(bath.getBathFee());
+		form.setBathType(bath.getBathType());
+		form.setBath24hFlg(bath.getBath24hFlg());
+		form.setBathTimeSt(bath.getBathTimeSt());
+		form.setBathTimeEd(bath.getBathTimeEd());
+		form.setBathPlaceLat(bath.getBathPlaceLat());
+		form.setBathPlaceLon(bath.getBathPlaceLon());
+		form.setBathTemperatureUp(bath.getBathTemperatureUp());
+		form.setBathTemperatureLow(bath.getBathTemperatureLow());
+		form.setBathHoliday(bath.getBathHoliday());
 
+		model.addAttribute("bath", form);
 
 		// 銭湯詳細画面表示
 		return "bath";
-
 	}
-
 }

@@ -80,6 +80,7 @@ public class BathCIQ extends AbstractBsBathCQ {
     protected ConditionValue xgetCValueBathAddressJa() { return _myCQ.xdfgetBathAddressJa(); }
     protected ConditionValue xgetCValueBathAddressEn() { return _myCQ.xdfgetBathAddressEn(); }
     protected ConditionValue xgetCValueBathTel() { return _myCQ.xdfgetBathTel(); }
+    protected ConditionValue xgetCValueBathDetail() { return _myCQ.xdfgetBathDetail(); }
     protected ConditionValue xgetCValueBathFee() { return _myCQ.xdfgetBathFee(); }
     protected ConditionValue xgetCValueBathType() { return _myCQ.xdfgetBathType(); }
     protected ConditionValue xgetCValueBath24hFlg() { return _myCQ.xdfgetBath24hFlg(); }
