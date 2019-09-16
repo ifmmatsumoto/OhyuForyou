@@ -13,14 +13,16 @@ public class PrefectureService {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-	public PrefectureDto findPrefectureList(int AreaCode) {
+    public PrefectureDto findPrefectureList(String AreaCode) {
 
-	    /** 地域検索API リクエストURL */
-	    String URL = "http://www.land.mlit.go.jp/webland/api/CitySearch?area=" + AreaCode;
+        System.out.println("areacode" + AreaCode);
 
-	    System.out.println(URL);
+        /** 地域検索API リクエストURL */
+        String URL = "http://www.land.mlit.go.jp/webland/api/CitySearch?area=" + AreaCode;
 
-	    return restTemplate.getForObject(URL, PrefectureDto.class);
-	}
+        System.out.println(URL);
+
+        return restTemplate.getForObject(URL, PrefectureDto.class);
+    }
 
 }

@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+/* 県名表示列色 */
+td.area-name {
+  background-color: #0099FF;
+  width: 150px;
+}
+
+/* 県名テキスト色 */
+div.area-name-text {
+  color: #F8F8FF;
+}
+
+#outline {
+  margin-top: 20px;
+}

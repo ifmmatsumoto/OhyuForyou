@@ -13,25 +13,25 @@ public class StationService {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-	public LineDto findLineList(String areaname) {
+ public LineDto findLineList(String areaname) {
 
-	    /** 沿線検索API リクエストURL */
-	    String URL = "http://express.heartrails.com/api/json?method=getLines&prefecture=" + areaname;
+     /** 沿線検索API リクエストURL */
+     String URL = "http://express.heartrails.com/api/json?method=getLines&prefecture=" + areaname;
 
-	    System.out.println(URL);
+     System.out.println(URL);
 
-	    return restTemplate.getForObject(URL, LineDto.class);
-	}
+     return restTemplate.getForObject(URL, LineDto.class);
+ }
 
-	public StationDto findStationList(String[] linename) {
+ public StationDto findStationList(String[] linename) {
 
-	    System.out.println("パラメータ" + linename[0]);
-	    //TODO: 路線検索結果を元に駅名を取得する
-	     /** 沿線検索API リクエストURL */
-	     String URL = "http://express.heartrails.com/api/json?method=getStations&line=" + linename[0];
+     System.out.println("パラメータ" + linename[0]);
 
-	     System.out.println(URL);
+      /** 沿線検索API リクエストURL */
+      String URL = "http://express.heartrails.com/api/json?method=getStations&line=" + linename[0];
 
-	     return restTemplate.getForObject(URL, StationDto.class);
-	 }
+      System.out.println(URL);
+
+      return restTemplate.getForObject(URL, StationDto.class);
+  }
 }

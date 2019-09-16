@@ -6,6 +6,6 @@ import lombok.Data;
 public class PrefectureForm {
 
     /** 都道府コード */
-    int areaCode;
+    String areaCode;
 
 }

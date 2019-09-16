@@ -1,19 +1,25 @@
 package com.c4c.oyfy.app.dto;
 
+import java.io.Serializable;
 import java.util.List;
-
-import org.json.JSONObject;
 
 import lombok.Data;
 
 @Data
-public class StationDto {
-    /** APIの戻り値 */
-     Station response;
-
+public class StationDto implements Serializable{
+    Response response;
     @Data
-    /** 駅配列 */
-    public class Station {
-        List<JSONObject> station;
+    public static class Response {
+        public List<Station> station;
+        @Data
+        public static class Station {
+            String name;
+            String prefecture;
+            float x;
+            float y;
+            String postal;
+            String prev;
+            String next;
+        }
     }
 }
