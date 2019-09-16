@@ -9,15 +9,16 @@
 
 <style type="text/css">
 th {
-background-color: #bde9ba
+background-color: #bde9ba;
+text-align: center;
 }
 </style>
 <body>
-<div style="text-align:center; font-size:30px">銭湯詳細画面</div>
-<p style="text-align:center" th:text="${bath.bathNameJa}"></p>
-<div class="table-responsive; center-block">
- <table class="list" border="1" style="border-collapse: collapse">
-
+<div>
+    <h2 style="text-align:center" th:text="${bath.bathNameJa}"></h2>
+    <h4 style="text-align:center" th:text="${bath.bathNameEn}"></h4>
+</div>
+<table class="list mx-auto" border="1" style="border-collapse: collapse; width: 80vw">
     <tr>
       <th>種別</th><td th:text="${bath.bathType}"></td>
     </tr>
@@ -28,7 +29,7 @@ background-color: #bde9ba
       <th>定休日</th><td th:text="${bath.bathHoliday}"></td>
     </tr>
     <tr>
-      <th>一般入浴料</th><td th:text="'\\'+${bath.bathFee}"></td>
+      <th>一般入浴料</th><td th:text="${bath.bathFee} + '円'"></td>
     </tr>
     <tr>
       <th>電話番号</th><td th:text="${bath.bathTel}"></td>
@@ -48,9 +49,7 @@ background-color: #bde9ba
     <tr>
       <th>タグ</th><td></td>
     </tr>
-
-  </table>
-</div>
+</table>
 <ul>
 	<li><a href="javascript:history.back();">戻る</a></li>
 </ul>
