@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class PrefectureDto implements Serializable {
         String status;
+//        List<Datum> data = new ArrayList<>();
         Datum data;
         @Data
         public class Datum {

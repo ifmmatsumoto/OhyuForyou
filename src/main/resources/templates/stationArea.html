@@ -7,20 +7,18 @@
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 </head>
 <body>
-<h3>駅検索(地域)画面</h3>
-<ul>
-    <li><a href="/prefecture/search">駅検索</a></li>
-    <li><a href="javascript:history.back();">戻る</a></li>
-</ul>
-        <div th:text="${line[0]}"></div>
+    <div class="col-md-6 offset-md-6">
+        <input type ="button" class="btn btn-primary btn-lg" value=現在地から検索>
+    </div>
     <table border="1">
-        <tr><th>ID</th></tr>
-        <tr th:each="name : ${station}">
-            <td th:text="${name}"></td>
-
+        <tr>
+            <td th:each="line : ${line}" th:text="${line.key}"></td>
+                <td>
+                    <div th:each="station : ${stationList}" >
+                        <input th:each="stationname : ${station}" type="checkbox" th:text="${stationname}">
+                    </div>
+                </td>
         </tr>
     </table>
-<!-- 共通フッター -->
-<div th:replace="footer"></div>
 </body>
 </html>

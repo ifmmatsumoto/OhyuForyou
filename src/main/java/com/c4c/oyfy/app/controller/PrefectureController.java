@@ -1,6 +1,7 @@
 package com.c4c.oyfy.app.controller;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -106,6 +107,7 @@ public class PrefectureController extends _CommonController {
 
          // 駅数をList作成のための要素数を宣言
          int i = 0;
+         int m = 0;
 
          // 要素数を取得
          for(Station name : StationList) {
@@ -122,9 +124,30 @@ public class PrefectureController extends _CommonController {
 
          System.out.println("tymleafへ渡している路線名値\n" + lineDto.getResponse().getLine());
 
+
+
+         List<String> testArray = new ArrayList<>();
+
+         LinkedHashMap<String, List<String>> elementMap = new LinkedHashMap<>();
+         for( String station :  stationNameList) {
+//             elementMap.put("JR中央線", stationNameList.get(m));
+             if(!elementMap.containsKey("JR中央線")) {
+             elementMap.put("JR中央線", testArray);
+             }
+             elementMap.get("JR中央線").add(stationNameList.get(m));
+             m++;
+         }
+
+//         map.put("JR中央線", stationNameList);
+
+         System.out.println("tymleafへ渡している路線名値\n" + stationNameList.get(0));
+
+
           // 画面へ値を表示
-          model.addAttribute("line", lineDto.getResponse().getLine());
-          model.addAttribute("station", stationNameList);
+//          model.addAttribute("line", lineDto.getResponse().getLine());
+          model.addAttribute("line", elementMap);
+          model.addAttribute("stationList", elementMap.values());
+//          model.addAttribute("station", stationNameList);
 
           // 駅検索(地域選択)画面表示
           return "stationArea";
