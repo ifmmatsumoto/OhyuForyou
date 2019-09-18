@@ -11,8 +11,8 @@
         <input type ="button" class="btn btn-primary btn-lg" value=現在地から検索>
     </div>
     <table border="1">
-        <tr>
-            <td th:each="line : ${line}" th:text="${line.key}"></td>
+        <tr th:each="line : ${line}">
+            <td th:text="${line.key}"></td>
                 <td>
                     <div th:each="station : ${stationList}" >
                         <input th:each="stationname : ${station}" type="checkbox" th:text="${stationname}">

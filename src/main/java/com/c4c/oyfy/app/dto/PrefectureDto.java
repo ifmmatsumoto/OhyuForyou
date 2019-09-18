@@ -7,16 +7,11 @@ import lombok.Data;
 
 @Data
 public class PrefectureDto implements Serializable {
-        String status;
-//        List<Datum> data = new ArrayList<>();
-        Datum data;
-        @Data
-        public class Datum {
-            List<Prefectuer> data;
-            @Data
-            public class Prefectuer {
-            String id;
-            String name;
-            }
-        }
+    String status;
+    List<Dataname> data;
+    @Data
+    public static class Dataname {
+      String id;
+      String name;
+    }
 }
