@@ -1,4 +1,44 @@
 map:{
+    ; 2019/09/18 10:36:17 = map:{
+        ; diffDate = 2019/09/18 10:36:17
+        ; tableCount = map:{
+            ; next = 6
+            ; previous = 5
+        }
+        ; diffAuthor = haraguchi
+        ; diffGitBranch = topic_admin
+        ; tableDiff = map:{
+            ; bath_test = map:{
+                ; tableName = bath_test
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2019/09/17 18:53:58 = map:{
+        ; diffDate = 2019/09/17 18:53:58
+        ; tableCount = map:{
+            ; next = 5
+            ; previous = 6
+        }
+        ; diffAuthor = haraguchi
+        ; diffGitBranch = topic_admin
+        ; tableDiff = map:{
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; bath_detail = map:{
+                        ; columnName = bath_detail
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; member = map:{
+                ; tableName = member
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2019/07/08 21:12:22 = map:{
         ; diffDate = 2019/07/08 21:12:22
         ; tableCount = map:{

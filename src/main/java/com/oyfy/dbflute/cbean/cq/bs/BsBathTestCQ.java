@@ -13,20 +13,20 @@ import com.oyfy.dbflute.cbean.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of bath.
+ * The base condition-query of bath_test.
  * @author DBFlute(AutoGenerator)
  */
-public class BsBathCQ extends AbstractBsBathCQ {
+public class BsBathTestCQ extends AbstractBsBathTestCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BathCIQ _inlineQuery;
+    protected BathTestCIQ _inlineQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsBathCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+    public BsBathTestCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
     }
 
@@ -35,39 +35,39 @@ public class BsBathCQ extends AbstractBsBathCQ {
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from bath) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from bath_test) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
      * @return The condition-query for InlineView query. (NotNull)
      */
-    public BathCIQ inline() {
+    public BathTestCIQ inline() {
         if (_inlineQuery == null) { _inlineQuery = xcreateCIQ(); }
         _inlineQuery.xsetOnClause(false); return _inlineQuery;
     }
 
-    protected BathCIQ xcreateCIQ() {
-        BathCIQ ciq = xnewCIQ();
+    protected BathTestCIQ xcreateCIQ() {
+        BathTestCIQ ciq = xnewCIQ();
         ciq.xsetBaseCB(_baseCB);
         return ciq;
     }
 
-    protected BathCIQ xnewCIQ() {
-        return new BathCIQ(xgetReferrerQuery(), xgetSqlClause(), xgetAliasName(), xgetNestLevel(), this);
+    protected BathTestCIQ xnewCIQ() {
+        return new BathTestCIQ(xgetReferrerQuery(), xgetSqlClause(), xgetAliasName(), xgetNestLevel(), this);
     }
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join bath on ... and FOO = [value] ...}
+     * {select ... from ... left outer join bath_test on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>
      * @return The condition-query for OnClause query. (NotNull)
      * @throws IllegalConditionBeanOperationException When this condition-query is base query.
      */
-    public BathCIQ on() {
+    public BathTestCIQ on() {
         if (isBaseQuery()) { throw new IllegalConditionBeanOperationException("OnClause for local table is unavailable!"); }
-        BathCIQ inlineQuery = inline(); inlineQuery.xsetOnClause(true); return inlineQuery;
+        BathTestCIQ inlineQuery = inline(); inlineQuery.xsetOnClause(true); return inlineQuery;
     }
 
     // ===================================================================================
@@ -79,33 +79,19 @@ public class BsBathCQ extends AbstractBsBathCQ {
       return _bathId; }
     protected ConditionValue xgetCValueBathId() { return xdfgetBathId(); }
 
-    public Map<String, BathTagCQ> xdfgetBathId_ExistsReferrer_BathTagList() { return xgetSQueMap("bathId_ExistsReferrer_BathTagList"); }
-    public String keepBathId_ExistsReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_ExistsReferrer_BathTagList", sq); }
-
-    public Map<String, BathTagCQ> xdfgetBathId_NotExistsReferrer_BathTagList() { return xgetSQueMap("bathId_NotExistsReferrer_BathTagList"); }
-    public String keepBathId_NotExistsReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_NotExistsReferrer_BathTagList", sq); }
-
-    public Map<String, BathTagCQ> xdfgetBathId_SpecifyDerivedReferrer_BathTagList() { return xgetSQueMap("bathId_SpecifyDerivedReferrer_BathTagList"); }
-    public String keepBathId_SpecifyDerivedReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_SpecifyDerivedReferrer_BathTagList", sq); }
-
-    public Map<String, BathTagCQ> xdfgetBathId_QueryDerivedReferrer_BathTagList() { return xgetSQueMap("bathId_QueryDerivedReferrer_BathTagList"); }
-    public String keepBathId_QueryDerivedReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_QueryDerivedReferrer_BathTagList", sq); }
-    public Map<String, Object> xdfgetBathId_QueryDerivedReferrer_BathTagListParameter() { return xgetSQuePmMap("bathId_QueryDerivedReferrer_BathTagList"); }
-    public String keepBathId_QueryDerivedReferrer_BathTagListParameter(Object pm) { return xkeepSQuePm("bathId_QueryDerivedReferrer_BathTagList", pm); }
-
     /**
      * Add order-by as ascend. <br>
-     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
+     * bath_id: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathId_Asc() { regOBA("bath_id"); return this; }
+    public BsBathTestCQ addOrderBy_BathId_Asc() { regOBA("bath_id"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
+     * bath_id: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathId_Desc() { regOBD("bath_id"); return this; }
+    public BsBathTestCQ addOrderBy_BathId_Desc() { regOBD("bath_id"); return this; }
 
     protected ConditionValue _bathNameJa;
     public ConditionValue xdfgetBathNameJa()
@@ -118,14 +104,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_name_ja: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathNameJa_Asc() { regOBA("bath_name_ja"); return this; }
+    public BsBathTestCQ addOrderBy_BathNameJa_Asc() { regOBA("bath_name_ja"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_name_ja: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathNameJa_Desc() { regOBD("bath_name_ja"); return this; }
+    public BsBathTestCQ addOrderBy_BathNameJa_Desc() { regOBD("bath_name_ja"); return this; }
 
     protected ConditionValue _bathNameEn;
     public ConditionValue xdfgetBathNameEn()
@@ -138,14 +124,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_name_en: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathNameEn_Asc() { regOBA("bath_name_en"); return this; }
+    public BsBathTestCQ addOrderBy_BathNameEn_Asc() { regOBA("bath_name_en"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_name_en: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathNameEn_Desc() { regOBD("bath_name_en"); return this; }
+    public BsBathTestCQ addOrderBy_BathNameEn_Desc() { regOBD("bath_name_en"); return this; }
 
     protected ConditionValue _bathAreaCode;
     public ConditionValue xdfgetBathAreaCode()
@@ -155,17 +141,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_area_code: {NotNull, INT(10)}
+     * bath_area_code: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathAreaCode_Asc() { regOBA("bath_area_code"); return this; }
+    public BsBathTestCQ addOrderBy_BathAreaCode_Asc() { regOBA("bath_area_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_area_code: {NotNull, INT(10)}
+     * bath_area_code: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathAreaCode_Desc() { regOBD("bath_area_code"); return this; }
+    public BsBathTestCQ addOrderBy_BathAreaCode_Desc() { regOBD("bath_area_code"); return this; }
 
     protected ConditionValue _bathCityCode;
     public ConditionValue xdfgetBathCityCode()
@@ -175,17 +161,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_city_code: {NotNull, INT(10)}
+     * bath_city_code: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathCityCode_Asc() { regOBA("bath_city_code"); return this; }
+    public BsBathTestCQ addOrderBy_BathCityCode_Asc() { regOBA("bath_city_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_city_code: {NotNull, INT(10)}
+     * bath_city_code: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathCityCode_Desc() { regOBD("bath_city_code"); return this; }
+    public BsBathTestCQ addOrderBy_BathCityCode_Desc() { regOBD("bath_city_code"); return this; }
 
     protected ConditionValue _bathImage;
     public ConditionValue xdfgetBathImage()
@@ -195,17 +181,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_image: {VARCHAR(2100)}
+     * bath_image: {LONGBLOB(2147483647)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathImage_Asc() { regOBA("bath_image"); return this; }
+    public BsBathTestCQ addOrderBy_BathImage_Asc() { regOBA("bath_image"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_image: {VARCHAR(2100)}
+     * bath_image: {LONGBLOB(2147483647)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathImage_Desc() { regOBD("bath_image"); return this; }
+    public BsBathTestCQ addOrderBy_BathImage_Desc() { regOBD("bath_image"); return this; }
 
     protected ConditionValue _bathAddressJa;
     public ConditionValue xdfgetBathAddressJa()
@@ -218,14 +204,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_address_ja: {VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathAddressJa_Asc() { regOBA("bath_address_ja"); return this; }
+    public BsBathTestCQ addOrderBy_BathAddressJa_Asc() { regOBA("bath_address_ja"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_address_ja: {VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathAddressJa_Desc() { regOBD("bath_address_ja"); return this; }
+    public BsBathTestCQ addOrderBy_BathAddressJa_Desc() { regOBD("bath_address_ja"); return this; }
 
     protected ConditionValue _bathAddressEn;
     public ConditionValue xdfgetBathAddressEn()
@@ -238,14 +224,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_address_en: {VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathAddressEn_Asc() { regOBA("bath_address_en"); return this; }
+    public BsBathTestCQ addOrderBy_BathAddressEn_Asc() { regOBA("bath_address_en"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_address_en: {VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathAddressEn_Desc() { regOBD("bath_address_en"); return this; }
+    public BsBathTestCQ addOrderBy_BathAddressEn_Desc() { regOBD("bath_address_en"); return this; }
 
     protected ConditionValue _bathTel;
     public ConditionValue xdfgetBathTel()
@@ -258,14 +244,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_tel: {VARCHAR(15)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTel_Asc() { regOBA("bath_tel"); return this; }
+    public BsBathTestCQ addOrderBy_BathTel_Asc() { regOBA("bath_tel"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_tel: {VARCHAR(15)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTel_Desc() { regOBD("bath_tel"); return this; }
+    public BsBathTestCQ addOrderBy_BathTel_Desc() { regOBD("bath_tel"); return this; }
 
     protected ConditionValue _bathDetail;
     public ConditionValue xdfgetBathDetail()
@@ -278,14 +264,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_detail: {VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathDetail_Asc() { regOBA("bath_detail"); return this; }
+    public BsBathTestCQ addOrderBy_BathDetail_Asc() { regOBA("bath_detail"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_detail: {VARCHAR(255)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathDetail_Desc() { regOBD("bath_detail"); return this; }
+    public BsBathTestCQ addOrderBy_BathDetail_Desc() { regOBD("bath_detail"); return this; }
 
     protected ConditionValue _bathFee;
     public ConditionValue xdfgetBathFee()
@@ -295,17 +281,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_fee: {INT(10)}
+     * bath_fee: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathFee_Asc() { regOBA("bath_fee"); return this; }
+    public BsBathTestCQ addOrderBy_BathFee_Asc() { regOBA("bath_fee"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_fee: {INT(10)}
+     * bath_fee: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathFee_Desc() { regOBD("bath_fee"); return this; }
+    public BsBathTestCQ addOrderBy_BathFee_Desc() { regOBD("bath_fee"); return this; }
 
     protected ConditionValue _bathType;
     public ConditionValue xdfgetBathType()
@@ -315,17 +301,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10), default=[10]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathType_Asc() { regOBA("bath_type"); return this; }
+    public BsBathTestCQ addOrderBy_BathType_Asc() { regOBA("bath_type"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10), default=[10]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathType_Desc() { regOBD("bath_type"); return this; }
+    public BsBathTestCQ addOrderBy_BathType_Desc() { regOBD("bath_type"); return this; }
 
     protected ConditionValue _bath24hFlg;
     public ConditionValue xdfgetBath24hFlg()
@@ -335,17 +321,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_Bath24hFlg_Asc() { regOBA("bath_24h_flg"); return this; }
+    public BsBathTestCQ addOrderBy_Bath24hFlg_Asc() { regOBA("bath_24h_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_Bath24hFlg_Desc() { regOBD("bath_24h_flg"); return this; }
+    public BsBathTestCQ addOrderBy_Bath24hFlg_Desc() { regOBD("bath_24h_flg"); return this; }
 
     protected ConditionValue _bathTimeSt;
     public ConditionValue xdfgetBathTimeSt()
@@ -358,14 +344,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_time_st: {TIME(8)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTimeSt_Asc() { regOBA("bath_time_st"); return this; }
+    public BsBathTestCQ addOrderBy_BathTimeSt_Asc() { regOBA("bath_time_st"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_time_st: {TIME(8)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTimeSt_Desc() { regOBD("bath_time_st"); return this; }
+    public BsBathTestCQ addOrderBy_BathTimeSt_Desc() { regOBD("bath_time_st"); return this; }
 
     protected ConditionValue _bathTimeEd;
     public ConditionValue xdfgetBathTimeEd()
@@ -378,14 +364,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_time_ed: {TIME(8)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTimeEd_Asc() { regOBA("bath_time_ed"); return this; }
+    public BsBathTestCQ addOrderBy_BathTimeEd_Asc() { regOBA("bath_time_ed"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_time_ed: {TIME(8)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTimeEd_Desc() { regOBD("bath_time_ed"); return this; }
+    public BsBathTestCQ addOrderBy_BathTimeEd_Desc() { regOBD("bath_time_ed"); return this; }
 
     protected ConditionValue _bathPlaceLat;
     public ConditionValue xdfgetBathPlaceLat()
@@ -398,14 +384,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_place_lat: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathPlaceLat_Asc() { regOBA("bath_place_lat"); return this; }
+    public BsBathTestCQ addOrderBy_BathPlaceLat_Asc() { regOBA("bath_place_lat"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_place_lat: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathPlaceLat_Desc() { regOBD("bath_place_lat"); return this; }
+    public BsBathTestCQ addOrderBy_BathPlaceLat_Desc() { regOBD("bath_place_lat"); return this; }
 
     protected ConditionValue _bathPlaceLon;
     public ConditionValue xdfgetBathPlaceLon()
@@ -418,14 +404,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_place_lon: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathPlaceLon_Asc() { regOBA("bath_place_lon"); return this; }
+    public BsBathTestCQ addOrderBy_BathPlaceLon_Asc() { regOBA("bath_place_lon"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_place_lon: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathPlaceLon_Desc() { regOBD("bath_place_lon"); return this; }
+    public BsBathTestCQ addOrderBy_BathPlaceLon_Desc() { regOBD("bath_place_lon"); return this; }
 
     protected ConditionValue _bathTemperatureUp;
     public ConditionValue xdfgetBathTemperatureUp()
@@ -438,14 +424,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_temperature_up: {DOUBLE(3, 3)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTemperatureUp_Asc() { regOBA("bath_temperature_up"); return this; }
+    public BsBathTestCQ addOrderBy_BathTemperatureUp_Asc() { regOBA("bath_temperature_up"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_temperature_up: {DOUBLE(3, 3)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTemperatureUp_Desc() { regOBD("bath_temperature_up"); return this; }
+    public BsBathTestCQ addOrderBy_BathTemperatureUp_Desc() { regOBD("bath_temperature_up"); return this; }
 
     protected ConditionValue _bathTemperatureLow;
     public ConditionValue xdfgetBathTemperatureLow()
@@ -458,14 +444,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_temperature_low: {DOUBLE(3, 3)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTemperatureLow_Asc() { regOBA("bath_temperature_low"); return this; }
+    public BsBathTestCQ addOrderBy_BathTemperatureLow_Asc() { regOBA("bath_temperature_low"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_temperature_low: {DOUBLE(3, 3)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathTemperatureLow_Desc() { regOBD("bath_temperature_low"); return this; }
+    public BsBathTestCQ addOrderBy_BathTemperatureLow_Desc() { regOBD("bath_temperature_low"); return this; }
 
     protected ConditionValue _bathHoliday;
     public ConditionValue xdfgetBathHoliday()
@@ -478,14 +464,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * bath_holiday: {INT(10)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathHoliday_Asc() { regOBA("bath_holiday"); return this; }
+    public BsBathTestCQ addOrderBy_BathHoliday_Asc() { regOBA("bath_holiday"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * bath_holiday: {INT(10)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_BathHoliday_Desc() { regOBD("bath_holiday"); return this; }
+    public BsBathTestCQ addOrderBy_BathHoliday_Desc() { regOBD("bath_holiday"); return this; }
 
     protected ConditionValue _delFlg;
     public ConditionValue xdfgetDelFlg()
@@ -495,17 +481,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_DelFlg_Asc() { regOBA("del_flg"); return this; }
+    public BsBathTestCQ addOrderBy_DelFlg_Asc() { regOBA("del_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_DelFlg_Desc() { regOBD("del_flg"); return this; }
+    public BsBathTestCQ addOrderBy_DelFlg_Desc() { regOBD("del_flg"); return this; }
 
     protected ConditionValue _createDate;
     public ConditionValue xdfgetCreateDate()
@@ -518,14 +504,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * create_date: {DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_CreateDate_Asc() { regOBA("create_date"); return this; }
+    public BsBathTestCQ addOrderBy_CreateDate_Asc() { regOBA("create_date"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * create_date: {DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_CreateDate_Desc() { regOBD("create_date"); return this; }
+    public BsBathTestCQ addOrderBy_CreateDate_Desc() { regOBD("create_date"); return this; }
 
     protected ConditionValue _updateDate;
     public ConditionValue xdfgetUpdateDate()
@@ -538,14 +524,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * update_date: {DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_UpdateDate_Asc() { regOBA("update_date"); return this; }
+    public BsBathTestCQ addOrderBy_UpdateDate_Asc() { regOBA("update_date"); return this; }
 
     /**
      * Add order-by as descend. <br>
      * update_date: {DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsBathCQ addOrderBy_UpdateDate_Desc() { regOBD("update_date"); return this; }
+    public BsBathTestCQ addOrderBy_UpdateDate_Desc() { regOBD("update_date"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -564,7 +550,7 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * @param aliasName The alias name specified at (Specify)DerivedReferrer. (NotNull)
      * @return this. (NotNull)
      */
-    public BsBathCQ addSpecifiedDerivedOrderBy_Asc(String aliasName) { registerSpecifiedDerivedOrderBy_Asc(aliasName); return this; }
+    public BsBathTestCQ addSpecifiedDerivedOrderBy_Asc(String aliasName) { registerSpecifiedDerivedOrderBy_Asc(aliasName); return this; }
 
     /**
      * Add order-by for specified derived column as descend.
@@ -580,42 +566,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * @param aliasName The alias name specified at (Specify)DerivedReferrer. (NotNull)
      * @return this. (NotNull)
      */
-    public BsBathCQ addSpecifiedDerivedOrderBy_Desc(String aliasName) { registerSpecifiedDerivedOrderBy_Desc(aliasName); return this; }
+    public BsBathTestCQ addSpecifiedDerivedOrderBy_Desc(String aliasName) { registerSpecifiedDerivedOrderBy_Desc(aliasName); return this; }
 
     // ===================================================================================
     //                                                                         Union Query
     //                                                                         ===========
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
-        BathCQ bq = (BathCQ)bqs;
-        BathCQ uq = (BathCQ)uqs;
-        if (bq.hasConditionQueryBathTag()) {
-            uq.queryBathTag().reflectRelationOnUnionQuery(bq.queryBathTag(), uq.queryBathTag());
-        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-    /**
-     * Get the condition-query for relation table. <br>
-     * bath_tag by my bath_id, named 'bathTag'.
-     * @return The instance of condition-query. (NotNull)
-     */
-    public BathTagCQ queryBathTag() {
-        return xdfgetConditionQueryBathTag();
-    }
-    public BathTagCQ xdfgetConditionQueryBathTag() {
-        String prop = "bathTag";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryBathTag()); xsetupOuterJoinBathTag(); }
-        return xgetQueRlMap(prop);
-    }
-    protected BathTagCQ xcreateQueryBathTag() {
-        String nrp = xresolveNRP("bath", "bathTag"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new BathTagCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "bathTag", nrp);
-    }
-    protected void xsetupOuterJoinBathTag() { xregOutJo("bathTag"); }
-    public boolean hasConditionQueryBathTag() { return xhasQueRlMap("bathTag"); }
-
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;
     }
@@ -623,39 +584,39 @@ public class BsBathCQ extends AbstractBsBathCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, BathCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
-    public String keepScalarCondition(BathCQ sq) { return xkeepSQue("scalarCondition", sq); }
+    public Map<String, BathTestCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public String keepScalarCondition(BathTestCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, BathCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
-    public String keepSpecifyMyselfDerived(BathCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
+    public Map<String, BathTestCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public String keepSpecifyMyselfDerived(BathTestCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, BathCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
-    public String keepQueryMyselfDerived(BathCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
+    public Map<String, BathTestCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerived(BathTestCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
     public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
-    protected Map<String, BathCQ> _myselfExistsMap;
-    public Map<String, BathCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
-    public String keepMyselfExists(BathCQ sq) { return xkeepSQue("myselfExists", sq); }
+    protected Map<String, BathTestCQ> _myselfExistsMap;
+    public Map<String, BathTestCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public String keepMyselfExists(BathTestCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, BathCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
-    public String keepMyselfInScope(BathCQ sq) { return xkeepSQue("myselfInScope", sq); }
+    public Map<String, BathTestCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public String keepMyselfInScope(BathTestCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xCB() { return BathCB.class.getName(); }
-    protected String xCQ() { return BathCQ.class.getName(); }
+    protected String xCB() { return BathTestCB.class.getName(); }
+    protected String xCQ() { return BathTestCQ.class.getName(); }
     protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }

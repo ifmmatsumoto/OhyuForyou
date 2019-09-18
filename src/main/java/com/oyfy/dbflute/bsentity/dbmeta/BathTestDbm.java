@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
-import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -14,17 +13,17 @@ import com.oyfy.dbflute.allcommon.*;
 import com.oyfy.dbflute.exentity.*;
 
 /**
- * The DB meta of bath. (Singleton)
+ * The DB meta of bath_test. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class BathDbm extends AbstractDBMeta {
+public class BathTestDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final BathDbm _instance = new BathDbm();
-    private BathDbm() {}
-    public static BathDbm getInstance() { return _instance; }
+    private static final BathTestDbm _instance = new BathTestDbm();
+    private BathTestDbm() {}
+    public static BathTestDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -43,52 +42,40 @@ public class BathDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((Bath)et).getBathId(), (et, vl) -> ((Bath)et).setBathId(cti(vl)), "bathId");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathNameJa(), (et, vl) -> ((Bath)et).setBathNameJa((String)vl), "bathNameJa");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathNameEn(), (et, vl) -> ((Bath)et).setBathNameEn((String)vl), "bathNameEn");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathAreaCode(), (et, vl) -> ((Bath)et).setBathAreaCode(cti(vl)), "bathAreaCode");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathCityCode(), (et, vl) -> ((Bath)et).setBathCityCode(cti(vl)), "bathCityCode");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathImage(), (et, vl) -> ((Bath)et).setBathImage((String)vl), "bathImage");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathAddressJa(), (et, vl) -> ((Bath)et).setBathAddressJa((String)vl), "bathAddressJa");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathAddressEn(), (et, vl) -> ((Bath)et).setBathAddressEn((String)vl), "bathAddressEn");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathTel(), (et, vl) -> ((Bath)et).setBathTel((String)vl), "bathTel");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathDetail(), (et, vl) -> ((Bath)et).setBathDetail((String)vl), "bathDetail");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathFee(), (et, vl) -> ((Bath)et).setBathFee(cti(vl)), "bathFee");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathType(), (et, vl) -> ((Bath)et).setBathType(cti(vl)), "bathType");
-        setupEpg(_epgMap, et -> ((Bath)et).getBath24hFlg(), (et, vl) -> ((Bath)et).setBath24hFlg(cti(vl)), "bath24hFlg");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathTimeSt(), (et, vl) -> ((Bath)et).setBathTimeSt(ctlt(vl)), "bathTimeSt");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathTimeEd(), (et, vl) -> ((Bath)et).setBathTimeEd(ctlt(vl)), "bathTimeEd");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathPlaceLat(), (et, vl) -> ((Bath)et).setBathPlaceLat(ctb(vl)), "bathPlaceLat");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathPlaceLon(), (et, vl) -> ((Bath)et).setBathPlaceLon(ctb(vl)), "bathPlaceLon");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathTemperatureUp(), (et, vl) -> ((Bath)et).setBathTemperatureUp(ctb(vl)), "bathTemperatureUp");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathTemperatureLow(), (et, vl) -> ((Bath)et).setBathTemperatureLow(ctb(vl)), "bathTemperatureLow");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathHoliday(), (et, vl) -> ((Bath)et).setBathHoliday(cti(vl)), "bathHoliday");
-        setupEpg(_epgMap, et -> ((Bath)et).getDelFlg(), (et, vl) -> ((Bath)et).setDelFlg(cti(vl)), "delFlg");
-        setupEpg(_epgMap, et -> ((Bath)et).getCreateDate(), (et, vl) -> ((Bath)et).setCreateDate(ctldt(vl)), "createDate");
-        setupEpg(_epgMap, et -> ((Bath)et).getUpdateDate(), (et, vl) -> ((Bath)et).setUpdateDate(ctldt(vl)), "updateDate");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathId(), (et, vl) -> ((BathTest)et).setBathId(cti(vl)), "bathId");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathNameJa(), (et, vl) -> ((BathTest)et).setBathNameJa((String)vl), "bathNameJa");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathNameEn(), (et, vl) -> ((BathTest)et).setBathNameEn((String)vl), "bathNameEn");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathAreaCode(), (et, vl) -> ((BathTest)et).setBathAreaCode(cti(vl)), "bathAreaCode");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathCityCode(), (et, vl) -> ((BathTest)et).setBathCityCode(cti(vl)), "bathCityCode");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathImage(), (et, vl) -> ((BathTest)et).setBathImage((byte[])vl), "bathImage");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathAddressJa(), (et, vl) -> ((BathTest)et).setBathAddressJa((String)vl), "bathAddressJa");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathAddressEn(), (et, vl) -> ((BathTest)et).setBathAddressEn((String)vl), "bathAddressEn");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathTel(), (et, vl) -> ((BathTest)et).setBathTel((String)vl), "bathTel");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathDetail(), (et, vl) -> ((BathTest)et).setBathDetail((String)vl), "bathDetail");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathFee(), (et, vl) -> ((BathTest)et).setBathFee(cti(vl)), "bathFee");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathType(), (et, vl) -> ((BathTest)et).setBathType(cti(vl)), "bathType");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBath24hFlg(), (et, vl) -> ((BathTest)et).setBath24hFlg(cti(vl)), "bath24hFlg");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathTimeSt(), (et, vl) -> ((BathTest)et).setBathTimeSt(ctlt(vl)), "bathTimeSt");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathTimeEd(), (et, vl) -> ((BathTest)et).setBathTimeEd(ctlt(vl)), "bathTimeEd");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathPlaceLat(), (et, vl) -> ((BathTest)et).setBathPlaceLat(ctb(vl)), "bathPlaceLat");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathPlaceLon(), (et, vl) -> ((BathTest)et).setBathPlaceLon(ctb(vl)), "bathPlaceLon");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathTemperatureUp(), (et, vl) -> ((BathTest)et).setBathTemperatureUp(ctb(vl)), "bathTemperatureUp");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathTemperatureLow(), (et, vl) -> ((BathTest)et).setBathTemperatureLow(ctb(vl)), "bathTemperatureLow");
+        setupEpg(_epgMap, et -> ((BathTest)et).getBathHoliday(), (et, vl) -> ((BathTest)et).setBathHoliday(cti(vl)), "bathHoliday");
+        setupEpg(_epgMap, et -> ((BathTest)et).getDelFlg(), (et, vl) -> ((BathTest)et).setDelFlg(cti(vl)), "delFlg");
+        setupEpg(_epgMap, et -> ((BathTest)et).getCreateDate(), (et, vl) -> ((BathTest)et).setCreateDate(ctldt(vl)), "createDate");
+        setupEpg(_epgMap, et -> ((BathTest)et).getUpdateDate(), (et, vl) -> ((BathTest)et).setUpdateDate(ctldt(vl)), "updateDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
 
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-    protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    { xsetupEfpg(); }
-    @SuppressWarnings("unchecked")
-    protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((Bath)et).getBathTag(), (et, vl) -> ((Bath)et).setBathTag((OptionalEntity<BathTag>)vl), "bathTag");
-    }
-    public PropertyGateway findForeignPropertyGateway(String prop)
-    { return doFindEfpg(_efpgMap, prop); }
-
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "bath";
-    protected final String _tableDispName = "bath";
-    protected final String _tablePropertyName = "bath";
-    protected final TableSqlName _tableSqlName = new TableSqlName("bath", _tableDbName);
+    protected final String _tableDbName = "bath_test";
+    protected final String _tableDispName = "bath_test";
+    protected final String _tablePropertyName = "bathTest";
+    protected final TableSqlName _tableSqlName = new TableSqlName("bath_test", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -98,19 +85,19 @@ public class BathDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, true, true, true, "INT", 10, 0, null, null, false, null, null, "bathTag", "bathTagList", null, false);
+    protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, true, true, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathNameJa = cci("bath_name_ja", "bath_name_ja", null, null, String.class, "bathNameJa", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathNameEn = cci("bath_name_en", "bath_name_en", null, null, String.class, "bathNameEn", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathAreaCode = cci("bath_area_code", "bath_area_code", null, null, Integer.class, "bathAreaCode", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathCityCode = cci("bath_city_code", "bath_city_code", null, null, Integer.class, "bathCityCode", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathImage = cci("bath_image", "bath_image", null, null, String.class, "bathImage", null, false, false, false, "VARCHAR", 2100, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathAreaCode = cci("bath_area_code", "bath_area_code", null, null, Integer.class, "bathAreaCode", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathCityCode = cci("bath_city_code", "bath_city_code", null, null, Integer.class, "bathCityCode", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathImage = cci("bath_image", "bath_image", null, null, byte[].class, "bathImage", null, false, false, false, "LONGBLOB", 2147483647, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAddressJa = cci("bath_address_ja", "bath_address_ja", null, null, String.class, "bathAddressJa", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAddressEn = cci("bath_address_en", "bath_address_en", null, null, String.class, "bathAddressEn", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTel = cci("bath_tel", "bath_tel", null, null, String.class, "bathTel", null, false, false, false, "VARCHAR", 15, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathDetail = cci("bath_detail", "bath_detail", null, null, String.class, "bathDetail", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathFee = cci("bath_fee", "bath_fee", null, null, Integer.class, "bathFee", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathType = cci("bath_type", "bath_type", null, null, Integer.class, "bathType", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBath24hFlg = cci("bath_24h_flg", "bath_24h_flg", null, null, Integer.class, "bath24hFlg", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathFee = cci("bath_fee", "bath_fee", null, null, Integer.class, "bathFee", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathType = cci("bath_type", "bath_type", null, null, Integer.class, "bathType", null, false, false, false, "INT", 10, 0, null, "10", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBath24hFlg = cci("bath_24h_flg", "bath_24h_flg", null, null, Integer.class, "bath24hFlg", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTimeSt = cci("bath_time_st", "bath_time_st", null, null, java.time.LocalTime.class, "bathTimeSt", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTimeEd = cci("bath_time_ed", "bath_time_ed", null, null, java.time.LocalTime.class, "bathTimeEd", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathPlaceLat = cci("bath_place_lat", "bath_place_lat", null, null, java.math.BigDecimal.class, "bathPlaceLat", null, false, false, false, "DOUBLE", 9, 6, null, null, false, null, null, null, null, null, false);
@@ -118,12 +105,12 @@ public class BathDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnBathTemperatureUp = cci("bath_temperature_up", "bath_temperature_up", null, null, java.math.BigDecimal.class, "bathTemperatureUp", null, false, false, false, "DOUBLE", 3, 3, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTemperatureLow = cci("bath_temperature_low", "bath_temperature_low", null, null, java.math.BigDecimal.class, "bathTemperatureLow", null, false, false, false, "DOUBLE", 3, 3, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathHoliday = cci("bath_holiday", "bath_holiday", null, null, Integer.class, "bathHoliday", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDelFlg = cci("del_flg", "del_flg", null, null, Integer.class, "delFlg", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDelFlg = cci("del_flg", "del_flg", null, null, Integer.class, "delFlg", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
     protected final ColumnInfo _columnCreateDate = cci("create_date", "create_date", null, null, java.time.LocalDateTime.class, "createDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnUpdateDate = cci("update_date", "update_date", null, null, java.time.LocalDateTime.class, "updateDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * bath_id: {PK, ID, NotNull, INT(10), FK to bath_tag}
+     * bath_id: {PK, ID, NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathId() { return _columnBathId; }
@@ -138,17 +125,17 @@ public class BathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathNameEn() { return _columnBathNameEn; }
     /**
-     * bath_area_code: {NotNull, INT(10)}
+     * bath_area_code: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathAreaCode() { return _columnBathAreaCode; }
     /**
-     * bath_city_code: {NotNull, INT(10)}
+     * bath_city_code: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathCityCode() { return _columnBathCityCode; }
     /**
-     * bath_image: {VARCHAR(2100)}
+     * bath_image: {LONGBLOB(2147483647)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathImage() { return _columnBathImage; }
@@ -173,17 +160,17 @@ public class BathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathDetail() { return _columnBathDetail; }
     /**
-     * bath_fee: {INT(10)}
+     * bath_fee: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathFee() { return _columnBathFee; }
     /**
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10), default=[10]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathType() { return _columnBathType; }
     /**
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBath24hFlg() { return _columnBath24hFlg; }
@@ -223,7 +210,7 @@ public class BathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathHoliday() { return _columnBathHoliday; }
     /**
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDelFlg() { return _columnDelFlg; }
@@ -286,26 +273,10 @@ public class BathDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                      Foreign Property
     //                                      ----------------
-    /**
-     * bath_tag by my bath_id, named 'bathTag'.
-     * @return The information object of foreign property. (NotNull)
-     */
-    public ForeignInfo foreignBathTag() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBathId(), BathTagDbm.getInstance().columnBathId());
-        return cfi("FK_BATH_ID", "bathTag", this, BathTagDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, true, null, null, false, "bathAsOne", false);
-    }
 
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
-    /**
-     * bath_tag by bath_id, named 'bathTagList'.
-     * @return The information object of referrer property. (NotNull)
-     */
-    public ReferrerInfo referrerBathTagList() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBathId(), BathTagDbm.getInstance().columnBathId());
-        return cri("FK_BATH_ID", "bathTagList", this, BathTagDbm.getInstance(), mp, false, "bath");
-    }
 
     // ===================================================================================
     //                                                                        Various Info
@@ -315,27 +286,27 @@ public class BathDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "com.oyfy.dbflute.exentity.Bath"; }
-    public String getConditionBeanTypeName() { return "com.oyfy.dbflute.cbean.BathCB"; }
-    public String getBehaviorTypeName() { return "com.oyfy.dbflute.exbhv.BathBhv"; }
+    public String getEntityTypeName() { return "com.oyfy.dbflute.exentity.BathTest"; }
+    public String getConditionBeanTypeName() { return "com.oyfy.dbflute.cbean.BathTestCB"; }
+    public String getBehaviorTypeName() { return "com.oyfy.dbflute.exbhv.BathTestBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<Bath> getEntityType() { return Bath.class; }
+    public Class<BathTest> getEntityType() { return BathTest.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public Bath newEntity() { return new Bath(); }
+    public BathTest newEntity() { return new BathTest(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((Bath)et, mp); }
+    { doAcceptPrimaryKeyMap((BathTest)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((Bath)et, mp); }
+    { doAcceptAllColumnMap((BathTest)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

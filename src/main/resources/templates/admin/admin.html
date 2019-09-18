@@ -3,85 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 <link rel="stylesheet" media="all" th:href="@{/css/admin/admin.css}" />
+<script src="https://code.jquery.com/jquery-1.6.2.js" ></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
+<script type="text/javascript" th:src="@{/js/admin/admin.js}"></script>
 </head>
 <body>
 <div class="container">
   <h1>管理画面</h1>
+  <p th:text="${adminForm.okMsg}" class="okMsg" />
+  <p th:text="${adminForm.ngMsg}" class="ngMsg" />
   <section class="list">
     <h3>銭湯一覧</h3>
     <p th:if="${#lists.isEmpty(adminForm.resultList.page)}">銭湯は未登録です。</p>
     <div th:if="!${#lists.isEmpty(adminForm.resultList.page)}">
       <!-- ページャー -->
       <section class="pager">
-        <a th:if="${adminForm.resultList.page.existsPreviousPage()}" th:href="@{/keyword(keyword=${adminForm.resultList.keyword}, page=${adminForm.resultList.page.previousPageNumber})}">前へ</a>
+        <a th:if="${adminForm.resultList.page.existsPreviousPage()}" th:href="@{/admin(keyword=${adminForm.resultList.keyword}, page=${adminForm.resultList.page.previousPageNumber})}">前へ</a>
         <span th:text="${adminForm.resultList.page.currentPageNumber}"></span> /
         <span th:text="${adminForm.resultList.page.allPageCount}"></span>
         (<span th:text="${adminForm.resultList.page.allRecordCount}"></span>件)
-        <a th:if="${adminForm.resultList.page.existsNextPage()}" th:href="@{/keyword(keyword=${adminForm.resultList.keyword}, page=${adminForm.resultList.page.nextPageNumber})}">次へ</a>
+        <a th:if="${adminForm.resultList.page.existsNextPage()}" th:href="@{/admin(keyword=${adminForm.resultList.keyword}, page=${adminForm.resultList.page.nextPageNumber})}">次へ</a>
       </section>
       <!-- ページャー -->
       <table>
         <tr><th class="id">銭湯ID</th><th>銭湯名</th><th class="date">作成日時</th><th class="date">更新日時</th><th class="action"></th></tr>
         <!-- 検索結果一覧でループ -->
-        <tr th:each="bath:${adminForm.resultList.page}" th:object="${bath}">
+        <tr th:each="bath:${adminForm.resultList.page}">
             <!-- 銭湯詳細画面へのリンク -->
-            <td class="id"><label th:text="*{bathId}"></label></td>
-            <td><label th:text="*{bathNameJa}"></label></td>
-            <td><label th:text="*{createDate}"></label></td>
-            <td><label th:text="*{updateDate}"></label></td>
-            <td class="actionBtn"><a th:href="@{/bath(bathId=*{bathId})}">詳細</a><a th:href="@{/bath(bathId=*{bathId})}">編集</a></td>
+            <td class="id"><label th:text="${bath.bathId}"></label></td>
+            <td><label th:text="${bath.bathNameJa}"></label></td>
+            <td><label th:text="${bath.createDate}"></label></td>
+            <td><label th:text="${bath.updateDate}"></label></td>
+            <td class="actionBtn"><a th:href="@{/bath(bathId=*{bathId})}">詳細</a><a href="#regist" th:attr="onclick='setBathDetail(' + ${bath.bathId} + ');'">編集</a></td>
         </tr>
       </table>
     </div>
   </section>
 
-  <section class="regist">
+  <!-- 戦闘情報非同期取得用フォーム -->
+  <form th:action="@{/bath}" id="bathForm" name="bathForm" th:object="${bathForm}" method="post" enctype="multipart/form-data" style="display: none;">
+    <input type="text" id="bathId" name="bath.bathId" value="" />
+  </form>
+
+  <section class="regist" id="regist">
     <h3>銭湯登録</h3>
-    <form th:action="@{/admin/regist}" name="adminForm" th:object="${adminForm}" method="post" enctype="multipart/form-data">
+    <form th:action="@{/admin/regist}" id="adminForm" name="adminForm" th:object="${adminForm}" method="post" enctype="multipart/form-data">
     <table>
       <tr>
-        <th>銭湯ID</th>
-        <td>自動発行</td>
+        <th>銭湯ID<br />※自動発行</th>
+        <td><input type="text" id="bathId" name="bath.bathId" readonly /></td>
       </tr>
       <tr>
         <th>銭湯 和名</th>
-        <td><input type="text" name="bath.bathNameJa" /></td>
+        <td><input type="text" id="bathNameJa" name="bath.bathNameJa" /></td>
       </tr>
       <tr>
         <th>銭湯 英名</th>
-        <td><input type="text" name="bath.bathNameEn" /></td>
+        <td><input type="text" id="bathNameEn" name="bath.bathNameEn" /></td>
       </tr>
       <tr>
         <th>都道府県コード</th>
-        <td><input type="text" name="bath.bathAreaCode" /></td>
+        <td><input type="text" id="bathAreaCode" name="bath.bathAreaCode" /></td>
       </tr>
       <tr>
         <th>市区町村コード</th>
-        <td><input type="text" name="bathCityCode" /></td>
+        <td><input type="text" id="bathCityCode" name="bath.bathCityCode" /></td>
       </tr>
       <tr>
-        <th>サムネイル画像</th>
-        <td><input type="file" name="bath.bathImage" /></td>
+        <th>サムネイル画像<br>※編集すると更新</th>
+        <td><input type="file" id="inputImage" name="inputImage" /><img id="pvImg" name="pvImg" src="" /></td>
       </tr>
       <tr>
         <th>住所 和名</th>
-        <td><input type="text" name="bath.bathAddressJa" /></td>
+        <td><input type="text" id="bathAddressJa" name="bath.bathAddressJa" /></td>
       </tr>
       <tr>
         <th>住所 英名</th>
-        <td><input type="text" name="bath.bathAddressEn" /></td>
+        <td><input type="text" id="bathAddressEn" name="bath.bathAddressEn" /></td>
       </tr>
       <tr>
         <th>電話番号</th>
-        <td><input type="number" name="bath.bathTel" /></td>
+        <td><input type="number" id="bathTel" name="bath.bathTel" /></td>
       </tr>
       <!-- DBfluteの更新が必要<tr><th>詳細</th><td><input type="text" name="bath.bathDetail" /></td></tr> -->
       <tr>
         <th>一般入浴料</th>
-        <td><input type="number" name="bath.bathFee" /></td>
+        <td><input type="number" id="bathFee" name="bath.bathFee" /></td>
       </tr>
       <tr>
         <th>銭湯種別</th>
@@ -91,45 +101,51 @@
         </td>
       </tr>
       <tr>
+        <th>24時間フラグ</th>
+        <td>
+          <label><input type="checkbox" id="24hFlg" name="bath.24hFlg" value="1"><span class="checkbox-parts">24時間</span></label>
+        </td>
+      </tr>
+      <tr>
         <th>営業時間 開始</th>
-        <td><input type="time" name="bath.bathTimeSt" /></td>
+        <td><input type="time" id="bathTimeSt" name="bath.bathTimeSt" /></td>
       </tr>
       <tr>
         <th>営業時間 終了</th>
-        <td><input type="time" name="bath.bathTimeEd" /></td>
+        <td><input type="time" id="bathTimeEd" step="60" name="bath.bathTimeEd" /></td>
       </tr>
       <tr>
         <th>位置情報 緯度</th>
-        <td><input type="text" name="bath.bathPlaceLat" /></td>
+        <td><input type="text" id="bathPlaceLat" name="bath.bathPlaceLat" /></td>
       </tr>
       <tr>
         <th>位置情報 経度</th>
-        <td><input type="text" name="bath.bathPlaceLon" /></td>
+        <td><input type="text" id="bathPlaceLon" name="bath.bathPlaceLon" /></td>
       </tr>
       <tr>
         <th>温度 上限</th>
-        <td><input type="number" name="bath.bathTemperatureUp" /></td>
+        <td><input type="number" id="bathTemperatureUp" name="bath.bathTemperatureUp" /></td>
       </tr>
       <tr>
         <th>温度 下限</th>
-        <td><input type="number" name="bath.bathTemperatureLow" /></td>
+        <td><input type="number" id="bathTemperatureLow" name="bath.bathTemperatureLow" /></td>
       </tr>
       <tr>
         <th>定休日</th>
         <td>
-          <label><input type="checkbox" name="bath.bathHoliday" value="1"><span class="checkbox-parts">日</span></label>
-          <label><input type="checkbox" name="bath.bathHoliday" value="2"><span class="checkbox-parts">月</span></label>
-          <label><input type="checkbox" name="bath.bathHoliday" value="4"><span class="checkbox-parts">火</span></label>
-          <label><input type="checkbox" name="bath.bathHoliday" value="8"><span class="checkbox-parts">水</span></label>
-          <label><input type="checkbox" name="bath.bathHoliday" value="16"><span class="checkbox-parts">木</span></label>
-          <label><input type="checkbox" name="bath.bathHoliday" value="32"><span class="checkbox-parts">金</span></label>
-          <label><input type="checkbox" name="bath.bathHoliday" value="64"><span class="checkbox-parts">土</span></label>
+          <label><input type="checkbox" id="bathHoliday1" name="bath.bathHoliday" value="1"><span class="checkbox-parts">日</span></label>
+          <label><input type="checkbox" id="bathHoliday2" name="bath.bathHoliday" value="2"><span class="checkbox-parts">月</span></label>
+          <label><input type="checkbox" id="bathHoliday4" name="bath.bathHoliday" value="4"><span class="checkbox-parts">火</span></label>
+          <label><input type="checkbox" id="bathHoliday8" name="bath.bathHoliday" value="8"><span class="checkbox-parts">水</span></label>
+          <label><input type="checkbox" id="bathHoliday16" name="bath.bathHoliday" value="16"><span class="checkbox-parts">木</span></label>
+          <label><input type="checkbox" id="bathHoliday32" name="bath.bathHoliday" value="32"><span class="checkbox-parts">金</span></label>
+          <label><input type="checkbox" id="bathHoliday64" name="bath.bathHoliday" value="64"><span class="checkbox-parts">土</span></label>
         </td>
       </tr>
       <tr>
         <th>削除フラグ</th>
         <td>
-          <label><input type="checkbox" name="bath.delFlg" value="1"><span class="checkbox-parts">削除</span></label>
+          <label><input type="checkbox" id="delFlg" name="bath.delFlg" value="1"><span class="checkbox-parts">削除</span></label>
         </td>
       </tr>
       <tr>

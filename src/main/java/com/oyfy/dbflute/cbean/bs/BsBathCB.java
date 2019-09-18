@@ -357,6 +357,11 @@ public class BsBathCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnBathTel() { return doColumn("bath_tel"); }
         /**
+         * bath_detail: {VARCHAR(255)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathDetail() { return doColumn("bath_detail"); }
+        /**
          * bath_fee: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
