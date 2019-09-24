@@ -3,22 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/searchResult.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/tag.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/pager.css}" />
+<script src="https://kit.fontawesome.com/a293a46691.js"></script>
 </head>
 <body>
 <h3>検索結果一覧</h3>
 
-検索キーワード：
-<span th:text="${keyword}"></span>
-<span th:if="${#strings.isEmpty(keyword)}">キーワード未設定</span>
+<div class="searchCond">
+    <label class="title">検索条件：</label>
+    <span th:if="${#strings.isEmpty(resultList.keyword)}">キーワード未設定</span>
+    <!-- 検索キーワード一覧 -->
+    <ul th:if="!${#strings.isEmpty(resultList.keyword)}" th:each="keyword:${resultList.keywordList}" class="tags">
+        <li th:if="!${#strings.isEmpty(keyword)}" ><a th:href="@{/keyword(keyword=*{keyword})}"><span th:text="${keyword}"></span></a></li>
+    </ul>
+    <ul th:each="keyword:${resultList.keywordList}"></ul>
+</div>
 
 <!-- ループして検索結果一覧をリンク表示 -->
-<p th:if="${#lists.isEmpty(bathList)}">検索条件に該当する銭湯が見つかりませんでした。</p>
-<ul th:each="bath:${bathList}" th:object="${bath}">
-	<!-- 銭湯詳細画面へのリンク -->
-	<li><a href="/bath" th:text="*{bathNameJa}"></a></li>
-</ul>
+<p th:if="${#lists.isEmpty(resultList.page)}">検索条件に該当する銭湯が見つかりませんでした。</p>
+<div th:if="!${#lists.isEmpty(resultList.page)}">
+
+    <!-- ページャー -->
+    <div th:replace="pager" class="pager"></div>
+
+    <div class="searchCount">検索結果：<span th:text="${resultList.page.allRecordCount}"></span>件</div>
+
+    <section class="bathList">
+        <!-- 検索結果一覧でループ -->
+        <div th:each="bath:${resultList.page}" th:object="${bath}" class="bathList">
+            <!-- 銭湯詳細画面へのリンク -->
+            <a th:href="@{/bath(bathId=*{bathId})}">
+                <span class="bath">
+                    <!-- サムネイル画像 -->
+                    <img class="bathImg" th:src="*{bathImage}" />
+                    <span class="bathInfo">
+                        <!-- 銭湯名 -->
+                        <label th:text="*{bathNameJa}" class="bathNameJa"></label>
+                        <label th:text="*{bathNameEn}" class="bathNameEn"></label>
+                        </span>
+                        <span class="bathDetail">
+                            <!-- 料金 -->
+                            <span class="bathFee">
+                               <i class="fa fa-dollar"></i>
+                               <label th:text="*{bathFee}"></label>円
+                            </span>
+                            <!-- 銭湯種別 -->
+                            <span th:switch="*{bathType}" class="bathType">
+                                <label th:case="10">銭湯</label>
+                                <label th:case="20">スーパー銭湯</label>
+                                <label th:case="30">温泉</label>
+                            </span>
+                            <!-- 営業時間 -->
+                            <span class="bathTime">
+                                <i class="fa fa-clock-o"></i>
+                                <label th:if="*{bath24hFlg == 1}" th:text="24時間"></label>
+                                <span  th:if="*{bath24hFlg != 1}">
+                                    <label th:text="*{bathTimeSt}"></label> ～ <label th:text="*{bathTimeEd}"></label>
+                                </span>
+                            </span>
+                            <!-- 住所 -->
+                            <span class="bathAddress">
+                                <i class="fa fa-map-pin "></i>
+                                <label th:text="*{bathAddressJa}" class="bathAddressJa"></label>
+                                <label th:text="*{bathAddressEn}" class="bathAddressEn"></label>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ページャー -->
+    <div th:replace="pager" class="pager"></div>
+
+</div>
 
 <a href="javascript:history.back();">戻る</a>
 

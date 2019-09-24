@@ -1,19 +1,33 @@
 package com.oyfy.dbflute.cbean.cq.bs;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Date;
 
-import org.dbflute.cbean.*;
-import org.dbflute.cbean.chelper.*;
-import org.dbflute.cbean.ckey.*;
-import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.AbstractConditionQuery;
+import org.dbflute.cbean.ConditionBean;
+import org.dbflute.cbean.ConditionQuery;
+import org.dbflute.cbean.chelper.HpQDRFunction;
+import org.dbflute.cbean.chelper.HpSLCCustomized;
+import org.dbflute.cbean.chelper.HpSLCFunction;
+import org.dbflute.cbean.chelper.HpSLCSetupper;
+import org.dbflute.cbean.ckey.ConditionKey;
+import org.dbflute.cbean.coption.ConditionOptionCall;
+import org.dbflute.cbean.coption.DerivedReferrerOption;
+import org.dbflute.cbean.coption.FromToOption;
+import org.dbflute.cbean.coption.LikeSearchOption;
+import org.dbflute.cbean.coption.RangeOfOption;
+import org.dbflute.cbean.coption.ScalarConditionOption;
 import org.dbflute.cbean.cvalue.ConditionValue;
-import org.dbflute.cbean.ordering.*;
-import org.dbflute.cbean.scoping.*;
+import org.dbflute.cbean.ordering.ManualOrderOptionCall;
+import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.dbmeta.DBMetaProvider;
-import com.oyfy.dbflute.allcommon.*;
-import com.oyfy.dbflute.cbean.*;
-import com.oyfy.dbflute.cbean.cq.*;
+
+import com.oyfy.dbflute.allcommon.DBMetaInstanceHandler;
+import com.oyfy.dbflute.cbean.BathCB;
+import com.oyfy.dbflute.cbean.BathTagCB;
+import com.oyfy.dbflute.cbean.cq.BathCQ;
+import com.oyfy.dbflute.cbean.cq.BathTagCQ;
 
 /**
  * The abstract condition-query of bath.
@@ -1598,7 +1612,8 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of bathFee. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    protected void setBathFee_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    // TODO publicにしないとRangeOf使えない。。。調査中
+    public void setBathFee_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueBathFee(), "bath_fee", rangeOfOption);
     }
 

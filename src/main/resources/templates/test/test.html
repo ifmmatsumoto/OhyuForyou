@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{common/layout}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" media="all" th:href="@{/css/test/test.css}" />
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- layout/layout.htmlに組み込めるようにlayout:fragment="contents"をつける -->
+    <div layout:fragment="contents">
+        <!-- 検索条件部分 -->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-xs-1 offset-xs-4 text-center">
+                        <div class="btn-group">
+                            <a class="btn btn-primary btn-outline-light" href="#" role="button">キーワード</a>
+                            <a class="btn btn-primary btn-outline-light" href="#" role="button"> 駅 </a>
+                            <a class="btn btn-primary btn-outline-light" href="" role="button" data-toggle="modal" data-target="#modal1">イラスト</a>
+                        </div>
+                        <form method="get" th:object="${testForm}">
+                            <div class="form-group">
+                                <input type="text" th:field="*{keyword}" class="ridius form-control mt-4" id="formGroupExampleInput" placeholder="キーワードを入力">
+                                <button type="submit" class="btn btn-primary mt-3">検索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 検索結果部分 -->
+        <div class="container-fluid" id="bath--frame">
+            <th:block th:each="bath:${baths}">
+                <div class="bath--list">
+                    <div class="bath-header">
+                        <h3 style="margin-bottom: 0;">
+                            <span th:text="${bath.bathNameJa}">銭湯の名前</span>
+                        </h3>
+                        <span th:text="${bath.bathNameEn}">銭湯の名前</span>
+                    </div>
+
+                    <div class="bath-content">
+                        <div class="bath_img">
+                            <img src="/img/hisamatsuyu.jpg">
+                        </div>
+                        <div class="bath_detail">
+                            <i class="fa fa-yen"></i>&nbsp;<span th:text="${bath.bathFee}">460円</span>円&nbsp; <i class="fa fa-clock-o "></i> <span th:text="${bath.bathTimeSt}">12時</span>～<span
+                                th:text="${bath.bathTimeEd}">23時</span>&nbsp; <i class="fa fa-home" aria-hidden="true"></i> <span th:text="${bath.bathAddressJa}">台東区寿</span>
+                        </div>
+                    </div>
+                    <!-- border-bottomがうまく設定できないからダミーでタグ入れてる -->
+                    <div></div>
+                </div>
+            </th:block>
+        </div>
+
+        <!-- モーダル用のdiv 「イラスト」を押下すると表示される。詳しい動きはわからない -->
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="label1">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Modal body</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

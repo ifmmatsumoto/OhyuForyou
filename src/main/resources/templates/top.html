@@ -9,15 +9,14 @@
 <body>
 <h3>TOP画面</h3>
 <ul>
-	<li><a href="/station">駅検索</a></li>
-	<li><a href="/prefecture">都道府県検索</a></li>
-	<li><a href="/illust">イラスト検索</a></li>
+    <li><a href="/station">駅検索</a></li>
+    <li><a href="/prefecture">都道府県検索</a></li>
+    <li><a href="/illust">イラスト検索</a></li>
 </ul>
 
-DB取得サンプル(入力値は使っていない)
 <form th:action="@{/keyword}" th:object="${topForm}" method="post" enctype="multipart/form-data">
-	<input type="text" th:field="*{keyword}" placeholder="キーワード検索"/>
-	<input type="submit" value="検索" />
+    <input type="text" th:field="*{keyword}" placeholder="キーワード検索"/>
+    <input type="submit" value="検索" />
 </form>
 
 <!-- 共通フッター -->
