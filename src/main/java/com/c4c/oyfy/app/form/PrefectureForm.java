@@ -7,4 +7,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=true)
 public class PrefectureForm extends _Common_Form {
 
+    private String pref_id;
+    private String pref_name;
+    private Integer division;
+
 }
