@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
-<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all"
+    th:href="@{/bootstrap/css/bootstrap.css}" />
 </head>
 <body>
     <div class="col-md-6 offset-md-6">
-        <input type ="button" class="btn btn-primary btn-lg" value=現在地から検索>
+        <input type="button" class="btn btn-primary btn-lg" value=現在地から検索>
     </div>
     <table border="1">
-        <tr th:each="line : ${line}">
+        <tr th:each="line : ${line}" >
             <td th:text="${line.key}"></td>
-                <td>
-                    <div th:each="station : ${stationList}" >
-                        <input th:each="stationname : ${station}" type="checkbox" th:text="${stationname}">
-                    </div>
-                </td>
+            <td>
+                <div th:each="stationList : ${line.value}">
+                    <input type="checkbox" th:text="${stationList}">
+                </div>
+            </td>
         </tr>
     </table>
 </body>

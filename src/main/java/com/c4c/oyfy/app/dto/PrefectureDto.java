@@ -8,9 +8,9 @@ import lombok.Data;
 @Data
 public class PrefectureDto implements Serializable {
     String status;
-    List<Dataname> data;
+    List<Prefecture> data;
     @Data
-    public static class Dataname {
+    public static class Prefecture {
       String id;
       String name;
     }

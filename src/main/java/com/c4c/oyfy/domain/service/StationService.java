@@ -23,12 +23,10 @@ public class StationService {
      return restTemplate.getForObject(URL, LineDto.class);
  }
 
- public StationDto findStationList(String[] linename) {
-
-     System.out.println("パラメータ" + linename[0]);
+ public StationDto findStationList(String linename) {
 
       /** 沿線検索API リクエストURL */
-      String URL = "http://express.heartrails.com/api/json?method=getStations&line=" + linename[0];
+      String URL = "http://express.heartrails.com/api/json?method=getStations&line=" + linename;
 
       System.out.println(URL);
 
