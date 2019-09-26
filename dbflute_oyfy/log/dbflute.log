@@ -9379,3 +9379,1245 @@ _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
     repsEnvType      = ut
     refreshProject   = $$AutoDetect$$
 _/_/_/_/_/_/_/_/_/_/ {Sql2Entity}
+2019-09-23 12:18:59,277 [main] INFO  (TorqueJDBCTransformTask#begin():104) - +------------------------------------------+
+2019-09-23 12:18:59,284 [main] INFO  (TorqueJDBCTransformTask#begin():105) - |                                          |
+2019-09-23 12:18:59,284 [main] INFO  (TorqueJDBCTransformTask#begin():106) - |                   JDBC                   |
+2019-09-23 12:18:59,285 [main] INFO  (TorqueJDBCTransformTask#begin():107) - |                                          |
+2019-09-23 12:18:59,286 [main] INFO  (TorqueJDBCTransformTask#begin():108) - +------------------------------------------+
+2019-09-23 12:18:59,325 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 12:18:59,326 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 12:18:59,326 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 12:18:59,327 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 12:18:59,391 [main] INFO  (DfSchemaXmlSerializer#serialize():286) - 
+2019-09-23 12:18:59,392 [main] INFO  (DfSchemaXmlSerializer#serialize():287) - ...Starting to process JDBC to SchemaXML
+2019-09-23 12:18:59,392 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1532) - ...Loading previous schema (schema diff process)
+2019-09-23 12:18:59,408 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 12:18:59,529 [main] INFO  (DfSchemaXmlSerializer#generateXML():360) - ...Getting DB connection
+2019-09-23 12:18:59,548 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 12:19:00,254 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 12:19:00,256 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 12:19:00,258 [main] INFO  (DfSchemaXmlSerializer#generateXML():363) - ...Getting DB meta data
+2019-09-23 12:19:00,261 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-09-23 12:19:00,261 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-09-23 12:19:00,262 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-09-23 12:19:00,317 [main] INFO  (DfDbCommentExtractorBase#doSelectUserTabComments():121) - select table_type as OBJECT_TYPE, table_name as TABLE_NAME, table_comment as COMMENTS from information_schema.tables where table_schema = 'ohyuforyou_db' order by table_name asc
+2019-09-23 12:19:00,325 [main] INFO  (DfDbCommentExtractorBase#doSelectUserColComments():168) - select table_name as TABLE_NAME, column_name as COLUMN_NAME, column_comment as COMMENTS from information_schema.columns where table_schema = 'ohyuforyou_db' order by table_name asc, column_name asc
+2019-09-23 12:19:00,355 [main] INFO  (DfDatetimePrecisionExtractorMySQL#extractDatetimePrecisionMap():59) - select TABLE_NAME, COLUMN_NAME, DATETIME_PRECISION from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA = 'ohyuforyou_db' and DATA_TYPE = 'datetime'
+2019-09-23 12:19:00,378 [main] INFO  (DfSchemaXmlSerializer#processTable():420) - 
+2019-09-23 12:19:00,378 [main] INFO  (DfSchemaXmlSerializer#processTable():421) - $ /= = = = = = = = = = = = = = = = = = = = = = = = = =
+2019-09-23 12:19:00,379 [main] INFO  (DfSchemaXmlSerializer#processTable():422) - $ [Table List]
+2019-09-23 12:19:00,380 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.area(TABLE) // エリア
+2019-09-23 12:19:00,428 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.bath(TABLE) // 銭湯
+2019-09-23 12:19:00,452 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.bath_tag(TABLE) // 銭湯タグ
+2019-09-23 12:19:00,476 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.member(TABLE) // 会員: 会員登録時にデータが登録される。...
+2019-09-23 12:19:00,501 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.spots(TABLE)
+2019-09-23 12:19:00,523 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.station(TABLE) // 駅
+2019-09-23 12:19:00,542 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.tag(TABLE) // タグ
+2019-09-23 12:19:00,562 [main] INFO  (DfSchemaXmlSerializer#processTable():434) - $ 
+2019-09-23 12:19:00,563 [main] INFO  (DfSchemaXmlSerializer#processTable():435) - $ [Table Count]
+2019-09-23 12:19:00,564 [main] INFO  (DfSchemaXmlSerializer#processTable():436) - $ 7
+2019-09-23 12:19:00,564 [main] INFO  (DfSchemaXmlSerializer#processTable():437) - $ = = = = = = = = = =/
+2019-09-23 12:19:00,565 [main] INFO  (DfSchemaXmlSerializer#processTable():438) - 
+2019-09-23 12:19:00,568 [main] INFO  (DfSchemaXmlSerializer#processSequence():805) - ...Getting sequences
+2019-09-23 12:19:00,575 [main] INFO  (DfSchemaXmlSerializer#serialize():301) - ...Serializing XML:
+2019-09-23 12:19:00,576 [main] INFO  (DfSchemaXmlSerializer#serialize():302) -   filePath = ./schema/project-schema-oyfy.xml
+2019-09-23 12:19:00,577 [main] INFO  (DfSchemaXmlSerializer#serialize():303) -   encoding = UTF-8
+2019-09-23 12:19:00,606 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1550) - ...Loading next schema (schema diff process)
+2019-09-23 12:19:00,609 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 12:19:00,752 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1555) -  -> different from previous (schema diff)
+2019-09-23 12:19:00,754 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1557) - ...Serializing schema-diff:
+2019-09-23 12:19:00,754 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1558) -   filePath = ./schema/project-history-oyfy.diffmap
+2019-09-23 12:19:00,785 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 12:19:00,801 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s544ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {JDBC}
+2019-09-23 12:19:02,182 [main] INFO  (TorqueDocumentationTask#begin():187) - +------------------------------------------+
+2019-09-23 12:19:02,187 [main] INFO  (TorqueDocumentationTask#begin():188) - |                                          |
+2019-09-23 12:19:02,187 [main] INFO  (TorqueDocumentationTask#begin():189) - |                   Doc                    |
+2019-09-23 12:19:02,188 [main] INFO  (TorqueDocumentationTask#begin():197) - |                                          |
+2019-09-23 12:19:02,189 [main] INFO  (TorqueDocumentationTask#begin():198) - +------------------------------------------+
+2019-09-23 12:19:02,219 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 12:19:02,220 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 12:19:02,220 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 12:19:02,221 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 12:19:02,224 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():259) - 
+2019-09-23 12:19:02,224 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():260) - * * * * * * * * * * *
+2019-09-23 12:19:02,225 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():261) - *                   *
+2019-09-23 12:19:02,225 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():262) - *    Schema HTML    *
+2019-09-23 12:19:02,226 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():263) - *                   *
+2019-09-23 12:19:02,227 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():264) - * * * * * * * * * * *
+2019-09-23 12:19:02,409 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 12:19:02,495 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("doc/ControlDocument.vm", ctx);
+2019-09-23 12:19:02,697 [main] INFO  (Database#doEnableDocumentOutputDirectory():1226) - ...Setting up documentOutputDirectory: ./output/doc
+2019-09-23 12:19:02,713 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-09-23 12:19:02,713 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-09-23 12:19:02,715 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-09-23 12:19:02,717 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-09-23 12:19:02,718 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-09-23 12:19:02,724 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-09-23 12:19:02,727 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-09-23 12:19:02,727 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-09-23 12:19:02,740 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():79) - FK_BATH_ID
+2019-09-23 12:19:02,742 [main] INFO  (DfAdditionalForeignKeyInitializer#showResult():349) -   Add foreign key bath.[bath_id] to bath_tag.[bath_id]
+2019-09-23 12:19:02,743 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-09-23 12:19:02,766 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():233) - ...Loading schema history
+2019-09-23 12:19:02,830 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():237) -  -> found history: count=13
+2019-09-23 12:19:02,932 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():50) -  
+2019-09-23 12:19:02,932 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():51) - ...Setting up arrange queries for documents (ArrangeQueryDoc)
+2019-09-23 12:19:02,981 [main] INFO  (DfArrangeQueryDocSetupper#doExtractArrangeQuery():106) -  -> no arrange query
+2019-09-23 12:19:03,370 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 12:19:03,372 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 12:19:03,526 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 12:19:03,531 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s365ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Doc}
+2019-09-23 12:19:07,615 [main] INFO  (TorqueDataModelTask#begin():110) - +------------------------------------------+
+2019-09-23 12:19:07,619 [main] INFO  (TorqueDataModelTask#begin():111) - |                                          |
+2019-09-23 12:19:07,620 [main] INFO  (TorqueDataModelTask#begin():112) - |                 Generate                 |
+2019-09-23 12:19:07,620 [main] INFO  (TorqueDataModelTask#begin():113) - |                                          |
+2019-09-23 12:19:07,621 [main] INFO  (TorqueDataModelTask#begin():114) - +------------------------------------------+
+2019-09-23 12:19:07,652 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 12:19:07,652 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 12:19:07,653 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 12:19:07,654 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 12:19:07,675 [main] INFO  (TorqueDataModelTask#setupControlTemplate():166) - 
+2019-09-23 12:19:07,676 [main] INFO  (TorqueDataModelTask#setupControlTemplate():167) - ...Using Java control: om/ControlGenerateJava.vm
+2019-09-23 12:19:07,739 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 12:19:07,790 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlGenerateJava.vm", ctx);
+2019-09-23 12:19:08,041 [main] INFO  (Database#doEnableGenerateOutputDirectory():1194) - ...Setting up generateOutputDirectory: ../src/main/java
+2019-09-23 12:19:08,049 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-09-23 12:19:08,049 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-09-23 12:19:08,053 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-09-23 12:19:08,055 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-09-23 12:19:08,056 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-09-23 12:19:08,058 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-09-23 12:19:08,061 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-09-23 12:19:08,061 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-09-23 12:19:08,065 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():79) - FK_BATH_ID
+2019-09-23 12:19:08,068 [main] INFO  (DfAdditionalForeignKeyInitializer#showResult():349) -   Add foreign key bath.[bath_id] to bath_tag.[bath_id]
+2019-09-23 12:19:08,070 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-09-23 12:19:08,101 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():58) - /=============================
+2019-09-23 12:19:08,102 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():59) - ...Initializing include query.
+2019-09-23 12:19:08,103 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - String
+2019-09-23 12:19:08,103 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Number
+2019-09-23 12:19:08,104 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Date
+2019-09-23 12:19:08,104 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotEqual -> []
+2019-09-23 12:19:08,105 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   InScope -> []
+2019-09-23 12:19:08,106 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotInScope -> []
+2019-09-23 12:19:08,106 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - OrderBy
+2019-09-23 12:19:08,107 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():61) - ========/
+2019-09-23 12:19:08,132 [main] INFO  (Database#info():2807) - public void parseAllCommon() {
+2019-09-23 12:19:08,135 [main] INFO  (Database#info():2807) -     parse('DBCurrent');
+2019-09-23 12:19:08,160 [main] INFO  (Database#info():2807) -     parse('DBFluteConfig');
+2019-09-23 12:19:08,196 [main] INFO  (Database#info():2807) -     parse('DBFluteInitializer');
+2019-09-23 12:19:08,226 [main] INFO  (Database#info():2807) -     parse('DBMetaInstanceHandler');
+2019-09-23 12:19:08,264 [main] INFO  (Database#info():2807) -     parse('EntityDefinedCommonColumn');
+2019-09-23 12:19:08,276 [main] INFO  (Database#info():2807) -     parse('ImplementedBehaviorSelector');
+2019-09-23 12:19:08,292 [main] INFO  (Database#info():2807) -     parse('ImplementedCommonColumnAutoSetupper');
+2019-09-23 12:19:08,308 [main] INFO  (Database#info():2807) -     parse('ImplementedInvokerAssistant');
+2019-09-23 12:19:08,331 [main] INFO  (Database#info():2807) -     parse('ImplementedSqlClauseCreator');
+2019-09-23 12:19:08,351 [main] INFO  (Database#info():2807) - }
+2019-09-23 12:19:08,352 [main] INFO  (Database#info():2807) - public void parseContainerConfig() {
+2019-09-23 12:19:08,354 [main] INFO  (Database#info():2807) -     parse('com\oyfy\dbflute\allcommon\DBFluteBeansJavaConfig.java')
+2019-09-23 12:19:08,379 [main] INFO  (Database#info():2807) - }
+2019-09-23 12:19:08,386 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldTableClass() {
+2019-09-23 12:19:08,414 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-09-23 12:19:08,415 [main] INFO  (Database#info():2807) - public void parseTableClass() {
+2019-09-23 12:19:08,416 [main] INFO  (Database#info():2807) -     parse('area');
+2019-09-23 12:19:08,715 [main] INFO  (Database#info():2807) -     parse('bath');
+2019-09-23 12:19:08,930 [main] INFO  (Database#info():2807) -     parse('bath_tag');
+2019-09-23 12:19:09,042 [main] INFO  (Database#info():2807) -     parse('member');
+2019-09-23 12:19:09,200 [main] INFO  (Database#info():2807) -     parse('spots');
+2019-09-23 12:19:09,288 [main] INFO  (Database#info():2807) -     parse('station');
+2019-09-23 12:19:09,428 [main] INFO  (Database#info():2807) -     parse('tag');
+2019-09-23 12:19:09,536 [main] INFO  (Database#info():2807) - }
+2019-09-23 12:19:09,536 [main] INFO  (Database#info():2807) -  
+2019-09-23 12:19:09,716 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 12:19:09,718 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 12:19:09,729 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 12:19:09,739 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m02s141ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Generate}
+2019-09-23 12:19:12,856 [main] INFO  (DfOutsideSqlTestTask#begin():77) - +------------------------------------------+
+2019-09-23 12:19:12,862 [main] INFO  (DfOutsideSqlTestTask#begin():78) - |                                          |
+2019-09-23 12:19:12,862 [main] INFO  (DfOutsideSqlTestTask#begin():79) - |              OutsideSqlTest              |
+2019-09-23 12:19:12,863 [main] INFO  (DfOutsideSqlTestTask#begin():80) - |                                          |
+2019-09-23 12:19:12,863 [main] INFO  (DfOutsideSqlTestTask#begin():81) - +------------------------------------------+
+2019-09-23 12:19:12,905 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 12:19:12,906 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 12:19:12,906 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 12:19:12,908 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 12:19:13,000 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: BathBhv_selectNearbyBath.sql
+2019-09-23 12:19:13,014 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 12:19:13,517 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 12:19:13,518 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 12:19:13,562 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+/*
+ [df:title]
+  周辺にある銭湯の検索
+
+ [df:description]
+  パラメータ(緯度経度半径)に応じた銭湯を検索する
+
+*/
+
+-- #df:entity#
+
+-- !df:pmb!
+-- !!AutoDetect!!
+
+SELECT
+  bath.*,
+  (
+    6371 * acos( -- kmの場合は6371、mileの場合は3959
+      cos(radians(/*pmb.bath_place_lat*/35.6804067))
+      * cos(radians(bath.bath_place_lat))
+      * cos(radians(bath.bath_place_lon) - radians(/*pmb.bath_place_lon*/139.7550152))
+      + sin(radians(/*pmb.bath_place_lat*/35.6804067))
+      * sin(radians(bath.bath_place_lat))
+    )
+  ) AS distance
+FROM
+  bath
+HAVING
+  distance <= /*pmb.distance*/3 -- 半径3km以内
+ORDER BY
+  distance -- 近い順(ASC)
+2019-09-23 12:19:13,588 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2019-09-23 12:19:13,589 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=1 failure=0 (in 1 files)
+2019-09-23 12:19:13,589 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 12:19:13,599 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s774ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Checked SQL}
+  o BathBhv_selectNearbyBath.sql
+
+   o: OK (1)
+_/_/_/_/_/_/_/_/_/_/ {OutsideSqlTest}
+2019-09-23 12:19:15,793 [main] INFO  (DfSql2EntityTask#begin():106) - +------------------------------------------+
+2019-09-23 12:19:15,802 [main] INFO  (DfSql2EntityTask#begin():107) - |                                          |
+2019-09-23 12:19:15,802 [main] INFO  (DfSql2EntityTask#begin():108) - |                Sql2Entity                |
+2019-09-23 12:19:15,806 [main] INFO  (DfSql2EntityTask#begin():109) - |                                          |
+2019-09-23 12:19:15,808 [main] INFO  (DfSql2EntityTask#begin():110) - +------------------------------------------+
+2019-09-23 12:19:15,886 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 12:19:15,887 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 12:19:15,888 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 12:19:15,889 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 12:19:15,928 [main] INFO  (DfSql2EntityTask#setupControlTemplate():177) - 
+2019-09-23 12:19:15,929 [main] INFO  (DfSql2EntityTask#setupControlTemplate():178) - ...Using Java control: om/ControlSql2EntityJava.vm
+2019-09-23 12:19:15,949 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 12:19:16,090 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: BathBhv_selectNearbyBath.sql
+2019-09-23 12:19:16,105 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 12:19:16,501 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 12:19:16,501 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 12:19:16,508 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():330) - SQL:
+/*
+ [df:title]
+  周辺にある銭湯の検索
+
+ [df:description]
+  パラメータ(緯度経度半径)に応じた銭湯を検索する
+
+*/
+
+-- #df:entity#
+
+-- !df:pmb!
+-- !!AutoDetect!!
+
+SELECT
+  bath.*,
+  (
+    6371 * acos( -- kmの場合は6371、mileの場合は3959
+      cos(radians(/*pmb.bath_place_lat*/35.6804067))
+      * cos(radians(bath.bath_place_lat))
+      * cos(radians(bath.bath_place_lon) - radians(/*pmb.bath_place_lon*/139.7550152))
+      + sin(radians(/*pmb.bath_place_lat*/35.6804067))
+      * sin(radians(bath.bath_place_lat))
+    )
+  ) AS distance
+FROM
+  bath
+HAVING
+  distance <= /*pmb.distance*/3 -- 半径3km以内
+ORDER BY
+  distance -- 近い順(ASC)
+2019-09-23 12:19:16,673 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():336) -  -> success=1 failure=0
+2019-09-23 12:19:16,673 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=1 failure=0 (in 1 files)
+2019-09-23 12:19:16,765 [main] INFO  (DfSql2EntityTask#initControlContext():311) - 
+2019-09-23 12:19:16,766 [main] INFO  (DfSql2EntityTask#initControlContext():312) - ...Preparing generation of customize-entities and parameter-beans
+2019-09-23 12:19:16,769 [main] INFO  (DfSql2EntityTask#initControlContext():313) - * * * * * * * * * *
+2019-09-23 12:19:16,770 [main] INFO  (DfSql2EntityTask#initControlContext():314) - * CustomizeEntity *
+2019-09-23 12:19:16,770 [main] INFO  (DfSql2EntityTask#initControlContext():315) - * * * * * * * * * *
+2019-09-23 12:19:16,798 [main] INFO  (DfSql2EntityTask#showCustomizeEntity():927) - 
+NearbyBath
+  bath_id INT(11) related to bath.bath_id
+  bath_name_ja VARCHAR(255) related to bath.bath_name_ja
+  bath_name_en VARCHAR(255) related to bath.bath_name_en
+  bath_area_code INT(10) related to bath.bath_area_code
+  bath_city_code INT(10) related to bath.bath_city_code
+  bath_image VARCHAR(2100) related to bath.bath_image
+  bath_address_ja VARCHAR(255) related to bath.bath_address_ja
+  bath_address_en VARCHAR(255) related to bath.bath_address_en
+  bath_tel VARCHAR(15) related to bath.bath_tel
+  bath_fee INT(11) related to bath.bath_fee
+  bath_type INT(2) related to bath.bath_type
+  bath_24h_flg INT(1) related to bath.bath_24h_flg
+  bath_time_st TIME(10) related to bath.bath_time_st
+  bath_time_ed TIME(10) related to bath.bath_time_ed
+  bath_place_lat DOUBLE(9, 6) related to bath.bath_place_lat
+  bath_place_lon DOUBLE(9, 6) related to bath.bath_place_lon
+  bath_temperature_up DOUBLE(3, 3) related to bath.bath_temperature_up
+  bath_temperature_low DOUBLE(3, 3) related to bath.bath_temperature_low
+  bath_holiday INT(3) related to bath.bath_holiday
+  del_flg INT(1) related to bath.del_flg
+  create_date DATETIME(19) related to bath.create_date
+  update_date DATETIME(19) related to bath.update_date
+  distance DOUBLE(23, 31)
+2019-09-23 12:19:16,813 [main] INFO  (DfSql2EntityTask#showParameterBean():932) - * * * * * * * * *
+2019-09-23 12:19:16,814 [main] INFO  (DfSql2EntityTask#showParameterBean():933) - * ParameterBean *
+2019-09-23 12:19:16,815 [main] INFO  (DfSql2EntityTask#showParameterBean():934) - * * * * * * * * *
+2019-09-23 12:19:16,818 [main] INFO  (DfSql2EntityTask#showParameterBean():976) - 
+NearbyBathPmb (typed to list, entity)
+  java.math.BigDecimal bath_place_lat
+  java.math.BigDecimal bath_place_lon
+  Integer distance
+2019-09-23 12:19:16,833 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlSql2EntityJava.vm", ctx);
+2019-09-23 12:19:17,162 [main] INFO  (Database#doEnableSql2EntityOutputDirectory():1210) - ...Setting up sql2EntityOutputDirectory: ../src/main/java
+2019-09-23 12:19:17,166 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldCustomizeClass() {
+2019-09-23 12:19:17,184 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-09-23 12:19:17,185 [main] INFO  (Database#info():2807) - public void parseCustomizeEntity() {
+2019-09-23 12:19:17,324 [main] INFO  (Database#info():2807) -     parse('NearbyBath')
+2019-09-23 12:19:17,389 [main] INFO  (Database#info():2807) - }
+2019-09-23 12:19:17,391 [main] INFO  (Database#info():2807) - public void parseParameterBean() {
+2019-09-23 12:19:17,401 [main] INFO  (Database#info():2807) -     parse('NearbyBathPmb');
+2019-09-23 12:19:17,442 [main] INFO  (Database#info():2807) - }
+2019-09-23 12:19:17,536 [main] INFO  (DfSql2EntityTask#showTargetSqlFileInformation():303) - 
+/- - - - - - - - - - - - - - - - - - - - - - - -
+Target SQL files: 1
+
+  BathBhv_selectNearbyBath.sql
+- - - - - - - - - -/
+2019-09-23 12:19:17,551 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 12:19:17,552 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 12:19:17,558 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 12:19:17,558 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 12:19:17,570 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s831ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Sql2Entity}
+2019-09-23 14:42:35,385 [main] INFO  (TorqueJDBCTransformTask#begin():104) - +------------------------------------------+
+2019-09-23 14:42:35,391 [main] INFO  (TorqueJDBCTransformTask#begin():105) - |                                          |
+2019-09-23 14:42:35,391 [main] INFO  (TorqueJDBCTransformTask#begin():106) - |                   JDBC                   |
+2019-09-23 14:42:35,392 [main] INFO  (TorqueJDBCTransformTask#begin():107) - |                                          |
+2019-09-23 14:42:35,393 [main] INFO  (TorqueJDBCTransformTask#begin():108) - +------------------------------------------+
+2019-09-23 14:42:35,438 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 14:42:35,439 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 14:42:35,440 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 14:42:35,441 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 14:42:35,512 [main] INFO  (DfSchemaXmlSerializer#serialize():286) - 
+2019-09-23 14:42:35,513 [main] INFO  (DfSchemaXmlSerializer#serialize():287) - ...Starting to process JDBC to SchemaXML
+2019-09-23 14:42:35,514 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1532) - ...Loading previous schema (schema diff process)
+2019-09-23 14:42:35,534 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 14:42:35,661 [main] INFO  (DfSchemaXmlSerializer#generateXML():360) - ...Getting DB connection
+2019-09-23 14:42:35,681 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 14:42:36,480 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 14:42:36,482 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 14:42:36,485 [main] INFO  (DfSchemaXmlSerializer#generateXML():363) - ...Getting DB meta data
+2019-09-23 14:42:36,488 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-09-23 14:42:36,489 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-09-23 14:42:36,491 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-09-23 14:42:36,562 [main] INFO  (DfDbCommentExtractorBase#doSelectUserTabComments():121) - select table_type as OBJECT_TYPE, table_name as TABLE_NAME, table_comment as COMMENTS from information_schema.tables where table_schema = 'ohyuforyou_db' order by table_name asc
+2019-09-23 14:42:36,572 [main] INFO  (DfDbCommentExtractorBase#doSelectUserColComments():168) - select table_name as TABLE_NAME, column_name as COLUMN_NAME, column_comment as COMMENTS from information_schema.columns where table_schema = 'ohyuforyou_db' order by table_name asc, column_name asc
+2019-09-23 14:42:36,623 [main] INFO  (DfDatetimePrecisionExtractorMySQL#extractDatetimePrecisionMap():59) - select TABLE_NAME, COLUMN_NAME, DATETIME_PRECISION from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA = 'ohyuforyou_db' and DATA_TYPE = 'datetime'
+2019-09-23 14:42:36,661 [main] INFO  (DfSchemaXmlSerializer#processTable():420) - 
+2019-09-23 14:42:36,662 [main] INFO  (DfSchemaXmlSerializer#processTable():421) - $ /= = = = = = = = = = = = = = = = = = = = = = = = = =
+2019-09-23 14:42:36,663 [main] INFO  (DfSchemaXmlSerializer#processTable():422) - $ [Table List]
+2019-09-23 14:42:36,664 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.area(TABLE) // エリア
+2019-09-23 14:42:36,762 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.bath(TABLE) // 銭湯
+2019-09-23 14:42:36,806 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.bath_tag(TABLE) // 銭湯タグ
+2019-09-23 14:42:36,850 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.member(TABLE) // 会員: 会員登録時にデータが登録される。...
+2019-09-23 14:42:36,887 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.station(TABLE) // 駅
+2019-09-23 14:42:36,921 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.tag(TABLE) // タグ
+2019-09-23 14:42:36,955 [main] INFO  (DfSchemaXmlSerializer#processTable():434) - $ 
+2019-09-23 14:42:36,956 [main] INFO  (DfSchemaXmlSerializer#processTable():435) - $ [Table Count]
+2019-09-23 14:42:36,956 [main] INFO  (DfSchemaXmlSerializer#processTable():436) - $ 6
+2019-09-23 14:42:36,957 [main] INFO  (DfSchemaXmlSerializer#processTable():437) - $ = = = = = = = = = =/
+2019-09-23 14:42:36,958 [main] INFO  (DfSchemaXmlSerializer#processTable():438) - 
+2019-09-23 14:42:36,960 [main] INFO  (DfSchemaXmlSerializer#processSequence():805) - ...Getting sequences
+2019-09-23 14:42:36,969 [main] INFO  (DfSchemaXmlSerializer#serialize():301) - ...Serializing XML:
+2019-09-23 14:42:36,970 [main] INFO  (DfSchemaXmlSerializer#serialize():302) -   filePath = ./schema/project-schema-oyfy.xml
+2019-09-23 14:42:36,971 [main] INFO  (DfSchemaXmlSerializer#serialize():303) -   encoding = UTF-8
+2019-09-23 14:42:37,019 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1550) - ...Loading next schema (schema diff process)
+2019-09-23 14:42:37,022 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 14:42:37,164 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1555) -  -> different from previous (schema diff)
+2019-09-23 14:42:37,166 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1557) - ...Serializing schema-diff:
+2019-09-23 14:42:37,166 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1558) -   filePath = ./schema/project-history-oyfy.diffmap
+2019-09-23 14:42:37,194 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 14:42:37,211 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s850ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {JDBC}
+2019-09-23 14:42:38,974 [main] INFO  (TorqueDocumentationTask#begin():187) - +------------------------------------------+
+2019-09-23 14:42:38,978 [main] INFO  (TorqueDocumentationTask#begin():188) - |                                          |
+2019-09-23 14:42:38,978 [main] INFO  (TorqueDocumentationTask#begin():189) - |                   Doc                    |
+2019-09-23 14:42:38,979 [main] INFO  (TorqueDocumentationTask#begin():197) - |                                          |
+2019-09-23 14:42:38,980 [main] INFO  (TorqueDocumentationTask#begin():198) - +------------------------------------------+
+2019-09-23 14:42:39,046 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 14:42:39,047 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 14:42:39,047 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 14:42:39,048 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 14:42:39,051 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():259) - 
+2019-09-23 14:42:39,052 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():260) - * * * * * * * * * * *
+2019-09-23 14:42:39,052 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():261) - *                   *
+2019-09-23 14:42:39,053 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():262) - *    Schema HTML    *
+2019-09-23 14:42:39,054 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():263) - *                   *
+2019-09-23 14:42:39,054 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():264) - * * * * * * * * * * *
+2019-09-23 14:42:39,206 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 14:42:39,297 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("doc/ControlDocument.vm", ctx);
+2019-09-23 14:42:39,503 [main] INFO  (Database#doEnableDocumentOutputDirectory():1226) - ...Setting up documentOutputDirectory: ./output/doc
+2019-09-23 14:42:39,516 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-09-23 14:42:39,516 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-09-23 14:42:39,519 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-09-23 14:42:39,520 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-09-23 14:42:39,521 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-09-23 14:42:39,525 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-09-23 14:42:39,530 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-09-23 14:42:39,530 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-09-23 14:42:39,539 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():79) - FK_BATH_ID
+2019-09-23 14:42:39,541 [main] INFO  (DfAdditionalForeignKeyInitializer#showResult():349) -   Add foreign key bath.[bath_id] to bath_tag.[bath_id]
+2019-09-23 14:42:39,542 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-09-23 14:42:39,562 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():233) - ...Loading schema history
+2019-09-23 14:42:39,618 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():237) -  -> found history: count=14
+2019-09-23 14:42:39,705 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():50) -  
+2019-09-23 14:42:39,706 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():51) - ...Setting up arrange queries for documents (ArrangeQueryDoc)
+2019-09-23 14:42:39,760 [main] INFO  (DfArrangeQueryDocSetupper#doExtractArrangeQuery():106) -  -> no arrange query
+2019-09-23 14:42:40,281 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 14:42:40,283 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 14:42:40,374 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 14:42:40,380 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s427ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Doc}
+2019-09-23 14:42:47,493 [main] INFO  (TorqueDataModelTask#begin():110) - +------------------------------------------+
+2019-09-23 14:42:47,513 [main] INFO  (TorqueDataModelTask#begin():111) - |                                          |
+2019-09-23 14:42:47,515 [main] INFO  (TorqueDataModelTask#begin():112) - |                 Generate                 |
+2019-09-23 14:42:47,518 [main] INFO  (TorqueDataModelTask#begin():113) - |                                          |
+2019-09-23 14:42:47,519 [main] INFO  (TorqueDataModelTask#begin():114) - +------------------------------------------+
+2019-09-23 14:42:47,581 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 14:42:47,583 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 14:42:47,584 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 14:42:47,586 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 14:42:47,658 [main] INFO  (TorqueDataModelTask#setupControlTemplate():166) - 
+2019-09-23 14:42:47,659 [main] INFO  (TorqueDataModelTask#setupControlTemplate():167) - ...Using Java control: om/ControlGenerateJava.vm
+2019-09-23 14:42:47,773 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 14:42:47,877 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlGenerateJava.vm", ctx);
+2019-09-23 14:42:48,194 [main] INFO  (Database#doEnableGenerateOutputDirectory():1194) - ...Setting up generateOutputDirectory: ../src/main/java
+2019-09-23 14:42:48,201 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-09-23 14:42:48,201 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-09-23 14:42:48,203 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-09-23 14:42:48,205 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-09-23 14:42:48,205 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-09-23 14:42:48,207 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-09-23 14:42:48,210 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-09-23 14:42:48,210 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-09-23 14:42:48,213 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():79) - FK_BATH_ID
+2019-09-23 14:42:48,215 [main] INFO  (DfAdditionalForeignKeyInitializer#showResult():349) -   Add foreign key bath.[bath_id] to bath_tag.[bath_id]
+2019-09-23 14:42:48,215 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-09-23 14:42:48,246 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():58) - /=============================
+2019-09-23 14:42:48,246 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():59) - ...Initializing include query.
+2019-09-23 14:42:48,247 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - String
+2019-09-23 14:42:48,247 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Number
+2019-09-23 14:42:48,248 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Date
+2019-09-23 14:42:48,249 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotEqual -> []
+2019-09-23 14:42:48,249 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   InScope -> []
+2019-09-23 14:42:48,250 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotInScope -> []
+2019-09-23 14:42:48,251 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - OrderBy
+2019-09-23 14:42:48,251 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():61) - ========/
+2019-09-23 14:42:48,275 [main] INFO  (Database#info():2807) - public void parseAllCommon() {
+2019-09-23 14:42:48,282 [main] INFO  (Database#info():2807) -     parse('DBCurrent');
+2019-09-23 14:42:48,307 [main] INFO  (Database#info():2807) -     parse('DBFluteConfig');
+2019-09-23 14:42:48,351 [main] INFO  (Database#info():2807) -     parse('DBFluteInitializer');
+2019-09-23 14:42:48,385 [main] INFO  (Database#info():2807) -     parse('DBMetaInstanceHandler');
+2019-09-23 14:42:48,441 [main] INFO  (Database#info():2807) -     parse('EntityDefinedCommonColumn');
+2019-09-23 14:42:48,457 [main] INFO  (Database#info():2807) -     parse('ImplementedBehaviorSelector');
+2019-09-23 14:42:48,475 [main] INFO  (Database#info():2807) -     parse('ImplementedCommonColumnAutoSetupper');
+2019-09-23 14:42:48,492 [main] INFO  (Database#info():2807) -     parse('ImplementedInvokerAssistant');
+2019-09-23 14:42:48,516 [main] INFO  (Database#info():2807) -     parse('ImplementedSqlClauseCreator');
+2019-09-23 14:42:48,538 [main] INFO  (Database#info():2807) - }
+2019-09-23 14:42:48,539 [main] INFO  (Database#info():2807) - public void parseContainerConfig() {
+2019-09-23 14:42:48,539 [main] INFO  (Database#info():2807) -     parse('com\oyfy\dbflute\allcommon\DBFluteBeansJavaConfig.java')
+2019-09-23 14:42:48,577 [main] INFO  (Database#info():2807) - }
+2019-09-23 14:42:48,584 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldTableClass() {
+2019-09-23 14:42:48,601 [main] INFO  (DfOldClassHandler#info():1045) -     delete('BsSpotsBhv');
+2019-09-23 14:42:48,605 [main] INFO  (DfOldClassHandler#info():1045) -     delete('LoaderOfSpots');
+2019-09-23 14:42:48,614 [main] INFO  (DfOldClassHandler#info():1045) -     delete('BsSpots');
+2019-09-23 14:42:48,618 [main] INFO  (DfOldClassHandler#info():1045) -     delete('SpotsDbm');
+2019-09-23 14:42:48,622 [main] INFO  (DfOldClassHandler#info():1045) -     delete('BsSpotsCB');
+2019-09-23 14:42:48,625 [main] INFO  (DfOldClassHandler#info():1045) -     delete('AbstractBsSpotsCQ');
+2019-09-23 14:42:48,630 [main] INFO  (DfOldClassHandler#info():1045) -     delete('BsSpotsCQ');
+2019-09-23 14:42:48,636 [main] INFO  (DfOldClassHandler#info():1045) -     delete('SpotsCB');
+2019-09-23 14:42:48,639 [main] INFO  (DfOldClassHandler#info():1045) -     delete('SpotsCQ');
+2019-09-23 14:42:48,643 [main] INFO  (DfOldClassHandler#info():1045) -     delete('SpotsCIQ');
+2019-09-23 14:42:48,646 [main] INFO  (DfOldClassHandler#info():1045) -     delete('SpotsBhv');
+2019-09-23 14:42:48,648 [main] INFO  (DfOldClassHandler#info():1045) -     delete('Spots');
+2019-09-23 14:42:48,649 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-09-23 14:42:48,650 [main] INFO  (Database#info():2807) - public void parseTableClass() {
+2019-09-23 14:42:48,651 [main] INFO  (Database#info():2807) -     parse('area');
+2019-09-23 14:42:48,995 [main] INFO  (Database#info():2807) -     parse('bath');
+2019-09-23 14:42:49,303 [main] INFO  (Database#info():2807) -     parse('bath_tag');
+2019-09-23 14:42:49,435 [main] INFO  (Database#info():2807) -     parse('member');
+2019-09-23 14:42:49,718 [main] INFO  (Database#info():2807) -     parse('station');
+2019-09-23 14:42:49,875 [main] INFO  (Database#info():2807) -     parse('tag');
+2019-09-23 14:42:50,016 [main] INFO  (Database#info():2807) - }
+2019-09-23 14:42:50,016 [main] INFO  (Database#info():2807) -  
+2019-09-23 14:42:50,130 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 14:42:50,132 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 14:42:50,135 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 14:42:50,143 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m02s698ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Generate}
+2019-09-23 14:42:52,383 [main] INFO  (DfOutsideSqlTestTask#begin():77) - +------------------------------------------+
+2019-09-23 14:42:52,388 [main] INFO  (DfOutsideSqlTestTask#begin():78) - |                                          |
+2019-09-23 14:42:52,388 [main] INFO  (DfOutsideSqlTestTask#begin():79) - |              OutsideSqlTest              |
+2019-09-23 14:42:52,389 [main] INFO  (DfOutsideSqlTestTask#begin():80) - |                                          |
+2019-09-23 14:42:52,390 [main] INFO  (DfOutsideSqlTestTask#begin():81) - +------------------------------------------+
+2019-09-23 14:42:52,430 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 14:42:52,430 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 14:42:52,431 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 14:42:52,432 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 14:42:52,504 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: BathBhv_selectNearbyBath.sql
+2019-09-23 14:42:52,515 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 14:42:52,935 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 14:42:52,936 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 14:42:52,996 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+/*
+ [df:title]
+  周辺にある銭湯の検索
+
+ [df:description]
+  パラメータ(緯度経度半径)に応じた銭湯を検索する
+
+*/
+
+-- #df:entity#
+
+-- !df:pmb!
+-- !!AutoDetect!!
+
+SELECT
+  bath.*,
+  (
+    6371 * acos( -- kmの場合は6371、mileの場合は3959
+      cos(radians(/*pmb.bath_place_lat*/35.6804067))
+      * cos(radians(bath.bath_place_lat))
+      * cos(radians(bath.bath_place_lon) - radians(/*pmb.bath_place_lon*/139.7550152))
+      + sin(radians(/*pmb.bath_place_lat*/35.6804067))
+      * sin(radians(bath.bath_place_lat))
+    )
+  ) AS distance
+FROM
+  bath
+HAVING
+  distance <= /*pmb.distance*/3 -- 半径3km以内
+ORDER BY
+  distance -- 近い順(ASC)
+2019-09-23 14:42:53,037 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2019-09-23 14:42:53,038 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=1 failure=0 (in 1 files)
+2019-09-23 14:42:53,038 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 14:42:53,052 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s687ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Checked SQL}
+  o BathBhv_selectNearbyBath.sql
+
+   o: OK (1)
+_/_/_/_/_/_/_/_/_/_/ {OutsideSqlTest}
+2019-09-23 14:42:54,972 [main] INFO  (DfSql2EntityTask#begin():106) - +------------------------------------------+
+2019-09-23 14:42:54,976 [main] INFO  (DfSql2EntityTask#begin():107) - |                                          |
+2019-09-23 14:42:54,977 [main] INFO  (DfSql2EntityTask#begin():108) - |                Sql2Entity                |
+2019-09-23 14:42:54,978 [main] INFO  (DfSql2EntityTask#begin():109) - |                                          |
+2019-09-23 14:42:54,978 [main] INFO  (DfSql2EntityTask#begin():110) - +------------------------------------------+
+2019-09-23 14:42:55,009 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 14:42:55,010 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 14:42:55,011 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 14:42:55,012 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 14:42:55,035 [main] INFO  (DfSql2EntityTask#setupControlTemplate():177) - 
+2019-09-23 14:42:55,037 [main] INFO  (DfSql2EntityTask#setupControlTemplate():178) - ...Using Java control: om/ControlSql2EntityJava.vm
+2019-09-23 14:42:55,048 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 14:42:55,188 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: BathBhv_selectNearbyBath.sql
+2019-09-23 14:42:55,204 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 14:42:55,495 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 14:42:55,496 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 14:42:55,501 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():330) - SQL:
+/*
+ [df:title]
+  周辺にある銭湯の検索
+
+ [df:description]
+  パラメータ(緯度経度半径)に応じた銭湯を検索する
+
+*/
+
+-- #df:entity#
+
+-- !df:pmb!
+-- !!AutoDetect!!
+
+SELECT
+  bath.*,
+  (
+    6371 * acos( -- kmの場合は6371、mileの場合は3959
+      cos(radians(/*pmb.bath_place_lat*/35.6804067))
+      * cos(radians(bath.bath_place_lat))
+      * cos(radians(bath.bath_place_lon) - radians(/*pmb.bath_place_lon*/139.7550152))
+      + sin(radians(/*pmb.bath_place_lat*/35.6804067))
+      * sin(radians(bath.bath_place_lat))
+    )
+  ) AS distance
+FROM
+  bath
+HAVING
+  distance <= /*pmb.distance*/3 -- 半径3km以内
+ORDER BY
+  distance -- 近い順(ASC)
+2019-09-23 14:42:55,586 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():336) -  -> success=1 failure=0
+2019-09-23 14:42:55,587 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=1 failure=0 (in 1 files)
+2019-09-23 14:42:55,657 [main] INFO  (DfSql2EntityTask#initControlContext():311) - 
+2019-09-23 14:42:55,658 [main] INFO  (DfSql2EntityTask#initControlContext():312) - ...Preparing generation of customize-entities and parameter-beans
+2019-09-23 14:42:55,659 [main] INFO  (DfSql2EntityTask#initControlContext():313) - * * * * * * * * * *
+2019-09-23 14:42:55,660 [main] INFO  (DfSql2EntityTask#initControlContext():314) - * CustomizeEntity *
+2019-09-23 14:42:55,660 [main] INFO  (DfSql2EntityTask#initControlContext():315) - * * * * * * * * * *
+2019-09-23 14:42:55,677 [main] INFO  (DfSql2EntityTask#showCustomizeEntity():927) - 
+NearbyBath
+  bath_id INT(11) related to bath.bath_id
+  bath_name_ja VARCHAR(255) related to bath.bath_name_ja
+  bath_name_en VARCHAR(255) related to bath.bath_name_en
+  bath_area_code INT(10) related to bath.bath_area_code
+  bath_city_code INT(10) related to bath.bath_city_code
+  bath_image VARCHAR(2100) related to bath.bath_image
+  bath_address_ja VARCHAR(255) related to bath.bath_address_ja
+  bath_address_en VARCHAR(255) related to bath.bath_address_en
+  bath_tel VARCHAR(15) related to bath.bath_tel
+  bath_fee INT(11) related to bath.bath_fee
+  bath_type INT(2) related to bath.bath_type
+  bath_24h_flg INT(1) related to bath.bath_24h_flg
+  bath_time_st TIME(10) related to bath.bath_time_st
+  bath_time_ed TIME(10) related to bath.bath_time_ed
+  bath_place_lat DOUBLE(9, 6) related to bath.bath_place_lat
+  bath_place_lon DOUBLE(9, 6) related to bath.bath_place_lon
+  bath_temperature_up DOUBLE(3, 3) related to bath.bath_temperature_up
+  bath_temperature_low DOUBLE(3, 3) related to bath.bath_temperature_low
+  bath_holiday INT(3) related to bath.bath_holiday
+  del_flg INT(1) related to bath.del_flg
+  create_date DATETIME(19) related to bath.create_date
+  update_date DATETIME(19) related to bath.update_date
+  distance DOUBLE(23, 31)
+2019-09-23 14:42:55,692 [main] INFO  (DfSql2EntityTask#showParameterBean():932) - * * * * * * * * *
+2019-09-23 14:42:55,693 [main] INFO  (DfSql2EntityTask#showParameterBean():933) - * ParameterBean *
+2019-09-23 14:42:55,693 [main] INFO  (DfSql2EntityTask#showParameterBean():934) - * * * * * * * * *
+2019-09-23 14:42:55,696 [main] INFO  (DfSql2EntityTask#showParameterBean():976) - 
+NearbyBathPmb (typed to list, entity)
+  java.math.BigDecimal bath_place_lat
+  java.math.BigDecimal bath_place_lon
+  Integer distance
+2019-09-23 14:42:55,709 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlSql2EntityJava.vm", ctx);
+2019-09-23 14:42:55,968 [main] INFO  (Database#doEnableSql2EntityOutputDirectory():1210) - ...Setting up sql2EntityOutputDirectory: ../src/main/java
+2019-09-23 14:42:55,971 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldCustomizeClass() {
+2019-09-23 14:42:55,986 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-09-23 14:42:55,987 [main] INFO  (Database#info():2807) - public void parseCustomizeEntity() {
+2019-09-23 14:42:56,128 [main] INFO  (Database#info():2807) -     parse('NearbyBath')
+2019-09-23 14:42:56,131 [main] INFO  (Database#info():2807) - }
+2019-09-23 14:42:56,133 [main] INFO  (Database#info():2807) - public void parseParameterBean() {
+2019-09-23 14:42:56,139 [main] INFO  (Database#info():2807) -     parse('NearbyBathPmb');
+2019-09-23 14:42:56,182 [main] INFO  (Database#info():2807) - }
+2019-09-23 14:42:56,255 [main] INFO  (DfSql2EntityTask#showTargetSqlFileInformation():303) - 
+/- - - - - - - - - - - - - - - - - - - - - - - -
+Target SQL files: 1
+
+  BathBhv_selectNearbyBath.sql
+- - - - - - - - - -/
+2019-09-23 14:42:56,272 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 14:42:56,273 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 14:42:56,279 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 14:42:56,281 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 14:42:56,294 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s334ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Sql2Entity}
+2019-09-23 17:51:08,874 [main] INFO  (TorqueJDBCTransformTask#begin():104) - +------------------------------------------+
+2019-09-23 17:51:08,879 [main] INFO  (TorqueJDBCTransformTask#begin():105) - |                                          |
+2019-09-23 17:51:08,879 [main] INFO  (TorqueJDBCTransformTask#begin():106) - |                   JDBC                   |
+2019-09-23 17:51:08,881 [main] INFO  (TorqueJDBCTransformTask#begin():107) - |                                          |
+2019-09-23 17:51:08,881 [main] INFO  (TorqueJDBCTransformTask#begin():108) - +------------------------------------------+
+2019-09-23 17:51:08,938 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 17:51:08,939 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 17:51:08,940 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 17:51:08,940 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 17:51:09,009 [main] INFO  (DfSchemaXmlSerializer#serialize():286) - 
+2019-09-23 17:51:09,010 [main] INFO  (DfSchemaXmlSerializer#serialize():287) - ...Starting to process JDBC to SchemaXML
+2019-09-23 17:51:09,011 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1532) - ...Loading previous schema (schema diff process)
+2019-09-23 17:51:09,033 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 17:51:09,151 [main] INFO  (DfSchemaXmlSerializer#generateXML():360) - ...Getting DB connection
+2019-09-23 17:51:09,165 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 17:51:09,968 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 17:51:09,970 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 17:51:09,973 [main] INFO  (DfSchemaXmlSerializer#generateXML():363) - ...Getting DB meta data
+2019-09-23 17:51:09,977 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2019-09-23 17:51:09,977 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+2019-09-23 17:51:09,979 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2019-09-23 17:51:10,039 [main] INFO  (DfDbCommentExtractorBase#doSelectUserTabComments():121) - select table_type as OBJECT_TYPE, table_name as TABLE_NAME, table_comment as COMMENTS from information_schema.tables where table_schema = 'ohyuforyou_db' order by table_name asc
+2019-09-23 17:51:10,057 [main] INFO  (DfDbCommentExtractorBase#doSelectUserColComments():168) - select table_name as TABLE_NAME, column_name as COLUMN_NAME, column_comment as COMMENTS from information_schema.columns where table_schema = 'ohyuforyou_db' order by table_name asc, column_name asc
+2019-09-23 17:51:10,095 [main] INFO  (DfDatetimePrecisionExtractorMySQL#extractDatetimePrecisionMap():59) - select TABLE_NAME, COLUMN_NAME, DATETIME_PRECISION from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA = 'ohyuforyou_db' and DATA_TYPE = 'datetime'
+2019-09-23 17:51:10,131 [main] INFO  (DfSchemaXmlSerializer#processTable():420) - 
+2019-09-23 17:51:10,132 [main] INFO  (DfSchemaXmlSerializer#processTable():421) - $ /= = = = = = = = = = = = = = = = = = = = = = = = = =
+2019-09-23 17:51:10,133 [main] INFO  (DfSchemaXmlSerializer#processTable():422) - $ [Table List]
+2019-09-23 17:51:10,134 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.area(TABLE) // エリア
+2019-09-23 17:51:10,187 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.bath(TABLE) // 銭湯
+2019-09-23 17:51:10,217 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.bath_tag(TABLE) // 銭湯タグ
+2019-09-23 17:51:10,244 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.member(TABLE) // 会員: 会員登録時にデータが登録される。...
+2019-09-23 17:51:10,281 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.station(TABLE) // 駅
+2019-09-23 17:51:10,305 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():502) - $ ohyuforyou_db.tag(TABLE) // タグ
+2019-09-23 17:51:10,330 [main] INFO  (DfSchemaXmlSerializer#processTable():434) - $ 
+2019-09-23 17:51:10,331 [main] INFO  (DfSchemaXmlSerializer#processTable():435) - $ [Table Count]
+2019-09-23 17:51:10,331 [main] INFO  (DfSchemaXmlSerializer#processTable():436) - $ 6
+2019-09-23 17:51:10,333 [main] INFO  (DfSchemaXmlSerializer#processTable():437) - $ = = = = = = = = = =/
+2019-09-23 17:51:10,334 [main] INFO  (DfSchemaXmlSerializer#processTable():438) - 
+2019-09-23 17:51:10,336 [main] INFO  (DfSchemaXmlSerializer#processSequence():805) - ...Getting sequences
+2019-09-23 17:51:10,342 [main] INFO  (DfSchemaXmlSerializer#serialize():301) - ...Serializing XML:
+2019-09-23 17:51:10,343 [main] INFO  (DfSchemaXmlSerializer#serialize():302) -   filePath = ./schema/project-schema-oyfy.xml
+2019-09-23 17:51:10,344 [main] INFO  (DfSchemaXmlSerializer#serialize():303) -   encoding = UTF-8
+2019-09-23 17:51:10,388 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1550) - ...Loading next schema (schema diff process)
+2019-09-23 17:51:10,392 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 17:51:10,507 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1565) -  -> same as previous (schema diff)
+2019-09-23 17:51:10,508 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 17:51:10,526 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s678ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {JDBC}
+2019-09-23 17:51:12,397 [main] INFO  (TorqueDocumentationTask#begin():187) - +------------------------------------------+
+2019-09-23 17:51:12,401 [main] INFO  (TorqueDocumentationTask#begin():188) - |                                          |
+2019-09-23 17:51:12,402 [main] INFO  (TorqueDocumentationTask#begin():189) - |                   Doc                    |
+2019-09-23 17:51:12,404 [main] INFO  (TorqueDocumentationTask#begin():197) - |                                          |
+2019-09-23 17:51:12,405 [main] INFO  (TorqueDocumentationTask#begin():198) - +------------------------------------------+
+2019-09-23 17:51:12,439 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 17:51:12,440 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 17:51:12,441 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 17:51:12,442 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 17:51:12,446 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():259) - 
+2019-09-23 17:51:12,447 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():260) - * * * * * * * * * * *
+2019-09-23 17:51:12,450 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():261) - *                   *
+2019-09-23 17:51:12,451 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():262) - *    Schema HTML    *
+2019-09-23 17:51:12,452 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():263) - *                   *
+2019-09-23 17:51:12,452 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():264) - * * * * * * * * * * *
+2019-09-23 17:51:12,592 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 17:51:12,684 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("doc/ControlDocument.vm", ctx);
+2019-09-23 17:51:12,883 [main] INFO  (Database#doEnableDocumentOutputDirectory():1226) - ...Setting up documentOutputDirectory: ./output/doc
+2019-09-23 17:51:12,896 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-09-23 17:51:12,897 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-09-23 17:51:12,900 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-09-23 17:51:12,901 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-09-23 17:51:12,901 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-09-23 17:51:12,903 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-09-23 17:51:12,906 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-09-23 17:51:12,906 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-09-23 17:51:12,915 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():79) - FK_BATH_ID
+2019-09-23 17:51:12,917 [main] INFO  (DfAdditionalForeignKeyInitializer#showResult():349) -   Add foreign key bath.[bath_id] to bath_tag.[bath_id]
+2019-09-23 17:51:12,917 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-09-23 17:51:12,937 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():233) - ...Loading schema history
+2019-09-23 17:51:13,008 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():237) -  -> found history: count=14
+2019-09-23 17:51:13,113 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():50) -  
+2019-09-23 17:51:13,114 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():51) - ...Setting up arrange queries for documents (ArrangeQueryDoc)
+2019-09-23 17:51:13,175 [main] INFO  (DfArrangeQueryDocSetupper#doExtractArrangeQuery():106) -  -> no arrange query
+2019-09-23 17:51:13,679 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 17:51:13,682 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 17:51:13,742 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 17:51:13,747 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s371ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Doc}
+2019-09-23 17:51:18,624 [main] INFO  (TorqueDataModelTask#begin():110) - +------------------------------------------+
+2019-09-23 17:51:18,629 [main] INFO  (TorqueDataModelTask#begin():111) - |                                          |
+2019-09-23 17:51:18,629 [main] INFO  (TorqueDataModelTask#begin():112) - |                 Generate                 |
+2019-09-23 17:51:18,631 [main] INFO  (TorqueDataModelTask#begin():113) - |                                          |
+2019-09-23 17:51:18,631 [main] INFO  (TorqueDataModelTask#begin():114) - +------------------------------------------+
+2019-09-23 17:51:18,664 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 17:51:18,665 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 17:51:18,666 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 17:51:18,667 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 17:51:18,695 [main] INFO  (TorqueDataModelTask#setupControlTemplate():166) - 
+2019-09-23 17:51:18,696 [main] INFO  (TorqueDataModelTask#setupControlTemplate():167) - ...Using Java control: om/ControlGenerateJava.vm
+2019-09-23 17:51:18,764 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 17:51:18,829 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlGenerateJava.vm", ctx);
+2019-09-23 17:51:19,101 [main] INFO  (Database#doEnableGenerateOutputDirectory():1194) - ...Setting up generateOutputDirectory: ../src/main/java
+2019-09-23 17:51:19,108 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2019-09-23 17:51:19,109 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2019-09-23 17:51:19,111 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2019-09-23 17:51:19,113 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2019-09-23 17:51:19,113 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2019-09-23 17:51:19,115 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2019-09-23 17:51:19,118 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2019-09-23 17:51:19,118 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2019-09-23 17:51:19,121 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():79) - FK_BATH_ID
+2019-09-23 17:51:19,124 [main] INFO  (DfAdditionalForeignKeyInitializer#showResult():349) -   Add foreign key bath.[bath_id] to bath_tag.[bath_id]
+2019-09-23 17:51:19,124 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2019-09-23 17:51:19,162 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():58) - /=============================
+2019-09-23 17:51:19,162 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():59) - ...Initializing include query.
+2019-09-23 17:51:19,164 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - String
+2019-09-23 17:51:19,165 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Number
+2019-09-23 17:51:19,166 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Date
+2019-09-23 17:51:19,167 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotEqual -> []
+2019-09-23 17:51:19,167 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   InScope -> []
+2019-09-23 17:51:19,168 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotInScope -> []
+2019-09-23 17:51:19,169 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - OrderBy
+2019-09-23 17:51:19,169 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():61) - ========/
+2019-09-23 17:51:19,216 [main] INFO  (Database#info():2807) - public void parseAllCommon() {
+2019-09-23 17:51:19,220 [main] INFO  (Database#info():2807) -     parse('DBCurrent');
+2019-09-23 17:51:19,254 [main] INFO  (Database#info():2807) -     parse('DBFluteConfig');
+2019-09-23 17:51:19,319 [main] INFO  (Database#info():2807) -     parse('DBFluteInitializer');
+2019-09-23 17:51:19,352 [main] INFO  (Database#info():2807) -     parse('DBMetaInstanceHandler');
+2019-09-23 17:51:19,398 [main] INFO  (Database#info():2807) -     parse('EntityDefinedCommonColumn');
+2019-09-23 17:51:19,414 [main] INFO  (Database#info():2807) -     parse('ImplementedBehaviorSelector');
+2019-09-23 17:51:19,435 [main] INFO  (Database#info():2807) -     parse('ImplementedCommonColumnAutoSetupper');
+2019-09-23 17:51:19,453 [main] INFO  (Database#info():2807) -     parse('ImplementedInvokerAssistant');
+2019-09-23 17:51:19,478 [main] INFO  (Database#info():2807) -     parse('ImplementedSqlClauseCreator');
+2019-09-23 17:51:19,504 [main] INFO  (Database#info():2807) - }
+2019-09-23 17:51:19,505 [main] INFO  (Database#info():2807) - public void parseContainerConfig() {
+2019-09-23 17:51:19,506 [main] INFO  (Database#info():2807) -     parse('com\oyfy\dbflute\allcommon\DBFluteBeansJavaConfig.java')
+2019-09-23 17:51:19,545 [main] INFO  (Database#info():2807) - }
+2019-09-23 17:51:19,551 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldTableClass() {
+2019-09-23 17:51:19,585 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-09-23 17:51:19,586 [main] INFO  (Database#info():2807) - public void parseTableClass() {
+2019-09-23 17:51:19,587 [main] INFO  (Database#info():2807) -     parse('area');
+2019-09-23 17:51:20,034 [main] INFO  (Database#info():2807) -     parse('bath');
+2019-09-23 17:51:20,361 [main] INFO  (Database#info():2807) -     parse('bath_tag');
+2019-09-23 17:51:20,549 [main] INFO  (Database#info():2807) -     parse('member');
+2019-09-23 17:51:20,745 [main] INFO  (Database#info():2807) -     parse('station');
+2019-09-23 17:51:20,905 [main] INFO  (Database#info():2807) -     parse('tag');
+2019-09-23 17:51:21,005 [main] INFO  (Database#info():2807) - }
+2019-09-23 17:51:21,005 [main] INFO  (Database#info():2807) -  
+2019-09-23 17:51:21,112 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 17:51:21,114 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 17:51:21,121 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 17:51:21,129 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m02s525ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Generate}
+2019-09-23 17:51:23,845 [main] INFO  (DfOutsideSqlTestTask#begin():77) - +------------------------------------------+
+2019-09-23 17:51:23,853 [main] INFO  (DfOutsideSqlTestTask#begin():78) - |                                          |
+2019-09-23 17:51:23,854 [main] INFO  (DfOutsideSqlTestTask#begin():79) - |              OutsideSqlTest              |
+2019-09-23 17:51:23,855 [main] INFO  (DfOutsideSqlTestTask#begin():80) - |                                          |
+2019-09-23 17:51:23,856 [main] INFO  (DfOutsideSqlTestTask#begin():81) - +------------------------------------------+
+2019-09-23 17:51:23,903 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 17:51:23,904 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 17:51:23,905 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 17:51:23,910 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 17:51:24,018 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: BathBhv_selectNearbyBath.sql
+2019-09-23 17:51:24,037 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 17:51:24,484 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 17:51:24,484 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 17:51:24,584 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+/*
+ [df:title]
+  周辺にある銭湯の検索
+
+ [df:description]
+  パラメータ(緯度経度半径)に応じた銭湯を検索する
+
+*/
+
+-- #df:entity#
+
+-- !df:pmb extends Paging!
+-- !!AutoDetect!!
+
+SELECT
+  bath.*,
+  (
+    6371 * acos( -- kmの場合は6371、mileの場合は3959
+      cos(radians(/*pmb.bath_place_lat*/35.6804067))
+      * cos(radians(bath.bath_place_lat))
+      * cos(radians(bath.bath_place_lon) - radians(/*pmb.bath_place_lon*/139.7550152))
+      + sin(radians(/*pmb.bath_place_lat*/35.6804067))
+      * sin(radians(bath.bath_place_lat))
+    )
+  ) AS distance
+FROM
+  bath
+HAVING
+  distance <= /*pmb.distance*/3 -- 半径3km以内
+ORDER BY
+  distance -- 近い順(ASC)
+2019-09-23 17:51:24,634 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2019-09-23 17:51:24,636 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=1 failure=0 (in 1 files)
+2019-09-23 17:51:24,636 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 17:51:24,652 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s836ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Checked SQL}
+  o BathBhv_selectNearbyBath.sql
+
+   o: OK (1)
+_/_/_/_/_/_/_/_/_/_/ {OutsideSqlTest}
+2019-09-23 17:51:26,783 [main] INFO  (DfSql2EntityTask#begin():106) - +------------------------------------------+
+2019-09-23 17:51:26,787 [main] INFO  (DfSql2EntityTask#begin():107) - |                                          |
+2019-09-23 17:51:26,787 [main] INFO  (DfSql2EntityTask#begin():108) - |                Sql2Entity                |
+2019-09-23 17:51:26,788 [main] INFO  (DfSql2EntityTask#begin():109) - |                                          |
+2019-09-23 17:51:26,789 [main] INFO  (DfSql2EntityTask#begin():110) - +------------------------------------------+
+2019-09-23 17:51:26,821 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2019-09-23 17:51:26,822 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2019-09-23 17:51:26,823 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+2019-09-23 17:51:26,824 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = ohyuforyou
+2019-09-23 17:51:26,848 [main] INFO  (DfSql2EntityTask#setupControlTemplate():177) - 
+2019-09-23 17:51:26,848 [main] INFO  (DfSql2EntityTask#setupControlTemplate():178) - ...Using Java control: om/ControlSql2EntityJava.vm
+2019-09-23 17:51:26,859 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2019-09-23 17:51:27,004 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: BathBhv_selectNearbyBath.sql
+2019-09-23 17:51:27,014 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2019-09-23 17:51:27,322 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 5.6.44-log
+2019-09-23 17:51:27,323 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e ) for JDBC 4.0
+2019-09-23 17:51:27,330 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():330) - SQL:
+/*
+ [df:title]
+  周辺にある銭湯の検索
+
+ [df:description]
+  パラメータ(緯度経度半径)に応じた銭湯を検索する
+
+*/
+
+-- #df:entity#
+
+-- !df:pmb extends Paging!
+-- !!AutoDetect!!
+
+SELECT
+  bath.*,
+  (
+    6371 * acos( -- kmの場合は6371、mileの場合は3959
+      cos(radians(/*pmb.bath_place_lat*/35.6804067))
+      * cos(radians(bath.bath_place_lat))
+      * cos(radians(bath.bath_place_lon) - radians(/*pmb.bath_place_lon*/139.7550152))
+      + sin(radians(/*pmb.bath_place_lat*/35.6804067))
+      * sin(radians(bath.bath_place_lat))
+    )
+  ) AS distance
+FROM
+  bath
+HAVING
+  distance <= /*pmb.distance*/3 -- 半径3km以内
+ORDER BY
+  distance -- 近い順(ASC)
+2019-09-23 17:51:27,418 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():336) -  -> success=1 failure=0
+2019-09-23 17:51:27,419 [main] INFO  (DfSqlFileFireMan#fire():93) - {Fired SQL}: success=1 failure=0 (in 1 files)
+2019-09-23 17:51:27,503 [main] INFO  (DfSql2EntityTask#initControlContext():311) - 
+2019-09-23 17:51:27,504 [main] INFO  (DfSql2EntityTask#initControlContext():312) - ...Preparing generation of customize-entities and parameter-beans
+2019-09-23 17:51:27,504 [main] INFO  (DfSql2EntityTask#initControlContext():313) - * * * * * * * * * *
+2019-09-23 17:51:27,505 [main] INFO  (DfSql2EntityTask#initControlContext():314) - * CustomizeEntity *
+2019-09-23 17:51:27,506 [main] INFO  (DfSql2EntityTask#initControlContext():315) - * * * * * * * * * *
+2019-09-23 17:51:27,539 [main] INFO  (DfSql2EntityTask#showCustomizeEntity():927) - 
+NearbyBath
+  bath_id INT(11) related to bath.bath_id
+  bath_name_ja VARCHAR(255) related to bath.bath_name_ja
+  bath_name_en VARCHAR(255) related to bath.bath_name_en
+  bath_area_code INT(10) related to bath.bath_area_code
+  bath_city_code INT(10) related to bath.bath_city_code
+  bath_image VARCHAR(2100) related to bath.bath_image
+  bath_address_ja VARCHAR(255) related to bath.bath_address_ja
+  bath_address_en VARCHAR(255) related to bath.bath_address_en
+  bath_tel VARCHAR(15) related to bath.bath_tel
+  bath_fee INT(11) related to bath.bath_fee
+  bath_type INT(2) related to bath.bath_type
+  bath_24h_flg INT(1) related to bath.bath_24h_flg
+  bath_time_st TIME(10) related to bath.bath_time_st
+  bath_time_ed TIME(10) related to bath.bath_time_ed
+  bath_place_lat DOUBLE(9, 6) related to bath.bath_place_lat
+  bath_place_lon DOUBLE(9, 6) related to bath.bath_place_lon
+  bath_temperature_up DOUBLE(3, 3) related to bath.bath_temperature_up
+  bath_temperature_low DOUBLE(3, 3) related to bath.bath_temperature_low
+  bath_holiday INT(3) related to bath.bath_holiday
+  del_flg INT(1) related to bath.del_flg
+  create_date DATETIME(19) related to bath.create_date
+  update_date DATETIME(19) related to bath.update_date
+  distance DOUBLE(23, 31)
+2019-09-23 17:51:27,556 [main] INFO  (DfSql2EntityTask#showParameterBean():932) - * * * * * * * * *
+2019-09-23 17:51:27,557 [main] INFO  (DfSql2EntityTask#showParameterBean():933) - * ParameterBean *
+2019-09-23 17:51:27,558 [main] INFO  (DfSql2EntityTask#showParameterBean():934) - * * * * * * * * *
+2019-09-23 17:51:27,561 [main] INFO  (DfSql2EntityTask#showParameterBean():976) - 
+NearbyBathPmb extends SimplePagingBean (typed to entity, auto-paging)
+  java.math.BigDecimal bath_place_lat
+  java.math.BigDecimal bath_place_lon
+  Integer distance
+2019-09-23 17:51:27,573 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlSql2EntityJava.vm", ctx);
+2019-09-23 17:51:27,951 [main] INFO  (Database#doEnableSql2EntityOutputDirectory():1210) - ...Setting up sql2EntityOutputDirectory: ../src/main/java
+2019-09-23 17:51:27,954 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldCustomizeClass() {
+2019-09-23 17:51:27,982 [main] INFO  (DfOldClassHandler#info():1045) - }
+2019-09-23 17:51:27,983 [main] INFO  (Database#info():2807) - public void parseCustomizeEntity() {
+2019-09-23 17:51:28,140 [main] INFO  (Database#info():2807) -     parse('NearbyBath')
+2019-09-23 17:51:28,142 [main] INFO  (Database#info():2807) - }
+2019-09-23 17:51:28,144 [main] INFO  (Database#info():2807) - public void parseParameterBean() {
+2019-09-23 17:51:28,150 [main] INFO  (Database#info():2807) -     parse('NearbyBathPmb');
+2019-09-23 17:51:28,199 [main] INFO  (Database#info():2807) - }
+2019-09-23 17:51:28,270 [main] INFO  (DfSql2EntityTask#showTargetSqlFileInformation():303) - 
+/- - - - - - - - - - - - - - - - - - - - - - - -
+Target SQL files: 1
+
+  BathBhv_selectNearbyBath.sql
+- - - - - - - - - -/
+2019-09-23 17:51:28,284 [main] INFO  (DfRefreshResourceProcess#show():299) - /===========================================================================
+2019-09-23 17:51:28,285 [main] INFO  (DfRefreshResourceProcess#show():299) - ...Refreshing [oyfy] by http://localhost:8386/
+2019-09-23 17:51:28,291 [main] INFO  (DfRefreshResourceProcess#show():299) - ==========/
+2019-09-23 17:51:28,291 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2019-09-23 17:51:28,301 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s540ms
+
+  DBFLUTE_CLIENT: {oyfy}
+    database  = mysql (MySQL 5.6.44-log)
+    language  = java
+    container = spring
+    package   = com.oyfy.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:3306/ohyuforyou_db?characterEncoding=utf8
+    schema = {ohyuforyou_db.$$NoNameSchema$$ as main}
+    user   = ohyuforyou
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Sql2Entity}

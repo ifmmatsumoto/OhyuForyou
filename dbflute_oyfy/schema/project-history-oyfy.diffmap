@@ -1,4 +1,32 @@
 map:{
+    ; 2019/09/23 14:42:37 = map:{
+        ; diffDate = 2019/09/23 14:42:37
+        ; tableCount = map:{
+            ; next = 6
+            ; previous = 7
+        }
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; spots = map:{
+                ; tableName = spots
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2019/09/23 12:19:00 = map:{
+        ; diffDate = 2019/09/23 12:19:00
+        ; tableCount = map:{
+            ; next = 7
+            ; previous = 6
+        }
+        ; diffAuthor = mmasa
+        ; tableDiff = map:{
+            ; spots = map:{
+                ; tableName = spots
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2019/07/08 21:12:22 = map:{
         ; diffDate = 2019/07/08 21:12:22
         ; tableCount = map:{

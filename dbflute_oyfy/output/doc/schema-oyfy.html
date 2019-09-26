@@ -427,6 +427,9 @@ dl.procedurelist dd.column pre {
 <h1>Schema for oyfy (mysql)</h1>
 <p class="mainschema">generated from <strong>ohyuforyou_db</strong></p>
 <div class="navilinkarea">
+<p class="sublink">
+ <a href="#outsidesql">OutsideSql List</a>
+</p>
 <p class="sisterlink"><a href="./history-oyfy.html">to HistoryHTML</a></p>
 </div>
 
@@ -724,6 +727,7 @@ area
 <h2 id="bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=22">
 bath
 &nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
+&nbsp;<span class="bqpcount"><a href="#bath_sql">(outsideSql=1)</a></span>
 </h2>
 <div class="tablecomment bath_comment" data-name="bath"><pre>銭湯</pre></div>
 <input type="hidden" value="bath">
@@ -1890,6 +1894,19 @@ tag
 
 
 
+<h2 id="outsidesql">OutsideSql List</h2>
+<h3 id="bath_sql"><a href="#bath">bath</a></h3>
+<dl class="bqplist">
+	<dt>(周辺にある銭湯の検索)selectNearbyBath</dt>
+	<dd>
+		<pre class="commentdesc">  パラメータ(緯度経度半径)に応じた銭湯を検索する</pre>
+	</dd>
+	<dd class="subinfo">
+		<span class="file">BathBhv_selectNearbyBath.sql</span>
+		<span class="ctet">(df:entity)</span>
+		<span class="pmb">(df:pmb extends Paging)</span>
+	</dd>
+</dl>
 
 <h2 id="thanks">Thanks</h2>
 <p>

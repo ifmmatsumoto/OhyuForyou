@@ -1,6 +1,7 @@
 package com.c4c.oyfy.domain.bath;
 
 import com.c4c.oyfy.app.search.ResultList;
+import com.c4c.oyfy.app.top.CurrentLocationForm;
 
 public interface BathRepository {
     /**
@@ -12,4 +13,6 @@ public interface BathRepository {
      * @return
      */
     public ResultList findBathList(String keyword, Integer feeFrom, Integer feeTo, int page);
+
+    public ResultList findNearbyBath(CurrentLocationForm currentLocationForm);
 }

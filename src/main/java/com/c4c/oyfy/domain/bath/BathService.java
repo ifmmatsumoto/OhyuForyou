@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.app.search.ResultList;
+import com.c4c.oyfy.app.top.CurrentLocationForm;
 
 @Service
 @Transactional
@@ -32,5 +33,9 @@ public class BathService {
         // 半角スペースで分割してキーワード一覧をセット
         resultList.setKeywordList(Arrays.asList(cond.getKeyword().split(" ")));
         return resultList;
+    }
+
+    public ResultList findNearbyBath(CurrentLocationForm currentLocationForm) {
+        return bathRepository.findNearbyBath(currentLocationForm);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
@@ -65,4 +66,15 @@ public class TopController extends _CommonController {
         return "searchResult";
     }
 
+    @RequestMapping(path = "nearbyBath", method = RequestMethod.POST)
+    public String searchNearbyBath(CurrentLocationForm form, Model model) {
+        form.setDistance(3);// 半径何キロをセットする
+        ResultList resultList = bathService.findNearbyBath(form);
+        model.addAttribute("resultList", resultList);
+        return "searchResult";
+    }
+    @RequestMapping(path = "nearbyBath", method = RequestMethod.GET)
+    public String dispNearbyBath(CurrentLocationForm currentLocationForm) {
+        return "currentLocationTest";
+    }
 }
