@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layout}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/illust/illust.css}" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="container-fluid" id="outline" layout:fragment="contents" style="background-color: #FFFFFF;">
+        <div class="row">
+            <div class="col-md-6 offset-md-3" style="background-color: #f5f5f5; border-radius: 10px;">
+                <!-- 料金 -->
+                <div class="row pt-md-3 pt-2 text-right">
+                    <div class="col-md-2 offset-md-2 col-3 mt-md-1" style="padding-left:10px;">
+                        <img class="fee-img" th:src="@{/img/illust/Illust_feeLower.png}"></img>
+                    </div>
+                    <div class="col-md-4 col-6 mt-4 mt-md-5">
+                        <div id="slider"></div>
+                        <div id="min"></div>
+                        <div id="max"></div>
+                    </div>
+                    <div class="col-md-1 col-3 mt-md-1 text-left" style="padding-left:13px;">
+                        <img class="fee-img" th:src="@{/img/illust/Illust_feeHeigher.png}"></img>
+                    </div>
+                </div>
+                <!-- イラスト選択 -->
+                <div class="row pt-md-3 pt-2">
+                    <div class="col-md-6 offset-md-3 col-12" >
+                        <div th:object="${illustSearchForm}" class="illust-box">
+                            <div th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.illustTag)}" onclick="chooseTag(this);">
+                                <input th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
+                                <div  class="illust-div" style="position: relative;">
+                                    <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].illustTag}" />
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- 温度選択 -->
+                <div class="row pt-md-3 pt-2">
+                    <div class="col-md-6 offset-md-3 col-12" >
+                        <div th:object="${illustSearchForm}" class="illust-box">
+                            <div th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.temperatureTag)}" onclick="chooseTag(this);">
+                                <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
+                                <div class="illust-div" style="position: relative;">
+                                    <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].temperatureTag}" />
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
+                                </div>
+                                <!-- レイアウトを整えるダミー用 -->
+                                <div class="d-inline"></div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <!-- タグ選択 -->
+                <div class="row pt-md-3 pt-2">
+                    <div class="col-md-6 offset-md-3 col-12">
+                        <div th:object="${illustSearchForm}" class="illust-box">
+                            <div class="illust-div" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.ojijiTag)}" onclick="chooseTag(this);">
+                                <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
+                                <p class="d-inline" style="position: relative;" >
+                                    <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].ojijiTag}"/>
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 検索条件 -->
+                <div class="row pt-md-3 pt-2">
+                    <div class="col-md-8 offset-md-2  col-12 text-center serchButton">
+                        <div class="btn-square-little-rich" onclick="addName();" style="width: 100%">検索</div>
+                    </div>
+                </div>
+                <div class="row pt-md-3 pt-2 mb-5">
+                    <div class="searchCond col-md-8 offset-md-2 offset-1" style="width: 85%">
+                        <ul class="tags">
+                        </ul>
+                    </div>
+                    <div>
+                        <form id="form" class="form-inline" action="#" th:action="@{/illust}" th:object="${illustSearchForm}" method="post">
+                            <input type="hidden" id="fee_low" name="fee_low" />
+                            <input type="hidden" id="fee_high" name="fee_high" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.6.2.js" ></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
+        <script type="text/javascript" th:src="@{/js/illust/illust.js}"></script>
+    </div>
+</html>

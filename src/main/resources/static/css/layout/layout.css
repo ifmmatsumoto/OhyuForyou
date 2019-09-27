@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+body p{
+ margin: 0 0;
+}
+
+ul {
+ padding: 0 0;
+}
+
+ul {
+ list-style: none;
+}
+
+.nav-a{
+   color: black;
+}
+.nav-a:visited{
+   color: black;
+}
+.nav-a:hover {
+  text-decoration:none;
+  border-bottom: solid 2px red;
+}
+/* bootstrapの機能でmargin-bottomに1rem設定されているから無理やり0にしてる */
+.category {
+ margin-bottom: 0;
+}
+
+/* レスポンシブル用*/
+/* 画面幅が480pxまで*/
+@media screen and (max-width:480px) {
+ #bath--frame {
+  width: 480px;
+ }
+ footer>p {
+ width: 480px;
+ }
+
+}
+
+/* 画面幅が481pxからPCブラウザ用*/
+@media screen and (min-width:481px) {
+ #bath--frame {
+  width: 960px;
+ }
+ footer>p {
+  width: 960px;
+ }
+ .bath-header {
+  position: relative;
+  left: 17%;
+  margin-top: 30px;
+ }
+ .bath_info>img {
+  width: 20px;
+ }
+ /* 横並びにしてくれる*/
+ .bath-content {
+  height: 50px;
+  display: -webkit-flex;
+  display: flex;
+ }
+
+ /* width + margin-right = .bath-headerのleftにしたらそろった */
+ .bath_img {
+  position: relative;
+  width: 16%;
+  top: -57px;
+  margin: 0 1% 0 0;
+ }
+ .bath_img>img {
+  width: 150px;
+  height: 120px;
+ }
+ .bath_detail {
+  position: relative;
+ }
+}

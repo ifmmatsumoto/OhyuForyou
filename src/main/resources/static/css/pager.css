@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/* ページャー */
+section.pager {
+    display: block;
+    margin: 10px;
+    text-align: center;
+}
+/* 前へ、次へリンク */
+section.pager a {
+
+}
