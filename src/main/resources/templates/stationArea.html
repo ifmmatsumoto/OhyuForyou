@@ -1,19 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
-<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all"
+    th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/station/station.css}" />
+<link rel="stylesheet"
+    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
-<h3>駅検索(地域)画面</h3>
-<ul>
-	<li><a href="/prefecture/search">駅検索</a></li>
-	<li><a href="javascript:history.back();">戻る</a></li>
-</ul>
-
-<!-- 共通フッター -->
-<div th:replace="footer"></div>
+    <div class="container-fluid" id="outline" layout:fragment="contents"
+        style="background-color: #FFFFFF;">
+        <div class="row">
+            <div class="col-md-6 offset-md-6">
+                <input type="button" class="btn btn-primary btn-lg"
+                    onclick="addName();" value=駅名検索>
+            </div>
+            <table class="table table-bordered">
+                <tr th:each="line : ${line}">
+                    <td class="line-name" align="center">
+                        <div class="line-name-text" th:text="${line.key}"></div>
+                    </td>
+                    <td>
+                        <div class="station-name" th:each="stationList : ${line.value}">
+                            <input type="checkbox" th:text="${stationList}"
+                                th:value="${line.value}">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <form id="form" class="form-inline" action="#"
+                th:action="@{/prefecture}" th:object="${prefectureSearchForm}"
+                method="post">
+                <input type="hidden" id="fee_low" name="fee_low" /> <input
+                    type="hidden" id="fee_high" name="fee_high" />
+            </form>
+        </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-1.6.2.js"></script>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+<script
+    src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
 </html>

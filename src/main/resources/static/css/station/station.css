@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/* 県名表示列色 */
+td.line-name {
+  background-color: #0099FF;
+  width: 150px;
+}
+
+/* 県名テキスト色 */
+div.line-name-text {
+  color: #F8F8FF;
+}
+
+#outline {
+   width: 60%;
+  margin-top: 20px;
+}
+
+div.station-name {
+  display: block;
+  float: left;
+  max-width :110px;
+  min-width :100px;
+}

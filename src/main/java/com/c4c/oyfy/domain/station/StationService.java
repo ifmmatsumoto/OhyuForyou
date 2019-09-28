@@ -1,0 +1,35 @@
+package com.c4c.oyfy.domain.station;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
+
+import com.c4c.oyfy.app.dto.LineDto;
+import com.c4c.oyfy.app.dto.StationDto;
+
+@Service
+@Transactional
+public class StationService {
+
+    private RestTemplate restTemplate = new RestTemplate();
+
+ public LineDto findLineList(String areaname) {
+
+     /** 沿線検索API リクエストURL */
+     String URL = "http://express.heartrails.com/api/json?method=getLines&prefecture=" + areaname;
+
+     System.out.println(URL);
+
+     return restTemplate.getForObject(URL, LineDto.class);
+ }
+
+ public StationDto findStationList(String linename) {
+
+      /** 沿線検索API リクエストURL */
+      String URL = "http://express.heartrails.com/api/json?method=getStations&line=" + linename;
+
+      System.out.println(URL);
+
+      return restTemplate.getForObject(URL, StationDto.class);
+  }
+}
