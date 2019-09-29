@@ -10,11 +10,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import com.c4c.oyfy.app.search.ResultList;
-import com.c4c.oyfy.domain.repository.BathRepository;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.BathTagBhv;
-import com.oyfy.dbflute.exbhv.MemberBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.Tag;
@@ -28,8 +26,6 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     TagBhv tagBhv;
     @Autowired
     BathTagBhv bathTagBhv;
-    @Autowired
-    MemberBhv memberBhv;
 
     /**
      * キーワードを元に銭湯リストを取得
@@ -46,7 +42,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
 
         // キーワードが未入力の場合は全検索 TODO キーワード入力時と合わせてできないか確認
         if (StringUtils.isEmpty(keyword)) {
-            resultList.setPage(BathBhv.selectPage(cb -> {
+            resultList.setPage(bathBhv.selectPage(cb -> {
                 cb.query().setDelFlg_Equal(0);
                 // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
                 if(feeFrom != null && feeTo != null) {
@@ -70,7 +66,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         });
 
         // TODO OR検索になってる
-        resultList.setPage(BathBhv.selectPage(cb -> {
+        resultList.setPage(bathBhv.selectPage(cb -> {
             cb.query().setDelFlg_Equal(0);
             // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
             if(feeFrom != null && feeTo != null) {
@@ -124,9 +120,10 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     }
 
     /** 銭湯リストを取得 */
+    @Override
     public List<Bath> getBathList() {
         // 銭湯ID順で銭湯リストを取得
-        return BathBhv.selectList(cb -> {
+        return bathBhv.selectList(cb -> {
             cb.query().addOrderBy_BathId_Asc();
         });
     }
@@ -135,6 +132,6 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     @Override
     public Bath findBath(int bathId) {
         // 銭湯ID順で銭湯リストを取得
-        return BathBhv.selectByPK(bathId).get();
+        return bathBhv.selectByPK(bathId).get();
     }
 }
