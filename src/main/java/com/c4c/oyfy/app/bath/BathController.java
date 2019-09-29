@@ -17,8 +17,12 @@ import com.oyfy.dbflute.exentity.Bath;
 @RequestMapping("/bath")
 public class BathController {
 
+    private final BathService bathService;
+
     @Autowired
-    BathService bathService;
+    public BathController (BathService bathService) {
+        this.bathService = bathService;
+    }
 
 	/**
 	 * 銭湯詳細画面表示
