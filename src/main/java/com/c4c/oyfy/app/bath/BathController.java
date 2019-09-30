@@ -33,7 +33,7 @@ public class BathController {
 
 		System.out.println("銭湯詳細画面表示"); // TODO
 		// 銭湯IDから銭湯詳細情報を取得してFormにセット
-		form.setBath(bathService.findBath(form.getBathId()));
+		form.setBath(bathService.findBathDetail(form.getBathId()));
 
 		// 銭湯詳細画面表示
 		return "bath";
