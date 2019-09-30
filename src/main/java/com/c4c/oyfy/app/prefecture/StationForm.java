@@ -1,23 +1,18 @@
 package com.c4c.oyfy.app.prefecture;
 
-import com.c4c.oyfy.app._Common_Form;
-
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+
+import com.c4c.oyfy.app.dto.StationDto.Response.Station;
 
 import lombok.Data;
 
 @Data
 public class StationForm {
-
     /** 都道府県名 */
-    String areaName;
-
+    private String areaName;
     /** 路線リスト */
-    List<String> line
-    = new ArrayList<String>();
-
+    private LinkedHashMap<String, List<Station>> line;
     /** 駅リスト */
-//    List<String> station
-//    = new ArrayList<String>();
+    private List<Station> station;
 }

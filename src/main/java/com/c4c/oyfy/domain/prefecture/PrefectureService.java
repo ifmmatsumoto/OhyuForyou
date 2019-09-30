@@ -1,14 +1,12 @@
 package com.c4c.oyfy.domain.prefecture;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import com.c4c.oyfy.app.dto.PrefectureDto;
 
 
 @Service
-@Transactional
 public class PrefectureService {
 
     private RestTemplate restTemplate = new RestTemplate();
@@ -24,5 +22,4 @@ public class PrefectureService {
 
         return restTemplate.getForObject(URL, PrefectureDto.class);
     }
-
 }
