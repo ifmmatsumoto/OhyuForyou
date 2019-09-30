@@ -6,8 +6,51 @@
 <link rel="stylesheet" media="all" th:href="@{/css/test.css}" />
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 </head>
+
+<style type="text/css">
+th {
+background-color: #bde9ba;
+text-align: center;
+}
+</style>
 <body>
-<h3>銭湯詳細画面</h3>
+<div>
+    <h2 style="text-align:center" th:text="${bathForm.bath.bathNameJa}"></h2>
+    <h4 style="text-align:center" th:text="${bathForm.bath.bathNameEn}"></h4>
+</div>
+<table class="list mx-auto" border="1" style="border-collapse: collapse; width: 80vw">
+    <tr>
+      <th>種別</th><td th:text="${bathForm.bath.bathType}"></td>
+    </tr>
+    <tr>
+      <th>営業時間</th><td th:text="${bathForm.bath.bathTimeSt}+'～'+${bathForm.bath.bathTimeEd}"></td>
+    </tr>
+    <tr>
+      <th>定休日</th><td th:text="${bathForm.bath.bathHoliday}"></td>
+    </tr>
+    <tr>
+      <th>一般入浴料</th><td th:text="${bathForm.bath.bathFee} + '円'"></td>
+    </tr>
+    <tr>
+      <th>電話番号</th><td th:text="${bathForm.bath.bathTel}"></td>
+    </tr>
+    <tr>
+      <th>詳細</th><td th:text="${bathForm.bath.bathDetail}"></td>
+    </tr>
+    <tr>
+      <th>温度</th><td th:text="${bathForm.bath.bathTemperatureUp}"></td>
+    </tr>
+    <tr>
+      <th>ウェブサイト</th><td><a href="http://hisamatsuyu.jp/">http://www.xxxxxxxxxxxxxxx</a></td>
+    </tr>
+    <tr>
+      <th>住所</th><td th:text="${bathForm.bath.bathAddressJa}"></td>
+    </tr>
+    <tr>
+      <th>タグ</th><td></td>
+    </tr>
+</table>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.3830744128322!2d139.65941591555207!3d35.741388134277194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018ed11ec576263%3A0xd4996c81a1f1e16c!2z5LmF5p2-5rmv!5e0!3m2!1sja!2sjp!4v1568809081837!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 <ul>
 	<li><a href="javascript:history.back();">戻る</a></li>
 </ul>

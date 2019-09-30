@@ -12,21 +12,20 @@ import org.springframework.util.StringUtils;
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
-import com.oyfy.dbflute.exbhv.BathTestBhv;
+import com.oyfy.dbflute.exbhv.BathTagBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
-import com.oyfy.dbflute.exentity.BathTest;
+import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.Tag;
-
 
 @Repository
 public class BathRepositoryImpl extends OyfyConst implements BathRepository {
 
     @Autowired
-    BathTestBhv bathTestBhv;
-    @Autowired
     BathBhv bathBhv;
     @Autowired
     TagBhv tagBhv;
+    @Autowired
+    BathTagBhv bathTagBhv;
 
     /**
      * キーワードを元に銭湯リストを取得
@@ -43,11 +42,10 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
 
         // キーワードが未入力の場合は全検索 TODO キーワード入力時と合わせてできないか確認
         if (StringUtils.isEmpty(keyword)) {
-            resultList.setPage(bathTestBhv.selectPage(cb -> {
+            resultList.setPage(bathBhv.selectPage(cb -> {
                 cb.query().setDelFlg_Equal(0);
                 // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
                 if(feeFrom != null && feeTo != null) {
-                    // TODO dbfluteの自動生成後publicに変更しないと使えない
                     cb.query().setBathFee_RangeOf(feeFrom, feeTo, new RangeOfOption().orIsNull());
                 }
                 cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
@@ -83,27 +81,57 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     }
 
     /**
-     * 銭湯IDを元に銭湯詳細を取得
-     * @param bathId
-     * @return
+     * 銭湯リストを取得(全件取得)
      */
     @Override
-    public BathTest findBathDetail(int bathId) {
-        return bathTestBhv.selectByPK(bathId).get();
+    public List<Bath> searchBathList() {
+        // 銭湯ID順で銭湯リストを取得
+        return bathBhv.selectList(cb -> {
+            cb.query().setDelFlg_Equal(0);
+            cb.query().addOrderBy_BathId_Asc();
+        });
     }
 
     /**
-     * 銭湯登録・更新
-     * @param bath
+     * 銭湯リストを取得(キーワード検索)
      */
     @Override
-    public void registBath(BathTest bath) {
-        if (bath.getBathId() == null || bath.getBathId() == 0) {
-            // 新規登録
-            bathTestBhv.insert(bath);
-        } else {
-            // 更新
-            bathTestBhv.update(bath);
-        }
+    public List<Bath> searchBathList(String keyword) {
+        // タグ名で検索
+        ListResultBean<Tag> tagList = tagBhv.selectList(cb -> {
+            cb.query().setTagNameJa_LikeSearch(keyword, op -> op.likeContain().splitBySpace().asOrSplit());
+        });
+        if (tagList == null || tagList.size() == 0) return null;
+
+        // 銭湯検索用に使うタグIDリストを取得
+        List<Integer> bathTagIdList = new ArrayList<>();
+        tagList.forEach(tag -> {
+            bathTagIdList.add(tag.getTagId());
+        });
+
+        // TODO:haraguchi OR検索になってる
+        // 銭湯タグテーブルから該当の銭湯を取得
+        return bathBhv.selectList(cb -> {
+            cb.query().setDelFlg_Equal(0);
+            cb.query().existsBathTag(bathTagCB -> {
+                bathTagCB.query().setTagId_InScope(bathTagIdList);
+            });
+        });
+    }
+
+    /** 銭湯リストを取得 */
+    @Override
+    public List<Bath> getBathList() {
+        // 銭湯ID順で銭湯リストを取得
+        return bathBhv.selectList(cb -> {
+            cb.query().addOrderBy_BathId_Asc();
+        });
+    }
+
+    /** 銭湯リストを取得 */
+    @Override
+    public Bath findBath(int bathId) {
+        // 銭湯ID順で銭湯リストを取得
+        return bathBhv.selectByPK(bathId).get();
     }
 }

@@ -8,6 +8,7 @@
   `bath_address_ja` varchar(255) DEFAULT NULL COMMENT '住所 和名',
   `bath_address_en` varchar(255) DEFAULT NULL COMMENT '住所 英名',
   `bath_tel` varchar(15) DEFAULT NULL COMMENT '電話番号',
+  `bath_detail` varchar(255) DEFAULT NULL COMMENT '詳細情報',
   `bath_fee` int(11) DEFAULT NULL COMMENT '一般入浴料',
   `bath_type` int(2) NOT NULL COMMENT '銭湯種別(10:銭湯 20:スーパー銭湯)',
   `bath_24h_flg` int(1) NOT NULL COMMENT '24時間フラグ(1:24時間営業)',

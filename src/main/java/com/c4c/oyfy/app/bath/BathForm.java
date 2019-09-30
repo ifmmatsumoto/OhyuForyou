@@ -9,5 +9,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=true)
 public class BathForm extends _Common_Form {
-    Bath bath = new Bath();
+    /** 銭湯ID */
+    private int bathId;
+    /** 銭湯情報 */
+    private Bath bath;
 }
