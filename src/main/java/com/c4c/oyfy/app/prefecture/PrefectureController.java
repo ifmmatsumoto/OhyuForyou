@@ -1,6 +1,5 @@
 package com.c4c.oyfy.app.prefecture;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -66,30 +65,16 @@ public class PrefectureController extends _CommonController {
 
         System.out.println("都道府県検索(地域)画面表示");
 
-        // test
+        // TODO:test、AreaCodeは連携される都道府県コード
         form.setAreaCode("13");
 
         PrefectureDto prefectureDto = prefectureService.findPrefectureList(form.getAreaCode());
 
         List<Prefecture> prefectureList = prefectureDto.getData();
 
-        // 地域名を格納するためのjavaListを生成
-        List<String> prefectureNameList = new ArrayList<String>();
-
-        // ループ用変数
-        int i = 0;
-
-        for (Prefecture prefecture : prefectureList) {
-            prefectureNameList.add(i, prefectureList.get(i).getName());
-            System.out.println("入ってる地域名" + prefectureList.get(i).getName());
-            i++;
-        }
-
-        System.out.println("tymleafへ渡している地域名値\n" + prefectureList);
-
-        // TODO:areaNameは連携される都道府県名、dataは市区町村apiのresponse
-        model.addAttribute("areaName", "東京都");
-        model.addAttribute("data", prefectureNameList);
+        // TODO:test、areaNameは連携される都道府県名、dataは市区町村apiのresponse
+        form.setAreaName("東京都");
+        form.setPrefectureList(prefectureList);
 
         // 都道府県検索(地域)画面表示
         return "prefectureArea";
@@ -111,47 +96,23 @@ public class PrefectureController extends _CommonController {
         // TODO:都道府県名が連携されるようになったら消す
         form.setAreaName("東京都");
 
-        // ループ用変数
-        int i = 0;
-
-
-        // 路線名を取得
+        // 都道府県名から路線リストを取得
         LineDto lineDto = stationService.findLineList(form.getAreaName());
-
-        // 路線リストを生成
         String[] lineList = lineDto.getResponse().getLine();
 
         // apiで返された値の順番を保持してほしいのでLinkedHashMap
-        LinkedHashMap<String, List<String>> elementMap = new LinkedHashMap<>();
+        LinkedHashMap<String, List<Station>> lineMap = new LinkedHashMap<>();
 
         // 路線リスト分ループさせる
         for (String line : lineList) {
-            // TODO:lindDto分、駅名検索apiを実行させるように実装する
-            StationDto stationDto = stationService.findStationList(lineList[i]);
-
+            // 路線名から駅リストを取得
+            StationDto stationDto = stationService.findStationList(line);
             List<Station> stationList = stationDto.getResponse().getStation();
-
-            // 駅名を格納するためのjavaListを生成
-            List<String> stationNameList = new ArrayList<String>();
-
-            // key毎でstationListは取り直すため、ループ用変数も毎回ここで初期化
-            int j = 0;
-
-            for (Station name : stationList) {
-                stationNameList.add(j, stationList.get(j).getName());
-                System.out.println("入ってる駅名" + stationList.get(j).getName());
-                j++;
-            }
-
-            elementMap.put(lineList[i], stationNameList);
-            System.out.println("路線名" + lineList[i]);
-
-            i++;
+            lineMap.put(line, stationList);
+            System.out.println("路線名" + line);
         }
 
-        // 画面へ値を表示
-        model.addAttribute("line", elementMap);
-        model.addAttribute("stationList", elementMap.values());
+        form.setLine(lineMap);
 
         // 駅検索(地域選択)画面表示
         return "stationArea";
