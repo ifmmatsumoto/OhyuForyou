@@ -1,6 +1,7 @@
 package com.c4c.oyfy.domain.bath;
 
 import com.c4c.oyfy.app.search.ResultList;
+import com.oyfy.dbflute.exentity.BathTest;
 
 public interface BathRepository {
     /**
@@ -12,4 +13,17 @@ public interface BathRepository {
      * @return
      */
     public ResultList findBathList(String keyword, Integer feeFrom, Integer feeTo, int page);
+
+    /**
+     * 銭湯IDを元に銭湯詳細を取得
+     * @param bathId
+     * @return
+     */
+    public BathTest findBathDetail(int bathId);
+
+    /**
+     * 銭湯登録
+     * @return
+     */
+    public void registBath(BathTest bath);
 }

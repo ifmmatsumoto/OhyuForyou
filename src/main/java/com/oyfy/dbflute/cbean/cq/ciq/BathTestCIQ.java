@@ -12,21 +12,21 @@ import com.oyfy.dbflute.cbean.cq.bs.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of member.
+ * The condition-query for in-line of bath_test.
  * @author DBFlute(AutoGenerator)
  */
-public class MemberCIQ extends AbstractBsMemberCQ {
+public class BathTestCIQ extends AbstractBsBathTestCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsMemberCQ _myCQ;
+    protected BsBathTestCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public MemberCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsMemberCQ myCQ) {
+    public BathTestCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsBathTestCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -61,27 +61,39 @@ public class MemberCIQ extends AbstractBsMemberCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue xgetCValueMemberId() { return _myCQ.xdfgetMemberId(); }
-    protected ConditionValue xgetCValueMemberName() { return _myCQ.xdfgetMemberName(); }
-    protected ConditionValue xgetCValueMemberAccount() { return _myCQ.xdfgetMemberAccount(); }
-    protected ConditionValue xgetCValueMemberStatusCode() { return _myCQ.xdfgetMemberStatusCode(); }
-    protected ConditionValue xgetCValueFormalizedDatetime() { return _myCQ.xdfgetFormalizedDatetime(); }
-    protected ConditionValue xgetCValueBirthdate() { return _myCQ.xdfgetBirthdate(); }
-    protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
-    protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
-    protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
-    protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
-    protected ConditionValue xgetCValueVersionNo() { return _myCQ.xdfgetVersionNo(); }
+    protected ConditionValue xgetCValueBathId() { return _myCQ.xdfgetBathId(); }
+    protected ConditionValue xgetCValueBathNameJa() { return _myCQ.xdfgetBathNameJa(); }
+    protected ConditionValue xgetCValueBathNameEn() { return _myCQ.xdfgetBathNameEn(); }
+    protected ConditionValue xgetCValueBathAreaCode() { return _myCQ.xdfgetBathAreaCode(); }
+    protected ConditionValue xgetCValueBathCityCode() { return _myCQ.xdfgetBathCityCode(); }
+    protected ConditionValue xgetCValueBathImage() { return _myCQ.xdfgetBathImage(); }
+    protected ConditionValue xgetCValueBathAddressJa() { return _myCQ.xdfgetBathAddressJa(); }
+    protected ConditionValue xgetCValueBathAddressEn() { return _myCQ.xdfgetBathAddressEn(); }
+    protected ConditionValue xgetCValueBathTel() { return _myCQ.xdfgetBathTel(); }
+    protected ConditionValue xgetCValueBathDetail() { return _myCQ.xdfgetBathDetail(); }
+    protected ConditionValue xgetCValueBathFee() { return _myCQ.xdfgetBathFee(); }
+    protected ConditionValue xgetCValueBathType() { return _myCQ.xdfgetBathType(); }
+    protected ConditionValue xgetCValueBath24hFlg() { return _myCQ.xdfgetBath24hFlg(); }
+    protected ConditionValue xgetCValueBathTimeSt() { return _myCQ.xdfgetBathTimeSt(); }
+    protected ConditionValue xgetCValueBathTimeEd() { return _myCQ.xdfgetBathTimeEd(); }
+    protected ConditionValue xgetCValueBathPlaceLat() { return _myCQ.xdfgetBathPlaceLat(); }
+    protected ConditionValue xgetCValueBathPlaceLon() { return _myCQ.xdfgetBathPlaceLon(); }
+    protected ConditionValue xgetCValueBathTemperatureUp() { return _myCQ.xdfgetBathTemperatureUp(); }
+    protected ConditionValue xgetCValueBathTemperatureLow() { return _myCQ.xdfgetBathTemperatureLow(); }
+    protected ConditionValue xgetCValueBathHoliday() { return _myCQ.xdfgetBathHoliday(); }
+    protected ConditionValue xgetCValueDelFlg() { return _myCQ.xdfgetDelFlg(); }
+    protected ConditionValue xgetCValueCreateDate() { return _myCQ.xdfgetCreateDate(); }
+    protected ConditionValue xgetCValueUpdateDate() { return _myCQ.xdfgetUpdateDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(MemberCQ sq)
+    public String keepScalarCondition(BathTestCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
-    public String keepSpecifyMyselfDerived(MemberCQ sq)
+    public String keepSpecifyMyselfDerived(BathTestCQ sq)
     { throwIICBOE("(Specify)MyselfDerived"); return null;}
-    public String keepQueryMyselfDerived(MemberCQ sq)
+    public String keepQueryMyselfDerived(BathTestCQ sq)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
     public String keepQueryMyselfDerivedParameter(Object vl)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
-    public String keepMyselfExists(MemberCQ sq)
+    public String keepMyselfExists(BathTestCQ sq)
     { throwIICBOE("MyselfExists"); return null;}
 
     protected void throwIICBOE(String name)
@@ -91,6 +103,6 @@ public class MemberCIQ extends AbstractBsMemberCQ {
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return MemberCB.class.getName(); }
-    protected String xinCQ() { return MemberCQ.class.getName(); }
+    protected String xinCB() { return BathTestCB.class.getName(); }
+    protected String xinCQ() { return BathTestCQ.class.getName(); }
 }

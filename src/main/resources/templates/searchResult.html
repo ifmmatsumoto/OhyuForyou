@@ -27,7 +27,18 @@
 <div th:if="!${#lists.isEmpty(resultList.page)}">
 
     <!-- ページャー -->
-    <div th:replace="pager" class="pager"></div>
+    <section class="pager">
+      <!-- 前へリンク -->
+      <a th:if="${resultList.page.existsPreviousPage()}" th:href="@{/keyword(keyword=${resultList.keyword}, page=${resultList.page.previousPageNumber})}">前へ</a>
+      <!-- 表示ページ数 -->
+      <span th:text="${resultList.page.currentPageNumber}"></span> /
+      <!-- 全ページ数 -->
+      <span th:text="${resultList.page.allPageCount}"></span>
+      <!-- 検索件数 -->
+      (<span th:text="${resultList.page.allRecordCount}"></span>件)
+      <!-- 次へリンク -->
+      <a th:if="${resultList.page.existsNextPage()}" th:href="@{/keyword(keyword=${resultList.keyword}, page=${resultList.page.nextPageNumber})}">次へ</a>
+    </section>
 
     <div class="searchCount">検索結果：<span th:text="${resultList.page.allRecordCount}"></span>件</div>
 
@@ -77,9 +88,19 @@
         </div>
     </section>
 
-
     <!-- ページャー -->
-    <div th:replace="pager" class="pager"></div>
+    <section class="pager">
+      <!-- 前へリンク -->
+      <a th:if="${resultList.page.existsPreviousPage()}" th:href="@{/keyword(keyword=${resultList.keyword}, page=${resultList.page.previousPageNumber})}">前へ</a>
+      <!-- 表示ページ数 -->
+      <span th:text="${resultList.page.currentPageNumber}"></span> /
+      <!-- 全ページ数 -->
+      <span th:text="${resultList.page.allPageCount}"></span>
+      <!-- 検索件数 -->
+      (<span th:text="${resultList.page.allRecordCount}"></span>件)
+      <!-- 次へリンク -->
+      <a th:if="${resultList.page.existsNextPage()}" th:href="@{/keyword(keyword=${resultList.keyword}, page=${resultList.page.nextPageNumber})}">次へ</a>
+    </section>
 
 </div>
 

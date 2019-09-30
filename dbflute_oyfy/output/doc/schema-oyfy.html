@@ -512,7 +512,7 @@ dl.procedurelist dd.column pre {
 	</tr>
 	<tr>
 		<td class="rownumcell">2</td>
-		<td class="namecell" data-name="bath"><a href="#bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=22">bath</a></td>
+		<td class="namecell" data-name="bath"><a href="#bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=23">bath</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#bath_tag" class="additionalfk" title="FK_BATH_ID">bath_tag</a></td>
 		<td class="relcell"><a href="#bath_tag" title="FK_BATH_ID">bath_tag</a></td>
@@ -532,14 +532,13 @@ dl.procedurelist dd.column pre {
 	</tr>
 	<tr>
 		<td class="rownumcell">4</td>
-		<td class="namecell" data-name="member"><a href="#member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">member</a></td>
+		<td class="namecell" data-name="bath_test"><a href="#bath_test" title="type=TABLE, primaryKey={bath_id}, nameLength=9, columnCount=23">bath_test</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell member_comment"><pre>会員: 会員登録時にデータが登録される。
-基本的に物理削除はなく、退会したらステータスが退会会員になる。</pre></td>
-		<td class="subcell">Member</td>
-		<td class="subcell">2019/07/08</td>
+		<td class="commentcell bath_test_comment"><pre>銭湯テスト</pre></td>
+		<td class="subcell">BathTest</td>
+		<td class="subcell">2019/09/18</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">5</td>
@@ -721,7 +720,7 @@ area
 	</tbody>
 </table>
 
-<h2 id="bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=22">
+<h2 id="bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=23">
 bath
 &nbsp;<span class="tablefirstdatetitle">since 2019/06/13</span>
 </h2>
@@ -918,6 +917,24 @@ bath
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_bath_detail">bath_detail</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>詳細情報</pre></td>
+		<td class="subcell">bathDetail</td>
+		<td class="subcell">String</td>
+		<td class="subcell">2019/09/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
 		<td class=" columnnamecell" id="bath_bath_fee">bath_fee</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
@@ -930,7 +947,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">11</td>
+		<td class="rownumcell">12</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -948,7 +965,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">12</td>
+		<td class="rownumcell">13</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -966,7 +983,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">13</td>
+		<td class="rownumcell">14</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -984,7 +1001,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">14</td>
+		<td class="rownumcell">15</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1002,7 +1019,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">15</td>
+		<td class="rownumcell">16</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1020,7 +1037,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">16</td>
+		<td class="rownumcell">17</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1038,7 +1055,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">17</td>
+		<td class="rownumcell">18</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1056,7 +1073,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">18</td>
+		<td class="rownumcell">19</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1074,7 +1091,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">19</td>
+		<td class="rownumcell">20</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1092,7 +1109,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">20</td>
+		<td class="rownumcell">21</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1110,7 +1127,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">21</td>
+		<td class="rownumcell">22</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1128,7 +1145,7 @@ bath
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">22</td>
+		<td class="rownumcell">23</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1233,13 +1250,12 @@ bath_tag
 	</tbody>
 </table>
 
-<h2 id="member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">
-member
-&nbsp;<span class="tablefirstdatetitle">since 2019/07/08</span>
+<h2 id="bath_test" title="type=TABLE, primaryKey={bath_id}, nameLength=9, columnCount=23">
+bath_test
+&nbsp;<span class="tablefirstdatetitle">since 2019/09/18</span>
 </h2>
-<div class="tablecomment member_comment" data-name="member"><pre>会員: 会員登録時にデータが登録される。
-基本的に物理削除はなく、退会したらステータスが退会会員になる。</pre></div>
-<input type="hidden" value="member">
+<div class="tablecomment bath_test_comment" data-name="bath_test"><pre>銭湯テスト</pre></div>
+<input type="hidden" value="bath_test">
 <table class="tablecontent">
 	<thead>
 	<tr>
@@ -1252,6 +1268,7 @@ member
 		<th>Name</th>
 		<th>Type</th>
 		<th>Size</th>
+		<th>Default</th>
 		<th>ForeignTable</th>
 		<th>ReferrerTable</th>
 		<th>Classification</th>
@@ -1261,7 +1278,7 @@ member
 		<th>Since</th>
 	</tr>
 	</thead>
-	<tbody id="member-body">
+	<tbody id="bath_test-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="flgcell" title="PRIMARY">o</td>
@@ -1269,15 +1286,15 @@ member
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_id">MEMBER_ID</td>
+		<td class=" columnnamecell" id="bath_test_bath_id">bath_id</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員ID: 会員を識別するID。連番として基本的に自動採番される。
-（会員IDだけに限らず）採番方法はDBMSによって変わる。</pre></td>
-		<td class="subcell">memberId</td>
+		<td class="commentcell"><pre>銭湯ID</pre></td>
+		<td class="subcell">bathId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -1288,14 +1305,15 @@ member
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_name">MEMBER_NAME</td>
+		<td class=" columnnamecell" id="bath_test_bath_name_ja">bath_name_ja</td>
 		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 160 </td>
+		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員名称: 会員のフルネームの名称。</pre></td>
-		<td class="subcell">memberName</td>
+		<td class="commentcell"><pre>銭湯 和名</pre></td>
+		<td class="subcell">bathNameJa</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -1303,17 +1321,18 @@ member
 		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="MEMBER_ACCOUNT(MEMBER_ACCOUNT)">o</td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_account">MEMBER_ACCOUNT</td>
+		<td class=" columnnamecell" id="bath_test_bath_name_en">bath_name_en</td>
 		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
+		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員アカウント: 会員がログイン時に利用するアカウントNO。</pre></td>
-		<td class="subcell">memberAccount</td>
+		<td class="commentcell"><pre>銭湯 英名</pre></td>
+		<td class="subcell">bathNameEn</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -1323,16 +1342,17 @@ member
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_member_status_code">MEMBER_STATUS_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_area_code">bath_area_code</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 0</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員ステータスコード</pre></td>
-		<td class="subcell">memberStatusCode</td>
-		<td class="subcell">String</td>
+		<td class="commentcell"><pre>都道府県コード(国土交通省API使用コード)</pre></td>
+		<td class="subcell">bathAreaCode</td>
+		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -1342,16 +1362,16 @@ member
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="member_formalized_datetime">FORMALIZED_DATETIME</td>
-		<td class="typecell">DATETIME</td>
-		<td class="sizecell"> 19 </td>
+		<td class=" columnnamecell" id="bath_test_bath_city_code">bath_city_code</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 0</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。
-仮会員のときはnull。</pre></td>
-		<td class="subcell">formalizedDatetime</td>
-		<td class="subcell">LocalDateTime</td>
+		<td class="commentcell"><pre>市区町村コード(国土交通省API使用コード)</pre></td>
+		<td class="subcell">bathCityCode</td>
+		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -1361,15 +1381,16 @@ member
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class=" columnnamecell" id="member_birthdate">BIRTHDATE</td>
-		<td class="typecell">DATE</td>
-		<td class="sizecell"> 10 </td>
+		<td class=" columnnamecell" id="bath_test_bath_image">bath_image</td>
+		<td class="typecell">LONGBLOB</td>
+		<td class="sizecell"> 2147483647 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>生年月日: 必須項目ではないので、このデータがない会員もいる。</pre></td>
-		<td class="subcell">birthdate</td>
-		<td class="subcell">LocalDate</td>
+		<td class="commentcell"><pre>サムネイル画像</pre></td>
+		<td class="subcell">bathImage</td>
+		<td class="subcell">byte[]</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -1378,16 +1399,17 @@ member
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_register_datetime">REGISTER_DATETIME</td>
-		<td class="typecell">DATETIME</td>
-		<td class="sizecell"> 19 </td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_address_ja">bath_address_ja</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>登録日時: レコードが登録された日時。共通カラムの一つ。</pre></td>
-		<td class="subcell">registerDatetime</td>
-		<td class="subcell">LocalDateTime</td>
+		<td class="commentcell"><pre>住所 和名</pre></td>
+		<td class="subcell">bathAddressJa</td>
+		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -1396,15 +1418,16 @@ member
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_register_user">REGISTER_USER</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_address_en">bath_address_en</td>
 		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
+		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>登録ユーザ: レコードを登録したユーザ。共通カラムの一つ。</pre></td>
-		<td class="subcell">registerUser</td>
+		<td class="commentcell"><pre>住所 英名</pre></td>
+		<td class="subcell">bathAddressEn</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -1414,16 +1437,17 @@ member
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_update_datetime">UPDATE_DATETIME</td>
-		<td class="typecell">DATETIME</td>
-		<td class="sizecell"> 19 </td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_tel">bath_tel</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 15 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>更新日時: レコードが（最後に）更新された日時。共通カラムの一つ。</pre></td>
-		<td class="subcell">updateDatetime</td>
-		<td class="subcell">LocalDateTime</td>
+		<td class="commentcell"><pre>電話番号</pre></td>
+		<td class="subcell">bathTel</td>
+		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -1432,15 +1456,16 @@ member
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="member_update_user">UPDATE_USER</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_detail">bath_detail</td>
 		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
+		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>更新ユーザ: レコードを更新したユーザ。</pre></td>
-		<td class="subcell">updateUser</td>
+		<td class="commentcell"><pre>詳細情報</pre></td>
+		<td class="subcell">bathDetail</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -1450,17 +1475,245 @@ member
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="optcell columnnamecell" id="member_version_no">VERSION_NO</td>
-		<td class="typecell">BIGINT</td>
-		<td class="sizecell"> 19 </td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_fee">bath_fee</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 0</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>バージョンNO: レコードのバージョンを示すNO。
-更新回数と等しく、主に排他制御のために利用される。</pre></td>
-		<td class="subcell">versionNo</td>
-		<td class="subcell">Long</td>
+		<td class="commentcell"><pre>一般入浴料</pre></td>
+		<td class="subcell">bathFee</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">12</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_type">bath_type</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 10</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>銭湯種別(10:銭湯 20:スーパー銭湯)</pre></td>
+		<td class="subcell">bathType</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">13</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_24h_flg">bath_24h_flg</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 0</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>24時間フラグ(1:24時間営業)</pre></td>
+		<td class="subcell">bath24hFlg</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">14</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_time_st">bath_time_st</td>
+		<td class="typecell">TIME</td>
+		<td class="sizecell"> 8 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>営業時間 開始</pre></td>
+		<td class="subcell">bathTimeSt</td>
+		<td class="subcell">LocalTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">15</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_time_ed">bath_time_ed</td>
+		<td class="typecell">TIME</td>
+		<td class="sizecell"> 8 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>営業時間 終了</pre></td>
+		<td class="subcell">bathTimeEd</td>
+		<td class="subcell">LocalTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">16</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_place_lat">bath_place_lat</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 9, 6 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>位置情報 緯度</pre></td>
+		<td class="subcell">bathPlaceLat</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">17</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_place_lon">bath_place_lon</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 9, 6 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>位置情報 経度</pre></td>
+		<td class="subcell">bathPlaceLon</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">18</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_temperature_up">bath_temperature_up</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 3, 3 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>温度 上限</pre></td>
+		<td class="subcell">bathTemperatureUp</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">19</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_temperature_low">bath_temperature_low</td>
+		<td class="typecell">DOUBLE</td>
+		<td class="sizecell"> 3, 3 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>温度 下限</pre></td>
+		<td class="subcell">bathTemperatureLow</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">20</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_bath_holiday">bath_holiday</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)</pre></td>
+		<td class="subcell">bathHoliday</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">21</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_del_flg">del_flg</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 0</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>削除フラグ(1:削除済み)</pre></td>
+		<td class="subcell">delFlg</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">22</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_create_date">create_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>作成日時</pre></td>
+		<td class="subcell">createDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">23</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="bath_test_update_date">update_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>更新日時</pre></td>
+		<td class="subcell">updateDate</td>
+		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -2475,6 +2728,9 @@ function StoreClient() {
 				, 'bath_tel': {
 					'databaseComment': '電話番号'
 				}
+				, 'bath_detail': {
+					'databaseComment': '詳細情報'
+				}
 				, 'bath_fee': {
 					'databaseComment': '一般入浴料'
 				}
@@ -2530,41 +2786,77 @@ function StoreClient() {
 				}
 			}
 		}
-		, 'member': {
-			'databaseComment': '会員:&nbsp;会員登録時にデータが登録される。<br>基本的に物理削除はなく、退会したらステータスが退会会員になる。'
+		, 'bath_test': {
+			'databaseComment': '銭湯テスト'
 			, 'columns': {
-				'MEMBER_ID': {
-					'databaseComment': '会員ID:&nbsp;会員を識別するID。連番として基本的に自動採番される。<br>（会員IDだけに限らず）採番方法はDBMSによって変わる。'
+				'bath_id': {
+					'databaseComment': '銭湯ID'
 				}
-				, 'MEMBER_NAME': {
-					'databaseComment': '会員名称:&nbsp;会員のフルネームの名称。'
+				, 'bath_name_ja': {
+					'databaseComment': '銭湯&nbsp;和名'
 				}
-				, 'MEMBER_ACCOUNT': {
-					'databaseComment': '会員アカウント:&nbsp;会員がログイン時に利用するアカウントNO。'
+				, 'bath_name_en': {
+					'databaseComment': '銭湯&nbsp;英名'
 				}
-				, 'MEMBER_STATUS_CODE': {
-					'databaseComment': '会員ステータスコード'
+				, 'bath_area_code': {
+					'databaseComment': '都道府県コード(国土交通省API使用コード)'
 				}
-				, 'FORMALIZED_DATETIME': {
-					'databaseComment': '正式会員日時:&nbsp;会員が正式に確定した日時。一度確定したら更新されない。<br>仮会員のときはnull。'
+				, 'bath_city_code': {
+					'databaseComment': '市区町村コード(国土交通省API使用コード)'
 				}
-				, 'BIRTHDATE': {
-					'databaseComment': '生年月日:&nbsp;必須項目ではないので、このデータがない会員もいる。'
+				, 'bath_image': {
+					'databaseComment': 'サムネイル画像'
 				}
-				, 'REGISTER_DATETIME': {
-					'databaseComment': '登録日時:&nbsp;レコードが登録された日時。共通カラムの一つ。'
+				, 'bath_address_ja': {
+					'databaseComment': '住所&nbsp;和名'
 				}
-				, 'REGISTER_USER': {
-					'databaseComment': '登録ユーザ:&nbsp;レコードを登録したユーザ。共通カラムの一つ。'
+				, 'bath_address_en': {
+					'databaseComment': '住所&nbsp;英名'
 				}
-				, 'UPDATE_DATETIME': {
-					'databaseComment': '更新日時:&nbsp;レコードが（最後に）更新された日時。共通カラムの一つ。'
+				, 'bath_tel': {
+					'databaseComment': '電話番号'
 				}
-				, 'UPDATE_USER': {
-					'databaseComment': '更新ユーザ:&nbsp;レコードを更新したユーザ。'
+				, 'bath_detail': {
+					'databaseComment': '詳細情報'
 				}
-				, 'VERSION_NO': {
-					'databaseComment': 'バージョンNO:&nbsp;レコードのバージョンを示すNO。<br>更新回数と等しく、主に排他制御のために利用される。'
+				, 'bath_fee': {
+					'databaseComment': '一般入浴料'
+				}
+				, 'bath_type': {
+					'databaseComment': '銭湯種別(10:銭湯&nbsp;20:スーパー銭湯)'
+				}
+				, 'bath_24h_flg': {
+					'databaseComment': '24時間フラグ(1:24時間営業)'
+				}
+				, 'bath_time_st': {
+					'databaseComment': '営業時間&nbsp;開始'
+				}
+				, 'bath_time_ed': {
+					'databaseComment': '営業時間&nbsp;終了'
+				}
+				, 'bath_place_lat': {
+					'databaseComment': '位置情報&nbsp;緯度'
+				}
+				, 'bath_place_lon': {
+					'databaseComment': '位置情報&nbsp;経度'
+				}
+				, 'bath_temperature_up': {
+					'databaseComment': '温度&nbsp;上限'
+				}
+				, 'bath_temperature_low': {
+					'databaseComment': '温度&nbsp;下限'
+				}
+				, 'bath_holiday': {
+					'databaseComment': '定休日(ビット演算で判定&nbsp;1:日&nbsp;2:月&nbsp;4:火&nbsp;8:水&nbsp;16:木&nbsp;32:金&nbsp;64:土)'
+				}
+				, 'del_flg': {
+					'databaseComment': '削除フラグ(1:削除済み)'
+				}
+				, 'create_date': {
+					'databaseComment': '作成日時'
+				}
+				, 'update_date': {
+					'databaseComment': '更新日時'
 				}
 			}
 		}

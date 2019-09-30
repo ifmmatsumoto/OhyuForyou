@@ -12,7 +12,9 @@ import org.springframework.util.StringUtils;
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
+import com.oyfy.dbflute.exbhv.BathTestBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
+import com.oyfy.dbflute.exentity.BathTest;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -20,7 +22,9 @@ import com.oyfy.dbflute.exentity.Tag;
 public class BathRepositoryImpl extends OyfyConst implements BathRepository {
 
     @Autowired
-    BathBhv BathBhv;
+    BathTestBhv bathTestBhv;
+    @Autowired
+    BathBhv bathBhv;
     @Autowired
     TagBhv tagBhv;
 
@@ -39,10 +43,11 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
 
         // キーワードが未入力の場合は全検索 TODO キーワード入力時と合わせてできないか確認
         if (StringUtils.isEmpty(keyword)) {
-            resultList.setPage(BathBhv.selectPage(cb -> {
+            resultList.setPage(bathTestBhv.selectPage(cb -> {
                 cb.query().setDelFlg_Equal(0);
                 // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
                 if(feeFrom != null && feeTo != null) {
+                    // TODO dbfluteの自動生成後publicに変更しないと使えない
                     cb.query().setBathFee_RangeOf(feeFrom, feeTo, new RangeOfOption().orIsNull());
                 }
                 cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
@@ -63,7 +68,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         });
 
         // TODO OR検索になってる
-        resultList.setPage(BathBhv.selectPage(cb -> {
+        resultList.setPage(bathBhv.selectPage(cb -> {
             cb.query().setDelFlg_Equal(0);
             // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
             if(feeFrom != null && feeTo != null) {
@@ -75,5 +80,30 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
             });
         }));
         return resultList;
+    }
+
+    /**
+     * 銭湯IDを元に銭湯詳細を取得
+     * @param bathId
+     * @return
+     */
+    @Override
+    public BathTest findBathDetail(int bathId) {
+        return bathTestBhv.selectByPK(bathId).get();
+    }
+
+    /**
+     * 銭湯登録・更新
+     * @param bath
+     */
+    @Override
+    public void registBath(BathTest bath) {
+        if (bath.getBathId() == null || bath.getBathId() == 0) {
+            // 新規登録
+            bathTestBhv.insert(bath);
+        } else {
+            // 更新
+            bathTestBhv.update(bath);
+        }
     }
 }

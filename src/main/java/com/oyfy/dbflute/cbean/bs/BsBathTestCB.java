@@ -20,20 +20,20 @@ import com.oyfy.dbflute.cbean.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of member.
+ * The base condition-bean of bath_test.
  * @author DBFlute(AutoGenerator)
  */
-public class BsMemberCB extends AbstractConditionBean {
+public class BsBathTestCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected MemberCQ _conditionQuery;
+    protected BathTestCQ _conditionQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsMemberCB() {
+    public BsBathTestCB() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -73,7 +73,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "member";
+        return "bath_test";
     }
 
     // ===================================================================================
@@ -81,35 +81,23 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberId : PK, ID, NotNull, INT(10). (NotNull)
+     * @param bathId : PK, ID, NotNull, INT(10). (NotNull)
      * @return this. (NotNull)
      */
-    public MemberCB acceptPK(Integer memberId) {
-        assertObjectNotNull("memberId", memberId);
-        BsMemberCB cb = this;
-        cb.query().setMemberId_Equal(memberId);
-        return (MemberCB)this;
-    }
-
-    /**
-     * Accept the query condition of unique key as equal.
-     * @param memberAccount : UQ, NotNull, VARCHAR(50). (NotNull)
-     * @return this. (NotNull)
-     */
-    public MemberCB acceptUniqueOf(String memberAccount) {
-        assertObjectNotNull("memberAccount", memberAccount);
-        BsMemberCB cb = this;
-        cb.query().setMemberAccount_Equal(memberAccount);
-        return (MemberCB)this;
+    public BathTestCB acceptPK(Integer bathId) {
+        assertObjectNotNull("bathId", bathId);
+        BsBathTestCB cb = this;
+        cb.query().setBathId_Equal(bathId);
+        return (BathTestCB)this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
-        query().addOrderBy_MemberId_Asc();
+        query().addOrderBy_BathId_Asc();
         return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        query().addOrderBy_MemberId_Desc();
+        query().addOrderBy_BathId_Desc();
         return this;
     }
 
@@ -173,34 +161,34 @@ public class BsMemberCB extends AbstractConditionBean {
      * </pre>
      * @return The instance of condition-query for base-point table to set up query. (NotNull)
      */
-    public MemberCQ query() {
+    public BathTestCQ query() {
         assertQueryPurpose(); // assert only when user-public query
         return doGetConditionQuery();
     }
 
-    public MemberCQ xdfgetConditionQuery() { // public for parameter comment and internal
+    public BathTestCQ xdfgetConditionQuery() { // public for parameter comment and internal
         return doGetConditionQuery();
     }
 
-    protected MemberCQ doGetConditionQuery() {
+    protected BathTestCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
         return _conditionQuery;
     }
 
-    protected MemberCQ createLocalCQ() {
+    protected BathTestCQ createLocalCQ() {
         return xcreateCQ(null, getSqlClause(), getSqlClause().getBasePointAliasName(), 0);
     }
 
-    protected MemberCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        MemberCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected BathTestCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        BathTestCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
         cq.xsetBaseCB(this);
         return cq;
     }
 
-    protected MemberCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        return new MemberCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected BathTestCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        return new BathTestCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
     /**
@@ -224,10 +212,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<MemberCB> unionCBLambda) {
-        final MemberCB cb = new MemberCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void union(UnionQuery<BathTestCB> unionCBLambda) {
+        final BathTestCB cb = new BathTestCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final MemberCQ cq = cb.query(); query().xsetUnionQuery(cq);
+        final BathTestCQ cq = cb.query(); query().xsetUnionQuery(cq);
     }
 
     /**
@@ -241,10 +229,10 @@ public class BsMemberCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<MemberCB> unionCBLambda) {
-        final MemberCB cb = new MemberCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void unionAll(UnionQuery<BathTestCB> unionCBLambda) {
+        final BathTestCB cb = new BathTestCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final MemberCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
+        final BathTestCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
 
     // ===================================================================================
@@ -290,81 +278,141 @@ public class BsMemberCB extends AbstractConditionBean {
         return _specification != null && _specification.hasSpecifiedColumn();
     }
 
-    public static class HpSpecification extends HpAbstractSpecification<MemberCQ> {
-        public HpSpecification(ConditionBean baseCB, HpSpQyCall<MemberCQ> qyCall
+    public static class HpSpecification extends HpAbstractSpecification<BathTestCQ> {
+        public HpSpecification(ConditionBean baseCB, HpSpQyCall<BathTestCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * MEMBER_ID: {PK, ID, NotNull, INT(10)}
+         * bath_id: {PK, ID, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
+        public SpecifiedColumn columnBathId() { return doColumn("bath_id"); }
         /**
-         * MEMBER_NAME: {NotNull, VARCHAR(160)}
+         * bath_name_ja: {NotNull, VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
+        public SpecifiedColumn columnBathNameJa() { return doColumn("bath_name_ja"); }
         /**
-         * MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)}
+         * bath_name_en: {NotNull, VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberAccount() { return doColumn("MEMBER_ACCOUNT"); }
+        public SpecifiedColumn columnBathNameEn() { return doColumn("bath_name_en"); }
         /**
-         * MEMBER_STATUS_CODE: {NotNull, CHAR(3)}
+         * bath_area_code: {INT(10), default=[0]}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberStatusCode() { return doColumn("MEMBER_STATUS_CODE"); }
+        public SpecifiedColumn columnBathAreaCode() { return doColumn("bath_area_code"); }
         /**
-         * FORMALIZED_DATETIME: {DATETIME(19)}
+         * bath_city_code: {INT(10), default=[0]}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnFormalizedDatetime() { return doColumn("FORMALIZED_DATETIME"); }
+        public SpecifiedColumn columnBathCityCode() { return doColumn("bath_city_code"); }
         /**
-         * BIRTHDATE: {DATE(10)}
+         * bath_image: {LONGBLOB(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBirthdate() { return doColumn("BIRTHDATE"); }
+        public SpecifiedColumn columnBathImage() { return doColumn("bath_image"); }
         /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+         * bath_address_ja: {VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
+        public SpecifiedColumn columnBathAddressJa() { return doColumn("bath_address_ja"); }
         /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
+         * bath_address_en: {VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
+        public SpecifiedColumn columnBathAddressEn() { return doColumn("bath_address_en"); }
         /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * bath_tel: {VARCHAR(15)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
+        public SpecifiedColumn columnBathTel() { return doColumn("bath_tel"); }
         /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
+         * bath_detail: {VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
+        public SpecifiedColumn columnBathDetail() { return doColumn("bath_detail"); }
         /**
-         * VERSION_NO: {NotNull, BIGINT(19)}
+         * bath_fee: {INT(10), default=[0]}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
+        public SpecifiedColumn columnBathFee() { return doColumn("bath_fee"); }
+        /**
+         * bath_type: {INT(10), default=[10]}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathType() { return doColumn("bath_type"); }
+        /**
+         * bath_24h_flg: {INT(10), default=[0]}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBath24hFlg() { return doColumn("bath_24h_flg"); }
+        /**
+         * bath_time_st: {TIME(8)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathTimeSt() { return doColumn("bath_time_st"); }
+        /**
+         * bath_time_ed: {TIME(8)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathTimeEd() { return doColumn("bath_time_ed"); }
+        /**
+         * bath_place_lat: {DOUBLE(9, 6)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathPlaceLat() { return doColumn("bath_place_lat"); }
+        /**
+         * bath_place_lon: {DOUBLE(9, 6)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathPlaceLon() { return doColumn("bath_place_lon"); }
+        /**
+         * bath_temperature_up: {DOUBLE(3, 3)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathTemperatureUp() { return doColumn("bath_temperature_up"); }
+        /**
+         * bath_temperature_low: {DOUBLE(3, 3)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathTemperatureLow() { return doColumn("bath_temperature_low"); }
+        /**
+         * bath_holiday: {INT(10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnBathHoliday() { return doColumn("bath_holiday"); }
+        /**
+         * del_flg: {INT(10), default=[0]}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnDelFlg() { return doColumn("del_flg"); }
+        /**
+         * create_date: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnCreateDate() { return doColumn("create_date"); }
+        /**
+         * update_date: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnUpdateDate() { return doColumn("update_date"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
-            columnMemberId(); // PK
+            columnBathId(); // PK
         }
         @Override
-        protected String getTableDbName() { return "member"; }
+        protected String getTableDbName() { return "bath_test"; }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<MemberCB, MemberCQ> myselfDerived() {
+        public HpSDRFunction<BathTestCB, BathTestCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<MemberCB> sq, MemberCQ cq, String al, DerivedReferrerOption op)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<BathTestCB> sq, BathTestCQ cq, String al, DerivedReferrerOption op)
                     -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
@@ -377,9 +425,9 @@ public class BsMemberCB extends AbstractConditionBean {
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
-    public MemberCB dreamCruiseCB() {
-        MemberCB cb = new MemberCB();
-        cb.xsetupForDreamCruise((MemberCB) this);
+    public BathTestCB dreamCruiseCB() {
+        BathTestCB cb = new BathTestCB();
+        cb.xsetupForDreamCruise((BathTestCB) this);
         return cb;
     }
 
@@ -404,15 +452,15 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param colCBLambda The callback for specify-query of left column. (NotNull)
      * @return The object for setting up operand and right column. (NotNull)
      */
-    public HpColQyOperand<MemberCB> columnQuery(final SpecifyQuery<MemberCB> colCBLambda) {
+    public HpColQyOperand<BathTestCB> columnQuery(final SpecifyQuery<BathTestCB> colCBLambda) {
         return xcreateColQyOperand((rightSp, operand) -> {
             return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
-    protected MemberCB xcreateColumnQueryCB() {
-        MemberCB cb = new MemberCB();
-        cb.xsetupForColumnQuery((MemberCB)this);
+    protected BathTestCB xcreateColumnQueryCB() {
+        BathTestCB cb = new BathTestCB();
+        cb.xsetupForColumnQuery((BathTestCB)this);
         return cb;
     }
 
@@ -432,8 +480,8 @@ public class BsMemberCB extends AbstractConditionBean {
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
      */
-    public void orScopeQuery(OrQuery<MemberCB> orCBLambda) {
-        xorSQ((MemberCB)this, orCBLambda);
+    public void orScopeQuery(OrQuery<BathTestCB> orCBLambda) {
+        xorSQ((BathTestCB)this, orCBLambda);
     }
 
     /**
@@ -451,8 +499,8 @@ public class BsMemberCB extends AbstractConditionBean {
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)
      */
-    public void orScopeQueryAndPart(AndQuery<MemberCB> andCBLambda) {
-        xorSQAP((MemberCB)this, andCBLambda);
+    public void orScopeQueryAndPart(AndQuery<BathTestCB> andCBLambda) {
+        xorSQAP((BathTestCB)this, andCBLambda);
     }
 
     // ===================================================================================
@@ -482,11 +530,11 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                        ============
     @Override
     protected void xprepareSyncQyCall(ConditionBean mainCB) {
-        final MemberCB cb;
+        final BathTestCB cb;
         if (mainCB != null) {
-            cb = (MemberCB)mainCB;
+            cb = (BathTestCB)mainCB;
         } else {
-            cb = new MemberCB();
+            cb = new BathTestCB();
         }
         specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
@@ -495,8 +543,8 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xgetConditionBeanClassNameInternally() { return MemberCB.class.getName(); }
-    protected String xgetConditionQueryClassNameInternally() { return MemberCQ.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return BathTestCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return BathTestCQ.class.getName(); }
     protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
     protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

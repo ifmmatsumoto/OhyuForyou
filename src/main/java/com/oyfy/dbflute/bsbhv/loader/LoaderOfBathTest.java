@@ -7,22 +7,22 @@ import com.oyfy.dbflute.exbhv.*;
 import com.oyfy.dbflute.exentity.*;
 
 /**
- * The referrer loader of member as TABLE. <br>
+ * The referrer loader of bath_test as TABLE. <br>
  * <pre>
  * [primary key]
- *     MEMBER_ID
+ *     bath_id
  *
  * [column]
- *     MEMBER_ID, MEMBER_NAME, MEMBER_ACCOUNT, MEMBER_STATUS_CODE, FORMALIZED_DATETIME, BIRTHDATE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_detail, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
  *
  * [sequence]
  *     
  *
  * [identity]
- *     MEMBER_ID
+ *     bath_id
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
  *     
@@ -38,23 +38,23 @@ import com.oyfy.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public class LoaderOfMember {
+public class LoaderOfBathTest {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected List<Member> _selectedList;
+    protected List<BathTest> _selectedList;
     protected BehaviorSelector _selector;
-    protected MemberBhv _myBhv; // lazy-loaded
+    protected BathTestBhv _myBhv; // lazy-loaded
 
     // ===================================================================================
     //                                                                   Ready for Loading
     //                                                                   =================
-    public LoaderOfMember ready(List<Member> selectedList, BehaviorSelector selector)
+    public LoaderOfBathTest ready(List<BathTest> selectedList, BehaviorSelector selector)
     { _selectedList = selectedList; _selector = selector; return this; }
 
-    protected MemberBhv myBhv()
-    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(MemberBhv.class); return _myBhv; } }
+    protected BathTestBhv myBhv()
+    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(BathTestBhv.class); return _myBhv; } }
 
     // ===================================================================================
     //                                                                    Pull out Foreign
@@ -62,6 +62,6 @@ public class LoaderOfMember {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    public List<Member> getSelectedList() { return _selectedList; }
+    public List<BathTest> getSelectedList() { return _selectedList; }
     public BehaviorSelector getSelector() { return _selector; }
 }
