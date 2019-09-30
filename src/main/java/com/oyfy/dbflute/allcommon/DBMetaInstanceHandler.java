@@ -34,6 +34,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("area", "com.oyfy.dbflute.bsentity.dbmeta.AreaDbm");
         tmpMap.put("bath", "com.oyfy.dbflute.bsentity.dbmeta.BathDbm");
         tmpMap.put("bath_tag", "com.oyfy.dbflute.bsentity.dbmeta.BathTagDbm");
+        tmpMap.put("bath_test", "com.oyfy.dbflute.bsentity.dbmeta.BathTestDbm");
         tmpMap.put("station", "com.oyfy.dbflute.bsentity.dbmeta.StationDbm");
         tmpMap.put("tag", "com.oyfy.dbflute.bsentity.dbmeta.TagDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
