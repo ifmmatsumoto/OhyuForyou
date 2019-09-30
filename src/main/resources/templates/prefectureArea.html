@@ -19,17 +19,17 @@
                     onclick="addName();" value=地域名検索>
             </div>
             <div class="col-md-6 offset-md-6">
-                <div th:text="'選択中の地域：' + ${areaName}"></div>
+                <div th:text="'選択中の地域：' + ${prefectureForm.areaName}"></div>
             </div>
             <div class="col-md-6 offset-md-3">
                 <table class="table table-bordered">
                     <tr>
                         <td class="prefecture-name" align="center">
-                            <div class="prefecture-name-text" th:text="${areaName}"></div>
+                            <div class="prefecture-name-text" th:text="${prefectureForm.areaName}"></div>
                         </td>
                         <td>
-                            <div id="area-name" th:each="data : ${data}">
-                                <input type="checkbox" th:text="${data}" th:value="${data}">
+                            <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
+                                <input type="checkbox" th:text="${prefecture.name}" th:value="${prefecture}">
                             </div>
                         </td>
                     </tr>
