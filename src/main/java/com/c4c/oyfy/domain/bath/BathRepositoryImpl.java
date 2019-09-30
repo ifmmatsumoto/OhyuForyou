@@ -98,7 +98,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
      */
     @Override
     public void registBath(BathTest bath) {
-        if (bath.getBathId() == 0) {
+        if (bath.getBathId() == null || bath.getBathId() == 0) {
             // 新規登録
             bathTestBhv.insert(bath);
         } else {

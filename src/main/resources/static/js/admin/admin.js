@@ -23,14 +23,7 @@ function setBathDetail(bathId) {
 		form.bathAreaCode.value = res.bathAreaCode;
 		form.bathCityCode.value = res.bathCityCode;
 		if (res.bathImage != null) {
-			var blob = new Blob([res.bathImage], { type: "image/jpg" });
-			var reader = new FileReader();
-			reader.onload = function() {
-			var b64 = reader.result;
-			  console.log(b64);
-			  form.pvImg.src = "data:image/jpg;base64," + window.btoa(b64)
-			}
-			reader.readAsDataURL(blob);
+			form.pvImg.src = "data:image/jpg;base64," + res.bathImage;
 		}
 		form.bathAddressJa.value = res.bathAddressJa;
 		form.bathAddressEn.value = res.bathAddressEn;

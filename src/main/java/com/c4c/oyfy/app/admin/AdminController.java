@@ -1,5 +1,10 @@
 package com.c4c.oyfy.app.admin;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -79,7 +84,7 @@ public class AdminController {
         if (!form.getInputImage().isEmpty()) {
             // アップロードをbyteに変換
             try {
-                form.bath.setBathImage(form.getInputImage().getBytes());
+                form.bath.setBathImage(getByteArray(form.getInputImage().getInputStream()));
             } catch (Exception e) {
                 throw new OyfyException();
             }
@@ -101,4 +106,27 @@ public class AdminController {
         return "admin/admin";
     }
 
+    /**InputStreamをバイト配列に変換*/
+    private byte[] getByteArray(InputStream is) {
+        ByteArrayOutputStream b = new ByteArrayOutputStream();
+        OutputStream os = new BufferedOutputStream(b);
+    int c;
+    try{
+    while((c=is.read())!=-1){
+    os.write(c);
+    }
+    }catch(IOException e) {
+    e.printStackTrace();
+    }finally{
+    if(os!=null){
+    try{
+    os.flush();
+    os.close();
+    }catch(IOException e){
+    e.printStackTrace();
+    }
+    }
+    }
+    return b.toByteArray();
+    }
 }
