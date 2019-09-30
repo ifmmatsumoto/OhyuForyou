@@ -1,9 +1,7 @@
 package com.c4c.oyfy.app.bath;
 
 import com.c4c.oyfy.app._Common_Form;
-
-import java.math.BigDecimal;
-import java.time.LocalTime;
+import com.oyfy.dbflute.exentity.Bath;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,27 +9,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=true)
 public class BathForm extends _Common_Form {
-
-    // @TODO 銭湯ID
-    int bathId;
-
-    String bathNameJa;
-    String bathNameEn;
-    Integer bathAreaCode;
-    Integer bathCityCode;
-    String bathImage;
-    String bathAddressJa;
-    String bathAddressEn;
-    String bathTel;
-    String bathDetail;
-    int bathFee;
-    int bathType;
-    int bath24hFlg;
-    LocalTime bathTimeSt;
-    LocalTime bathTimeEd;
-    BigDecimal bathPlaceLat;
-    BigDecimal bathPlaceLon;
-    BigDecimal bathTemperatureUp;
-    BigDecimal bathTemperatureLow;
-    int bathHoliday;
+    /** 銭湯ID */
+    private int bathId;
+    /** 銭湯情報 */
+    private Bath bath;
 }
