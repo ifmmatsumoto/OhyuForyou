@@ -15,36 +15,36 @@ text-align: center;
 </style>
 <body>
 <div>
-    <h2 style="text-align:center" th:text="${bath.bathNameJa}"></h2>
-    <h4 style="text-align:center" th:text="${bath.bathNameEn}"></h4>
+    <h2 style="text-align:center" th:text="${bathForm.bath.bathNameJa}"></h2>
+    <h4 style="text-align:center" th:text="${bathForm.bath.bathNameEn}"></h4>
 </div>
 <table class="list mx-auto" border="1" style="border-collapse: collapse; width: 80vw">
     <tr>
-      <th>種別</th><td th:text="${bath.bathType}"></td>
+      <th>種別</th><td th:text="${bathForm.bath.bathType}"></td>
     </tr>
     <tr>
-      <th>営業時間</th><td th:text="${bath.bathTimeSt}+'～'+${bath.bathTimeEd}"></td>
+      <th>営業時間</th><td th:text="${bathForm.bath.bathTimeSt}+'～'+${bathForm.bath.bathTimeEd}"></td>
     </tr>
     <tr>
-      <th>定休日</th><td th:text="${bath.bathHoliday}"></td>
+      <th>定休日</th><td th:text="${bathForm.bath.bathHoliday}"></td>
     </tr>
     <tr>
-      <th>一般入浴料</th><td th:text="${bath.bathFee} + '円'"></td>
+      <th>一般入浴料</th><td th:text="${bathForm.bath.bathFee} + '円'"></td>
     </tr>
     <tr>
-      <th>電話番号</th><td th:text="${bath.bathTel}"></td>
+      <th>電話番号</th><td th:text="${bathForm.bath.bathTel}"></td>
     </tr>
     <tr>
-      <th>詳細</th><td th:text="${bath.bathDetail}"></td>
+      <th>詳細</th><td th:text="${bathForm.bath.bathDetail}"></td>
     </tr>
     <tr>
-      <th>温度</th><td th:text="${bath.bathTemperatureUp}"></td>
+      <th>温度</th><td th:text="${bathForm.bath.bathTemperatureUp}"></td>
     </tr>
     <tr>
       <th>ウェブサイト</th><td><a href="http://hisamatsuyu.jp/">http://www.xxxxxxxxxxxxxxx</a></td>
     </tr>
     <tr>
-      <th>住所</th><td th:text="${bath.bathAddressJa}"></td>
+      <th>住所</th><td th:text="${bathForm.bath.bathAddressJa}"></td>
     </tr>
     <tr>
       <th>タグ</th><td></td>
