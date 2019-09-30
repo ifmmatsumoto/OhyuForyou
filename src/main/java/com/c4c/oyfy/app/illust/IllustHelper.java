@@ -31,6 +31,16 @@ public class IllustHelper {
          return formList;
     }
 
+    public static String toKeyWord(IllustSearchForm form) {
+        List<IllustItemForm> illustList = form.getIllustItemList();
+        StringBuilder sb = new StringBuilder();
+        illustList.forEach(illust -> {
+            sb.append(illust.getTagNameJa());
+            sb.append(" ");
+        });
+        return sb.toString();
+    }
+
     public enum ImgPath {
         ILLUST("illust", "/img/illust/"),
         OJIJI("ojiji", "/img/ojiji/"),
