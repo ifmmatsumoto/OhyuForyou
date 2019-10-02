@@ -6,22 +6,22 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all"
     th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" media="all" th:href="@{/css/area/area.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/prefecture/prefecture.css}" />
 <link rel="stylesheet"
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div class="container-fluid" id="outline" layout:fragment="contents"
         style="background-color: #FFFFFF;">
-        <div class="row">
-            <div class="col-md-6 offset-md-6">
+            <div class="col-md-5 offset-md-5">
                 <input type="button" class="btn btn-primary btn-lg"
                     onclick="addName();" value=地域名検索>
             </div>
-            <div class="col-md-6 offset-md-6">
+            <div class="col-md-5 offset-md-5">
                 <div th:text="'選択中の地域：' + ${prefectureForm.areaName}"></div>
             </div>
-            <div class="col-md-6 offset-md-3">
+        <div class="row">
+            <div class="col-md-5 offset-md-3">
                 <table class="table table-bordered">
                     <tr>
                         <td class="prefecture-name" align="center">
@@ -29,7 +29,7 @@
                         </td>
                         <td>
                             <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
-                                <input type="checkbox" th:text="${prefecture.name}" th:value="${prefecture}">
+                                <label><input type="checkbox" th:text="${prefecture.name}" th:value="${prefecture}"></label>
                             </div>
                         </td>
                     </tr>

@@ -94,7 +94,7 @@ public class PrefectureController extends _CommonController {
             throws OyfyException {
 
         // TODO:都道府県名が連携されるようになったら消す
-        form.setAreaName("東京都");
+        form.setAreaName("佐賀県");
 
         // 都道府県名から路線リストを取得
         LineDto lineDto = stationService.findLineList(form.getAreaName());
