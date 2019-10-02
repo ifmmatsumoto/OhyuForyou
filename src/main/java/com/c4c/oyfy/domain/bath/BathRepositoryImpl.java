@@ -43,7 +43,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
 
         // キーワードが未入力の場合は全検索 TODO キーワード入力時と合わせてできないか確認
         if (StringUtils.isEmpty(keyword)) {
-            resultList.setPage(bathTestBhv.selectPage(cb -> {
+            resultList.setPage(bathBhv.selectPage(cb -> {
                 cb.query().setDelFlg_Equal(0);
                 // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
                 if(feeFrom != null && feeTo != null) {
