@@ -15,13 +15,13 @@ $(function() {
         if ($(this).prop('checked')) {
 
             // チェックを付ける
-            $('input[name="stations"]').prop('checked', true);
+            $('input[name="prefectures"]').prop('checked', true);
 
             // もしチェックが外れたら
         } else {
 
             // チェックを外す
-            $('input[name="stations"]').prop('checked', false);
+            $('input[name="prefectures"]').prop('checked', false);
         }
 
     });

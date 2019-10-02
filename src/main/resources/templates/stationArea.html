@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all"
     th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" media="all" th:href="@{/css/prefecture/station.css}" />
+<link rel="stylesheet" media="all"
+    th:href="@{/css/prefecture/station.css}" />
 <link rel="stylesheet"
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
@@ -21,8 +22,8 @@
             <table class="table table-bordered">
                 <tr th:each="line : ${stationForm.line}">
                     <td class="line-name" align="center">
-                        <div class="line-name-text" th:text="${line.key}"></div>
-                        <input id="all" type="checkbox">
+                        <div class="line-name-text" th:text="${line.key}"></div> <input
+                        id="all" type="checkbox">
                     </td>
                     <td>
                         <div class="station-name" th:each="stationList : ${line.value}">

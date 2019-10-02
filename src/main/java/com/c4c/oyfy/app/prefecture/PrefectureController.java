@@ -21,7 +21,6 @@ import com.c4c.oyfy.app.dto.StationDto.Response.Station;
 import com.c4c.oyfy.domain.prefecture.PrefectureService;
 import com.c4c.oyfy.domain.station.StationService;
 
-
 @Controller
 @RequestMapping("/area")
 public class PrefectureController extends _CommonController {
