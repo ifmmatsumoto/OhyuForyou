@@ -59,6 +59,11 @@ div.searchCond label.title {
  opacity: 0.3;
 }
 
+.bk-img {
+  width:100px;
+  position: absolute;
+  z-index: 0;
+}
 .btn-square-little-rich {
  position: relative;
  display: inline-block;
