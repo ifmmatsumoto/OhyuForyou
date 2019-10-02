@@ -1,0 +1,11 @@
+
+* * * * * * * * * *
+*                 *
+* Xls Data Result *
+*                 *
+* * * * * * * * * *
+data-directory: playsql/data/ut/xls
+
+[oyfy.xls]
+  bath (5)
+  tag (12)

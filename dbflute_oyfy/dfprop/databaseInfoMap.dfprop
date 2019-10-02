@@ -16,7 +16,7 @@
 #
 map:{
     ; driver   = com.mysql.jdbc.Driver
-    ; url      = jdbc:mysql://localhost:13306/ohyuforyou_db?characterEncoding=utf8
+    ; url      = jdbc:mysql://13.114.89.192:3306/ohyuforyou_db?characterEncoding=utf8
     ; schema   =
     ; user     = ohyuforyou
     ; password = k7t4FZmQ
