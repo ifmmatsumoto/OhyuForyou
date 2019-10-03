@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layout}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/top/top.css}" />
+</head>
+<body>
+    <div class="container-fluid" layout:fragment="contents" style="background-color: #FFFFFF;">
+    <div class="row">
+<!--         <div class="col-md-6 offset-md-4 col-12" style="background-color:red; height:1500px; background: url('/img/bg_top.png') 0 0 no-repeat;background-size: contain;">
+
+        </div> -->
+        <div class="row col-md-4 offset-md-4 col-12" style=";height:1500px; background-color: red; background: url('/img/bg_top.png') 0 0 no-repeat;background-size: contain;">
+             <div class="col-md-4 col-4"><img src="/img/menu_train.png" style="width: 100%;"/></div>
+             <div class="col-md-4 col-4"><img src="/img/menu_train.png" style="width: 100%;"/></div>
+             <div class="col-md-4 col-4"><img src="/img/menu_train.png" style="width: 100%;"/></div>
+<!--                 <ul style="text-align: center;">
+                <li style="display: inline-block;">
+                <img src="/img/menu_train.png" style="width: 100%;"/>
+                </li>
+                <li style="display: inline-block;">
+                <img src="/img/menu_train.png" style="width: 100%;"/>
+                </li>
+                <li style="display: inline-block;">
+                <img src="/img/menu_train.png" style="width: 100%;"/>
+                </li>
+                </ul> -->
+        </div>
+    </div>
+    </div>
+
+                <ul style="display: inline-block;">
+                <li>
+                <img src="/img/menu_train.png" style="width: 50%;"/>
+                </li>
+                <li>
+                <img src="/img/menu_train.png" style="width: 50%;"/>
+                </li>
+                <li>
+                <img src="/img/menu_train.png" style="width: 50%;"/>
+                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>TOP画面</h3>
+<ul>
+    <li><a href="/station">駅検索</a></li>
+    <li><a href="/prefecture">都道府県検索</a></li>
+    <li><a href="/illust">イラスト検索</a></li>
+</ul>
+
+<form th:action="@{/keyword}" th:object="${topForm}" method="post" enctype="multipart/form-data">
+    <input type="text" th:field="*{keyword}" placeholder="キーワード検索"/>
+    <input type="submit" value="検索" />
+</form>
+
+
+
+    </div>
+
+
+
+
+
+
+<!-- 共通フッター -->
+<div th:replace="footer"></div>
+
+</body>
+</html>

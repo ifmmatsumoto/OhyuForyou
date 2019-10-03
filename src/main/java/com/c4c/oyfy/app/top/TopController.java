@@ -37,7 +37,7 @@ public class TopController extends _CommonController {
         System.out.println("TOP画面表示"); // TODO
 
         // TOP画面表示
-        return "top";
+        return "top/top";
     }
 
     /**
