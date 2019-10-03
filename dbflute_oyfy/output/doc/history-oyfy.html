@@ -213,6 +213,48 @@ dl.column-content dd span {
 <p class="sisterlink"><a href="./schema-oyfy.html">to SchemaHTML</a></p>
 </div>
 
+<div class="section diffCode_20191003172910">
+	<h2>
+		<span class="titlediffno">diffNo. 15:</span> <span class="titlediffdatepart">2019/10/03</span> <span class="titledifftimepart">17:29:10</span>
+		<span class="titlediffauthor">by haraguchi</span>
+		<span class="titlediffgitbranch">on develop</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+	<p class="tablecount">table count: 6&nbsp;-&gt;&nbsp;5</p>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-oyfy.html#bath">bath</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>bath_name_en</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+				<dt>bath_area_code</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+				<dt>bath_city_code</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+				<dt>bath_image</dt>
+				<dd><span>Type</span>VARCHAR&nbsp;-&gt;&nbsp;BLOB</dd>
+				<dd><span>Size</span>2100&nbsp;-&gt;&nbsp;65535</dd>
+				<dt>bath_type</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+				<dt>bath_24h_flg</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+				<dt>bath_temperature_up</dt>
+				<dd><span>Size</span>3,&nbsp;3&nbsp;-&gt;&nbsp;9,&nbsp;6</dd>
+				<dt>bath_temperature_low</dt>
+				<dd><span>Size</span>3,&nbsp;3&nbsp;-&gt;&nbsp;9,&nbsp;6</dd>
+				<dt>del_flg</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+			</dl>
+		</div>
+	</div>
+	<h3>Delete Table</h3>
+	<ul class="table-content">
+		<li>bath_test</li>
+	</ul>
+</div>
 <div class="section diffCode_20190918103617">
 	<h2>
 		<span class="titlediffno">diffNo. 14:</span> <span class="titlediffdatepart">2019/09/18</span> <span class="titledifftimepart">10:36:17</span>
@@ -224,7 +266,7 @@ dl.column-content dd span {
 
 	<h3>Add Table</h3>
 	<ul class="table-content">
-		<li><a href="./schema-oyfy.html#bath_test">bath_test</a></li>
+		<li>bath_test</li>
 	</ul>
 </div>
 <div class="section diffCode_20190917185358">
@@ -713,7 +755,11 @@ dl.column-content dd span {
             ]
         };
         this.pickupStore = {
-            '20190918103617' : {
+            '20191003172910' : {
+                'diffDate' : '2019/10/03 17:29:10',
+                'diffComment' : ''
+            }
+            , '20190918103617' : {
                 'diffDate' : '2019/09/18 10:36:17',
                 'diffComment' : ''
             }

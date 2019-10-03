@@ -135,14 +135,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_name_en: {NotNull, VARCHAR(255)}
+     * bath_name_en: {VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathNameEn_Asc() { regOBA("bath_name_en"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_name_en: {NotNull, VARCHAR(255)}
+     * bath_name_en: {VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathNameEn_Desc() { regOBD("bath_name_en"); return this; }
@@ -155,14 +155,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_area_code: {NotNull, INT(10)}
+     * bath_area_code: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathAreaCode_Asc() { regOBA("bath_area_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_area_code: {NotNull, INT(10)}
+     * bath_area_code: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathAreaCode_Desc() { regOBD("bath_area_code"); return this; }
@@ -175,14 +175,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_city_code: {NotNull, INT(10)}
+     * bath_city_code: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathCityCode_Asc() { regOBA("bath_city_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_city_code: {NotNull, INT(10)}
+     * bath_city_code: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathCityCode_Desc() { regOBD("bath_city_code"); return this; }
@@ -195,14 +195,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_image: {VARCHAR(2100)}
+     * bath_image: {BLOB(65535)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathImage_Asc() { regOBA("bath_image"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_image: {VARCHAR(2100)}
+     * bath_image: {BLOB(65535)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathImage_Desc() { regOBD("bath_image"); return this; }
@@ -315,14 +315,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathType_Asc() { regOBA("bath_type"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathType_Desc() { regOBD("bath_type"); return this; }
@@ -335,14 +335,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_Bath24hFlg_Asc() { regOBA("bath_24h_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_Bath24hFlg_Desc() { regOBD("bath_24h_flg"); return this; }
@@ -435,14 +435,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_temperature_up: {DOUBLE(3, 3)}
+     * bath_temperature_up: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureUp_Asc() { regOBA("bath_temperature_up"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_temperature_up: {DOUBLE(3, 3)}
+     * bath_temperature_up: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureUp_Desc() { regOBD("bath_temperature_up"); return this; }
@@ -455,14 +455,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_temperature_low: {DOUBLE(3, 3)}
+     * bath_temperature_low: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureLow_Asc() { regOBA("bath_temperature_low"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_temperature_low: {DOUBLE(3, 3)}
+     * bath_temperature_low: {DOUBLE(9, 6)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureLow_Desc() { regOBD("bath_temperature_low"); return this; }
@@ -495,14 +495,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_DelFlg_Asc() { regOBA("del_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_DelFlg_Desc() { regOBD("del_flg"); return this; }

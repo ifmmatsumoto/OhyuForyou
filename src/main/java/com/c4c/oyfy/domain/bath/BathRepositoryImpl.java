@@ -3,7 +3,6 @@ package com.c4c.oyfy.domain.bath;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.dbflute.cbean.coption.RangeOfOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,17 +11,14 @@ import org.springframework.util.StringUtils;
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
-import com.oyfy.dbflute.exbhv.BathTestBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
-import com.oyfy.dbflute.exentity.BathTest;
+import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.Tag;
 
 
 @Repository
 public class BathRepositoryImpl extends OyfyConst implements BathRepository {
 
-    @Autowired
-    BathTestBhv bathTestBhv;
     @Autowired
     BathBhv bathBhv;
     @Autowired
@@ -47,8 +43,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
                 cb.query().setDelFlg_Equal(0);
                 // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
                 if(feeFrom != null && feeTo != null) {
-                    // TODO dbfluteの自動生成後publicに変更しないと使えない
-                    cb.query().setBathFee_RangeOf(feeFrom, feeTo, new RangeOfOption().orIsNull());
+                    cb.query().setBathFee_RangeOf(feeFrom, feeTo, op -> op.getCalculationRange());
                 }
                 cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
             }));
@@ -72,7 +67,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
             cb.query().setDelFlg_Equal(0);
             // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
             if(feeFrom != null && feeTo != null) {
-                cb.query().setBathFee_RangeOf(feeFrom, feeTo, new RangeOfOption().orIsNull());
+                cb.query().setBathFee_RangeOf(feeFrom, feeTo, op -> op.getCalculationRange());
             }
             cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
             cb.query().existsBathTag(bathTagCB -> {
@@ -88,8 +83,8 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
      * @return
      */
     @Override
-    public BathTest findBathDetail(int bathId) {
-        return bathTestBhv.selectByPK(bathId).get();
+    public Bath findBathDetail(int bathId) {
+        return bathBhv.selectByPK(bathId).get();
     }
 
     /**
@@ -97,13 +92,13 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
      * @param bath
      */
     @Override
-    public void registBath(BathTest bath) {
+    public void registBath(Bath bath) {
         if (bath.getBathId() == null || bath.getBathId() == 0) {
             // 新規登録
-            bathTestBhv.insert(bath);
+            bathBhv.insert(bath);
         } else {
             // 更新
-            bathTestBhv.update(bath);
+            bathBhv.update(bath);
         }
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
 
 import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.app.search.ResultList;
-import com.oyfy.dbflute.exentity.BathTest;
+import com.oyfy.dbflute.exentity.Bath;
 
 @Service
 @Transactional
@@ -43,7 +43,7 @@ public class BathService {
      * 銭湯IDを元に銭湯詳細を取得
      * @return
      */
-    public BathTest findBathDetail(int bathId) {
+    public Bath findBathDetail(int bathId) {
         return bathRepository.findBathDetail(bathId);
     }
 
@@ -51,7 +51,7 @@ public class BathService {
      * 銭湯登録・更新
      * @param bath
      */
-    public void registBath(BathTest bath) {
+    public void registBath(Bath bath) {
         bathRepository.registBath(bath);
     }
 }

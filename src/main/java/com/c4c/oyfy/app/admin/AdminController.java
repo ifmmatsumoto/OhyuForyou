@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.domain.bath.BathService;
-import com.oyfy.dbflute.exentity.BathTest;
+import com.oyfy.dbflute.exentity.Bath;
 
 @Controller
 @RequestMapping(value = {"/admin"})
@@ -60,7 +60,7 @@ public class AdminController {
      */
     @ResponseBody
     @RequestMapping(value = "detail", method = RequestMethod.POST)
-    public BathTest bath(AdminForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+    public Bath bath(AdminForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
 
         System.out.println("銭湯詳細画面表示"); // TODO
 
