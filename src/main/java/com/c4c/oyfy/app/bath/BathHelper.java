@@ -10,8 +10,12 @@ public class BathHelper {
 
     public static BathForm toForm(BathForm form, Bath bath) throws OyfyException {
         form.setBath(bath);
-        // 画像をbase64エンコーディング
-        form.setDispBathImg("data:image/jpg;base64," + Base64.getEncoder().encodeToString(form.getBath().getBathImage()));
+        String bathImgStr = null;
+        if (form.getBath().getBathImage() != null) {
+         // 画像をbase64エンコーディング TODO　拡張子指定
+            bathImgStr = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(form.getBath().getBathImage());
+        }
+        form.setDispBathImg(bathImgStr);
         // 銭湯種別
         form.setDispBathType(OyfyUtil.getBathTypeName(bath.getBathType()));
         // 定休日
