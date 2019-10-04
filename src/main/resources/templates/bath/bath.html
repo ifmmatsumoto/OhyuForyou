@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/bath/bath.css?v1}" />
+<script type="text/javascript" th:src="@{/js/bath/bath.js}"></script>
+</head>
+<body>
+<div class="container">
+    <p class="bathNameJa"  th:text="${bathForm.bath.bathNameJa}" />
+    <p class="bathNameEn" th:text="${bathForm.bath.bathNameEn}" />
+    <img th:src="${bathForm.dispBathImg}" class="bathImg" />
+    <section class="list">
+        <table>
+	        <tr>
+	            <th>住所</th>
+	            <td>
+	                <p th:text="${bathForm.bath.bathAddressJa}" />
+	                <p th:text="${bathForm.bath.bathAddressEn}" />
+	            </td>
+	        </tr>
+	        <tr>
+	            <th>電話番号</th>
+	            <td><p th:text="${bathForm.bath.bathTel}" /></td>
+	        </tr>
+	        <tr>
+	            <th>詳細</th>
+	            <td><p th:text="${bathForm.bath.bathDetail}" /></td>
+	        </tr>
+	        <tr>
+	            <th>一般入浴料</th>
+	            <td><p th:text="${#numbers.formatInteger(bathForm.bath.bathFee, 3, 'COMMA') + '円'}" /></td>
+	        </tr>
+	        <tr>
+    	        <th>銭湯種別</th>
+	            <td><p th:text="${bathForm.dispBathType}" /></td>
+  	        </tr>
+	        <tr>
+	            <th>24時間フラグ</th>
+	            <td><p th:text="${bathForm.dispBath24hFlg}" /></td>
+	        </tr>
+	        <tr>
+	            <th>営業時間</th>
+	            <td>
+	                <span th:text="${bathForm.bath.bathTimeSt}"></span>
+	                ～
+	                <span th:text="${bathForm.bath.bathTimeEd}"></span>
+	            </td>
+	        </tr>
+	        <tr>
+	            <th>温度</th>
+	            <td>
+	              <span th:text="${#numbers.formatDecimal(bathForm.bath.bathTemperatureLow, 2, 'COMMA', 2, 'POINT') + '℃'}"></span>
+	              ～
+	              <span th:text="${#numbers.formatDecimal(bathForm.bath.bathTemperatureUp, 2, 'COMMA', 2, 'POINT') + '℃'}"></span>
+	            </td>
+	        </tr>
+	        <tr>
+	            <th>定休日</th>
+	            <td><p th:text="${bathForm.dispBathHoliday}" /></td>
+	        </tr>
+            <tr>
+                <th>場所</th>
+                <td>
+                    <input type="hidden" id="lat" th:value="${bathForm.bath.bathPlaceLat}" />
+                    <input type="hidden" id="lon" th:value="${bathForm.bath.bathPlaceLon}" />
+                    <div id="gmap"></div>
+                </td>
+            </tr>
+	    </table>
+	    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCoBXsawQdlQwF0Hc0ZK67LfJR-2iqc1jc&callback=initMap"></script>
+    </section>
+    <a class="back" href="javascript:history.back();">戻る</a>
+</div>
+
+<!-- 共通フッター -->
+<div th:replace="footer"></div>
+</body>
+</html>

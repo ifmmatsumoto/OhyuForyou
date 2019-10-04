@@ -1,15 +1,17 @@
 package com.oyfy.dbflute.bsentity;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.dbflute.Entity;
-import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
+
 import com.oyfy.dbflute.allcommon.DBMetaInstanceHandler;
-import com.oyfy.dbflute.exentity.*;
+import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.BathTag;
 
 /**
  * The entity of bath as TABLE. <br>
@@ -22,13 +24,13 @@ import com.oyfy.dbflute.exentity.*;
  *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_detail, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
  *
  * [sequence]
- *     
+ *
  *
  * [identity]
  *     bath_id
  *
  * [version-no]
- *     
+ *
  *
  * [foreign table]
  *     bath_tag

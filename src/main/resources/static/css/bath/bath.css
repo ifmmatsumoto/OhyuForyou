@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+p {
+ margin-bottom: 0;
+}
+/* コンテナ */
+.container {
+  text-align: center;
+  padding: 0;
+  width: 95%;
+}
+.bathNameJa {
+ font-size: 30px;
+}
+.bathNameEn {
+ font-size: 15px;
+}
+.frame {
+    display: inline-block;
+    position: relative;
+}
+.bathImg {
+ width: 95%;
+ margin: 20px 0;
+ max-width: 700px;
+ padding: 11px;
+ background-color: #FFFFFF;
+ box-shadow: 0 3px 18px -4px rgba(0, 0, 0, 0.8);
+}
+/* 詳細テーブル */
+section.list table {
+  width: 100%;
+  max-width: 1140px;
+  border-collapse: collapse;
+  margin: auto;
+}
+section.list th {
+  text-align: right;
+  background: #f7f7f7;
+  padding: 10px;
+  min-width: 150px;
+  font-weight: normal;
+  border: #e3e3e3 1px solid;
+}
+section.list td {
+  border: #e3e3e3 1px solid;
+  text-align: left;
+  padding: 10px;
+}
+section.list td.id {
+  text-align: right;
+}
+section.list td.actionBtn {
+  text-align: center;
+}
+section.list td.actionBtn a {
+  margin: 0 15px;
+}
+/* マップ */
+#gmap {
+  width: 100%;
+  height: 30vw;
+  min-height: 200px;
+}
+/* 戻る */
+.back {
+  display: block;
+  text-align: left;
+}
+

@@ -13,4 +13,12 @@ public class BathForm extends _Common_Form {
     private int bathId;
     /** 銭湯情報 */
     private Bath bath;
+    /** 銭湯画像 */
+    private String dispBathImg;
+    /** 銭湯種別 */
+    private String dispBathType;
+    /** 定休日 */
+    private String dispBathHoliday;
+    /** 24時間フラグ */
+    private String dispBath24hFlg;
 }
