@@ -44,6 +44,10 @@ public class PrefectureController extends _CommonController {
     public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
+        //取得した区分から遷移先を変更する
+        String action = (form.division == 1) ? "/prefecture/area" : "/station/station";
+        //String action = ( 2 == 1) ? "/prefecture/area" : "/station/station";
+        model.addAttribute("action",action);
         System.out.println("検索(日本)画面表示");
 
         // 駅検索(日本)画面表示
