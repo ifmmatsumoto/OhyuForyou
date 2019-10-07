@@ -19,11 +19,11 @@
                 onclick="addName();" value=駅名検索>
         </div>
         <div class="row">
-            <table class="table table-bordered">
+            <table id=search_station class="table table-bordered">
                 <tr th:each="line : ${stationForm.line}">
                     <td class="line-name" align="center">
                         <div class="line-name-text" th:text="${line.key}"></div> <input
-                        id="all" type="checkbox">
+                        id="all" name="lineCheck" type="checkbox">
                     </td>
                     <td>
                         <div class="station-name" th:each="stationList : ${line.value}">
