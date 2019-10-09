@@ -8,7 +8,8 @@ import lombok.Data;
 
 @Data
 public class PrefectureForm {
-
+    /** 区分コード*/
+    Integer division;
     /** 都道府コード */
     String areaCode;
     /** 都道府コード */
