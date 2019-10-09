@@ -1,17 +1,15 @@
 package com.oyfy.dbflute.bsentity;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 import org.dbflute.Entity;
-import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.DBMeta;
+import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
-
 import com.oyfy.dbflute.allcommon.DBMetaInstanceHandler;
-import com.oyfy.dbflute.exentity.Bath;
-import com.oyfy.dbflute.exentity.BathTag;
+import com.oyfy.dbflute.exentity.*;
 
 /**
  * The entity of bath as TABLE. <br>
@@ -24,13 +22,13 @@ import com.oyfy.dbflute.exentity.BathTag;
  *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_detail, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
  *
  * [sequence]
- *
+ *     
  *
  * [identity]
  *     bath_id
  *
  * [version-no]
- *
+ *     
  *
  * [foreign table]
  *     bath_tag
@@ -51,7 +49,7 @@ import com.oyfy.dbflute.exentity.BathTag;
  * String bathNameEn = entity.getBathNameEn();
  * Integer bathAreaCode = entity.getBathAreaCode();
  * Integer bathCityCode = entity.getBathCityCode();
- * byte[] bathImage = entity.getBathImage();
+ * String bathImage = entity.getBathImage();
  * String bathAddressJa = entity.getBathAddressJa();
  * String bathAddressEn = entity.getBathAddressEn();
  * String bathTel = entity.getBathTel();
@@ -122,8 +120,8 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     /** bath_city_code: {INT(10)} */
     protected Integer _bathCityCode;
 
-    /** bath_image: {BLOB(65535)} */
-    protected byte[] _bathImage;
+    /** bath_image: {TEXT(65535)} */
+    protected String _bathImage;
 
     /** bath_address_ja: {VARCHAR(255)} */
     protected String _bathAddressJa;
@@ -292,7 +290,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         sb.append(dm).append(xfND(_bathNameEn));
         sb.append(dm).append(xfND(_bathAreaCode));
         sb.append(dm).append(xfND(_bathCityCode));
-        sb.append(dm).append(xfBA(_bathImage));
+        sb.append(dm).append(xfND(_bathImage));
         sb.append(dm).append(xfND(_bathAddressJa));
         sb.append(dm).append(xfND(_bathAddressEn));
         sb.append(dm).append(xfND(_bathTel));
@@ -439,21 +437,21 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_image: {BLOB(65535)} <br>
+     * [get] bath_image: {TEXT(65535)} <br>
      * サムネイル画像
      * @return The value of the column 'bath_image'. (NullAllowed even if selected: for no constraint)
      */
-    public byte[] getBathImage() {
+    public String getBathImage() {
         checkSpecifiedProperty("bathImage");
         return _bathImage;
     }
 
     /**
-     * [set] bath_image: {BLOB(65535)} <br>
+     * [set] bath_image: {TEXT(65535)} <br>
      * サムネイル画像
      * @param bathImage The value of the column 'bath_image'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBathImage(byte[] bathImage) {
+    public void setBathImage(String bathImage) {
         registerModifiedProperty("bathImage");
         _bathImage = bathImage;
     }

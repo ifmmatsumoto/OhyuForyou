@@ -337,7 +337,7 @@ public class BsBathCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnBathCityCode() { return doColumn("bath_city_code"); }
         /**
-         * bath_image: {BLOB(65535)}
+         * bath_image: {TEXT(65535)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathImage() { return doColumn("bath_image"); }

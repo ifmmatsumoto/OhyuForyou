@@ -37,8 +37,8 @@
             javaType="Integer" name="bath_area_code" size="10" type="INTEGER"/>
         <column comment="市区町村コード(国土交通省API使用コード)" dbType="INT"
             javaType="Integer" name="bath_city_code" size="10" type="INTEGER"/>
-        <column comment="サムネイル画像" dbType="BLOB" javaType="byte[]"
-            name="bath_image" size="65535" type="LONGVARBINARY"/>
+        <column comment="サムネイル画像" dbType="TEXT" javaType="String"
+            name="bath_image" size="65535" type="LONGVARCHAR"/>
         <column comment="住所 和名" dbType="VARCHAR" javaType="String"
             name="bath_address_ja" size="255" type="VARCHAR"/>
         <column comment="住所 英名" dbType="VARCHAR" javaType="String"

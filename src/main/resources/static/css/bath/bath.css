@@ -68,4 +68,17 @@ section.list td.actionBtn a {
   display: block;
   text-align: left;
 }
-
+/* アイコン */
+table tr td {
+  position: relative;
+}
+table tr td p {
+ margin-left: 18px;
+}
+table tr td i {
+ margin-left: 5px;
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%) translateX(-50%);
+ -webkit- transform: translateY(-50%) translateX(-50%);
+}

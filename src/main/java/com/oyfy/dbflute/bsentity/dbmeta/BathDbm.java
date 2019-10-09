@@ -48,7 +48,7 @@ public class BathDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((Bath)et).getBathNameEn(), (et, vl) -> ((Bath)et).setBathNameEn((String)vl), "bathNameEn");
         setupEpg(_epgMap, et -> ((Bath)et).getBathAreaCode(), (et, vl) -> ((Bath)et).setBathAreaCode(cti(vl)), "bathAreaCode");
         setupEpg(_epgMap, et -> ((Bath)et).getBathCityCode(), (et, vl) -> ((Bath)et).setBathCityCode(cti(vl)), "bathCityCode");
-        setupEpg(_epgMap, et -> ((Bath)et).getBathImage(), (et, vl) -> ((Bath)et).setBathImage((byte[])vl), "bathImage");
+        setupEpg(_epgMap, et -> ((Bath)et).getBathImage(), (et, vl) -> ((Bath)et).setBathImage((String)vl), "bathImage");
         setupEpg(_epgMap, et -> ((Bath)et).getBathAddressJa(), (et, vl) -> ((Bath)et).setBathAddressJa((String)vl), "bathAddressJa");
         setupEpg(_epgMap, et -> ((Bath)et).getBathAddressEn(), (et, vl) -> ((Bath)et).setBathAddressEn((String)vl), "bathAddressEn");
         setupEpg(_epgMap, et -> ((Bath)et).getBathTel(), (et, vl) -> ((Bath)et).setBathTel((String)vl), "bathTel");
@@ -103,7 +103,7 @@ public class BathDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnBathNameEn = cci("bath_name_en", "bath_name_en", null, null, String.class, "bathNameEn", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAreaCode = cci("bath_area_code", "bath_area_code", null, null, Integer.class, "bathAreaCode", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathCityCode = cci("bath_city_code", "bath_city_code", null, null, Integer.class, "bathCityCode", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathImage = cci("bath_image", "bath_image", null, null, byte[].class, "bathImage", null, false, false, false, "BLOB", 65535, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathImage = cci("bath_image", "bath_image", null, null, String.class, "bathImage", null, false, false, false, "TEXT", 65535, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAddressJa = cci("bath_address_ja", "bath_address_ja", null, null, String.class, "bathAddressJa", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAddressEn = cci("bath_address_en", "bath_address_en", null, null, String.class, "bathAddressEn", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTel = cci("bath_tel", "bath_tel", null, null, String.class, "bathTel", null, false, false, false, "VARCHAR", 15, 0, null, null, false, null, null, null, null, null, false);
@@ -148,7 +148,7 @@ public class BathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathCityCode() { return _columnBathCityCode; }
     /**
-     * bath_image: {BLOB(65535)}
+     * bath_image: {TEXT(65535)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathImage() { return _columnBathImage; }

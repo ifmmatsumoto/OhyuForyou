@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Base64;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -82,9 +83,12 @@ public class AdminController {
         // TODO 入力チェック
 
         if (!form.getInputImage().isEmpty()) {
-            // アップロードをbyteに変換
             try {
-                form.bath.setBathImage(getByteArray(form.getInputImage().getInputStream()));
+                // TODO ここで拡張子判定
+                byte[] b = getByteArray(form.getInputImage().getInputStream());
+                String bathImgStr = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(b);
+                form.bath.setBathImage(bathImgStr);
+                System.out.println(bathImgStr);
             } catch (Exception e) {
                 throw new OyfyException();
             }

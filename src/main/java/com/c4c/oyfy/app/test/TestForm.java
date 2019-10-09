@@ -19,7 +19,7 @@ public class TestForm {
 
     int bathCityCode;
 
-    byte[] bathImage;
+    String bathImage;
 
     String bathAddressJa;
 

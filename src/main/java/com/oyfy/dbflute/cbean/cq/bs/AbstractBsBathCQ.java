@@ -791,16 +791,153 @@ public abstract class AbstractBsBathCQ extends AbstractConditionQuery {
     protected void regBathCityCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBathCityCode(), "bath_city_code"); }
     protected abstract ConditionValue xgetCValueBathCityCode();
 
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_Equal(String bathImage) {
+        doSetBathImage_Equal(fRES(bathImage));
+    }
+
+    protected void doSetBathImage_Equal(String bathImage) {
+        regBathImage(CK_EQ, bathImage);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_NotEqual(String bathImage) {
+        doSetBathImage_NotEqual(fRES(bathImage));
+    }
+
+    protected void doSetBathImage_NotEqual(String bathImage) {
+        regBathImage(CK_NES, bathImage);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_GreaterThan(String bathImage) {
+        regBathImage(CK_GT, fRES(bathImage));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_LessThan(String bathImage) {
+        regBathImage(CK_LT, fRES(bathImage));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_GreaterEqual(String bathImage) {
+        regBathImage(CK_GE, fRES(bathImage));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_LessEqual(String bathImage) {
+        regBathImage(CK_LE, fRES(bathImage));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImageList The collection of bathImage as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_InScope(Collection<String> bathImageList) {
+        doSetBathImage_InScope(bathImageList);
+    }
+
+    protected void doSetBathImage_InScope(Collection<String> bathImageList) {
+        regINS(CK_INS, cTL(bathImageList), xgetCValueBathImage(), "bath_image");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImageList The collection of bathImage as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setBathImage_NotInScope(Collection<String> bathImageList) {
+        doSetBathImage_NotInScope(bathImageList);
+    }
+
+    protected void doSetBathImage_NotInScope(Collection<String> bathImageList) {
+        regINS(CK_NINS, cTL(bathImageList), xgetCValueBathImage(), "bath_image");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_image: {TEXT(65535)} <br>
+     * <pre>e.g. setBathImage_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param bathImage The value of bathImage as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setBathImage_LikeSearch(String bathImage, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setBathImage_LikeSearch(bathImage, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_image: {TEXT(65535)} <br>
+     * <pre>e.g. setBathImage_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param bathImage The value of bathImage as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setBathImage_LikeSearch(String bathImage, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(bathImage), xgetCValueBathImage(), "bath_image", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setBathImage_NotLikeSearch(String bathImage, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setBathImage_NotLikeSearch(bathImage, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     * @param bathImage The value of bathImage as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setBathImage_NotLikeSearch(String bathImage, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(bathImage), xgetCValueBathImage(), "bath_image", likeSearchOption);
+    }
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * bath_image: {BLOB(65535)}
+     * bath_image: {TEXT(65535)}
      */
     public void setBathImage_IsNull() { regBathImage(CK_ISN, DOBJ); }
 
     /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * bath_image: {TEXT(65535)}
+     */
+    public void setBathImage_IsNullOrEmpty() { regBathImage(CK_ISNOE, DOBJ); }
+
+    /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * bath_image: {BLOB(65535)}
+     * bath_image: {TEXT(65535)}
      */
     public void setBathImage_IsNotNull() { regBathImage(CK_ISNN, DOBJ); }
 

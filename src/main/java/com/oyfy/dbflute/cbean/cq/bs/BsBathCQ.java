@@ -195,14 +195,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_image: {BLOB(65535)}
+     * bath_image: {TEXT(65535)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathImage_Asc() { regOBA("bath_image"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_image: {BLOB(65535)}
+     * bath_image: {TEXT(65535)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathImage_Desc() { regOBD("bath_image"); return this; }
