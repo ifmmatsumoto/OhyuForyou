@@ -15,6 +15,16 @@ public class OyfyConst {
         public int num() { return num; }
         public String str() { return str; }
     }
+    /** エリア区分 */
+    public static enum Division {
+        STATION(1, "/area/station"),
+        PREFECTUR(2, "/area/prefecture");
+        private int id;
+        private String str;
+        Division(int id, String str) { this.id=id; this.str=str; }
+        public int id() { return id; }
+        public String str() { return str; }
+    }
     /** 24時間フラグ */
     public static enum Flg24 {
         ON(1,  "24時間営業");

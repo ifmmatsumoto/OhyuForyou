@@ -14,6 +14,8 @@ public class PrefectureForm {
     String areaCode;
     /** 都道府コード */
     String areaName;
+    /** エリア区分 */
+    String action;
     /** 都道府県(地域)リスト */
     List<Prefecture> prefectureList;
 }

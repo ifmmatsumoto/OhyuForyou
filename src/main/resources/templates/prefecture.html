@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <header th:replace="common/header"></header>
 	<body>
-	<form method="POST" id="form" th:action="${action}" th:object="${formModel}">
-		<input type="hidden" id="pref_id" name="pref_id" value="">
-		<input type="hidden" id="pref_name" name="pref_name" value="">
+	<form method="POST" id="form" th:action="${prefectureForm.action}" th:object="${formModel}">
+		<input type="hidden" id="pref_id" name="areaCode" value="">
+		<input type="hidden" id="pref_name" name="areaName" value="">
 	</form>
 	<div class="container">
 		<div class="row margintop">

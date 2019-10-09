@@ -20,6 +20,7 @@ import com.c4c.oyfy.app.dto.StationDto;
 import com.c4c.oyfy.app.dto.StationDto.Response.Station;
 import com.c4c.oyfy.domain.prefecture.PrefectureService;
 import com.c4c.oyfy.domain.station.StationService;
+import com.c4c.oyfy.util.OyfyConst.Division;
 
 
 @Controller
@@ -32,7 +33,7 @@ public class PrefectureController extends _CommonController {
     PrefectureService prefectureService;
 
     /**
-     * 駅検索(日本)画面表示
+     * 駅/都道府県検索(日本)画面表示
      * @param form
      * @param model
      * @param req
@@ -45,12 +46,11 @@ public class PrefectureController extends _CommonController {
             throws OyfyException {
 
         //取得した区分から遷移先を変更する
-        String action = (form.division == 1) ? "/prefecture/area" : "/station/station";
-        //String action = ( 2 == 1) ? "/prefecture/area" : "/station/station";
-        model.addAttribute("action",action);
+        if (form.division == Division.STATION.id()) form.setAction(Division.STATION.str());
+        if (form.division == Division.PREFECTUR.id()) form.setAction(Division.PREFECTUR.str());
         System.out.println("検索(日本)画面表示");
 
-        // 駅検索(日本)画面表示
+        // 駅/都道府県検索(日本)画面表示
         return "prefecture";
     }
 
