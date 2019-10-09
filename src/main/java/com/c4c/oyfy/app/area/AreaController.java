@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.prefecture;
+package com.c4c.oyfy.app.area;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
@@ -18,12 +20,13 @@ import com.c4c.oyfy.app.dto.PrefectureDto;
 import com.c4c.oyfy.app.dto.PrefectureDto.Prefecture;
 import com.c4c.oyfy.app.dto.StationDto;
 import com.c4c.oyfy.app.dto.StationDto.Response.Station;
+import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.domain.prefecture.PrefectureService;
 import com.c4c.oyfy.domain.station.StationService;
 
 @Controller
 @RequestMapping("/area")
-public class PrefectureController extends _CommonController {
+public class AreaController extends _CommonController {
 
     @Autowired
     StationService stationService;
@@ -115,5 +118,31 @@ public class PrefectureController extends _CommonController {
 
         // 駅検索(地域選択)画面表示
         return "stationArea";
+    }
+
+    /**
+     * 検索結果（駅）画面表示
+     * @param form
+     * @param model
+     * @param req
+     * @param res
+     * @return
+     * @throws OyfyException
+     */
+    @RequestMapping(path = "/prefecture", method = RequestMethod.POST)
+    public String search(@ModelAttribute StationForm form, Model model) {
+
+        // 検索結果一覧画面表示
+        Conditions cond = new Conditions();
+//        String keyWord = IllustHelper.toKeyWord(form);
+//        cond.setKeyword(keyWord);
+//        cond.setFeeFrom(form.getFee_low());
+//        cond.setFeeTo(form.getFee_high());
+//
+//        ResultList resultList = bathService.findBathList(cond);
+//        model.addAttribute("resultList", resultList);
+
+    // 検索結果（駅）画面表示
+    return "searchResult";
     }
 }

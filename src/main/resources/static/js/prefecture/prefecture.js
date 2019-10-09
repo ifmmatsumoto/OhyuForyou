@@ -2,7 +2,10 @@
  *
  */
 function addName() {
-    $('form').submit();
+//    $(".itemList").each(function(i, o){
+//        $(o).attr('name', 'prefecture'+'['+ i + ']' + '.tagNameJa')
+//      });
+	$('form').submit();
 };
 
 // チェックボックスの全選択
