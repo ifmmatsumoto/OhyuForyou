@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.prefecture;
+package com.c4c.oyfy.app.area;
 
 import java.util.LinkedHashMap;
 import java.util.List;
