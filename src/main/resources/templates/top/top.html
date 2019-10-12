@@ -6,31 +6,38 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 <link rel="stylesheet" media="all" th:href="@{/css/top/top.css}" />
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" th:src="@{/js/top/top.js}"></script>
 </head>
-<body>
-  <div class="container">
-    <div class="row"style="position:relative; background-color: blue; background-image: url('/img/bk.png');padding-top: 75%;background-repeat: no-repeat;background-size:cover;background-position:center;">
-      <div class="col-md-4"  style="background-color: red ;position: absolute; top:10%;">
-
-      </div>
-      <div class="col-md-4"  style="background-color: red ;position: absolute; top:10%; left:30%;">
-a
-      </div>
-      <div class="col-md-4"  style="background-color: red ;position: absolute; top:10%; right:0;">
-a
-      </div>
-
+<body class="position-relative">
+    <div class="container-fluid position-absolute"  id="searchTypeRow">
+        <div class="row">
+                <div class="offset-md-2 col-md-2  col-4">
+                    <a href="/illust" ><img class="d-block mx-auto searchTypeImg" src="/img/menu_illust.png" /></a>
+                </div>
+                <div class="col-md-4 col-4">
+                    <a href="/area/station"><img class="d-block mx-auto searchTypeImg" src="/img/menu_train.png" /></a>
+                </div>
+                <div class="col-md-2 col-4">
+                    <a href="/"><img class="d-block mx-auto searchTypeImg" src="/img/menu_prefecture.png" /></a>
+                </div>
+        </div>
     </div>
-  </div>
-
-
-
-
-
-
-
-<!-- 共通フッター -->
-<div th:replace="footer"></div>
-
+    <div class="container-fluid position-absolute" style="bottom:11%;">
+        <div class="row">
+            <div class="offset-3" >
+                <form id="form" th:action="@{/keyword}" th:object="${topForm}" method="post" enctype="multipart/form-data">
+                    <input type="text" th:field="*{keyword}" placeholder="キーワード検索"/>
+                    <a href="#" onclick="test()"><img src="/img/button_search.png" style="width: 50px;"></a>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12" style="text-align: center;">
+                <!-- 現在値検索 -->
+                <a href="#" class="btn-square-shadow">現在地検索</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,6 +1,3 @@
-/**
- *
- */
 function chooseTag(tag){
     $id_num = tag.getAttribute('id').substring(3);
     $id = '.' + $id_num;
@@ -90,6 +87,3 @@ $(function() {
     $('#fee_low').val($('#slider').slider( 'values', 0 ));
     $('#fee_high').val($('#slider').slider( 'values', 1 ));
 } );
-
-
-
