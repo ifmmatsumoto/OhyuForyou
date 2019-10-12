@@ -34,9 +34,8 @@
                             <div th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.illustTag)}" onclick="chooseTag(this);">
                                 <input th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                                 <div  class="illust-div" style="position: relative;">
-                                    <img class="rounded-circle mt-md-2  illust-img bk-img"  src="/img/illust_icon_bg.png" />
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].illustTag}" style="width: 100px;" />
-                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png"  style="width: 100px;"/>
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/illust_check.png"  style="width: 100px;"/>
 
                                 </div>
                             </div>
@@ -67,9 +66,8 @@
                             <div class="illust-div" th:id="'id_' + ${itemStat.count}" th:each="img, itemStat : *{illustItemList}" th:if="${not #lists.isEmpty(img.ojijiTag)}" onclick="chooseTag(this);">
                                 <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                                 <p class="d-inline" style="position: relative;" >
-                                    <img class="rounded-circle mt-md-2 bk-img"  src="/img/illust_icon_bg.png" />
-                                    <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].ojijiTag}"/>
-                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png"  style="width: 100px;"/>
+                                    <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].ojijiTag}" style="width: 100px"/>
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/illust_check.png"  style="width: 100px;"/>
                                 </p>
                             </div>
                         </div>
