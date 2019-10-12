@@ -1,11 +1,3 @@
-var Base64 = {
-    encode: function(str) {
-        return btoa(unescape(encodeURIComponent(str)));
-    },
-    decode: function(str) {
-        return decodeURIComponent(escape(atob(str)));
-    }
-};
 function setBathDetail(bathId) {
 	// 銭湯詳細情報を取得
 	document.bathForm.bathId.value = bathId;

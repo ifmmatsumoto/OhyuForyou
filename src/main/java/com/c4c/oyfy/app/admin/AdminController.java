@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Base64;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.domain.bath.BathService;
-import com.oyfy.dbflute.exentity.BathTest;
+import com.oyfy.dbflute.exentity.Bath;
 
 @Controller
 @RequestMapping(value = {"/admin"})
@@ -60,7 +61,7 @@ public class AdminController {
      */
     @ResponseBody
     @RequestMapping(value = "detail", method = RequestMethod.POST)
-    public BathTest bath(AdminForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+    public Bath bath(AdminForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
 
         System.out.println("銭湯詳細画面表示"); // TODO
 
@@ -82,9 +83,12 @@ public class AdminController {
         // TODO 入力チェック
 
         if (!form.getInputImage().isEmpty()) {
-            // アップロードをbyteに変換
             try {
-                form.bath.setBathImage(getByteArray(form.getInputImage().getInputStream()));
+                // TODO ここで拡張子判定
+                byte[] b = getByteArray(form.getInputImage().getInputStream());
+                String bathImgStr = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(b);
+                form.bath.setBathImage(bathImgStr);
+                System.out.println(bathImgStr);
             } catch (Exception e) {
                 throw new OyfyException();
             }

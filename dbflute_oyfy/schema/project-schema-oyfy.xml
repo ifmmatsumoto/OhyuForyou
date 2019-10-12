@@ -32,15 +32,13 @@
         <column comment="銭湯 和名" dbType="VARCHAR" javaType="String"
             name="bath_name_ja" required="true" size="255" type="VARCHAR"/>
         <column comment="銭湯 英名" dbType="VARCHAR" javaType="String"
-            name="bath_name_en" required="true" size="255" type="VARCHAR"/>
+            name="bath_name_en" size="255" type="VARCHAR"/>
         <column comment="都道府県コード(国土交通省API使用コード)" dbType="INT"
-            javaType="Integer" name="bath_area_code" required="true"
-            size="10" type="INTEGER"/>
+            javaType="Integer" name="bath_area_code" size="10" type="INTEGER"/>
         <column comment="市区町村コード(国土交通省API使用コード)" dbType="INT"
-            javaType="Integer" name="bath_city_code" required="true"
-            size="10" type="INTEGER"/>
-        <column comment="サムネイル画像" dbType="VARCHAR" javaType="String"
-            name="bath_image" size="2100" type="VARCHAR"/>
+            javaType="Integer" name="bath_city_code" size="10" type="INTEGER"/>
+        <column comment="サムネイル画像" dbType="TEXT" javaType="String"
+            name="bath_image" size="65535" type="LONGVARCHAR"/>
         <column comment="住所 和名" dbType="VARCHAR" javaType="String"
             name="bath_address_ja" size="255" type="VARCHAR"/>
         <column comment="住所 英名" dbType="VARCHAR" javaType="String"
@@ -52,11 +50,9 @@
         <column comment="一般入浴料" dbType="INT" javaType="Integer"
             name="bath_fee" size="10" type="INTEGER"/>
         <column comment="銭湯種別(10:銭湯 20:スーパー銭湯)" dbType="INT"
-            javaType="Integer" name="bath_type" required="true"
-            size="10" type="INTEGER"/>
+            javaType="Integer" name="bath_type" size="10" type="INTEGER"/>
         <column comment="24時間フラグ(1:24時間営業)" dbType="INT"
-            javaType="Integer" name="bath_24h_flg" required="true"
-            size="10" type="INTEGER"/>
+            javaType="Integer" name="bath_24h_flg" size="10" type="INTEGER"/>
         <column comment="営業時間 開始" dbType="TIME"
             javaType="java.time.LocalTime" name="bath_time_st" size="8" type="TIME"/>
         <column comment="営業時間 終了" dbType="TIME"
@@ -69,15 +65,15 @@
             size="9, 6" type="DOUBLE"/>
         <column comment="温度 上限" dbType="DOUBLE"
             javaType="java.math.BigDecimal" name="bath_temperature_up"
-            size="3, 3" type="DOUBLE"/>
+            size="9, 6" type="DOUBLE"/>
         <column comment="温度 下限" dbType="DOUBLE"
             javaType="java.math.BigDecimal" name="bath_temperature_low"
-            size="3, 3" type="DOUBLE"/>
+            size="9, 6" type="DOUBLE"/>
         <column comment="定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)"
             dbType="INT" javaType="Integer" name="bath_holiday"
             size="10" type="INTEGER"/>
         <column comment="削除フラグ(1:削除済み)" dbType="INT" javaType="Integer"
-            name="del_flg" required="true" size="10" type="INTEGER"/>
+            name="del_flg" size="10" type="INTEGER"/>
         <column comment="作成日時" dbType="DATETIME"
             javaType="java.time.LocalDateTime" name="create_date"
             size="19" type="TIMESTAMP"/>
@@ -102,65 +98,6 @@
             <unique-column name="bath_id" position="1"/>
             <unique-column name="tag_id" position="2"/>
         </unique>
-    </table>
-    <table comment="銭湯テスト" name="bath_test"
-        schema="ohyuforyou_db.$$NoNameSchema$$" type="TABLE">
-        <column autoIncrement="true" comment="銭湯ID" dbType="INT"
-            javaType="Integer" name="bath_id" pkName="PRIMARY"
-            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
-        <column comment="銭湯 和名" dbType="VARCHAR" javaType="String"
-            name="bath_name_ja" required="true" size="255" type="VARCHAR"/>
-        <column comment="銭湯 英名" dbType="VARCHAR" javaType="String"
-            name="bath_name_en" required="true" size="255" type="VARCHAR"/>
-        <column comment="都道府県コード(国土交通省API使用コード)" dbType="INT"
-            default="0" javaType="Integer" name="bath_area_code"
-            size="10" type="INTEGER"/>
-        <column comment="市区町村コード(国土交通省API使用コード)" dbType="INT"
-            default="0" javaType="Integer" name="bath_city_code"
-            size="10" type="INTEGER"/>
-        <column comment="サムネイル画像" dbType="LONGBLOB" javaType="byte[]"
-            name="bath_image" size="2147483647" type="LONGVARBINARY"/>
-        <column comment="住所 和名" dbType="VARCHAR" javaType="String"
-            name="bath_address_ja" size="255" type="VARCHAR"/>
-        <column comment="住所 英名" dbType="VARCHAR" javaType="String"
-            name="bath_address_en" size="255" type="VARCHAR"/>
-        <column comment="電話番号" dbType="VARCHAR" javaType="String"
-            name="bath_tel" size="15" type="VARCHAR"/>
-        <column comment="詳細情報" dbType="VARCHAR" javaType="String"
-            name="bath_detail" size="255" type="VARCHAR"/>
-        <column comment="一般入浴料" dbType="INT" default="0"
-            javaType="Integer" name="bath_fee" size="10" type="INTEGER"/>
-        <column comment="銭湯種別(10:銭湯 20:スーパー銭湯)" dbType="INT"
-            default="10" javaType="Integer" name="bath_type" size="10" type="INTEGER"/>
-        <column comment="24時間フラグ(1:24時間営業)" dbType="INT" default="0"
-            javaType="Integer" name="bath_24h_flg" size="10" type="INTEGER"/>
-        <column comment="営業時間 開始" dbType="TIME"
-            javaType="java.time.LocalTime" name="bath_time_st" size="8" type="TIME"/>
-        <column comment="営業時間 終了" dbType="TIME"
-            javaType="java.time.LocalTime" name="bath_time_ed" size="8" type="TIME"/>
-        <column comment="位置情報 緯度" dbType="DOUBLE"
-            javaType="java.math.BigDecimal" name="bath_place_lat"
-            size="9, 6" type="DOUBLE"/>
-        <column comment="位置情報 経度" dbType="DOUBLE"
-            javaType="java.math.BigDecimal" name="bath_place_lon"
-            size="9, 6" type="DOUBLE"/>
-        <column comment="温度 上限" dbType="DOUBLE"
-            javaType="java.math.BigDecimal" name="bath_temperature_up"
-            size="3, 3" type="DOUBLE"/>
-        <column comment="温度 下限" dbType="DOUBLE"
-            javaType="java.math.BigDecimal" name="bath_temperature_low"
-            size="3, 3" type="DOUBLE"/>
-        <column comment="定休日(ビット演算で判定 1:日 2:月 4:火 8:水 16:木 32:金 64:土)"
-            dbType="INT" javaType="Integer" name="bath_holiday"
-            size="10" type="INTEGER"/>
-        <column comment="削除フラグ(1:削除済み)" dbType="INT" default="0"
-            javaType="Integer" name="del_flg" size="10" type="INTEGER"/>
-        <column comment="作成日時" dbType="DATETIME"
-            javaType="java.time.LocalDateTime" name="create_date"
-            size="19" type="TIMESTAMP"/>
-        <column comment="更新日時" dbType="DATETIME"
-            javaType="java.time.LocalDateTime" name="update_date"
-            size="19" type="TIMESTAMP"/>
     </table>
     <table comment="駅" name="station"
         schema="ohyuforyou_db.$$NoNameSchema$$" type="TABLE">

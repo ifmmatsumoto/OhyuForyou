@@ -1,7 +1,7 @@
 package com.c4c.oyfy.domain.bath;
 
 import com.c4c.oyfy.app.search.ResultList;
-import com.oyfy.dbflute.exentity.BathTest;
+import com.oyfy.dbflute.exentity.Bath;
 
 public interface BathRepository {
     /**
@@ -19,11 +19,11 @@ public interface BathRepository {
      * @param bathId
      * @return
      */
-    public BathTest findBathDetail(int bathId);
+    public Bath findBathDetail(int bathId);
 
     /**
      * 銭湯登録
      * @return
      */
-    public void registBath(BathTest bath);
+    public void registBath(Bath bath);
 }

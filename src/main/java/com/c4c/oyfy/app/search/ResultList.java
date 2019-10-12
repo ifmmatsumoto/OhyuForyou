@@ -9,9 +9,11 @@ import lombok.Data;
 @Data
 public class ResultList {
     /** 検索キーワード */
-    String keyword;
+    private String keyword;
     /** 検索キーワード一覧 */
-    List<String> keywordList;
+    private List<String> keywordList;
     /** ページ情報を含めた検索結果  */
-    PagingResultBean<?> page;
+    private PagingResultBean<?> page;
+    /** 銭湯画像 */
+    private String dispBathImg;
 }

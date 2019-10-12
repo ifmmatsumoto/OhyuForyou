@@ -49,7 +49,7 @@
             <a th:href="@{/bath(bathId=*{bathId})}">
                 <span class="bath">
                     <!-- サムネイル画像 -->
-                    <img class="bathImg" th:src="*{bathImage}" />
+                    <img class="bathImg" th:if="*{bathImage != null}" th:src="*{bathImage}" />
                     <span class="bathInfo">
                         <!-- 銭湯名 -->
                         <label th:text="*{bathNameJa}" class="bathNameJa"></label>

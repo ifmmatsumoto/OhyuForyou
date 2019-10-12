@@ -322,22 +322,22 @@ public class BsBathCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnBathNameJa() { return doColumn("bath_name_ja"); }
         /**
-         * bath_name_en: {NotNull, VARCHAR(255)}
+         * bath_name_en: {VARCHAR(255)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathNameEn() { return doColumn("bath_name_en"); }
         /**
-         * bath_area_code: {NotNull, INT(10)}
+         * bath_area_code: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathAreaCode() { return doColumn("bath_area_code"); }
         /**
-         * bath_city_code: {NotNull, INT(10)}
+         * bath_city_code: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathCityCode() { return doColumn("bath_city_code"); }
         /**
-         * bath_image: {VARCHAR(2100)}
+         * bath_image: {TEXT(65535)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathImage() { return doColumn("bath_image"); }
@@ -367,12 +367,12 @@ public class BsBathCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnBathFee() { return doColumn("bath_fee"); }
         /**
-         * bath_type: {NotNull, INT(10)}
+         * bath_type: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathType() { return doColumn("bath_type"); }
         /**
-         * bath_24h_flg: {NotNull, INT(10)}
+         * bath_24h_flg: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBath24hFlg() { return doColumn("bath_24h_flg"); }
@@ -397,12 +397,12 @@ public class BsBathCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnBathPlaceLon() { return doColumn("bath_place_lon"); }
         /**
-         * bath_temperature_up: {DOUBLE(3, 3)}
+         * bath_temperature_up: {DOUBLE(9, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathTemperatureUp() { return doColumn("bath_temperature_up"); }
         /**
-         * bath_temperature_low: {DOUBLE(3, 3)}
+         * bath_temperature_low: {DOUBLE(9, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBathTemperatureLow() { return doColumn("bath_temperature_low"); }
@@ -412,7 +412,7 @@ public class BsBathCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnBathHoliday() { return doColumn("bath_holiday"); }
         /**
-         * del_flg: {NotNull, INT(10)}
+         * del_flg: {INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDelFlg() { return doColumn("del_flg"); }
