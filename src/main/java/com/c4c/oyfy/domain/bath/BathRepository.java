@@ -2,6 +2,8 @@ package com.c4c.oyfy.domain.bath;
 
 import com.c4c.oyfy.app.search.ResultList;
 import com.oyfy.dbflute.exentity.Bath;
+import com.c4c.oyfy.app.top.CurrentLocationForm;
+
 
 public interface BathRepository {
     /**
@@ -26,4 +28,7 @@ public interface BathRepository {
      * @return
      */
     public void registBath(Bath bath);
+
+    public ResultList findNearbyBath(CurrentLocationForm currentLocationForm);
+
 }

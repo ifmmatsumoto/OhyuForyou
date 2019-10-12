@@ -59,6 +59,8 @@ public abstract class BsBathBhv extends AbstractBehaviorWritable<Bath, BathCB> {
     //                                                                          Definition
     //                                                                          ==========
     /*df:beginQueryPath*/
+    /** 周辺にある銭湯の検索 */
+    public static final String PATH_selectNearbyBath = "selectNearbyBath";
     /*df:endQueryPath*/
 
     // ===================================================================================

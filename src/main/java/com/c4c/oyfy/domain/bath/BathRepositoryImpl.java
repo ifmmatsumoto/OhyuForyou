@@ -1,5 +1,6 @@
 package com.c4c.oyfy.domain.bath;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +10,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import com.c4c.oyfy.app.search.ResultList;
+import com.c4c.oyfy.app.top.CurrentLocationForm;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exbhv.pmbean.NearbyBathPmb;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -44,6 +47,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
                 // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
                 if(feeFrom != null && feeTo != null) {
                     cb.query().setBathFee_RangeOf(feeFrom, feeTo, op -> op.getCalculationRange());
+
                 }
                 cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
             }));
@@ -100,5 +104,18 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
             // 更新
             bathBhv.update(bath);
         }
+    }
+    public ResultList findNearbyBath(CurrentLocationForm form) {
+        // ページ情報を含めた検索結果
+        ResultList resultList = new ResultList();
+
+        NearbyBathPmb pmb = new NearbyBathPmb();
+        pmb.setBath_place_lat(BigDecimal.valueOf(form.getLatitude()));
+        pmb.setBath_place_lon(BigDecimal.valueOf(form.getLongitude()));
+        pmb.setDistance(form.getDistance());
+        pmb.paging(PAGE_SIZE, 1);
+        resultList.setPage(bathBhv.outsideSql().selectPage(pmb));
+
+        return resultList;
     }
 }

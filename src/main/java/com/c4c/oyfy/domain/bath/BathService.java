@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
 import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.app.search.ResultList;
 import com.oyfy.dbflute.exentity.Bath;
-
+import com.c4c.oyfy.app.top.CurrentLocationForm;
 @Service
 @Transactional
 public class BathService {
@@ -53,5 +53,9 @@ public class BathService {
      */
     public void registBath(Bath bath) {
         bathRepository.registBath(bath);
+    }
+
+    public ResultList findNearbyBath(CurrentLocationForm currentLocationForm) {
+        return bathRepository.findNearbyBath(currentLocationForm);
     }
 }
