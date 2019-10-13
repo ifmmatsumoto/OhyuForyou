@@ -8,6 +8,19 @@
 <link rel="stylesheet" media="all" th:href="@{/css/top/top.css}" />
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script type="text/javascript" th:src="@{/js/top/top.js}"></script>
+<script>
+	function getCuurentLocation() {
+	    navigator.geolocation.getCurrentPosition(searchNearnyBath);
+	}
+
+	function searchNearnyBath(position) {
+	    document.getElementById('latitude').value = position.coords.latitude;
+	    document.getElementById('longitude').value = position.coords.longitude;
+
+	    $('#cuurentLocationSearch').submit();
+	}
+</script>
+
 </head>
 <body class="position-relative">
     <div class="container-fluid position-absolute"  id="searchTypeRow">
@@ -35,9 +48,16 @@
         <div class="row mt-4">
             <div class="col-12" style="text-align: center;">
                 <!-- 現在値検索 -->
-                <a href="#" class="btn-square-shadow">現在地検索</a>
+                <a href="#" onclick="getCuurentLocation()" class="btn-square-shadow">現在地検索</a>
+                <form id="cuurentLocationSearch" th:action="@{/nearbyBath}" th:object="${topForm}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" th:field="*{latitude}" />
+                    <input type="hidden" th:field="*{longitude}"/>
+                </form>
             </div>
         </div>
+
+
+
     </div>
 </body>
 </html>

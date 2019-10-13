@@ -1,4 +1,3 @@
-function test(){
-    alert("aaa")
-    $('form').submit();
+function searchByKeyWord(){
+    $('#keyword').submit();
 }

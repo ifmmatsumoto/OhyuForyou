@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import com.c4c.oyfy.app.search.ResultList;
-import com.c4c.oyfy.app.top.CurrentLocationForm;
+import com.c4c.oyfy.app.top.TopForm;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
-import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exbhv.pmbean.NearbyBathPmb;
+import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -105,7 +105,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
             bathBhv.update(bath);
         }
     }
-    public ResultList findNearbyBath(CurrentLocationForm form) {
+    public ResultList findNearbyBath(TopForm form) {
         // ページ情報を含めた検索結果
         ResultList resultList = new ResultList();
 

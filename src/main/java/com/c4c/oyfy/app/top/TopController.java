@@ -13,7 +13,6 @@ import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
 import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.app.search.ResultList;
-import com.c4c.oyfy.app.test.TopForm;
 import com.c4c.oyfy.domain.bath.BathService;
 
 @Controller
@@ -67,14 +66,10 @@ public class TopController extends _CommonController {
     }
 
     @RequestMapping(path = "nearbyBath", method = RequestMethod.POST)
-    public String searchNearbyBath(CurrentLocationForm form, Model model) {
-        form.setDistance(3);// 半径何キロをセットする
+    public String searchNearbyBath(TopForm form, Model model) {
+        form.setDistance(3);// 半径
         ResultList resultList = bathService.findNearbyBath(form);
         model.addAttribute("resultList", resultList);
         return "searchResult";
-    }
-    @RequestMapping(path = "nearbyBath", method = RequestMethod.GET)
-    public String dispNearbyBath(CurrentLocationForm currentLocationForm) {
-        return "currentLocationTest";
     }
 }

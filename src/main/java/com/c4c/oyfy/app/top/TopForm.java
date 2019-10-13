@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.test;
+package com.c4c.oyfy.app.top;
 
 import com.c4c.oyfy.app._Common_Form;
 
@@ -10,4 +10,8 @@ import lombok.EqualsAndHashCode;
 public class TopForm extends _Common_Form {
     /** キーワード */
     String keyword;
+
+    double longitude;
+    double latitude;
+    int distance;
 }
