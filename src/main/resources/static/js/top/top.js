@@ -1,3 +1,3 @@
-function searchByKeyWord(){
+function test(){
     $('#keyword').submit();
 }
