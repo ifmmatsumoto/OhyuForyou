@@ -12,11 +12,9 @@
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
-    <div class="container-fluid" id="outline" layout:fragment="contents"
-        style="background-color: #FFFFFF;">
+    <div class="container-fluid" id="outline" layout:fragment="contents" style="background-color: #FFFFFF;">
         <div class="col-md-5 offset-md-5">
-            <input type="button" class="btn btn-primary btn-lg"
-                onclick="addName();" value=駅名検索>
+            <input type="button" class="btn btn-primary btn-lg" onclick="addName();" value=駅名検索>
         </div>
         <div class="row">
             <table id=search_station class="table table-bordered">
@@ -34,7 +32,7 @@
                 </tr>
             </table>
             <form id="form" class="form-inline" action="#"
-                th:action="@{/prefecture}" th:object="${prefectureSearchForm}"
+                th:action="@{/area/searchStation}" th:object="${prefectureSearchForm}"
                 method="post">
                 <input type="hidden" id="fee_low" name="fee_low" /> <input
                     type="hidden" id="fee_high" name="fee_high" />
