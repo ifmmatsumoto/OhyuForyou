@@ -20,3 +20,5 @@ $(function(){
         $(this).removeAttr('style');
         backgroundColor = $('.jp_map li:nth-child(this) a').css('background-color');
         $(this).css('background-color', backgroundColor);
+    }
+});
