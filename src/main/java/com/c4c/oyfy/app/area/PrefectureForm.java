@@ -12,7 +12,7 @@ public class PrefectureForm {
     Integer division;
     /** 都道府コード */
     String areaCode;
-    /** 都道府コード */
+    /** 都道府県名 */
     String areaName;
     /** エリア区分 */
     String action;

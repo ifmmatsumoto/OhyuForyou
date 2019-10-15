@@ -1,14 +1,13 @@
 /**
  *
  */
-function addName() {
-//    $(".itemList").each(function(i, o){
-//        $(o).attr('name', 'prefecture'+'['+ i + ']' + '.tagNameJa')
-//      });
+function searchPrefecture() {
+    $(".itemList").each(function(i, o){
+        $(o).attr('name', 'prefectureList'+'['+ i + ']' + '.tagNameJa')
+      });
 	$('form').submit();
 };
 
-// チェックボックスの全選択
 $(function() {
 
     // 「全てにチェック」のチェックボックスをチェックしたら発動

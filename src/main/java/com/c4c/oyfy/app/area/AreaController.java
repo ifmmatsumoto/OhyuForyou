@@ -21,6 +21,8 @@ import com.c4c.oyfy.app.dto.PrefectureDto.Prefecture;
 import com.c4c.oyfy.app.dto.StationDto;
 import com.c4c.oyfy.app.dto.StationDto.Response.Station;
 import com.c4c.oyfy.app.search.Conditions;
+import com.c4c.oyfy.app.search.ResultList;
+import com.c4c.oyfy.domain.bath.BathService;
 import com.c4c.oyfy.domain.prefecture.PrefectureService;
 import com.c4c.oyfy.domain.station.StationService;
 import com.c4c.oyfy.util.OyfyConst.Division;
@@ -33,6 +35,9 @@ public class AreaController extends _CommonController {
     StationService stationService;
     @Autowired
     PrefectureService prefectureService;
+    @Autowired
+    BathService bathService;
+
 
     /**
      * 駅/都道府県検索(日本)画面表示
@@ -47,13 +52,15 @@ public class AreaController extends _CommonController {
     public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
+        form.setDivision(1);
+
         //取得した区分から遷移先を変更する
         if (form.division == Division.STATION.id()) form.setAction(Division.STATION.str());
         if (form.division == Division.PREFECTUR.id()) form.setAction(Division.PREFECTUR.str());
         System.out.println("検索(日本)画面表示");
 
         // 駅/都道府県検索(日本)画面表示
-        return "prefecture";
+        return "area";
     }
 
     /**
@@ -71,15 +78,22 @@ public class AreaController extends _CommonController {
 
         System.out.println("都道府県検索(地域)画面表示");
 
-        // TODO:test、AreaCodeは連携される都道府県コード
+        // test
         form.setAreaCode("13");
+
+        // こちらで連携された都道府県コードを取得する
+        form.getAreaCode();
 
         PrefectureDto prefectureDto = prefectureService.findPrefectureList(form.getAreaCode());
 
         List<Prefecture> prefectureList = prefectureDto.getData();
 
-        // TODO:test、areaNameは連携される都道府県名、dataは市区町村apiのresponse
+        // test
         form.setAreaName("東京都");
+
+        // areaNameは連携される都道府県名
+        form.getAreaName();
+
         form.setPrefectureList(prefectureList);
 
         // 都道府県検索(地域)画面表示
@@ -99,8 +113,10 @@ public class AreaController extends _CommonController {
     public String station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
-        // TODO:都道府県名が連携されるようになったら消す
+        // test
         form.setAreaName("佐賀県");
+
+        form.getAreaName();
 
         // 都道府県名から路線リストを取得
         LineDto lineDto = stationService.findLineList(form.getAreaName());
@@ -125,7 +141,7 @@ public class AreaController extends _CommonController {
     }
 
     /**
-     * 検索結果（駅）画面表示
+     * 検索結果（都道府県）画面表示
      * @param form
      * @param model
      * @param req
@@ -134,7 +150,31 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping(path = "/prefecture", method = RequestMethod.POST)
-    public String search(@ModelAttribute StationForm form, Model model) {
+    public String searchPrefecture(@ModelAttribute PrefectureSearchForm form, Model model) {
+
+      // 検索結果一覧画面表示
+      Conditions cond = new Conditions();
+      String keyWord = PrefectureHelper.toKeyWord(form);
+      cond.setKeyword(keyWord);
+
+      ResultList resultList = bathService.findBathList(cond);
+      model.addAttribute("resultList", resultList);
+
+        // 検索結果（都道府県）画面表示
+        return "searchResult";
+    }
+
+    /**
+     * 検索結果（駅）画面表示
+     * @param form
+     * @param model
+     * @param req
+     * @param res
+     * @return
+     * @throws OyfyException
+     */
+    @RequestMapping(path = "/station", method = RequestMethod.POST)
+    public String searchStation(@ModelAttribute StationForm form, Model model) {
 
         // 検索結果一覧画面表示
         Conditions cond = new Conditions();
@@ -143,10 +183,11 @@ public class AreaController extends _CommonController {
 //        cond.setFeeFrom(form.getFee_low());
 //        cond.setFeeTo(form.getFee_high());
 //
-//        ResultList resultList = bathService.findBathList(cond);
-//        model.addAttribute("resultList", resultList);
+        ResultList resultList = bathService.findBathList(cond);
+        model.addAttribute("resultList", resultList);
 
-    // 検索結果（駅）画面表示
-    return "searchResult";
+        // 検索結果（駅）画面表示
+        return "prefectureArea";
     }
+
 }
