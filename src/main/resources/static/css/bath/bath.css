@@ -3,12 +3,6 @@
 p {
  margin-bottom: 0;
 }
-/* コンテナ */
-.container {
-  text-align: center;
-  padding: 0;
-  width: 95%;
-}
 .bathNameJa {
  font-size: 30px;
 }
@@ -16,12 +10,13 @@ p {
  font-size: 15px;
 }
 .frame {
-    display: inline-block;
-    position: relative;
+ display: inline-block;
+ position: relative;
 }
 .bathImg {
  width: 95%;
- margin: 20px 0;
+ margin: 20px auto;
+ display: block;
  max-width: 700px;
  padding: 11px;
  background-color: #FFFFFF;

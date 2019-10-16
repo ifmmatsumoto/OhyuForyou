@@ -4,11 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" media="all" th:href="@{/css/bath/bath.css?v1}" />
+<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/bath/bath.css}" />
 <script type="text/javascript" th:src="@{/js/bath/bath.js}"></script>
 <script src="https://kit.fontawesome.com/a293a46691.js"></script>
 </head>
 <body>
+<!-- 共通ヘッダー -->
+<div th:replace="header"></div>
 <div class="container">
     <p class="bathNameJa"  th:text="${bathForm.bath.bathNameJa}"/>
     <p class="bathNameEn" th:text="${bathForm.bath.bathNameEn}"/>
