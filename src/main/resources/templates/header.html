@@ -3,7 +3,7 @@
     <a href="/"><img src="/img/header.png" class="header" /></a>
     <!-- 検索ボックス -->
     <form th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
-        <input type="text" name="keyword" class="headSearch" placeholder="銭湯　おじじ" onEnter="document.form.submit()" autocomplete="off" maxlength="60">
+        <input type="text" name="keyword" class="headSearch" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit()" autocomplete="off" maxlength="60">
         <button type="submit" class="sbtn"><i class="fas fa-search"></i></button>
     </form>
 </header>
