@@ -15,4 +15,5 @@ logging:
   level:
     org.dbflute: DEBUG
     org.docksidestage : DEBUG
-    org.springframework.jdbc.datasource.DataSourceTransactionManager: DEBUG      
+    org.springframework.jdbc.datasource.DataSourceTransactionManager: DEBUG
+    
