@@ -9,6 +9,8 @@ header {
 /* ヘッダー画像 */
 header img.header {
  width: 100%;
+ z-index: 1;
+ position: relative;
 }
 header form {
  position: relative;
@@ -34,11 +36,6 @@ header form {
  font-size: 16px;
  outline: none;
  background-color: #acacac;
- z-index: 1;
-}
-
-.headSearch:focus {
- outline: none;
 }
 /* ヘッダー検索ボックスプレースホルダー */
 *::-webkit-input-placeholder { color: #fff; }
