@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
@@ -149,7 +148,7 @@ public class AreaController extends _CommonController {
      * @return
      * @throws OyfyException
      */
-    @RequestMapping(path = "/prefecture", method = RequestMethod.POST)
+    @RequestMapping("/prefectureSearch")
     public String searchPrefecture(@ModelAttribute PrefectureSearchForm form, Model model) {
 
       // 検索結果一覧画面表示
@@ -173,7 +172,7 @@ public class AreaController extends _CommonController {
      * @return
      * @throws OyfyException
      */
-    @RequestMapping(path = "/station", method = RequestMethod.POST)
+    @RequestMapping("/stationSearch")
     public String searchStation(@ModelAttribute StationForm form, Model model) {
 
         // 検索結果一覧画面表示
@@ -187,7 +186,7 @@ public class AreaController extends _CommonController {
         model.addAttribute("resultList", resultList);
 
         // 検索結果（駅）画面表示
-        return "prefectureArea";
+        return "searchResult";
     }
 
 }
