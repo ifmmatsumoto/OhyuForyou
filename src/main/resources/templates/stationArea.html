@@ -6,40 +6,34 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all"
     th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" media="all"
-    th:href="@{/css/area/station.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/area/station.css}" />
 <link rel="stylesheet"
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
-    <div class="container-fluid" id="outline" layout:fragment="contents"
-        style="background-color: #FFFFFF;">
-        <div class="col-md-5 offset-md-5">
-            <input type="button" class="btn btn-primary btn-lg"
-                onclick="addName();" value=駅名検索>
-        </div>
-        <div class="row">
-            <table id=search_station class="table table-bordered">
-                <tr th:each="line : ${stationForm.line}">
-                    <td class="line-name" align="center">
-                        <div class="line-name-text" th:text="${line.key}"></div> <input
-                        id="all" name="lineCheck" type="checkbox">
-                    </td>
-                    <td>
-                        <div class="station-name" th:each="stationList : ${line.value}">
-                            <label><input name="stations" type="checkbox"
-                                th:text="${stationList.name}" th:value="${line.value}"></label>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <form id="form" class="form-inline" action="#"
-                th:action="@{/prefecture}" th:object="${prefectureSearchForm}"
-                method="post">
-                <input type="hidden" id="fee_low" name="fee_low" /> <input
-                    type="hidden" id="fee_high" name="fee_high" />
-            </form>
-        </div>
+    <div class="container-fluid" id="outline" layout:fragment="contents" style="background-color: #FFFFFF;">
+        <form id="form" class="form-inline" action="#" th:action="@{/area/stationSearch}" th:object="${stationSearchForm}" method="post">
+            <div class="col-md-5 offset-md-5">
+                <input type="button" class="btn btn-primary btn-lg" onclick="searchStation();" value=駅名検索>
+            </div>
+            <div class="row">
+                <table id=search_station class="table table-bordered">
+                    <tr th:each="line : ${stationForm.line}">
+                        <td class="line-name" align="center">
+                            <div class="line-name-text" th:text="${line.key}"></div>
+                            <input id="all" name="lineCheck" type="checkbox">
+                        </td>
+                        <td>
+                            <div class="station-name" th:each="stationList : ${line.value}">
+                                <label>
+                                    <input type="checkbox" name="stationNames" th:text="${stationList.name}" th:value="${stationList.name}">
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-1.6.2.js"></script>

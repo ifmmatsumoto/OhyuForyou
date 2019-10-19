@@ -170,15 +170,13 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("/stationSearch")
-    public String searchStation(@ModelAttribute StationForm form, Model model) {
+    public String searchStation(@ModelAttribute StationSearchForm form, Model model) {
 
         // 検索結果一覧画面表示
         Conditions cond = new Conditions();
-//        String keyWord = IllustHelper.toKeyWord(form);
-//        cond.setKeyword(keyWord);
-//        cond.setFeeFrom(form.getFee_low());
-//        cond.setFeeTo(form.getFee_high());
-//
+        String keyWord = StationHelper.toKeyWord(form);
+        cond.setKeyword(keyWord);
+
         ResultList resultList = bathService.findBathList(cond);
         model.addAttribute("resultList", resultList);
 
