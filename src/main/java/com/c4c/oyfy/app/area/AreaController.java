@@ -50,13 +50,10 @@ public class AreaController extends _CommonController {
     @RequestMapping
     public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
-
-        form.setDivision(1);
-
+        System.out.println("検索(日本)画面表示");
         //取得した区分から遷移先を変更する
         if (form.division == Division.STATION.id()) form.setAction(Division.STATION.str());
         if (form.division == Division.PREFECTUR.id()) form.setAction(Division.PREFECTUR.str());
-        System.out.println("検索(日本)画面表示");
 
         // 駅/都道府県検索(日本)画面表示
         return "area";

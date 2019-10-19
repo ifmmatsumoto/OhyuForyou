@@ -31,10 +31,10 @@
                     <a th:href="@{illust}" ><img class="d-block mx-auto searchTypeImg" th:src="@{/img/top_menu_illust.png}" /></a>
                 </div>
                 <div class="col-md-4 col-4">
-                    <a href="/area/prefecture"><img class="d-block mx-auto searchTypeImg" th:src="@{/img/top_menu_prefecture.png}" /></a>
+                    <a th:href="@{/area/(division=${1})}"><img class="d-block mx-auto searchTypeImg" th:src="@{/img/top_menu_prefecture.png}" /></a>
                 </div>
                 <div class="col-md-2 col-4">
-                    <a th:href="@{/area/station}"><img class="d-block mx-auto searchTypeImg"  th:src="@{/img/top_menu_train.png}" /></a>
+                    <a th:href="@{/area/(division=${2})}"><img class="d-block mx-auto searchTypeImg"  th:src="@{/img/top_menu_train.png}" /></a>
                 </div>
         </div>
     </div>
