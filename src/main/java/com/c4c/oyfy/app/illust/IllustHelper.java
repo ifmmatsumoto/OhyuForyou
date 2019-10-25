@@ -42,9 +42,9 @@ public class IllustHelper {
     }
 
     public enum ImgPath {
-        ILLUST("illust", "/img/illust/"),
-        OJIJI("ojiji", "/img/ojiji/"),
-        TEMPERATURE("temperature","/img/temperature/"),
+        ILLUST("illust", "/oyfy/img/illust/"),
+        OJIJI("ojiji", "/oyfy/img/ojiji/"),
+        TEMPERATURE("temperature","/oyfy/img/temperature/"),
         ;
 
         private final String imgPath;
