@@ -1,6 +1,6 @@
 <header>
     <!-- ヘッダー画像 -->
-    <a href="/"><img src="/oyfy/img/header.png" class="header" /></a>
+    <a href="/oyfy"><img src="/oyfy/img/header.png" class="header" /></a>
     <!-- 検索ボックス -->
     <form th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
         <input type="text" name="keyword" class="headSearch" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit()" autocomplete="off" maxlength="60">
