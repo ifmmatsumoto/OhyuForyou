@@ -1,8 +1,11 @@
 package com.c4c.oyfy.domain.bath;
 
+import java.util.List;
+
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.app.top.TopForm;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.Tag;
 
 
 public interface BathRepository {
@@ -22,6 +25,13 @@ public interface BathRepository {
      * @return
      */
     public Bath findBathDetail(int bathId);
+
+    /**
+     * 銭湯IDを元にタグ一覧を取得
+     * @param bathId
+     * @return
+     */
+    public List<Tag> findTagList(int bathId);
 
     /**
      * 銭湯登録

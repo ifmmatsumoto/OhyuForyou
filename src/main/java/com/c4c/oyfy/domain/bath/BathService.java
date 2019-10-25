@@ -1,6 +1,7 @@
 package com.c4c.oyfy.domain.bath;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.app.top.TopForm;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.Tag;
 @Service
 @Transactional
 public class BathService {
@@ -45,6 +47,14 @@ public class BathService {
      */
     public Bath findBathDetail(int bathId) {
         return bathRepository.findBathDetail(bathId);
+    }
+
+    /**
+     * 銭湯IDを元にタグ一覧を取得
+     * @return
+     */
+    public List<Tag> findTagList(int bathId) {
+        return bathRepository.findTagList(bathId);
     }
 
     /**

@@ -17,7 +17,7 @@
 	<div class="container">
         <h3>検索結果一覧</h3>
 		<div class="searchCond">
-		    <label class="title">検索条件：</label>
+		    <label class="title">検索条件</label>
 		    <span th:if="${#strings.isEmpty(resultList.keyword)}">キーワード未設定</span>
 		    <!-- 検索キーワード一覧 -->
 		    <ul th:if="!${#strings.isEmpty(resultList.keyword)}" th:each="keyword:${resultList.keywordList}" class="tags">
