@@ -41,14 +41,13 @@
 	        </tr>
 	        <tr>
     	        <th>銭湯種別</th>
-	            <td><i class="fa fa-bath"></i>
-                                               <span th:switch="${bathForm.bath.bathType}" class="bathType">
-                                        <label th:case="10"><img class="bathTypeImg" src="/oyfy/img/bath_sento.png" /></label>
-                                        <label th:case="20"><img class="bathTypeImg" src="/oyfy/img/bath_super.png" /></label>
-                                        <label th:case="30"><img class="bathTypeImg" src="/oyfy/img/bath_onsen.png" /></label>
-                                    </span>
-
-</td>
+	            <td>
+                    <span th:switch="${bathForm.bath.bathType}" class="bathType">
+                        <label th:case="10"><img class="bathTypeImg" src="/oyfy/img/bath_sento.png" /></label>
+                        <label th:case="20"><img class="bathTypeImg" src="/oyfy/img/bath_super.png" /></label>
+                        <label th:case="30"><img class="bathTypeImg" src="/oyfy/img/bath_onsen.png" /></label>
+                    </span>
+                </td>
   	        </tr>
 	        <tr>
 	            <th>24時間フラグ</th>
