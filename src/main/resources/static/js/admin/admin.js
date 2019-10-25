@@ -2,7 +2,7 @@ function setBathDetail(bathId) {
 	// 銭湯詳細情報を取得
 	document.bathForm.bathId.value = bathId;
 	var form = document.getElementById("bathForm");
-	$.ajax("/admin/detail", {
+	$.ajax("/oyfy/admin/detail", {
 		type: 'post',
 		data: $(form).serialize(),
 		dataType: 'json'

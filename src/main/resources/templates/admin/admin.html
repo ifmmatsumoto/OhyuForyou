@@ -37,7 +37,7 @@
             <td><label th:text="${bath.bathNameJa}"></label></td>
             <td><label th:text="${bath.createDate}"></label></td>
             <td><label th:text="${bath.updateDate}"></label></td>
-            <td class="actionBtn"><a th:href="@{/bath(bathId=*{bathId})}">詳細</a><a href="#regist" th:attr="onclick='setBathDetail(' + ${bath.bathId} + ');'">編集</a></td>
+            <td class="actionBtn"><a th:href="@{/bath(bathId=${bath.bathId})}">詳細</a><a href="#regist" th:attr="onclick='setBathDetail(' + ${bath.bathId} + ');'">編集</a></td>
         </tr>
       </table>
     </div>

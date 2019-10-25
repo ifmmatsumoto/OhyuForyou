@@ -83,6 +83,11 @@ div.searchCount {
     right: 10px;
     top: 8px;
 }
+.bathTypeImg {
+ width: 30px;
+ top: 0px;
+ right: 2px;
+}
 /* 営業時間 */
 .bathTime {
     display: block;
@@ -107,6 +112,7 @@ i.fa {
     text-align: center;
     font-size: 15px;
 }
+
 /* スマートフォン向けレイアウト */
 @media screen and (max-width:767px) {
     /* 銭湯リスト */

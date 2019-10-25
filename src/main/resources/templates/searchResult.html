@@ -67,9 +67,9 @@
 		                            </span>
 		                            <!-- 銭湯種別 -->
 		                            <span th:switch="*{bathType}" class="bathType">
-		                                <label th:case="10">銭湯</label>
-		                                <label th:case="20">スーパー銭湯</label>
-		                                <label th:case="30">温泉</label>
+		                                <label th:case="10"><img class="bathTypeImg" src="/oyfy/img/bath_sento.png" /></label>
+                                        <label th:case="20"><img class="bathTypeImg" src="/oyfy/img/bath_super.png" /></label>
+                                        <label th:case="30"><img class="bathTypeImg" src="/oyfy/img/bath_onsen.png" /></label>
 		                            </span>
 		                            <!-- 営業時間 -->
 		                            <span class="bathTime">

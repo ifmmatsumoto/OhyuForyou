@@ -52,6 +52,14 @@ section.list td.actionBtn {
 section.list td.actionBtn a {
   margin: 0 15px;
 }
+.bathTypeImg {
+  width: 30px;
+  position: relative;
+  left: 20px;
+}
+label {
+  margin-bottom: 0;
+}
 /* マップ */
 #gmap {
   width: 100%;
