@@ -17,8 +17,8 @@ public class OyfyConst {
     }
     /** エリア区分 */
     public static enum Division {
-        PREFECTUR(1, "/area/prefecture"),
-        STATION(2, "/area/station");
+        PREFECTUR(1, "/oyfy/area/prefecture"),
+        STATION(2, "/oyfy/area/station");
         private int id;
         private String str;
         Division(int id, String str) { this.id=id; this.str=str; }
