@@ -7,19 +7,15 @@
     <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
     <link rel="stylesheet" media="all" th:href="@{/css/layout/layout.css}" />
 </head>
-<footer layout:fragment="footer" class="footer_img" style="height:15vh">
-<div class="container-fluid position-absolute"  id="searchTypeRow">
-    <div class="row">
-            <div class="offset-md-2 col-md-2  col-4" style="padding: auto 0">
-                <a th:href="@{/area(division=${2})}"><img class="d-block mx-auto footerImg" th:src="@{/img/footer_noSelect_train.png}" /></a>
-            </div>
-            <div class="col-md-4 col-4" style="padding: auto 0">
-                <a th:href="@{/area(division=${1})}"><img class="d-block mx-auto footerImg" th:src="@{/img/footer_noSelect_prefecture.png}" /></a>
-            </div>
-            <div class="col-md-2 col-4" style="padding: auto 0">
-                <a th:href="@{illust}"><img class="d-block mx-auto footerImg"  th:src="@{/img/footer_noSelect_illust.png}" /></a>
-            </div>
+<footer layout:fragment="footer" class="overflow-hidden" id="searchTypeRow">
+    <div class="float-left col-4" style="padding: 0">
+        <a class="d-block" th:href="@{/area(division=${2})}"><img class="d-block mx-auto footerImg" width="100%" height="100%" th:src="@{/img/footer/footer_noSelect_train.png}" /></a>
     </div>
-</div>
+    <div class="float-left col-4" style="padding: 0">
+        <a class="d-block" th:href="@{/area(division=${1})}"><img class="d-block mx-auto footerImg" width="100%" height="100%"  th:src="@{/img/footer/footer_noSelect_prefecture.png}" /></a>
+    </div>
+    <div class="float-left col-4" style="padding: 0">
+        <a class="d-block" th:href="@{illust}"><img class="d-block mx-auto footerImg"  width="100%" height="100%" th:src="@{/img/footer/footer_noSelect_illust.png}" /></a>
+    </div>
 </footer>
 </html>
