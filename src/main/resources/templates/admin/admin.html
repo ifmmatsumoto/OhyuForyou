@@ -35,8 +35,8 @@
             <!-- 銭湯詳細画面へのリンク -->
             <td class="id"><label th:text="${bath.bathId}"></label></td>
             <td><label th:text="${bath.bathNameJa}"></label></td>
-            <td><label th:text="${bath.createDate}"></label></td>
-            <td><label th:text="${bath.updateDate}"></label></td>
+            <td><label th:text="*{#temporals.format(bath.createDate, 'yyyy/MM/dd HH:mm')}"></label></td>
+            <td><label th:text="*{#temporals.format(bath.updateDate, 'yyyy/MM/dd HH:mm')}"></label></td>
             <td class="actionBtn"><a th:href="@{/bath(bathId=${bath.bathId})}">詳細</a><a href="#regist" th:attr="onclick='setBathDetail(' + ${bath.bathId} + ');'">編集</a></td>
         </tr>
       </table>
@@ -88,7 +88,10 @@
         <th>電話番号</th>
         <td><input type="number" id="bathTel" name="bath.bathTel" /></td>
       </tr>
-      <!-- DBfluteの更新が必要<tr><th>詳細</th><td><input type="text" name="bath.bathDetail" /></td></tr> -->
+      <tr>
+        <th>詳細</th>
+        <td><textarea rows="10" id="bathDetail" name="bath.bathDetail"></textarea></td>
+      </tr>
       <tr>
         <th>一般入浴料</th>
         <td><input type="number" id="bathFee" name="bath.bathFee" /></td>
@@ -96,14 +99,14 @@
       <tr>
         <th>銭湯種別</th>
         <td>
-          <input type="radio" name="bath.bathType" value="10" id="rdo1" checked><label for="rdo1">銭湯</label>
+          <input type="radio" name="bath.bathType" value="10" id="rdo1"><label for="rdo1">銭湯</label>
           <input type="radio" name="bath.bathType" value="20" id="rdo2"><label for="rdo2">スーパー銭湯</label>
         </td>
       </tr>
       <tr>
         <th>24時間フラグ</th>
         <td>
-          <label><input type="checkbox" id="24hFlg" name="bath.bath24hFlg" value="1"><span class="checkbox-parts">24時間</span></label>
+          <label><input type="checkbox" id="bath24hFlg" name="bath.bath24hFlg" value="1"><span class="checkbox-parts">24時間</span></label>
         </td>
       </tr>
       <tr>
@@ -133,13 +136,13 @@
       <tr>
         <th>定休日</th>
         <td>
-          <label><input type="checkbox" id="bathHoliday1" name="bath.bathHoliday" value="1"><span class="checkbox-parts">日</span></label>
-          <label><input type="checkbox" id="bathHoliday2" name="bath.bathHoliday" value="2"><span class="checkbox-parts">月</span></label>
-          <label><input type="checkbox" id="bathHoliday4" name="bath.bathHoliday" value="4"><span class="checkbox-parts">火</span></label>
-          <label><input type="checkbox" id="bathHoliday8" name="bath.bathHoliday" value="8"><span class="checkbox-parts">水</span></label>
-          <label><input type="checkbox" id="bathHoliday16" name="bath.bathHoliday" value="16"><span class="checkbox-parts">木</span></label>
-          <label><input type="checkbox" id="bathHoliday32" name="bath.bathHoliday" value="32"><span class="checkbox-parts">金</span></label>
-          <label><input type="checkbox" id="bathHoliday64" name="bath.bathHoliday" value="64"><span class="checkbox-parts">土</span></label>
+          <label><input type="checkbox" id="bathHoliday1"  name="bathHoliday" value="1"><span class="checkbox-parts">日</span></label>
+          <label><input type="checkbox" id="bathHoliday2"  name="bathHoliday" value="2"><span class="checkbox-parts">月</span></label>
+          <label><input type="checkbox" id="bathHoliday4"  name="bathHoliday" value="4"><span class="checkbox-parts">火</span></label>
+          <label><input type="checkbox" id="bathHoliday8"  name="bathHoliday" value="8"><span class="checkbox-parts">水</span></label>
+          <label><input type="checkbox" id="bathHoliday16" name="bathHoliday" value="16"><span class="checkbox-parts">木</span></label>
+          <label><input type="checkbox" id="bathHoliday32" name="bathHoliday" value="32"><span class="checkbox-parts">金</span></label>
+          <label><input type="checkbox" id="bathHoliday64" name="bathHoliday" value="64"><span class="checkbox-parts">土</span></label>
         </td>
       </tr>
       <tr>

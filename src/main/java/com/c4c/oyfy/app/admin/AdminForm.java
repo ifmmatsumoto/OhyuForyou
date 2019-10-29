@@ -20,4 +20,6 @@ public class AdminForm extends _Common_Form {
     MultipartFile inputImage;
     /** 画像表示用 */
     String pvImage;
+    /** 定休日配列 */
+    int[] bathHoliday;
 }

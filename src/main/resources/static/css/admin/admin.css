@@ -30,7 +30,7 @@ section.list th.id {
   width: 80px;
 }
 section.list th.date {
-  width: 150px;
+  width: 170px;
 }
 section.list th.action {
   width: 200px;
@@ -162,7 +162,9 @@ section.regist input[type="checkbox"]:checked + .checkbox-parts::after {
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   border-bottom: none;
 }
-
+#bathDetail {
+  width: 100%;
+}
 
 /* システムメッセージ */
 .okMsg {
