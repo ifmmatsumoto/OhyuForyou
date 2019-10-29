@@ -75,14 +75,9 @@ public class AreaController extends _CommonController {
         System.out.println("都道府県検索(地域)画面表示");
 
         // 日本地図画面から都道府県コードを取得する
-        form.getAreaCode();
-
         PrefectureDto prefectureDto = prefectureService.findPrefectureList(form.getAreaCode());
 
         List<Prefecture> prefectureList = prefectureDto.getData();
-
-        // 日本地図画面から都道府県名を取得
-        form.getAreaName();
 
         form.setPrefectureList(prefectureList);
 
@@ -102,9 +97,6 @@ public class AreaController extends _CommonController {
     @RequestMapping("station")
     public String station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
-
-        // 日本地図画面から都道府県名を取得
-        form.getAreaName();
 
         // 都道府県名から路線リストを取得
         LineDto lineDto = stationService.findLineList(form.getAreaName());
