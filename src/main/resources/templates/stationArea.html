@@ -13,7 +13,7 @@
 <body>
     <div class="container-fluid" id="outline" layout:fragment="contents" style="background-color: #FFFFFF;">
         <form id="form" class="form-inline" action="#" th:action="@{/area/stationSearch}" th:object="${stationSearchForm}" method="post">
-            <div class="col-md-5 offset-md-5">
+            <div class="row col-md-12 justify-content-center">
                 <input type="button" class="btn btn-primary btn-lg" onclick="searchStation();" value=駅名検索>
             </div>
             <div class="row">
@@ -25,8 +25,8 @@
                         </td>
                         <td>
                             <div class="station-name" th:each="stationList : ${line.value}">
-                                <label>
-                                    <input type="checkbox" name="stationNames" th:text="${stationList.name}" th:value="${stationList.name}">
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="stationNames" th:text="${stationList.name}" th:value="${stationList.name}">
                                 </label>
                             </div>
                         </td>
@@ -42,4 +42,5 @@
 <script
     src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
 <script type="text/javascript" th:src="@{/js/area/station.js}"></script>
+<script src="docs/assets/js/application.js"></script>
 </html>

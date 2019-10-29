@@ -14,10 +14,10 @@
 <body>
     <div class="container-fluid" id="outline" layout:fragment="contents"
         style="background-color: #FFFFFF;">
-        <div class="col-md-5 offset-md-5">
+        <div class="row col-md-12 justify-content-center">
             <input type="button" class="btn btn-primary btn-lg" onclick="searchPrefecture();" value=地域名検索>
         </div>
-        <div class="col-md-5 offset-md-5">
+        <div class="row  col-md-12 justify-content-center">
             <div th:text="'選択中の地域：' + ${prefectureForm.areaName}"></div>
         </div>
         <form id="form" class="form-inline" action="#" th:action="@{/area/prefectureSearch}" th:object="${prefectureSearchForm}" method="post">
@@ -32,8 +32,8 @@
                         </td>
                         <td>
                             <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
-                                <label>
-	                                <input type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
+                                <label class="form-check">
+	                                <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
                                 </label>
                             </div>
                         </td>

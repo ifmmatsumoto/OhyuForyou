@@ -74,20 +74,14 @@ public class AreaController extends _CommonController {
 
         System.out.println("都道府県検索(地域)画面表示");
 
-        // test
-        form.setAreaCode("13");
-
-        // こちらで連携された都道府県コードを取得する
+        // 日本地図画面から都道府県コードを取得する
         form.getAreaCode();
 
         PrefectureDto prefectureDto = prefectureService.findPrefectureList(form.getAreaCode());
 
         List<Prefecture> prefectureList = prefectureDto.getData();
 
-        // test
-        form.setAreaName("東京都");
-
-        // areaNameは連携される都道府県名
+        // 日本地図画面から都道府県名を取得
         form.getAreaName();
 
         form.setPrefectureList(prefectureList);
@@ -109,9 +103,7 @@ public class AreaController extends _CommonController {
     public String station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
-        // test
-        form.setAreaName("佐賀県");
-
+        // 日本地図画面から都道府県名を取得
         form.getAreaName();
 
         // 都道府県名から路線リストを取得

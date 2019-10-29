@@ -4,22 +4,10 @@
 function searchStation() {
     const targetTable = document.getElementById('search_station');
 
-    var targetDocument = document.getElementsByClassName('line-name');
-    var targetCheckBox = targetDocument[0].getElementsByTagName("input");
-
     for (var i = 0, rowLen = targetTable.rows.length; i < rowLen; i++) {
 
-        var targetTr = targetTable.rows[i];
-        targetTr.classList.add('stationsRow' + i);
-
-        // 路線列のtdのnameを設定
         // tr内のtdをループ。cellsコレクションで行内セル位置取得。
         for (var j = 0, colLen = targetTable.rows[i].cells.length; j < colLen; j++) {
-            // 駅名を出力するtdに対してクラス名を追加
-            if (j = 1) {
-                var targetTd = targetTable.rows[i].cells[j];
-                targetTd.classList.add('stations' + i);
-            }
 
             // tr直下の子要素（路線名が表示されるtd）
             var trObject = $(".stationsRow" + i).children('[id=all]');
@@ -27,8 +15,6 @@ function searchStation() {
             // trObject配下にある子要素に存在するinput要素
             var inputObject = trObject.prevObject[0].children[0]
                     .getElementsByTagName("input");
-
-            //inputObject.lineCheck.setAttribute("name", "lines" + i);
 
             // trObject配下にある2番目の子要素に存在するinput要素
             var stationRow = trObject.prevObject[0].children[1]
