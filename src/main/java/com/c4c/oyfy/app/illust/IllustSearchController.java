@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.app.search.ResultList;
@@ -26,11 +27,17 @@ public class IllustSearchController {
      * @return
      */
     @RequestMapping(value = "illust", method = RequestMethod.GET)
-    public String illust(IllustItemForm form, Model model) {
+    public ModelAndView illust(IllustItemForm form, Model model) {
 
         IllustSearchForm illustSearchForm = IllustHelper.toForm(illustSearchService.findAllTag());
         model.addAttribute("illustSearchForm", illustSearchForm);
-        return "illust/illust";
+
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("illust/illust");
+        mav.addObject("illustName", "/img/footer/footer_select_illust.png");
+
+        return mav;
     }
 
     /**

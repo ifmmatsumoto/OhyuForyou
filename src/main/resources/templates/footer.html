@@ -1,21 +1,20 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="都道府県検索"></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
-    <link rel="stylesheet" media="all" th:href="@{/css/layout/layout.css}" />
-</head>
-<footer layout:fragment="footer" class="overflow-hidden" id="searchTypeRow">
+<footer layout:fragment="footer" class="overflow-hidden">
     <div class="float-left col-4" style="padding: 0">
-        <a class="d-block" th:href="@{/area(division=${2})}"><img class="d-block mx-auto footerImg" width="100%" height="100%" th:src="@{/img/footer/footer_noSelect_train.png}" /></a>
+        <a class="d-block" th:href="@{/area(division=${2})}">
+        	<img class="d-block mx-auto footerImg" width="100%" height="100%" th:src="*{stationName != null} ? @{*{stationName}} : @{/img/footer/footer_noSelect_train.png}" />
+        </a>
     </div>
     <div class="float-left col-4" style="padding: 0">
-        <a class="d-block" th:href="@{/area(division=${1})}"><img class="d-block mx-auto footerImg" width="100%" height="100%"  th:src="@{/img/footer/footer_noSelect_prefecture.png}" /></a>
+        <a class="d-block" th:href="@{/area(division=${1})}">
+        	<img class="d-block mx-auto footerImg" width="100%" height="100%"  th:src="*{prefectureName != null} ? @{*{prefectureName}} : @{/img/footer/footer_noSelect_prefecture.png}" />
+        </a>
     </div>
     <div class="float-left col-4" style="padding: 0">
-        <a class="d-block" th:href="@{illust}"><img class="d-block mx-auto footerImg"  width="100%" height="100%" th:src="@{/img/footer/footer_noSelect_illust.png}" /></a>
+        <a class="d-block" th:href="@{illust}">
+        	<img class="d-block mx-auto footerImg"  width="100%" height="100%" th:src="*{illustName != null} ? @{*{illustName}}: @{/img/footer/footer_noSelect_illust.png}" />
+
+        </a>
     </div>
 </footer>
 </html>
