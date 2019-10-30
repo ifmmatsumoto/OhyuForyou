@@ -15,10 +15,13 @@ body {
 .searchTypeImg {
  width: 200px;
 }
- #formText {
-  width: 600px;
+ #cuurentLocationSearchRow {
+  margin-top: 40px;
  }
-
+ #formText {
+  width:100%;
+  margin-top: 13px;
+ }
 
 @media screen and (max-width:576px) {
  body {
@@ -34,11 +37,11 @@ body {
  #searchFormRow {
   top: 73.5%;
  }
+  #cuurentLocationSearchRow {
+  margin-top: 20px;
+ }
  .searchTypeImg {
   width: 90px;
- }
- #formText {
-  width: 174px;
  }
 }
 
