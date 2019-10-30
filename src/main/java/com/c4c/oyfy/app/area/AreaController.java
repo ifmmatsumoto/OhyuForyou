@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
@@ -69,7 +70,7 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("prefecture")
-    public String area(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
+    public ModelAndView area(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
         System.out.println("都道府県検索(地域)画面表示");
@@ -82,7 +83,11 @@ public class AreaController extends _CommonController {
         form.setPrefectureList(prefectureList);
 
         // 都道府県検索(地域)画面表示
-        return "prefectureArea";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("prefectureArea");
+        mav.addObject("prefectureName", "/img/footer/footer_select_prefecture.png");
+
+        return mav;
     }
 
     /**
@@ -95,7 +100,7 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("station")
-    public String station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
+    public ModelAndView station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
         // 都道府県名から路線リストを取得
@@ -117,7 +122,12 @@ public class AreaController extends _CommonController {
         form.setLine(lineMap);
 
         // 駅検索(地域選択)画面表示
-        return "stationArea";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("stationArea");
+        mav.addObject("stationName", "/img/footer/footer_select_train.png");
+
+
+        return mav;
     }
 
     /**

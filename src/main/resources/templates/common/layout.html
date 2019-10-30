@@ -12,6 +12,8 @@
 <script type="text/javascript" src="/oyfy/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div layout:fragment="contents"></div>
+	<div layout:replace="~{common/header::header}"></div>
+    <div layout:fragment="contents" th:remove="tag"></div>
+    <div layout:replace="~{footer::footer}"></div>
 </body>
 </html>
