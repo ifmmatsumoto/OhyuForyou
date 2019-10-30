@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 <link rel="stylesheet" media="all" th:href="@{/css/top/top.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script>
     function getCuurentLocation() {
@@ -18,7 +19,7 @@
 
         $('#cuurentLocationSearch').submit();
     }
-    function serchNearbyBath(){
+    function searchByKeyword(){
         $('#keyword').submit();
     }
 </script>
@@ -27,27 +28,27 @@
 <body class="position-relative">
     <div class="container-fluid position-absolute"  id="searchTypeRow">
         <div class="row">
-                <div class="offset-md-2 col-md-2  col-4">
-                    <a th:href="@{illust}" ><img class="d-block mx-auto searchTypeImg" th:src="@{/img/top_menu_illust.png}" /></a>
-                </div>
-                <div class="col-md-4 col-4">
-                    <a th:href="@{/area/(division=${1})}"><img class="d-block mx-auto searchTypeImg" th:src="@{/img/top_menu_prefecture.png}" /></a>
-                </div>
-                <div class="col-md-2 col-4">
-                    <a th:href="@{/area/(division=${2})}"><img class="d-block mx-auto searchTypeImg"  th:src="@{/img/top_menu_train.png}" /></a>
-                </div>
+            <div class="offset-md-3 col-md-2  col-4">
+                <a th:href="@{illust}" ><img class="d-block mx-auto searchTypeImg" th:src="@{/img/top_menu_illust.png}" /></a>
+            </div>
+            <div class="col-md-2 col-4">
+                <a href="/area/prefecture"><img class="d-block mx-auto searchTypeImg" th:src="@{/img/top_menu_prefecture.png}" /></a>
+            </div>
+            <div class="col-md-2 col-4">
+                <a th:href="@{/area/station}"><img class="d-block mx-auto searchTypeImg"  th:src="@{/img/top_menu_train.png}" /></a>
+            </div>
         </div>
     </div>
     <div class="container-fluid position-absolute" id="searchFormRow">
         <div class="row">
-            <div class="offset-3 offset-md-4">
+            <div class="offset-2 offset-md-4 col-md-4 col-8" style="padding:0;">
                 <form id="keyword" th:action="@{/keyword}" th:object="${topForm}" method="post" enctype="multipart/form-data">
-                    <input id="formText" type="text" th:field="*{keyword}" placeholder="キーワード検索"/>
-                    <a href="#" onclick="serchNearbyBath()"><img src="/oyfy/img/button_search.png" style="width: 50px;"></a>
+                    <input id="formText" type="text" th:field="*{keyword}" placeholder="銭湯　おじじ　検索" style=""/>
                 </form>
             </div>
+            <div class="col-md-1 col-1" style="padding-left:10px;"><a href="#" onclick="searchByKeyword()"><img src="/img/button_search.png" style="width: 50px;"></a></div>
         </div>
-        <div class="row mt-4">
+        <div class="row" id="cuurentLocationSearchRow">
             <div class="col-12" style="text-align: center;">
                 <!-- 現在値検索 -->
                 <a href="#" onclick="getCuurentLocation()" class="btn-square-shadow">現在地検索</a>
