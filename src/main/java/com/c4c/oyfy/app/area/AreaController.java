@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
@@ -53,8 +52,14 @@ public class AreaController extends _CommonController {
             throws OyfyException {
         System.out.println("検索(日本)画面表示");
         //取得した区分から遷移先を変更する
-        if (form.division == Division.STATION.id()) form.setAction(Division.STATION.str());
-        if (form.division == Division.PREFECTUR.id()) form.setAction(Division.PREFECTUR.str());
+        if (form.division == Division.STATION.id()) {
+            form.setAction(Division.STATION.str());
+            model.addAttribute("stationName", "/img/footer/footer_select_train.png");
+        }
+        if (form.division == Division.PREFECTUR.id()) {
+            form.setAction(Division.PREFECTUR.str());
+            model.addAttribute("prefectureName", "/img/footer/footer_select_prefecture.png");
+        }
 
         // 駅/都道府県検索(日本)画面表示
         return "area";
@@ -70,7 +75,7 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("prefecture")
-    public ModelAndView area(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
+    public String area(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
         System.out.println("都道府県検索(地域)画面表示");
@@ -83,11 +88,9 @@ public class AreaController extends _CommonController {
         form.setPrefectureList(prefectureList);
 
         // 都道府県検索(地域)画面表示
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("prefectureArea");
-        mav.addObject("prefectureName", "/img/footer/footer_select_prefecture.png");
+        model.addAttribute("prefectureName", "/img/footer/footer_select_prefecture.png");
 
-        return mav;
+        return "prefectureArea";
     }
 
     /**
@@ -100,7 +103,7 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("station")
-    public ModelAndView station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
+    public String station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
         // 都道府県名から路線リストを取得
@@ -118,16 +121,12 @@ public class AreaController extends _CommonController {
             lineMap.put(line, stationList);
             System.out.println("路線名" + line);
         }
-
         form.setLine(lineMap);
 
         // 駅検索(地域選択)画面表示
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("stationArea");
-        mav.addObject("stationName", "/img/footer/footer_select_train.png");
+        model.addAttribute("stationName", "/img/footer/footer_select_train.png");
 
-
-        return mav;
+        return "stationArea";
     }
 
     /**
