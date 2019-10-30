@@ -33,8 +33,9 @@ public class BathController {
 
 		System.out.println("銭湯詳細画面表示"); // TODO
 		// 銭湯IDから銭湯詳細情報を取得してFormにセット
-		form = BathHelper.toForm(form, bathService.findBathDetail(form.getBathId()));
-
+		BathHelper.toForm(form, bathService.findBathDetail(form.getBathId()));
+		// タグ一覧を取得してFormにセット
+		form.setTagList(bathService.findTagList(form.getBathId()));
 		// 銭湯詳細画面表示
 		return "bath/bath";
 	}

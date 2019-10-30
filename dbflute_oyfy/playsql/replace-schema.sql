@@ -4,7 +4,7 @@
   `bath_name_en` varchar(255) NOT NULL COMMENT '銭湯 英名',
   `bath_area_code` int(10) NOT NULL COMMENT '都道府県コード(国土交通省API使用コード)',
   `bath_city_code` int(10) NOT NULL COMMENT '市区町村コード(国土交通省API使用コード)',
-  `bath_image` varchar(2100) DEFAULT NULL COMMENT 'サムネイル画像',
+  `bath_image` longtext DEFAULT NULL COMMENT 'サムネイル画像',
   `bath_address_ja` varchar(255) DEFAULT NULL COMMENT '住所 和名',
   `bath_address_en` varchar(255) DEFAULT NULL COMMENT '住所 英名',
   `bath_tel` varchar(15) DEFAULT NULL COMMENT '電話番号',

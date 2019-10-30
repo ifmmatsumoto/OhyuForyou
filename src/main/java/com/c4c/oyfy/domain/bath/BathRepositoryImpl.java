@@ -13,9 +13,11 @@ import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.app.top.TopForm;
 import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.exbhv.BathBhv;
+import com.oyfy.dbflute.exbhv.BathTagBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exbhv.pmbean.NearbyBathPmb;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.BathTag;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -26,6 +28,8 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     BathBhv bathBhv;
     @Autowired
     TagBhv tagBhv;
+    @Autowired
+    BathTagBhv bathTagBhv;
 
     /**
      * キーワードを元に銭湯リストを取得
@@ -89,6 +93,29 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     @Override
     public Bath findBathDetail(int bathId) {
         return bathBhv.selectByPK(bathId).get();
+    }
+
+    /**
+     * 銭湯IDを元にタグ一覧を取得
+     * @param bathId
+     * @return
+     */
+    @Override
+    public List<Tag> findTagList(int bathId) {
+        // 銭湯IDに紐づくタグIDを取得
+        ListResultBean<BathTag> tagIdList = bathTagBhv.selectList(cb -> {
+            cb.query().setBathId_Equal(bathId);
+        });
+        // タグ検索用に使うタグIDリストを取得
+        List<Integer> bathTagIdList = new ArrayList<>();
+        tagIdList.forEach(tag -> {
+            bathTagIdList.add(tag.getTagId());
+        });
+        // タグリストを取得
+        ListResultBean<Tag> tagList = tagBhv.selectList(cb -> {
+            cb.query().setTagId_InScope(bathTagIdList);
+        });
+        return tagList;
     }
 
     /**

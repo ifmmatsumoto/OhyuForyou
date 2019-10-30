@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+<script type="text/javascript" th:src="@{/js/bath/bath.js}"></script>
+<script src="https://kit.fontawesome.com/a293a46691.js"></script>
+</head>
+<body>
+<!-- 共通ヘッダー -->
+<div th:replace="header"></div>
+<div class="container">
+    <p class="errorText">エラーが発生しました・・・</p>
+    <a href="/oyfy"><img src="/oyfy/img/ojiji/ojiji_sento.png" class="errorImg" /></a>
+</div>
+<!-- 共通フッター -->
+<div th:replace="footer"></div>
+</body>
+</html>

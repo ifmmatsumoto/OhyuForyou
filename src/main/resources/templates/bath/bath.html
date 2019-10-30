@@ -4,11 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" media="all" th:href="@{/css/bath/bath.css?v1}" />
+<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/bath/bath.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/tag.css}" />
 <script type="text/javascript" th:src="@{/js/bath/bath.js}"></script>
 <script src="https://kit.fontawesome.com/a293a46691.js"></script>
 </head>
 <body>
+<!-- 共通ヘッダー -->
+<div th:replace="header"></div>
 <div class="container">
     <p class="bathNameJa"  th:text="${bathForm.bath.bathNameJa}"/>
     <p class="bathNameEn" th:text="${bathForm.bath.bathNameEn}"/>
@@ -29,7 +33,7 @@
 	        </tr>
 	        <tr>
 	            <th>詳細</th>
-	            <td><i class="fa fa-info-circle"></i><p th:text="${bathForm.bath.bathDetail}" /></td>
+	            <td><i class="fa fa-info-circle"></i><pre th:text="${bathForm.bath.bathDetail}"></pre></td>
 	        </tr>
 	        <tr>
 	            <th>一般入浴料</th>
@@ -37,7 +41,13 @@
 	        </tr>
 	        <tr>
     	        <th>銭湯種別</th>
-	            <td><i class="fa fa-bath"></i><p th:text="${bathForm.dispBathType}" /></td>
+	            <td>
+                    <span th:switch="${bathForm.bath.bathType}" class="bathType">
+                        <label th:case="10"><img class="bathTypeImg" src="/oyfy/img/bath_sento.png" /></label>
+                        <label th:case="20"><img class="bathTypeImg" src="/oyfy/img/bath_super.png" /></label>
+                        <label th:case="30"><img class="bathTypeImg" src="/oyfy/img/bath_onsen.png" /></label>
+                    </span>
+                </td>
   	        </tr>
 	        <tr>
 	            <th>24時間フラグ</th>
@@ -69,11 +79,27 @@
 	            </td>
 	        </tr>
             <tr>
+                <th>最寄り駅</th>
+                <td>
+                    <i class="fa fa-subway"></i>
+                    <p th:text="${bathForm.bath.bathNearStation}" />
+                </td>
+            </tr>
+            <tr>
                 <th>場所</th>
                 <td>
                     <input type="hidden" id="lat" th:value="${bathForm.bath.bathPlaceLat}" />
                     <input type="hidden" id="lon" th:value="${bathForm.bath.bathPlaceLon}" />
                     <div id="gmap"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>タグ</th>
+                <td>
+                    <ul th:if="!${#strings.isEmpty(bathForm.tagList)}" th:each="tags:${bathForm.tagList}" class="tags">
+                        <li th:if="!*{#strings.isEmpty(tags.tagNameJa)}" ><a th:href="@{/keyword(keyword=*{tags.tagNameJa})}"><span th:text="*{tags.tagNameJa}"></span></a></li>
+                    </ul>
+                    <ul th:each="keyword:${bathForm.tagList}"></ul>
                 </td>
             </tr>
 	    </table>

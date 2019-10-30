@@ -45,17 +45,17 @@ public class NearbyBathDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathId(), (et, vl) -> ((NearbyBath)et).setBathId(cti(vl)), "bathId");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathNameJa(), (et, vl) -> ((NearbyBath)et).setBathNameJa((String)vl), "bathNameJa");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathNameEn(), (et, vl) -> ((NearbyBath)et).setBathNameEn((String)vl), "bathNameEn");
-        setupEpg(_epgMap, et -> ((NearbyBath)et).getBathAreaCode(), (et, vl) -> ((NearbyBath)et).setBathAreaCode(cti(vl)), "bathAreaCode");
-        setupEpg(_epgMap, et -> ((NearbyBath)et).getBathCityCode(), (et, vl) -> ((NearbyBath)et).setBathCityCode(cti(vl)), "bathCityCode");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathImage(), (et, vl) -> ((NearbyBath)et).setBathImage((String)vl), "bathImage");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathAddressJa(), (et, vl) -> ((NearbyBath)et).setBathAddressJa((String)vl), "bathAddressJa");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathAddressEn(), (et, vl) -> ((NearbyBath)et).setBathAddressEn((String)vl), "bathAddressEn");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathTel(), (et, vl) -> ((NearbyBath)et).setBathTel((String)vl), "bathTel");
+        setupEpg(_epgMap, et -> ((NearbyBath)et).getBathDetail(), (et, vl) -> ((NearbyBath)et).setBathDetail((String)vl), "bathDetail");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathFee(), (et, vl) -> ((NearbyBath)et).setBathFee(cti(vl)), "bathFee");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathType(), (et, vl) -> ((NearbyBath)et).setBathType(cti(vl)), "bathType");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBath24hFlg(), (et, vl) -> ((NearbyBath)et).setBath24hFlg(cti(vl)), "bath24hFlg");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathTimeSt(), (et, vl) -> ((NearbyBath)et).setBathTimeSt(ctlt(vl)), "bathTimeSt");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathTimeEd(), (et, vl) -> ((NearbyBath)et).setBathTimeEd(ctlt(vl)), "bathTimeEd");
+        setupEpg(_epgMap, et -> ((NearbyBath)et).getBathNearStation(), (et, vl) -> ((NearbyBath)et).setBathNearStation((String)vl), "bathNearStation");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathPlaceLat(), (et, vl) -> ((NearbyBath)et).setBathPlaceLat(ctb(vl)), "bathPlaceLat");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathPlaceLon(), (et, vl) -> ((NearbyBath)et).setBathPlaceLon(ctb(vl)), "bathPlaceLon");
         setupEpg(_epgMap, et -> ((NearbyBath)et).getBathTemperatureUp(), (et, vl) -> ((NearbyBath)et).setBathTemperatureUp(ctb(vl)), "bathTemperatureUp");
@@ -88,21 +88,21 @@ public class NearbyBathDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, false, false, false, "INT", 11, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathNameJa = cci("bath_name_ja", "bath_name_ja", null, null, String.class, "bathNameJa", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathNameEn = cci("bath_name_en", "bath_name_en", null, null, String.class, "bathNameEn", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathAreaCode = cci("bath_area_code", "bath_area_code", null, null, Integer.class, "bathAreaCode", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathCityCode = cci("bath_city_code", "bath_city_code", null, null, Integer.class, "bathCityCode", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathImage = cci("bath_image", "bath_image", null, null, String.class, "bathImage", null, false, false, false, "VARCHAR", 2100, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathImage = cci("bath_image", "bath_image", null, null, String.class, "bathImage", null, false, false, false, "VARCHAR", 715827882, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAddressJa = cci("bath_address_ja", "bath_address_ja", null, null, String.class, "bathAddressJa", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathAddressEn = cci("bath_address_en", "bath_address_en", null, null, String.class, "bathAddressEn", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTel = cci("bath_tel", "bath_tel", null, null, String.class, "bathTel", null, false, false, false, "VARCHAR", 15, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathDetail = cci("bath_detail", "bath_detail", null, null, String.class, "bathDetail", null, false, false, false, "VARCHAR", 21845, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathFee = cci("bath_fee", "bath_fee", null, null, Integer.class, "bathFee", null, false, false, false, "INT", 11, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathType = cci("bath_type", "bath_type", null, null, Integer.class, "bathType", null, false, false, false, "INT", 2, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBath24hFlg = cci("bath_24h_flg", "bath_24h_flg", null, null, Integer.class, "bath24hFlg", null, false, false, false, "INT", 1, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTimeSt = cci("bath_time_st", "bath_time_st", null, null, java.time.LocalTime.class, "bathTimeSt", null, false, false, false, "TIME", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTimeEd = cci("bath_time_ed", "bath_time_ed", null, null, java.time.LocalTime.class, "bathTimeEd", null, false, false, false, "TIME", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathNearStation = cci("bath_near_station", "bath_near_station", null, null, String.class, "bathNearStation", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathPlaceLat = cci("bath_place_lat", "bath_place_lat", null, null, java.math.BigDecimal.class, "bathPlaceLat", null, false, false, false, "DOUBLE", 9, 6, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathPlaceLon = cci("bath_place_lon", "bath_place_lon", null, null, java.math.BigDecimal.class, "bathPlaceLon", null, false, false, false, "DOUBLE", 9, 6, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathTemperatureUp = cci("bath_temperature_up", "bath_temperature_up", null, null, java.math.BigDecimal.class, "bathTemperatureUp", null, false, false, false, "DOUBLE", 3, 3, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathTemperatureLow = cci("bath_temperature_low", "bath_temperature_low", null, null, java.math.BigDecimal.class, "bathTemperatureLow", null, false, false, false, "DOUBLE", 3, 3, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathTemperatureUp = cci("bath_temperature_up", "bath_temperature_up", null, null, java.math.BigDecimal.class, "bathTemperatureUp", null, false, false, false, "FLOAT", 12, 31, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathTemperatureLow = cci("bath_temperature_low", "bath_temperature_low", null, null, java.math.BigDecimal.class, "bathTemperatureLow", null, false, false, false, "FLOAT", 12, 31, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathHoliday = cci("bath_holiday", "bath_holiday", null, null, Integer.class, "bathHoliday", null, false, false, false, "INT", 3, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDelFlg = cci("del_flg", "del_flg", null, null, Integer.class, "delFlg", null, false, false, false, "INT", 1, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnCreateDate = cci("create_date", "create_date", null, null, java.time.LocalDateTime.class, "createDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
@@ -125,17 +125,7 @@ public class NearbyBathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathNameEn() { return _columnBathNameEn; }
     /**
-     * bath_area_code: {INT(10), refers to bath.bath_area_code}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnBathAreaCode() { return _columnBathAreaCode; }
-    /**
-     * bath_city_code: {INT(10), refers to bath.bath_city_code}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnBathCityCode() { return _columnBathCityCode; }
-    /**
-     * bath_image: {VARCHAR(2100), refers to bath.bath_image}
+     * bath_image: {VARCHAR(715827882), refers to bath.bath_image}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathImage() { return _columnBathImage; }
@@ -154,6 +144,11 @@ public class NearbyBathDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathTel() { return _columnBathTel; }
+    /**
+     * bath_detail: {VARCHAR(21845), refers to bath.bath_detail}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnBathDetail() { return _columnBathDetail; }
     /**
      * bath_fee: {INT(11), refers to bath.bath_fee}
      * @return The information object of specified column. (NotNull)
@@ -180,6 +175,11 @@ public class NearbyBathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathTimeEd() { return _columnBathTimeEd; }
     /**
+     * bath_near_station: {VARCHAR(255), refers to bath.bath_near_station}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnBathNearStation() { return _columnBathNearStation; }
+    /**
      * bath_place_lat: {DOUBLE(9, 6), refers to bath.bath_place_lat}
      * @return The information object of specified column. (NotNull)
      */
@@ -190,12 +190,12 @@ public class NearbyBathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathPlaceLon() { return _columnBathPlaceLon; }
     /**
-     * bath_temperature_up: {DOUBLE(3, 3), refers to bath.bath_temperature_up}
+     * bath_temperature_up: {FLOAT(12, 31), refers to bath.bath_temperature_up}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathTemperatureUp() { return _columnBathTemperatureUp; }
     /**
-     * bath_temperature_low: {DOUBLE(3, 3), refers to bath.bath_temperature_low}
+     * bath_temperature_low: {FLOAT(12, 31), refers to bath.bath_temperature_low}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathTemperatureLow() { return _columnBathTemperatureLow; }
@@ -230,17 +230,17 @@ public class NearbyBathDbm extends AbstractDBMeta {
         ls.add(columnBathId());
         ls.add(columnBathNameJa());
         ls.add(columnBathNameEn());
-        ls.add(columnBathAreaCode());
-        ls.add(columnBathCityCode());
         ls.add(columnBathImage());
         ls.add(columnBathAddressJa());
         ls.add(columnBathAddressEn());
         ls.add(columnBathTel());
+        ls.add(columnBathDetail());
         ls.add(columnBathFee());
         ls.add(columnBathType());
         ls.add(columnBath24hFlg());
         ls.add(columnBathTimeSt());
         ls.add(columnBathTimeEd());
+        ls.add(columnBathNearStation());
         ls.add(columnBathPlaceLat());
         ls.add(columnBathPlaceLon());
         ls.add(columnBathTemperatureUp());

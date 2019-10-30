@@ -1,7 +1,10 @@
 package com.c4c.oyfy.app.bath;
 
+import java.util.List;
+
 import com.c4c.oyfy.app._Common_Form;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.Tag;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,4 +22,6 @@ public class BathForm extends _Common_Form {
     private String dispBathHoliday;
     /** 24時間フラグ */
     private String dispBath24hFlg;
+    /** タグ一覧 */
+    private List<Tag> tagList;
 }

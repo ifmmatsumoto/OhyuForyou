@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.c4c.oyfy.OyfyException;
@@ -52,13 +51,10 @@ public class AreaController extends _CommonController {
     @RequestMapping
     public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
-
-        form.setDivision(1);
-
+        System.out.println("検索(日本)画面表示");
         //取得した区分から遷移先を変更する
         if (form.division == Division.STATION.id()) form.setAction(Division.STATION.str());
         if (form.division == Division.PREFECTUR.id()) form.setAction(Division.PREFECTUR.str());
-        System.out.println("検索(日本)画面表示");
 
         // 駅/都道府県検索(日本)画面表示
         return "area";
@@ -79,21 +75,10 @@ public class AreaController extends _CommonController {
 
         System.out.println("都道府県検索(地域)画面表示");
 
-        // test
-        form.setAreaCode("13");
-
-        // こちらで連携された都道府県コードを取得する
-        form.getAreaCode();
-
+        // 日本地図画面から都道府県コードを取得する
         PrefectureDto prefectureDto = prefectureService.findPrefectureList(form.getAreaCode());
 
         List<Prefecture> prefectureList = prefectureDto.getData();
-
-        // test
-        form.setAreaName("東京都");
-
-        // areaNameは連携される都道府県名
-        form.getAreaName();
 
         form.setPrefectureList(prefectureList);
 
@@ -117,11 +102,6 @@ public class AreaController extends _CommonController {
     @RequestMapping("station")
     public ModelAndView station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
-
-        // test
-        form.setAreaName("佐賀県");
-
-        form.getAreaName();
 
         // 都道府県名から路線リストを取得
         LineDto lineDto = stationService.findLineList(form.getAreaName());
@@ -159,7 +139,7 @@ public class AreaController extends _CommonController {
      * @return
      * @throws OyfyException
      */
-    @RequestMapping(path = "/prefecture", method = RequestMethod.POST)
+    @RequestMapping("/prefectureSearch")
     public String searchPrefecture(@ModelAttribute PrefectureSearchForm form, Model model) {
 
       // 検索結果一覧画面表示
@@ -183,21 +163,19 @@ public class AreaController extends _CommonController {
      * @return
      * @throws OyfyException
      */
-    @RequestMapping(path = "/station", method = RequestMethod.POST)
-    public String searchStation(@ModelAttribute StationForm form, Model model) {
+    @RequestMapping("/stationSearch")
+    public String searchStation(@ModelAttribute StationSearchForm form, Model model) {
 
         // 検索結果一覧画面表示
         Conditions cond = new Conditions();
-//        String keyWord = IllustHelper.toKeyWord(form);
-//        cond.setKeyword(keyWord);
-//        cond.setFeeFrom(form.getFee_low());
-//        cond.setFeeTo(form.getFee_high());
-//
+        String keyWord = StationHelper.toKeyWord(form);
+        cond.setKeyword(keyWord);
+
         ResultList resultList = bathService.findBathList(cond);
         model.addAttribute("resultList", resultList);
 
         // 検索結果（駅）画面表示
-        return "prefectureArea";
+        return "searchResult";
     }
 
 }

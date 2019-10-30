@@ -135,57 +135,17 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_name_en: {VARCHAR(255)}
+     * bath_name_en: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathNameEn_Asc() { regOBA("bath_name_en"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_name_en: {VARCHAR(255)}
+     * bath_name_en: {NotNull, VARCHAR(255)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathNameEn_Desc() { regOBD("bath_name_en"); return this; }
-
-    protected ConditionValue _bathAreaCode;
-    public ConditionValue xdfgetBathAreaCode()
-    { if (_bathAreaCode == null) { _bathAreaCode = nCV(); }
-      return _bathAreaCode; }
-    protected ConditionValue xgetCValueBathAreaCode() { return xdfgetBathAreaCode(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * bath_area_code: {INT(10)}
-     * @return this. (NotNull)
-     */
-    public BsBathCQ addOrderBy_BathAreaCode_Asc() { regOBA("bath_area_code"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * bath_area_code: {INT(10)}
-     * @return this. (NotNull)
-     */
-    public BsBathCQ addOrderBy_BathAreaCode_Desc() { regOBD("bath_area_code"); return this; }
-
-    protected ConditionValue _bathCityCode;
-    public ConditionValue xdfgetBathCityCode()
-    { if (_bathCityCode == null) { _bathCityCode = nCV(); }
-      return _bathCityCode; }
-    protected ConditionValue xgetCValueBathCityCode() { return xdfgetBathCityCode(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * bath_city_code: {INT(10)}
-     * @return this. (NotNull)
-     */
-    public BsBathCQ addOrderBy_BathCityCode_Asc() { regOBA("bath_city_code"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * bath_city_code: {INT(10)}
-     * @return this. (NotNull)
-     */
-    public BsBathCQ addOrderBy_BathCityCode_Desc() { regOBD("bath_city_code"); return this; }
 
     protected ConditionValue _bathImage;
     public ConditionValue xdfgetBathImage()
@@ -195,14 +155,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_image: {TEXT(65535)}
+     * bath_image: {LONGTEXT(2147483647)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathImage_Asc() { regOBA("bath_image"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_image: {TEXT(65535)}
+     * bath_image: {LONGTEXT(2147483647)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathImage_Desc() { regOBD("bath_image"); return this; }
@@ -275,14 +235,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_detail: {VARCHAR(255)}
+     * bath_detail: {TEXT(65535)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathDetail_Asc() { regOBA("bath_detail"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_detail: {VARCHAR(255)}
+     * bath_detail: {TEXT(65535)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathDetail_Desc() { regOBD("bath_detail"); return this; }
@@ -315,14 +275,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_type: {INT(10)}
+     * bath_type: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathType_Asc() { regOBA("bath_type"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_type: {INT(10)}
+     * bath_type: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathType_Desc() { regOBD("bath_type"); return this; }
@@ -335,14 +295,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_24h_flg: {INT(10)}
+     * bath_24h_flg: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_Bath24hFlg_Asc() { regOBA("bath_24h_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_24h_flg: {INT(10)}
+     * bath_24h_flg: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_Bath24hFlg_Desc() { regOBD("bath_24h_flg"); return this; }
@@ -386,6 +346,26 @@ public class BsBathCQ extends AbstractBsBathCQ {
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTimeEd_Desc() { regOBD("bath_time_ed"); return this; }
+
+    protected ConditionValue _bathNearStation;
+    public ConditionValue xdfgetBathNearStation()
+    { if (_bathNearStation == null) { _bathNearStation = nCV(); }
+      return _bathNearStation; }
+    protected ConditionValue xgetCValueBathNearStation() { return xdfgetBathNearStation(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * bath_near_station: {VARCHAR(255)}
+     * @return this. (NotNull)
+     */
+    public BsBathCQ addOrderBy_BathNearStation_Asc() { regOBA("bath_near_station"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * bath_near_station: {VARCHAR(255)}
+     * @return this. (NotNull)
+     */
+    public BsBathCQ addOrderBy_BathNearStation_Desc() { regOBD("bath_near_station"); return this; }
 
     protected ConditionValue _bathPlaceLat;
     public ConditionValue xdfgetBathPlaceLat()
@@ -435,14 +415,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_temperature_up: {DOUBLE(9, 6)}
+     * bath_temperature_up: {FLOAT(12)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureUp_Asc() { regOBA("bath_temperature_up"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_temperature_up: {DOUBLE(9, 6)}
+     * bath_temperature_up: {FLOAT(12)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureUp_Desc() { regOBD("bath_temperature_up"); return this; }
@@ -455,14 +435,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_temperature_low: {DOUBLE(9, 6)}
+     * bath_temperature_low: {FLOAT(12)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureLow_Asc() { regOBA("bath_temperature_low"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_temperature_low: {DOUBLE(9, 6)}
+     * bath_temperature_low: {FLOAT(12)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathTemperatureLow_Desc() { regOBD("bath_temperature_low"); return this; }
@@ -495,14 +475,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * del_flg: {INT(10)}
+     * del_flg: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_DelFlg_Asc() { regOBA("del_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * del_flg: {INT(10)}
+     * del_flg: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_DelFlg_Desc() { regOBD("del_flg"); return this; }

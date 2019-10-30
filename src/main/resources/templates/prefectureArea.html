@@ -14,40 +14,34 @@
 <body>
     <div class="container-fluid" id="outline" layout:fragment="contents"
         style="background-color: #FFFFFF;">
-        <div class="col-md-5 offset-md-5">
-            <input type="button" class="btn btn-primary btn-lg"
-                onclick="searchPrefecture();" value=地域名検索>
+        <div class="row col-md-12 justify-content-center">
+            <input type="button" class="btn btn-primary btn-lg" onclick="searchPrefecture();" value=地域名検索>
         </div>
-        <div class="col-md-5 offset-md-5">
+        <div class="row  col-md-12 justify-content-center">
             <div th:text="'選択中の地域：' + ${prefectureForm.areaName}"></div>
         </div>
+        <form id="form" class="form-inline" action="#" th:action="@{/area/prefectureSearch}" th:object="${prefectureSearchForm}" method="post">
         <div class="row">
             <div class="col-md-5 offset-md-3">
                 <table class="table table-bordered">
                     <tr>
                         <td class="prefecture-name" align="center">
-                            <div class="prefecture-name-text"
-                                th:text="${prefectureForm.areaName}">
+                            <div class="prefecture-name-text" th:text="${prefectureForm.areaName}">
                             </div>
                                  <input type="checkbox" id="all">
                         </td>
                         <td>
-                            <div id="area-name"
-                                th:each="prefecture : ${prefectureForm.prefectureList}">
-                                <label> <input type="checkbox" name="prefectures"
-                                    th:text="${prefecture.name}" th:value="${prefecture}"></label>
+                            <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
+                                <label class="form-check">
+	                                <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
+                                </label>
                             </div>
                         </td>
                     </tr>
                 </table>
             </div>
-            <div>
-                <form id="form" class="form-inline" action="#"
-                    th:action="@{prefecture}" th:object="${prefectureSearchForm}"
-                    method="post">
-                </form>
-            </div>
         </div>
+      </form>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-1.6.2.js"></script>

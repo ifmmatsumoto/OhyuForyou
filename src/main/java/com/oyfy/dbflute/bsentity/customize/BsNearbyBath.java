@@ -15,7 +15,7 @@ import com.oyfy.dbflute.exentity.customize.*;
  *     
  *
  * [column]
- *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date, distance
+ *     bath_id, bath_name_ja, bath_name_en, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_detail, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_near_station, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date, distance
  *
  * [sequence]
  *     
@@ -43,17 +43,17 @@ import com.oyfy.dbflute.exentity.customize.*;
  * Integer bathId = entity.getBathId();
  * String bathNameJa = entity.getBathNameJa();
  * String bathNameEn = entity.getBathNameEn();
- * Integer bathAreaCode = entity.getBathAreaCode();
- * Integer bathCityCode = entity.getBathCityCode();
  * String bathImage = entity.getBathImage();
  * String bathAddressJa = entity.getBathAddressJa();
  * String bathAddressEn = entity.getBathAddressEn();
  * String bathTel = entity.getBathTel();
+ * String bathDetail = entity.getBathDetail();
  * Integer bathFee = entity.getBathFee();
  * Integer bathType = entity.getBathType();
  * Integer bath24hFlg = entity.getBath24hFlg();
  * java.time.LocalTime bathTimeSt = entity.getBathTimeSt();
  * java.time.LocalTime bathTimeEd = entity.getBathTimeEd();
+ * String bathNearStation = entity.getBathNearStation();
  * java.math.BigDecimal bathPlaceLat = entity.getBathPlaceLat();
  * java.math.BigDecimal bathPlaceLon = entity.getBathPlaceLon();
  * java.math.BigDecimal bathTemperatureUp = entity.getBathTemperatureUp();
@@ -66,17 +66,17 @@ import com.oyfy.dbflute.exentity.customize.*;
  * entity.setBathId(bathId);
  * entity.setBathNameJa(bathNameJa);
  * entity.setBathNameEn(bathNameEn);
- * entity.setBathAreaCode(bathAreaCode);
- * entity.setBathCityCode(bathCityCode);
  * entity.setBathImage(bathImage);
  * entity.setBathAddressJa(bathAddressJa);
  * entity.setBathAddressEn(bathAddressEn);
  * entity.setBathTel(bathTel);
+ * entity.setBathDetail(bathDetail);
  * entity.setBathFee(bathFee);
  * entity.setBathType(bathType);
  * entity.setBath24hFlg(bath24hFlg);
  * entity.setBathTimeSt(bathTimeSt);
  * entity.setBathTimeEd(bathTimeEd);
+ * entity.setBathNearStation(bathNearStation);
  * entity.setBathPlaceLat(bathPlaceLat);
  * entity.setBathPlaceLon(bathPlaceLon);
  * entity.setBathTemperatureUp(bathTemperatureUp);
@@ -110,13 +110,7 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     /** bath_name_en: {VARCHAR(255), refers to bath.bath_name_en} */
     protected String _bathNameEn;
 
-    /** bath_area_code: {INT(10), refers to bath.bath_area_code} */
-    protected Integer _bathAreaCode;
-
-    /** bath_city_code: {INT(10), refers to bath.bath_city_code} */
-    protected Integer _bathCityCode;
-
-    /** bath_image: {VARCHAR(2100), refers to bath.bath_image} */
+    /** bath_image: {VARCHAR(715827882), refers to bath.bath_image} */
     protected String _bathImage;
 
     /** bath_address_ja: {VARCHAR(255), refers to bath.bath_address_ja} */
@@ -127,6 +121,9 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
 
     /** bath_tel: {VARCHAR(15), refers to bath.bath_tel} */
     protected String _bathTel;
+
+    /** bath_detail: {VARCHAR(21845), refers to bath.bath_detail} */
+    protected String _bathDetail;
 
     /** bath_fee: {INT(11), refers to bath.bath_fee} */
     protected Integer _bathFee;
@@ -143,16 +140,19 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     /** bath_time_ed: {TIME(10), refers to bath.bath_time_ed} */
     protected java.time.LocalTime _bathTimeEd;
 
+    /** bath_near_station: {VARCHAR(255), refers to bath.bath_near_station} */
+    protected String _bathNearStation;
+
     /** bath_place_lat: {DOUBLE(9, 6), refers to bath.bath_place_lat} */
     protected java.math.BigDecimal _bathPlaceLat;
 
     /** bath_place_lon: {DOUBLE(9, 6), refers to bath.bath_place_lon} */
     protected java.math.BigDecimal _bathPlaceLon;
 
-    /** bath_temperature_up: {DOUBLE(3, 3), refers to bath.bath_temperature_up} */
+    /** bath_temperature_up: {FLOAT(12, 31), refers to bath.bath_temperature_up} */
     protected java.math.BigDecimal _bathTemperatureUp;
 
-    /** bath_temperature_low: {DOUBLE(3, 3), refers to bath.bath_temperature_low} */
+    /** bath_temperature_low: {FLOAT(12, 31), refers to bath.bath_temperature_low} */
     protected java.math.BigDecimal _bathTemperatureLow;
 
     /** bath_holiday: {INT(3), refers to bath.bath_holiday} */
@@ -211,17 +211,17 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
             if (!xSV(_bathId, other._bathId)) { return false; }
             if (!xSV(_bathNameJa, other._bathNameJa)) { return false; }
             if (!xSV(_bathNameEn, other._bathNameEn)) { return false; }
-            if (!xSV(_bathAreaCode, other._bathAreaCode)) { return false; }
-            if (!xSV(_bathCityCode, other._bathCityCode)) { return false; }
             if (!xSV(_bathImage, other._bathImage)) { return false; }
             if (!xSV(_bathAddressJa, other._bathAddressJa)) { return false; }
             if (!xSV(_bathAddressEn, other._bathAddressEn)) { return false; }
             if (!xSV(_bathTel, other._bathTel)) { return false; }
+            if (!xSV(_bathDetail, other._bathDetail)) { return false; }
             if (!xSV(_bathFee, other._bathFee)) { return false; }
             if (!xSV(_bathType, other._bathType)) { return false; }
             if (!xSV(_bath24hFlg, other._bath24hFlg)) { return false; }
             if (!xSV(_bathTimeSt, other._bathTimeSt)) { return false; }
             if (!xSV(_bathTimeEd, other._bathTimeEd)) { return false; }
+            if (!xSV(_bathNearStation, other._bathNearStation)) { return false; }
             if (!xSV(_bathPlaceLat, other._bathPlaceLat)) { return false; }
             if (!xSV(_bathPlaceLon, other._bathPlaceLon)) { return false; }
             if (!xSV(_bathTemperatureUp, other._bathTemperatureUp)) { return false; }
@@ -244,17 +244,17 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
         hs = xCH(hs, _bathId);
         hs = xCH(hs, _bathNameJa);
         hs = xCH(hs, _bathNameEn);
-        hs = xCH(hs, _bathAreaCode);
-        hs = xCH(hs, _bathCityCode);
         hs = xCH(hs, _bathImage);
         hs = xCH(hs, _bathAddressJa);
         hs = xCH(hs, _bathAddressEn);
         hs = xCH(hs, _bathTel);
+        hs = xCH(hs, _bathDetail);
         hs = xCH(hs, _bathFee);
         hs = xCH(hs, _bathType);
         hs = xCH(hs, _bath24hFlg);
         hs = xCH(hs, _bathTimeSt);
         hs = xCH(hs, _bathTimeEd);
+        hs = xCH(hs, _bathNearStation);
         hs = xCH(hs, _bathPlaceLat);
         hs = xCH(hs, _bathPlaceLon);
         hs = xCH(hs, _bathTemperatureUp);
@@ -278,17 +278,17 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
         sb.append(dm).append(xfND(_bathId));
         sb.append(dm).append(xfND(_bathNameJa));
         sb.append(dm).append(xfND(_bathNameEn));
-        sb.append(dm).append(xfND(_bathAreaCode));
-        sb.append(dm).append(xfND(_bathCityCode));
         sb.append(dm).append(xfND(_bathImage));
         sb.append(dm).append(xfND(_bathAddressJa));
         sb.append(dm).append(xfND(_bathAddressEn));
         sb.append(dm).append(xfND(_bathTel));
+        sb.append(dm).append(xfND(_bathDetail));
         sb.append(dm).append(xfND(_bathFee));
         sb.append(dm).append(xfND(_bathType));
         sb.append(dm).append(xfND(_bath24hFlg));
         sb.append(dm).append(xfND(_bathTimeSt));
         sb.append(dm).append(xfND(_bathTimeEd));
+        sb.append(dm).append(xfND(_bathNearStation));
         sb.append(dm).append(xfND(_bathPlaceLat));
         sb.append(dm).append(xfND(_bathPlaceLon));
         sb.append(dm).append(xfND(_bathTemperatureUp));
@@ -379,48 +379,7 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     }
 
     /**
-     * [get] bath_area_code: {INT(10), refers to bath.bath_area_code} <br>
-     * 都道府県コード(国土交通省API使用コード)
-     * @return The value of the column 'bath_area_code'. (NullAllowed even if selected: for no constraint)
-     */
-    public Integer getBathAreaCode() {
-        checkSpecifiedProperty("bathAreaCode");
-        return _bathAreaCode;
-    }
-
-    /**
-     * [set] bath_area_code: {INT(10), refers to bath.bath_area_code} <br>
-     * 都道府県コード(国土交通省API使用コード)
-     * @param bathAreaCode The value of the column 'bath_area_code'. (NullAllowed: null update allowed for no constraint)
-     */
-    public void setBathAreaCode(Integer bathAreaCode) {
-        registerModifiedProperty("bathAreaCode");
-        _bathAreaCode = bathAreaCode;
-    }
-
-    /**
-     * [get] bath_city_code: {INT(10), refers to bath.bath_city_code} <br>
-     * 市区町村コード(国土交通省API使用コード)
-     * @return The value of the column 'bath_city_code'. (NullAllowed even if selected: for no constraint)
-     */
-    public Integer getBathCityCode() {
-        checkSpecifiedProperty("bathCityCode");
-        return _bathCityCode;
-    }
-
-    /**
-     * [set] bath_city_code: {INT(10), refers to bath.bath_city_code} <br>
-     * 市区町村コード(国土交通省API使用コード)
-     * @param bathCityCode The value of the column 'bath_city_code'. (NullAllowed: null update allowed for no constraint)
-     */
-    public void setBathCityCode(Integer bathCityCode) {
-        registerModifiedProperty("bathCityCode");
-        _bathCityCode = bathCityCode;
-    }
-
-    /**
-     * [get] bath_image: {VARCHAR(2100), refers to bath.bath_image} <br>
-     * サムネイル画像
+     * [get] bath_image: {VARCHAR(715827882), refers to bath.bath_image} <br>
      * @return The value of the column 'bath_image'. (NullAllowed even if selected: for no constraint)
      */
     public String getBathImage() {
@@ -429,8 +388,7 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     }
 
     /**
-     * [set] bath_image: {VARCHAR(2100), refers to bath.bath_image} <br>
-     * サムネイル画像
+     * [set] bath_image: {VARCHAR(715827882), refers to bath.bath_image} <br>
      * @param bathImage The value of the column 'bath_image'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBathImage(String bathImage) {
@@ -496,6 +454,26 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     public void setBathTel(String bathTel) {
         registerModifiedProperty("bathTel");
         _bathTel = bathTel;
+    }
+
+    /**
+     * [get] bath_detail: {VARCHAR(21845), refers to bath.bath_detail} <br>
+     * 詳細情報
+     * @return The value of the column 'bath_detail'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getBathDetail() {
+        checkSpecifiedProperty("bathDetail");
+        return _bathDetail;
+    }
+
+    /**
+     * [set] bath_detail: {VARCHAR(21845), refers to bath.bath_detail} <br>
+     * 詳細情報
+     * @param bathDetail The value of the column 'bath_detail'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setBathDetail(String bathDetail) {
+        registerModifiedProperty("bathDetail");
+        _bathDetail = bathDetail;
     }
 
     /**
@@ -599,6 +577,26 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     }
 
     /**
+     * [get] bath_near_station: {VARCHAR(255), refers to bath.bath_near_station} <br>
+     * 最寄り駅
+     * @return The value of the column 'bath_near_station'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getBathNearStation() {
+        checkSpecifiedProperty("bathNearStation");
+        return _bathNearStation;
+    }
+
+    /**
+     * [set] bath_near_station: {VARCHAR(255), refers to bath.bath_near_station} <br>
+     * 最寄り駅
+     * @param bathNearStation The value of the column 'bath_near_station'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setBathNearStation(String bathNearStation) {
+        registerModifiedProperty("bathNearStation");
+        _bathNearStation = bathNearStation;
+    }
+
+    /**
      * [get] bath_place_lat: {DOUBLE(9, 6), refers to bath.bath_place_lat} <br>
      * 位置情報 緯度
      * @return The value of the column 'bath_place_lat'. (NullAllowed even if selected: for no constraint)
@@ -639,7 +637,7 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     }
 
     /**
-     * [get] bath_temperature_up: {DOUBLE(3, 3), refers to bath.bath_temperature_up} <br>
+     * [get] bath_temperature_up: {FLOAT(12, 31), refers to bath.bath_temperature_up} <br>
      * 温度 上限
      * @return The value of the column 'bath_temperature_up'. (NullAllowed even if selected: for no constraint)
      */
@@ -649,7 +647,7 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     }
 
     /**
-     * [set] bath_temperature_up: {DOUBLE(3, 3), refers to bath.bath_temperature_up} <br>
+     * [set] bath_temperature_up: {FLOAT(12, 31), refers to bath.bath_temperature_up} <br>
      * 温度 上限
      * @param bathTemperatureUp The value of the column 'bath_temperature_up'. (NullAllowed: null update allowed for no constraint)
      */
@@ -659,7 +657,7 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     }
 
     /**
-     * [get] bath_temperature_low: {DOUBLE(3, 3), refers to bath.bath_temperature_low} <br>
+     * [get] bath_temperature_low: {FLOAT(12, 31), refers to bath.bath_temperature_low} <br>
      * 温度 下限
      * @return The value of the column 'bath_temperature_low'. (NullAllowed even if selected: for no constraint)
      */
@@ -669,7 +667,7 @@ public abstract class BsNearbyBath extends AbstractEntity implements CustomizeEn
     }
 
     /**
-     * [set] bath_temperature_low: {DOUBLE(3, 3), refers to bath.bath_temperature_low} <br>
+     * [set] bath_temperature_low: {FLOAT(12, 31), refers to bath.bath_temperature_low} <br>
      * 温度 下限
      * @param bathTemperatureLow The value of the column 'bath_temperature_low'. (NullAllowed: null update allowed for no constraint)
      */
