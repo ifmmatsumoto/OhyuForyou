@@ -74,8 +74,6 @@ public class BathCIQ extends AbstractBsBathCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     protected ConditionValue xgetCValueBathNameJa() { return _myCQ.xdfgetBathNameJa(); }
     protected ConditionValue xgetCValueBathNameEn() { return _myCQ.xdfgetBathNameEn(); }
-    protected ConditionValue xgetCValueBathAreaCode() { return _myCQ.xdfgetBathAreaCode(); }
-    protected ConditionValue xgetCValueBathCityCode() { return _myCQ.xdfgetBathCityCode(); }
     protected ConditionValue xgetCValueBathImage() { return _myCQ.xdfgetBathImage(); }
     protected ConditionValue xgetCValueBathAddressJa() { return _myCQ.xdfgetBathAddressJa(); }
     protected ConditionValue xgetCValueBathAddressEn() { return _myCQ.xdfgetBathAddressEn(); }
@@ -86,6 +84,7 @@ public class BathCIQ extends AbstractBsBathCQ {
     protected ConditionValue xgetCValueBath24hFlg() { return _myCQ.xdfgetBath24hFlg(); }
     protected ConditionValue xgetCValueBathTimeSt() { return _myCQ.xdfgetBathTimeSt(); }
     protected ConditionValue xgetCValueBathTimeEd() { return _myCQ.xdfgetBathTimeEd(); }
+    protected ConditionValue xgetCValueBathNearStation() { return _myCQ.xdfgetBathNearStation(); }
     protected ConditionValue xgetCValueBathPlaceLat() { return _myCQ.xdfgetBathPlaceLat(); }
     protected ConditionValue xgetCValueBathPlaceLon() { return _myCQ.xdfgetBathPlaceLon(); }
     protected ConditionValue xgetCValueBathTemperatureUp() { return _myCQ.xdfgetBathTemperatureUp(); }

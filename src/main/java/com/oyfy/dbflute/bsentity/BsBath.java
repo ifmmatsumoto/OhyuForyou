@@ -19,7 +19,7 @@ import com.oyfy.dbflute.exentity.*;
  *     bath_id
  *
  * [column]
- *     bath_id, bath_name_ja, bath_name_en, bath_area_code, bath_city_code, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_detail, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
+ *     bath_id, bath_name_ja, bath_name_en, bath_image, bath_address_ja, bath_address_en, bath_tel, bath_detail, bath_fee, bath_type, bath_24h_flg, bath_time_st, bath_time_ed, bath_near_station, bath_place_lat, bath_place_lon, bath_temperature_up, bath_temperature_low, bath_holiday, del_flg, create_date, update_date
  *
  * [sequence]
  *     
@@ -47,8 +47,6 @@ import com.oyfy.dbflute.exentity.*;
  * Integer bathId = entity.getBathId();
  * String bathNameJa = entity.getBathNameJa();
  * String bathNameEn = entity.getBathNameEn();
- * Integer bathAreaCode = entity.getBathAreaCode();
- * Integer bathCityCode = entity.getBathCityCode();
  * String bathImage = entity.getBathImage();
  * String bathAddressJa = entity.getBathAddressJa();
  * String bathAddressEn = entity.getBathAddressEn();
@@ -59,6 +57,7 @@ import com.oyfy.dbflute.exentity.*;
  * Integer bath24hFlg = entity.getBath24hFlg();
  * java.time.LocalTime bathTimeSt = entity.getBathTimeSt();
  * java.time.LocalTime bathTimeEd = entity.getBathTimeEd();
+ * String bathNearStation = entity.getBathNearStation();
  * java.math.BigDecimal bathPlaceLat = entity.getBathPlaceLat();
  * java.math.BigDecimal bathPlaceLon = entity.getBathPlaceLon();
  * java.math.BigDecimal bathTemperatureUp = entity.getBathTemperatureUp();
@@ -70,8 +69,6 @@ import com.oyfy.dbflute.exentity.*;
  * entity.setBathId(bathId);
  * entity.setBathNameJa(bathNameJa);
  * entity.setBathNameEn(bathNameEn);
- * entity.setBathAreaCode(bathAreaCode);
- * entity.setBathCityCode(bathCityCode);
  * entity.setBathImage(bathImage);
  * entity.setBathAddressJa(bathAddressJa);
  * entity.setBathAddressEn(bathAddressEn);
@@ -82,6 +79,7 @@ import com.oyfy.dbflute.exentity.*;
  * entity.setBath24hFlg(bath24hFlg);
  * entity.setBathTimeSt(bathTimeSt);
  * entity.setBathTimeEd(bathTimeEd);
+ * entity.setBathNearStation(bathNearStation);
  * entity.setBathPlaceLat(bathPlaceLat);
  * entity.setBathPlaceLon(bathPlaceLon);
  * entity.setBathTemperatureUp(bathTemperatureUp);
@@ -111,16 +109,10 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     /** bath_name_ja: {NotNull, VARCHAR(255)} */
     protected String _bathNameJa;
 
-    /** bath_name_en: {VARCHAR(255)} */
+    /** bath_name_en: {NotNull, VARCHAR(255)} */
     protected String _bathNameEn;
 
-    /** bath_area_code: {INT(10)} */
-    protected Integer _bathAreaCode;
-
-    /** bath_city_code: {INT(10)} */
-    protected Integer _bathCityCode;
-
-    /** bath_image: {TEXT(65535)} */
+    /** bath_image: {LONGTEXT(2147483647)} */
     protected String _bathImage;
 
     /** bath_address_ja: {VARCHAR(255)} */
@@ -132,16 +124,16 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     /** bath_tel: {VARCHAR(15)} */
     protected String _bathTel;
 
-    /** bath_detail: {VARCHAR(255)} */
+    /** bath_detail: {TEXT(65535)} */
     protected String _bathDetail;
 
     /** bath_fee: {INT(10)} */
     protected Integer _bathFee;
 
-    /** bath_type: {INT(10)} */
+    /** bath_type: {NotNull, INT(10)} */
     protected Integer _bathType;
 
-    /** bath_24h_flg: {INT(10)} */
+    /** bath_24h_flg: {NotNull, INT(10)} */
     protected Integer _bath24hFlg;
 
     /** bath_time_st: {TIME(8)} */
@@ -150,22 +142,25 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     /** bath_time_ed: {TIME(8)} */
     protected java.time.LocalTime _bathTimeEd;
 
+    /** bath_near_station: {VARCHAR(255)} */
+    protected String _bathNearStation;
+
     /** bath_place_lat: {DOUBLE(9, 6)} */
     protected java.math.BigDecimal _bathPlaceLat;
 
     /** bath_place_lon: {DOUBLE(9, 6)} */
     protected java.math.BigDecimal _bathPlaceLon;
 
-    /** bath_temperature_up: {DOUBLE(9, 6)} */
+    /** bath_temperature_up: {FLOAT(12)} */
     protected java.math.BigDecimal _bathTemperatureUp;
 
-    /** bath_temperature_low: {DOUBLE(9, 6)} */
+    /** bath_temperature_low: {FLOAT(12)} */
     protected java.math.BigDecimal _bathTemperatureLow;
 
     /** bath_holiday: {INT(10)} */
     protected Integer _bathHoliday;
 
-    /** del_flg: {INT(10)} */
+    /** del_flg: {NotNull, INT(10)} */
     protected Integer _delFlg;
 
     /** create_date: {DATETIME(19)} */
@@ -288,8 +283,6 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         sb.append(dm).append(xfND(_bathId));
         sb.append(dm).append(xfND(_bathNameJa));
         sb.append(dm).append(xfND(_bathNameEn));
-        sb.append(dm).append(xfND(_bathAreaCode));
-        sb.append(dm).append(xfND(_bathCityCode));
         sb.append(dm).append(xfND(_bathImage));
         sb.append(dm).append(xfND(_bathAddressJa));
         sb.append(dm).append(xfND(_bathAddressEn));
@@ -300,6 +293,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         sb.append(dm).append(xfND(_bath24hFlg));
         sb.append(dm).append(xfND(_bathTimeSt));
         sb.append(dm).append(xfND(_bathTimeEd));
+        sb.append(dm).append(xfND(_bathNearStation));
         sb.append(dm).append(xfND(_bathPlaceLat));
         sb.append(dm).append(xfND(_bathPlaceLon));
         sb.append(dm).append(xfND(_bathTemperatureUp));
@@ -377,9 +371,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_name_en: {VARCHAR(255)} <br>
+     * [get] bath_name_en: {NotNull, VARCHAR(255)} <br>
      * 銭湯 英名
-     * @return The value of the column 'bath_name_en'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'bath_name_en'. (basically NotNull if selected: for the constraint)
      */
     public String getBathNameEn() {
         checkSpecifiedProperty("bathNameEn");
@@ -387,9 +381,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_name_en: {VARCHAR(255)} <br>
+     * [set] bath_name_en: {NotNull, VARCHAR(255)} <br>
      * 銭湯 英名
-     * @param bathNameEn The value of the column 'bath_name_en'. (NullAllowed: null update allowed for no constraint)
+     * @param bathNameEn The value of the column 'bath_name_en'. (basically NotNull if update: for the constraint)
      */
     public void setBathNameEn(String bathNameEn) {
         registerModifiedProperty("bathNameEn");
@@ -397,48 +391,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_area_code: {INT(10)} <br>
-     * 都道府県コード(国土交通省API使用コード)
-     * @return The value of the column 'bath_area_code'. (NullAllowed even if selected: for no constraint)
-     */
-    public Integer getBathAreaCode() {
-        checkSpecifiedProperty("bathAreaCode");
-        return _bathAreaCode;
-    }
-
-    /**
-     * [set] bath_area_code: {INT(10)} <br>
-     * 都道府県コード(国土交通省API使用コード)
-     * @param bathAreaCode The value of the column 'bath_area_code'. (NullAllowed: null update allowed for no constraint)
-     */
-    public void setBathAreaCode(Integer bathAreaCode) {
-        registerModifiedProperty("bathAreaCode");
-        _bathAreaCode = bathAreaCode;
-    }
-
-    /**
-     * [get] bath_city_code: {INT(10)} <br>
-     * 市区町村コード(国土交通省API使用コード)
-     * @return The value of the column 'bath_city_code'. (NullAllowed even if selected: for no constraint)
-     */
-    public Integer getBathCityCode() {
-        checkSpecifiedProperty("bathCityCode");
-        return _bathCityCode;
-    }
-
-    /**
-     * [set] bath_city_code: {INT(10)} <br>
-     * 市区町村コード(国土交通省API使用コード)
-     * @param bathCityCode The value of the column 'bath_city_code'. (NullAllowed: null update allowed for no constraint)
-     */
-    public void setBathCityCode(Integer bathCityCode) {
-        registerModifiedProperty("bathCityCode");
-        _bathCityCode = bathCityCode;
-    }
-
-    /**
-     * [get] bath_image: {TEXT(65535)} <br>
-     * サムネイル画像
+     * [get] bath_image: {LONGTEXT(2147483647)} <br>
      * @return The value of the column 'bath_image'. (NullAllowed even if selected: for no constraint)
      */
     public String getBathImage() {
@@ -447,8 +400,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_image: {TEXT(65535)} <br>
-     * サムネイル画像
+     * [set] bath_image: {LONGTEXT(2147483647)} <br>
      * @param bathImage The value of the column 'bath_image'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBathImage(String bathImage) {
@@ -517,7 +469,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_detail: {VARCHAR(255)} <br>
+     * [get] bath_detail: {TEXT(65535)} <br>
      * 詳細情報
      * @return The value of the column 'bath_detail'. (NullAllowed even if selected: for no constraint)
      */
@@ -527,7 +479,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_detail: {VARCHAR(255)} <br>
+     * [set] bath_detail: {TEXT(65535)} <br>
      * 詳細情報
      * @param bathDetail The value of the column 'bath_detail'. (NullAllowed: null update allowed for no constraint)
      */
@@ -557,9 +509,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_type: {INT(10)} <br>
+     * [get] bath_type: {NotNull, INT(10)} <br>
      * 銭湯種別(10:銭湯 20:スーパー銭湯)
-     * @return The value of the column 'bath_type'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'bath_type'. (basically NotNull if selected: for the constraint)
      */
     public Integer getBathType() {
         checkSpecifiedProperty("bathType");
@@ -567,9 +519,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_type: {INT(10)} <br>
+     * [set] bath_type: {NotNull, INT(10)} <br>
      * 銭湯種別(10:銭湯 20:スーパー銭湯)
-     * @param bathType The value of the column 'bath_type'. (NullAllowed: null update allowed for no constraint)
+     * @param bathType The value of the column 'bath_type'. (basically NotNull if update: for the constraint)
      */
     public void setBathType(Integer bathType) {
         registerModifiedProperty("bathType");
@@ -577,9 +529,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_24h_flg: {INT(10)} <br>
+     * [get] bath_24h_flg: {NotNull, INT(10)} <br>
      * 24時間フラグ(1:24時間営業)
-     * @return The value of the column 'bath_24h_flg'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'bath_24h_flg'. (basically NotNull if selected: for the constraint)
      */
     public Integer getBath24hFlg() {
         checkSpecifiedProperty("bath24hFlg");
@@ -587,9 +539,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_24h_flg: {INT(10)} <br>
+     * [set] bath_24h_flg: {NotNull, INT(10)} <br>
      * 24時間フラグ(1:24時間営業)
-     * @param bath24hFlg The value of the column 'bath_24h_flg'. (NullAllowed: null update allowed for no constraint)
+     * @param bath24hFlg The value of the column 'bath_24h_flg'. (basically NotNull if update: for the constraint)
      */
     public void setBath24hFlg(Integer bath24hFlg) {
         registerModifiedProperty("bath24hFlg");
@@ -637,6 +589,26 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
+     * [get] bath_near_station: {VARCHAR(255)} <br>
+     * 最寄り駅
+     * @return The value of the column 'bath_near_station'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getBathNearStation() {
+        checkSpecifiedProperty("bathNearStation");
+        return _bathNearStation;
+    }
+
+    /**
+     * [set] bath_near_station: {VARCHAR(255)} <br>
+     * 最寄り駅
+     * @param bathNearStation The value of the column 'bath_near_station'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setBathNearStation(String bathNearStation) {
+        registerModifiedProperty("bathNearStation");
+        _bathNearStation = bathNearStation;
+    }
+
+    /**
      * [get] bath_place_lat: {DOUBLE(9, 6)} <br>
      * 位置情報 緯度
      * @return The value of the column 'bath_place_lat'. (NullAllowed even if selected: for no constraint)
@@ -677,7 +649,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_temperature_up: {DOUBLE(9, 6)} <br>
+     * [get] bath_temperature_up: {FLOAT(12)} <br>
      * 温度 上限
      * @return The value of the column 'bath_temperature_up'. (NullAllowed even if selected: for no constraint)
      */
@@ -687,7 +659,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_temperature_up: {DOUBLE(9, 6)} <br>
+     * [set] bath_temperature_up: {FLOAT(12)} <br>
      * 温度 上限
      * @param bathTemperatureUp The value of the column 'bath_temperature_up'. (NullAllowed: null update allowed for no constraint)
      */
@@ -697,7 +669,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_temperature_low: {DOUBLE(9, 6)} <br>
+     * [get] bath_temperature_low: {FLOAT(12)} <br>
      * 温度 下限
      * @return The value of the column 'bath_temperature_low'. (NullAllowed even if selected: for no constraint)
      */
@@ -707,7 +679,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_temperature_low: {DOUBLE(9, 6)} <br>
+     * [set] bath_temperature_low: {FLOAT(12)} <br>
      * 温度 下限
      * @param bathTemperatureLow The value of the column 'bath_temperature_low'. (NullAllowed: null update allowed for no constraint)
      */
@@ -737,9 +709,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] del_flg: {INT(10)} <br>
+     * [get] del_flg: {NotNull, INT(10)} <br>
      * 削除フラグ(1:削除済み)
-     * @return The value of the column 'del_flg'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'del_flg'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDelFlg() {
         checkSpecifiedProperty("delFlg");
@@ -747,9 +719,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] del_flg: {INT(10)} <br>
+     * [set] del_flg: {NotNull, INT(10)} <br>
      * 削除フラグ(1:削除済み)
-     * @param delFlg The value of the column 'del_flg'. (NullAllowed: null update allowed for no constraint)
+     * @param delFlg The value of the column 'del_flg'. (basically NotNull if update: for the constraint)
      */
     public void setDelFlg(Integer delFlg) {
         registerModifiedProperty("delFlg");

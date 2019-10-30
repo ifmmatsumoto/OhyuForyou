@@ -35,7 +35,7 @@
                                 <input th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                                 <div  class="illust-div" style="position: relative;">
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].illustTag}" style="width: 100px;" />
-                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/illust_check.png"  style="width: 100px;"/>
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/oyfy/img/illust_check.png"  style="width: 100px;"/>
 
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                 <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                                 <div class="illust-div" style="position: relative;">
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].temperatureTag}" />
-                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/selected.png"  style="width: 100px;"/>
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/oyfy/img/selected.png"  style="width: 100px;"/>
                                 </div>
                                 <!-- レイアウトを整えるダミー用 -->
                                 <div class="d-inline"></div>
@@ -94,7 +94,7 @@
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-1.6.2.js" ></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
         <script type="text/javascript" th:src="@{/js/illust/illust.js}"></script>
     </div>

@@ -11,13 +11,23 @@ div.prefecture-name-text {
   color: #F8F8FF;
 }
 
-#outline {
+#outline {;
   margin-top: 20px;
 }
 
 #area-name {
-  display: block;
+  display: flex;
   float: left;
-  max-width :110px;
-  min-width :100px;
+  max-width :300px;
+  min-width :250px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+div.row {
+    padding-bottom: 15px;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<header th:replace="common/header"><title th:text="都道府県検索"></title></header>
+<link rel="stylesheet" media="all" th:href="@{/css/area/area.css}" />
+<script th:src="@{/js/area/area.js}"></script>
+<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+<!-- 共通ヘッダー -->
+<div th:replace="header"></div>
+
+<body>
+<form method="POST" id="form" th:action="${prefectureForm.action}" th:object="${prefectureForm}">
+    <input type="hidden" id="pref_id" th:field="*{areaCode}">
+    <input type="hidden" id="pref_name" th:field="*{areaName}">
+</form>
+<div class="container">
+    <div class="row margintop">
+        <div class="col-md-12">
+            <div class="jp_map" id="wrapper">
+                <ul style="list-style: none; padding-left:10px;">
+                    <li><a href="#" id="01">北海道</a></li>
+                    <li><a href="#" id="02">青森県</a></li>
+                    <li><a href="#" id="03">岩手県</a></li>
+                    <li><a href="#" id="04">宮城県</a></li>
+                    <li><a href="#" id="05">秋田県</a></li>
+                    <li><a href="#" id="06">山形県</a></li>
+                    <li><a href="#" id="07">福島県</a></li>
+                    <li><a href="#" id="08">茨城県</a></li>
+                    <li><a href="#" id="09">栃木県</a></li>
+                    <li><a href="#" id="10">群馬県</a></li>
+                    <li><a href="#" id="11">埼玉県</a></li>
+                    <li><a href="#" id="12">千葉県</a></li>
+                    <li><a href="#" id="13">東京都</a></li>
+                    <li><a href="#" id="14">神奈川県</a></li>
+                    <li><a href="#" id="15">新潟県</a></li>
+                    <li><a href="#" id="16">富山県</a></li>
+                    <li><a href="#" id="17">石川県</a></li>
+                    <li><a href="#" id="18">福井県</a></li>
+                    <li><a href="#" id="19">山梨県</a></li>
+                    <li><a href="#" id="20">長野県</a></li>
+                    <li><a href="#" id="21">岐阜県</a></li>
+                    <li><a href="#" id="22">静岡県</a></li>
+                    <li><a href="#" id="23">愛知県</a></li>
+                    <li><a href="#" id="24">三重県</a></li>
+                    <li><a href="#" id="25">滋賀県</a></li>
+                    <li><a href="#" id="26">京都府</a></li>
+                    <li><a href="#" id="27">大阪府</a></li>
+                    <li><a href="#" id="28">兵庫県</a></li>
+                    <li><a href="#" id="29">奈良県</a></li>
+                    <li><a href="#" id="30">和歌山県</a></li>
+                    <li><a href="#" id="31">鳥取県</a></li>
+                    <li><a href="#" id="32">島根県</a></li>
+                    <li><a href="#" id="33">岡山県</a></li>
+                    <li><a href="#" id="34">広島県</a></li>
+                    <li><a href="#" id="35">山口県</a></li>
+                    <li><a href="#" id="36">徳島県</a></li>
+                    <li><a href="#" id="37">香川県</a></li>
+                    <li><a href="#" id="38">愛媛県</a></li>
+                    <li><a href="#" id="39">高知県</a></li>
+                    <li><a href="#" id="40">福岡県</a></li>
+                    <li><a href="#" id="41">佐賀県</a></li>
+                    <li><a href="#" id="42">長崎県</a></li>
+                    <li><a href="#" id="43">熊本県</a></li>
+                    <li><a href="#" id="44">大分県</a></li>
+                    <li><a href="#" id="45">宮崎県</a></li>
+                    <li><a href="#" id="46">鹿児島県</a></li>
+                    <li><a href="#" id="47">沖縄県</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 共通フッター -->
+<div th:replace="footer"></div>
+</body>
+</html>

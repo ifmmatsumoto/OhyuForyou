@@ -33,7 +33,7 @@ section.list th {
   text-align: right;
   background: #f7f7f7;
   padding: 10px;
-  width: 20vw;
+  width: 10vw;
   min-width: 150px;
   font-weight: normal;
   border: #e3e3e3 1px solid;
@@ -51,6 +51,25 @@ section.list td.actionBtn {
 }
 section.list td.actionBtn a {
   margin: 0 15px;
+}
+.bathTypeImg {
+  width: 30px;
+  position: relative;
+  left: 0px;
+}
+/* テーブルをはみ出さないようにする */
+pre {
+ white-space: -moz-pre-wrap; /* Mozilla */
+ white-space: -pre-wrap;     /* Opera 4-6 */
+ white-space: -o-pre-wrap;   /* Opera 7 */
+ white-space: pre-wrap;      /* CSS3 */
+ word-wrap: break-word;      /* IE 5.5+ */
+ margin-left: 18px;
+ text-align: justify;
+ text-justify: inter-ideograph;
+}
+label {
+  margin-bottom: 0;
 }
 /* マップ */
 #gmap {

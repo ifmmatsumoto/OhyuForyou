@@ -1,7 +1,35 @@
 /**
  *
  */
-function addName() {
+function searchStation() {
+    const targetTable = document.getElementById('search_station');
+
+    for (var i = 0, rowLen = targetTable.rows.length; i < rowLen; i++) {
+
+        // tr内のtdをループ。cellsコレクションで行内セル位置取得。
+        for (var j = 0, colLen = targetTable.rows[i].cells.length; j < colLen; j++) {
+
+            // tr直下の子要素（路線名が表示されるtd）
+            var trObject = $(".stationsRow" + i).children('[id=all]');
+
+            // trObject配下にある子要素に存在するinput要素
+            var inputObject = trObject.prevObject[0].children[0]
+                    .getElementsByTagName("input");
+
+            // trObject配下にある2番目の子要素に存在するinput要素
+            var stationRow = trObject.prevObject[0].children[1]
+                    .getElementsByTagName("input");
+
+            // 駅名checkboxの数を取得
+            var checkboxLow = stationRow.length;
+
+            // checkbox分ループ
+            for (var k = 0, checkboxLow; k < checkboxLow; k++) {
+                stationRow[k].setAttribute("name", "stationNames");
+            }
+
+        }
+    }
     $('form').submit();
 };
 

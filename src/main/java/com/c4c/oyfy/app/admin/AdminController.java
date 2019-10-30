@@ -5,6 +5,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Locale;
 
@@ -80,8 +82,6 @@ public class AdminController {
      */
     @RequestMapping(value = "regist", method = RequestMethod.POST)
     public String regist(AdminForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-        // TODO 入力チェック
-
         if (!form.getInputImage().isEmpty()) {
             try {
                 // TODO ここで拡張子判定
@@ -93,6 +93,15 @@ public class AdminController {
                 throw new OyfyException();
             }
         }
+        // 定休日
+        form.bath.setBathHoliday(Arrays.stream(form.bathHoliday).sum());
+        // 作成日時
+        LocalDateTime now = LocalDateTime.now();
+        if (form.bath.getCreateDate() == null) {
+            form.bath.setCreateDate(now);
+        }
+        // 更新日時
+        form.bath.setUpdateDate(now);
 
         // 登録処理
         bathService.registBath(form.bath);

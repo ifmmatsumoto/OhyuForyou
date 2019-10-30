@@ -1,4 +1,142 @@
 map:{
+    ; 2019/10/30 17:38:05 = map:{
+        ; diffDate = 2019/10/30 17:38:05
+        ; diffAuthor = haraguchi
+        ; diffGitBranch = develop
+        ; tableDiff = map:{
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; bath_near_station = map:{
+                        ; columnName = bath_near_station
+                        ; diffType = ADD
+                    }
+                    ; near_station = map:{
+                        ; columnName = near_station
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/10/30 17:15:24 = map:{
+        ; diffDate = 2019/10/30 17:15:24
+        ; tableCount = map:{
+            ; next = 3
+            ; previous = 5
+        }
+        ; diffAuthor = haraguchi
+        ; diffGitBranch = develop
+        ; tableDiff = map:{
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; near_station = map:{
+                        ; columnName = near_station
+                        ; diffType = ADD
+                    }
+                    ; bath_name_en = map:{
+                        ; columnName = bath_name_en
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; bath_image = map:{
+                        ; columnName = bath_image
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = LONGTEXT
+                            ; previous = TEXT
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 2147483647
+                            ; previous = 65535
+                        }
+                    }
+                    ; bath_detail = map:{
+                        ; columnName = bath_detail
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = TEXT
+                            ; previous = VARCHAR
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 65535
+                            ; previous = 255
+                        }
+                    }
+                    ; bath_type = map:{
+                        ; columnName = bath_type
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; bath_24h_flg = map:{
+                        ; columnName = bath_24h_flg
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; bath_temperature_up = map:{
+                        ; columnName = bath_temperature_up
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = FLOAT
+                            ; previous = DOUBLE
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 12
+                            ; previous = 9, 6
+                        }
+                    }
+                    ; bath_temperature_low = map:{
+                        ; columnName = bath_temperature_low
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = FLOAT
+                            ; previous = DOUBLE
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 12
+                            ; previous = 9, 6
+                        }
+                    }
+                    ; del_flg = map:{
+                        ; columnName = del_flg
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; bath_area_code = map:{
+                        ; columnName = bath_area_code
+                        ; diffType = DELETE
+                    }
+                    ; bath_city_code = map:{
+                        ; columnName = bath_city_code
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; area = map:{
+                ; tableName = area
+                ; diffType = DELETE
+            }
+            ; station = map:{
+                ; tableName = station
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2019/10/03 17:29:10 = map:{
         ; diffDate = 2019/10/03 17:29:10
         ; tableCount = map:{
