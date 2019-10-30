@@ -2,17 +2,17 @@
 <footer layout:fragment="footer" class="overflow-hidden">
     <div class="float-left col-4" style="padding: 0">
         <a class="d-block" th:href="@{/area(division=${2})}">
-        	<img class="d-block mx-auto footerImg" width="100%" height="100%" th:src="*{stationName != null} ? @{*{stationName}} : @{/img/footer/footer_noSelect_train.png}" />
+        	<img class="d-block mx-auto footerImg" width="100%" height="100%" th:src="*{stationName != null} ? @{*{stationName}} : @{/img/footer/footer_no_select_station.png}" />
         </a>
     </div>
     <div class="float-left col-4" style="padding: 0">
         <a class="d-block" th:href="@{/area(division=${1})}">
-        	<img class="d-block mx-auto footerImg" width="100%" height="100%"  th:src="*{prefectureName != null} ? @{*{prefectureName}} : @{/img/footer/footer_noSelect_prefecture.png}" />
+        	<img class="d-block mx-auto footerImg" width="100%" height="100%"  th:src="*{prefectureName != null} ? @{*{prefectureName}} : @{/img/footer/footer_no_select_prefecture.png}" />
         </a>
     </div>
     <div class="float-left col-4" style="padding: 0">
         <a class="d-block" th:href="@{illust}">
-        	<img class="d-block mx-auto footerImg"  width="100%" height="100%" th:src="*{illustName != null} ? @{*{illustName}}: @{/img/footer/footer_noSelect_illust.png}" />
+        	<img class="d-block mx-auto footerImg"  width="100%" height="100%" th:src="*{illustName != null} ? @{*{illustName}}: @{/img/footer/footer_no_select_illust.png}" />
 
         </a>
     </div>
