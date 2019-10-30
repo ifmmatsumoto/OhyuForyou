@@ -14,7 +14,7 @@ function initMap() {
 		  map: map,
 		  position: mapPosition,
           icon: new google.maps.MarkerImage(
-        		  '/img/ojiji/ojiji_pin.png',
+        		  '/oyfy/img/ojiji/ojiji_pin.png',
         		  new google.maps.Size(80,50),
 		          new google.maps.Point(0,0),
 		          new google.maps.Point(80,25)
