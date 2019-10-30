@@ -15,10 +15,6 @@ function setBathDetail(bathId) {
 		form.bathNameJa.value = res.bathNameJa;
 		// 銭湯英名
 		form.bathNameEn.value = res.bathNameEn;
-		// 都道府県コード
-		form.bathAreaCode.value = res.bathAreaCode;
-		// 市区町村コード
-		form.bathCityCode.value = res.bathCityCode;
 		// 銭湯画像(base64変換済み)
 		if (res.bathImage != null) form.pvImg.src = res.bathImage;
 		// 住所 和名
@@ -45,6 +41,8 @@ function setBathDetail(bathId) {
 		if (res.bathTimeSt != null) form.bathTimeSt.value = res.bathTimeSt.substring(0,5);
 		// 営業時間 終了
 		if (res.bathTimeEd != null) form.bathTimeEd.value = res.bathTimeEd.substring(0,5);
+		// 最寄り駅
+		if(res.bathNearStation != null) form.bathNearStation.value = res.bathNearStation;
 		// 位置情報 緯度
 		form.bathPlaceLat.value = res.bathPlaceLat;
 		// 位置情報 経度

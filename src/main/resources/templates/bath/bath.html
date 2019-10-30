@@ -79,6 +79,13 @@
 	            </td>
 	        </tr>
             <tr>
+                <th>最寄り駅</th>
+                <td>
+                    <i class="fa fa-subway"></i>
+                    <p th:text="${bathForm.bath.bathNearStation}" />
+                </td>
+            </tr>
+            <tr>
                 <th>場所</th>
                 <td>
                     <input type="hidden" id="lat" th:value="${bathForm.bath.bathPlaceLat}" />

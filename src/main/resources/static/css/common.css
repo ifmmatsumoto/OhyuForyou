@@ -17,7 +17,13 @@ header form {
     height: 50px;
     top: -16px;
 }
-
+.errorText {
+	vertical-align: middle;
+    display: inline-block;
+}
+.errorImg {
+	width: 5vw;
+}
 /* ヘッダー検索ボックス */
 .headSearch {
     font-family: cursive;
