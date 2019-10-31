@@ -94,7 +94,9 @@ public class AdminController {
             }
         }
         // 定休日
-        form.bath.setBathHoliday(Arrays.stream(form.bathHoliday).sum());
+        if (form.bathHoliday != null && form.bathHoliday.length > 0) {
+            form.bath.setBathHoliday(Arrays.stream(form.bathHoliday).sum());
+        }
         // 作成日時
         LocalDateTime now = LocalDateTime.now();
         if (form.bath.getCreateDate() == null) {
