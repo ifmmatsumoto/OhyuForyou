@@ -6,13 +6,15 @@
 <link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
 <!-- 共通ヘッダー -->
 <div th:replace="header"></div>
-
+<style type="text/css">
+    a{color:black;}
+</style>
 <body>
 <form method="POST" id="form" th:action="${prefectureForm.action}" th:object="${prefectureForm}">
     <input type="hidden" id="pref_id" th:field="*{areaCode}">
     <input type="hidden" id="pref_name" th:field="*{areaName}">
 </form>
-<div class="container">
+<div class="container" style="margin: 0;">
     <div class="row margintop">
         <div class="col-md-12">
             <div class="jp_map" id="wrapper">
