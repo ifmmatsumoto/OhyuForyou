@@ -3,8 +3,11 @@ package com.c4c.oyfy.domain.bath;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.dbflute.cbean.result.ListResultBean;
+import org.dbflute.cbean.result.PagingResultBean;
+import org.dbflute.cbean.scoping.UnionQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -12,6 +15,7 @@ import org.springframework.util.StringUtils;
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.app.top.TopForm;
 import com.c4c.oyfy.util.OyfyConst;
+import com.oyfy.dbflute.cbean.BathCB;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.BathTagBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
@@ -57,18 +61,32 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
             }));
             return resultList;
         }
+        // 銭湯名で検索
+        PagingResultBean<Bath> selectPage = bathBhv.selectPage(cb -> {
+            cb.orScopeQuery(orCB -> {
+                orCB.query().setBathNameJa_Equal(keyword);
+                orCB.query().setBathNameEn_Equal(keyword);
+            });
+            cb.paging(PAGE_SIZE, page);
+        });
+        if(selectPage.size() != 0) {
+            resultList.setPage(selectPage);
+            return resultList; // return resultList.setPage(selectPage);はむりだった
+        }
 
         // タグ名で検索
         ListResultBean<Tag> tagList = tagBhv.selectList(cb -> {
             cb.query().setTagNameJa_LikeSearch(keyword, op -> op.likeContain().splitBySpace().asOrSplit());
         });
-        if (tagList == null || tagList.size() == 0) return resultList;
 
-        // 銭湯検索用に使うタグIDリストを取得
-        List<Integer> bathTagIdList = new ArrayList<>();
-        tagList.forEach(tag -> {
-            bathTagIdList.add(tag.getTagId());
-        });
+        List<Integer> dummyIntegerList = new ArrayList<>();
+        dummyIntegerList.add(-1);
+
+        List<Integer> bathTagIdList = (tagList == null || tagList.size() == 0)
+                ? dummyIntegerList
+                : tagList.stream().map(tag -> {
+                    return tag.getTagId();
+                }).collect(Collectors.toList());
 
         // TODO OR検索になってる
         resultList.setPage(bathBhv.selectPage(cb -> {
@@ -80,6 +98,18 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
             cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
             cb.query().existsBathTag(bathTagCB -> {
                 bathTagCB.query().setTagId_InScope(bathTagIdList);
+            });
+
+            cb.union(new UnionQuery<BathCB>() {
+                @Override
+                public void query(BathCB unionCB) {
+                    unionCB.orScopeQuery(orCB -> {
+                        orCB.query().setBathDetail_LikeSearch(keyword, op -> op.likeContain().splitBySpace().asOrSplit());
+                        orCB.query().setBathAddressJa_LikeSearch(keyword, op -> op.likeContain().splitBySpace().asOrSplit());
+                        orCB.query().setBathAddressEn_LikeSearch(keyword, op -> op.likeContain().splitBySpace().asOrSplit());
+                        orCB.query().setBathNearStation_LikeSearch(keyword, op -> op.likeContain().splitBySpace().asOrSplit());
+                    });
+                }
             });
         }));
         return resultList;
@@ -106,10 +136,6 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         ListResultBean<BathTag> tagIdList = bathTagBhv.selectList(cb -> {
             cb.query().setBathId_Equal(bathId);
         });
-
-        // タグ登録されていない
-        if (tagIdList == null || tagIdList.size() ==0) return null;
-
         // タグ検索用に使うタグIDリストを取得
         List<Integer> bathTagIdList = new ArrayList<>();
         tagIdList.forEach(tag -> {
