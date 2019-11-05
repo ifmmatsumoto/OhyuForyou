@@ -1,53 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" media="all"
-    th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" media="all"
-    th:href="@{/css/area/prefecture.css}" />
-<link rel="stylesheet"
-    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-</head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<header th:replace="common/header"><title th:text="地域検索"></title>
+<script src="https://code.jquery.com/jquery-1.6.2.js"></script>
+</header>
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/area/prefecture.css}" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+<!-- 共通ヘッダー -->
+<div th:replace="header"></div>
 <body>
-    <div class="container-fluid" id="outline" layout:fragment="contents"
-        style="background-color: #FFFFFF;">
-        <div class="row col-md-12 justify-content-center">
-            <input type="button" class="btn btn-primary btn-lg" onclick="searchPrefecture();" value=地域名検索>
-        </div>
+    <div  class="container">
         <div class="row  col-md-12 justify-content-center">
             <div th:text="'選択中の地域：' + ${prefectureForm.areaName}"></div>
         </div>
         <form id="form" class="form-inline" action="#" th:action="@{/area/prefectureSearch}" th:object="${prefectureSearchForm}" method="post">
         <div class="row">
-            <div class="col-md-5 offset-md-3">
-                <table class="table table-bordered">
-                    <tr>
-                        <td class="prefecture-name" align="center">
-                            <div class="prefecture-name-text" th:text="${prefectureForm.areaName}">
-                            </div>
-                                 <input type="checkbox" id="all">
-                        </td>
-                        <td>
-                            <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
-                                <label class="form-check">
-	                                <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            <ul class="select-prefecture">
+                <li class="prefecture-name">
+                    <a class="switch-btn"><span id="btn-inner" >▼</span></a>
+                    <input type="checkbox" id="all">
+                    <label for="all" class="prefecture-name-text" th:text="${prefectureForm.areaName}"></label>
+                </li>
+                <li class="area-name-list">
+                    <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
+                        <label class="form-check">
+	                        <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row col-md-12 justify-content-center">
+            <input type="button" class="btn btn-primary btn-lg" onclick="searchPrefecture();" value=地域名検索>
         </div>
       </form>
     </div>
+<!-- 共通フッター -->
+<div th:replace="footer"></div>
 </body>
-<script src="https://code.jquery.com/jquery-1.6.2.js"></script>
-<script
-    src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-<script
-    src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
 <script type="text/javascript" th:src="@{/js/area/prefecture.js}"></script>
 </html>

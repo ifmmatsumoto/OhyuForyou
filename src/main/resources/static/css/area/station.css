@@ -11,18 +11,12 @@ div.line-name-text {
   color: #F8F8FF;
 }
 
-#outline {
-  width: 60%;
-  margin-top: 20px;
-  max-width: 780px;
-}
-
 div.station-name {
     display: flex;
     float: left;
     max-width: 300px;
-    min-width: 290px;
-    padding-left: 10px;
+    min-width: 250px;
+    padding-left: 50px;
     padding-bottom: 10px;
 }
 

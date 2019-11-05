@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{common/layout}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" media="all"
-    th:href="@{/bootstrap/css/bootstrap.css}" />
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<header th:replace="common/header"><title th:text="駅検索"></title></header>
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 <link rel="stylesheet" media="all" th:href="@{/css/area/station.css}" />
-<link rel="stylesheet"
-    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-</head>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+<!-- 共通ヘッダー -->
+<div th:replace="header"></div>
 <body>
-    <div class="container-fluid" id="outline" layout:fragment="contents" style="background-color: #FFFFFF;">
+    <div  class="container">
         <form id="form" class="form-inline" action="#" th:action="@{/area/stationSearch}" th:object="${stationSearchForm}" method="post">
-            <div class="row col-md-12 justify-content-center">
-                <input type="button" class="btn btn-primary btn-lg" onclick="searchStation();" value=駅名検索>
-            </div>
             <div class="row">
-                <table id=search_station class="table table-bordered">
-                    <tr th:each="line : ${stationForm.line}">
+                <table th:each="line : ${stationForm.line}" id=search_station class="table table-bordered">
+                    <tr>
                         <td class="line-name" align="center">
                             <div class="line-name-text" th:text="${line.key}"></div>
                             <input id="all" name="lineCheck" type="checkbox">
                         </td>
+                    </tr>
+                    <tr>
                         <td>
                             <div class="station-name" th:each="stationList : ${line.value}">
                                 <label class="form-check">
@@ -34,14 +29,17 @@
                     </tr>
                 </table>
             </div>
+            <div class="row col-md-12 justify-content-center">
+                <input type="button" class="btn btn-primary btn-lg" onclick="searchStation();" value=駅名検索>
+            </div>
         </form>
     </div>
+<!-- 共通フッター -->
+<div th:replace="footer"></div>
 </body>
 <script src="https://code.jquery.com/jquery-1.6.2.js"></script>
-<script
-    src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-<script
-    src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
 <script type="text/javascript" th:src="@{/js/area/station.js}"></script>
 <script src="docs/assets/js/application.js"></script>
 </html>
