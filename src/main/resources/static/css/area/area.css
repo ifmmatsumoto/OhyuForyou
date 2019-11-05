@@ -248,7 +248,7 @@ ul.jp_map a {
     background-color: #f5c9ff;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 735px) {
     .margintop{
         margin-top: 40px;
     }
