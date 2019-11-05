@@ -29,9 +29,9 @@
         </div>
         <div class="serach">
             <!-- キーワード検索 -->
-            <form th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
+            <form id="keywordSearch" th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
                 <input type="text" name="keyword" class="headSearch" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit();" autocomplete="off" maxlength="60">
-                <img class="kerorin" src="/oyfy/img/button_search.png" onclick="document.form.submit();">
+                <img class="kerorin" src="/oyfy/img/button_search.png" onclick="searchKeyword();">
             </form>
             <!-- 現在値検索 -->
             <form id="cuurentLocationSearch" th:action="@{/nearbyBath}" th:object="${topForm}" method="post" enctype="multipart/form-data">

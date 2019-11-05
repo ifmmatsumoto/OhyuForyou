@@ -51,7 +51,7 @@ body {
 .serach {
  position: relative;
  text-align: center;
- top: -10vw;
+ top: -100px;
 }
 .kerorin {
  width: 50px;
@@ -103,5 +103,8 @@ body {
  .container {
   top: -50px    ;
   width: 100%;
+ }
+ .serach {
+  top: -14vw;
  }
 }

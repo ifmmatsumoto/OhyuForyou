@@ -7,3 +7,6 @@ function searchNearnyBath(position) {
 
     $('#cuurentLocationSearch').submit();
 }
+function searchKeyword() {
+    $('#keywordSearch').submit();
+}
