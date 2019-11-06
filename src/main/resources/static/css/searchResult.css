@@ -138,7 +138,8 @@ i.fa {
 /* スマートフォン向けレイアウト */
 @media screen and (max-width:767px) {
  /* 銭湯リスト */
- div.bathList {
+ .bathList {
+  display: block;
   width: 100%;
   min-width: auto;
  }
@@ -146,8 +147,9 @@ i.fa {
   width: 100%;
  }
  /* 銭湯画像 */
- div.bathList a span.bathImage {
+ .bathImg {
   display: block;
+  width: 100%;
  }
  div.bathList a span.bathImage img {
   width: 97%;
