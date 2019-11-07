@@ -2,6 +2,8 @@ package com.c4c.oyfy.app.illust;
 
 import java.util.List;
 
+import org.springframework.util.StringUtils;
+
 import com.oyfy.dbflute.exentity.Tag;
 
 public class IllustHelper {
@@ -11,6 +13,8 @@ public class IllustHelper {
         entityList.forEach(entity -> {
             IllustItemForm form = new IllustItemForm();
             form.setTagNameJa(entity.getTagNameJa());
+            // 画像が無いタグは表示しない
+            if (StringUtils.isEmpty(entity.getTagImage())) return;
 
             int prefixIndex = entity.getTagImage().indexOf("_");
             String prefixImg = entity.getTagImage().substring(0, prefixIndex);
