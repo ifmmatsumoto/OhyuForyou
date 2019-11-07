@@ -16,7 +16,7 @@
                 <!-- 料金 -->
                 <div class="row pt-md-3 pt-2 text-right">
                     <div class="col-md-2 offset-md-2 col-3 mt-md-1" style="padding-left:10px;">
-                        <img class="fee-img" th:src="@{/img/illust/Illust_feeLower.png}"></img>
+                        <img class="fee-img" th:src="@{/img/illust/illust_price_cheep.png}"></img>
                     </div>
                     <div class="col-md-4 col-6 mt-4 mt-md-5">
                         <div id="slider"></div>
@@ -24,7 +24,7 @@
                         <div id="max"></div>
                     </div>
                     <div class="col-md-1 col-3 mt-md-1 text-left" style="padding-left:13px;">
-                        <img class="fee-img" th:src="@{/img/illust/Illust_feeHeigher.png}"></img>
+                        <img class="fee-img" th:src="@{/img/illust/illust_price.png}"></img>
                     </div>
                 </div>
                 <!-- イラスト選択 -->
@@ -51,7 +51,7 @@
                                 <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                                 <div class="illust-div" style="position: relative;">
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].temperatureTag}" />
-                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/oyfy/img/selected.png"  style="width: 100px;"/>
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/oyfy/img/illust_check.png"  style="width: 100px;"/>
                                 </div>
                                 <!-- レイアウトを整えるダミー用 -->
                                 <div class="d-inline"></div>
@@ -67,7 +67,7 @@
                                 <input type="hidden" th:value="*{illustItemList[__${itemStat.index}__].tagNameJa}" style="display: none;" />
                                 <p class="d-inline" style="position: relative;" >
                                     <img class="rounded-circle mt-md-2 illust-img" th:src="*{illustItemList[__${itemStat.index}__].ojijiTag}" style="width: 100px"/>
-                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/img/illust_check.png"  style="width: 100px;"/>
+                                    <img class="rounded-circle mt-md-2 checked illust-img" th:id="'checked_' + ${itemStat.count}" src="/oyfy/img/illust_check.png"  style="width: 100px;"/>
                                 </p>
                             </div>
                         </div>
