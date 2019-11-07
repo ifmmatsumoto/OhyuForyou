@@ -136,6 +136,9 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         ListResultBean<BathTag> tagIdList = bathTagBhv.selectList(cb -> {
             cb.query().setBathId_Equal(bathId);
         });
+        // タグが登録されていない場合は終了
+        if (tagIdList == null || tagIdList.size() ==0) return null;
+
         // タグ検索用に使うタグIDリストを取得
         List<Integer> bathTagIdList = new ArrayList<>();
         tagIdList.forEach(tag -> {
