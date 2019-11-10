@@ -11,27 +11,35 @@
 <div th:replace="header"></div>
 <body>
     <div  class="container">
-        <div class="row  col-md-12 justify-content-center">
-            <div th:text="'選択中の地域：' + ${prefectureForm.areaName}"></div>
-        </div>
         <form id="form" class="form-inline" action="#" th:action="@{/area/prefectureSearch}" th:object="${prefectureSearchForm}" method="post">
         <div class="row">
-            <ul class="select-prefecture">
-                <li class="prefecture-name">
-                    <a class="switch-btn"><span id="btn-inner" >▼</span></a>
-                    <input type="checkbox" id="all">
-                    <label for="all" class="prefecture-name-text" th:text="${prefectureForm.areaName}"></label>
-                </li>
-                <li class="area-name-list">
-                    <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
-                        <label class="form-check">
-	                        <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
-                        </label>
-                    </div>
-                </li>
-            </ul>
+            <div>
+                <div class="search-prefecture" id="selected-prefecture" th:text="'選択中の県名：' + ${prefectureForm.areaName}">
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="prefecture-name" align="center">
+                            <span id="btn-inner" >▼</span>
+                            <div class="prefecture-name-text" th:text="${prefectureForm.areaName}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id=area-name-list>
+                        <td>
+                            <div>
+                            <input type="checkbox" id="all"> 全選択
+                            </div>
+                            <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="row col-md-12 justify-content-center">
+        <div id="button-area" class="row col-md-12 justify-content-center">
             <input type="button" class="btn btn-primary btn-lg" onclick="searchPrefecture();" value=地域名検索>
         </div>
       </form>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<header th:replace="common/header"><title th:text="駅検索"></title></header>
+<header th:replace="common/header"><title th:text="駅検索"></title>
+<script src="https://code.jquery.com/jquery-1.6.2.js"></script>
+</header>
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
 <link rel="stylesheet" media="all" th:href="@{/css/area/station.css}" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -11,15 +13,20 @@
     <div  class="container">
         <form id="form" class="form-inline" action="#" th:action="@{/area/stationSearch}" th:object="${stationSearchForm}" method="post">
             <div class="row">
+                <div class="search-prefecture" id="selected-prefecture" th:text="'選択中の県名：' + ${stationForm.areaName}">
+                </div>
                 <table th:each="line : ${stationForm.line}" id=search_station class="table table-bordered">
                     <tr>
                         <td class="line-name" align="center">
+                            <span id="btn-inner" >▼</span>
                             <div class="line-name-text" th:text="${line.key}"></div>
-                            <input id="all" name="lineCheck" type="checkbox">
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td id="station-name-list">
+                            <div>
+                            <input id="all" name="lineCheck" type="checkbox"> 全選択
+                            </div>
                             <div class="station-name" th:each="stationList : ${line.value}">
                                 <label class="form-check">
                                     <input class="form-check-input" type="checkbox" name="stationNames" th:text="${stationList.name}" th:value="${stationList.name}">
@@ -37,7 +44,6 @@
 <!-- 共通フッター -->
 <div th:replace="footer"></div>
 </body>
-<script src="https://code.jquery.com/jquery-1.6.2.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
 <script type="text/javascript" th:src="@{/js/area/station.js}"></script>

@@ -131,3 +131,17 @@ $(function() {
 
     });
 });
+
+//表示、非表示処理
+$(function() {
+        $('td.line-name').on('click', function switchDisplay(){
+            if($('#station-name-list').css('display') == 'none') {
+                $('#station-name-list').css('display','block');
+                $('#btn-inner').text('▲');
+            }
+            else{
+                $('#station-name-list').css({'display':'none'});
+                $('#btn-inner').text('▼');
+            }
+        });
+});
