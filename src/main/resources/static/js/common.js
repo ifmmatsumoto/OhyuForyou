@@ -7,4 +7,10 @@ $(function(){
 		$('#is-loading ,#loading').height(h).css('display','block');
 	});
 });
-
+// ブラウザバックで戻ってきた時の処理
+window.onpageshow = function(event) {
+	if (event.persisted) {
+		var h = $(window).height();
+		$('#is-loading ,#loading').height(h).css('display','none');
+	}
+};
