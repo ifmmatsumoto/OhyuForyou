@@ -1,47 +1,51 @@
 @charset "UTF-8";
 
+body {
+ min-height: 100vh;
+ position: relative;
+}
 /* ヘッダー */
 header {
-    max-width: 780px;
-    text-align: center;
-    margin: 0 auto;
+ max-width: 780px;
+ text-align: center;
+ margin: 0 auto;
 }
 /* ヘッダー画像 */
 header img.header {
-    width: 100%;
-    z-index: 1;
-    position: relative;
+ width: 100%;
+ z-index: 1;
+ position: relative;
 }
 header form {
-    position: relative;
-    height: 50px;
-    top: -16px;
+ position: relative;
+ height: 50px;
+ top: -16px;
 }
 .errorText {
-	vertical-align: middle;
-    display: inline-block;
+ vertical-align: middle;
+ display: inline-block;
 }
 .errorImg {
 	width: 5vw;
 }
 /* ヘッダー検索ボックス */
 .headSearch {
-    font-family: cursive;
-    border: 1px solid #acacac;
-    color: #fff;
-    padding: 0 20px;
-    opacity: 0.7;
-    border-radius: 10px;
-    height: 50px;
-    text-align: left;
-    position: relative;
-    width: 90%;
-    transition: all .3s;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    font-size: 16px;
-    outline: none;
-    background-color: #acacac;
+ font-family: cursive;
+ border: 1px solid #acacac;
+ color: #fff;
+ padding: 0 20px;
+ opacity: 0.7;
+ border-radius: 10px;
+ height: 50px;
+ text-align: left;
+ position: relative;
+ width: 90%;
+ transition: all .3s;
+ -webkit-transition: all .3s;
+ -moz-transition: all .3s;
+ font-size: 16px;
+ outline: none;
+ background-color: #acacac;
 }
 /* ヘッダー検索ボックスプレースホルダー */
 *::-webkit-input-placeholder { color: #ddd; }
@@ -50,37 +54,43 @@ header form {
 *:-ms-input-placeholder { color: #ddd; }
 /* ヘッダー検索ボックスアイコン */
 .sbtn {
-    height: 50px;
-    position: absolute;
-    right: 44px;
-    top: 0;
-    background: none;
-    color: #666;
-    border: none;
-    font-size: 20px;
+ height: 50px;
+ position: absolute;
+ right: 44px;
+ top: 0;
+ background: none;
+ color: #666;
+ border: none;
+ font-size: 20px;
 }
 .sbtn:hover {
-    color: #fff;
+ color: #fff;
 }
 /* コンテナ */
 .container {
-    padding: 0;
-    width: 95%;
-    max-width: 780px;
+ padding: 0;
+ width: 95%;
+ max-width: 780px;
+ padding-bottom: 170px;/* footerの高さを確保 */
+ box-sizing: border-box;
 }
 /* フッター */
 footer {
-    max-width: 780px;
-    text-align: center;
-    margin: 0 auto;
+ max-width: 780px;
+ text-align: center;
+ margin: 0 auto;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
 }
 /* スマートフォン向けレイアウト */
 @media screen and (max-width:767px) {
  header form {
-     top: -6px;
+  top: -6px;
  }
  .sbtn {
-    right: 25px;
+  right: 25px;
  }
 }
 

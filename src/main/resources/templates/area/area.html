@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<header th:replace="common/header"><title th:text="都道府県検索"></title></header>
-<link rel="stylesheet" media="all" th:href="@{/css/area/area.css}" />
-<script th:src="@{/js/area/area.js}"></script>
-<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
-<!-- 共通ヘッダー -->
-<div th:replace="header"></div>
-<style type="text/css">
-    a{color:black;}
-    .clear{clear:both;}
-</style>
+<head>
+    <title>Oh湯!forYou!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <script th:src="@{/js/jquery-migrate-3.0.0.min.js}"></script>
+    <script th:src="@{/js/area/area.js}"></script>
+    <script src="https://kit.fontawesome.com/a293a46691.js"></script>
+    <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+    <link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" media="all" th:href="@{/css/area/area.css}" />
+</head>
 <body>
+<!-- 共通ヘッダー -->
+<div th:replace="common/header"></div>
 <form method="POST" id="form" th:action="${prefectureForm.action}" th:object="${prefectureForm}">
     <input type="hidden" id="pref_id" th:field="*{areaCode}">
     <input type="hidden" id="pref_name" th:field="*{areaName}">
@@ -67,8 +71,8 @@
             <li><a href="#" id="47">沖縄県</a></li>
         </ul>
     </div>
-    <!-- 共通フッター -->
-    <div th:replace="footer"></div>
 </div>
+<!-- 共通フッター -->
+<div th:replace="common/footer"></div>
 </body>
 </html>

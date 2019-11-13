@@ -62,7 +62,7 @@ public class TopController extends _CommonController {
         model.addAttribute("resultList", resultList);
 
         // 検索結果一覧画面表示
-        return "searchResult";
+        return "result/searchResult";
     }
 
     @RequestMapping(path = "nearbyBath", method = RequestMethod.POST)
@@ -70,6 +70,6 @@ public class TopController extends _CommonController {
         form.setDistance(3);// 半径
         ResultList resultList = bathService.findNearbyBath(form);
         model.addAttribute("resultList", resultList);
-        return "searchResult";
+        return "result/searchResult";
     }
 }

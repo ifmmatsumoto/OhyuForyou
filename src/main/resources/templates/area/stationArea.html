@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<header th:replace="common/header"><title th:text="駅検索"></title>
-<script src="https://code.jquery.com/jquery-1.6.2.js"></script>
-</header>
-<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" media="all" th:href="@{/css/area/station.css}" />
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+<head>
+    <title>Oh湯!forYou!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
+    <link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
+	<link rel="stylesheet" media="all" th:href="@{/css/area/station.css}" />
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" th:src="@{/js/top/top.js}"></script>
+</head>
 <!-- 共通ヘッダー -->
-<div th:replace="header"></div>
+<div th:replace="common/header"></div>
 <body>
     <div  class="container">
         <form id="form" class="form-inline" action="#" th:action="@{/area/stationSearch}" th:object="${stationSearchForm}" method="post">
@@ -42,7 +46,7 @@
         </form>
     </div>
 <!-- 共通フッター -->
-<div th:replace="footer"></div>
+<div th:replace="common/footer"></div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>

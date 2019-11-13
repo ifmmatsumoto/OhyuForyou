@@ -62,7 +62,7 @@ public class AreaController extends _CommonController {
         }
 
         // 駅/都道府県検索(日本)画面表示
-        return "area";
+        return "area/area";
     }
 
     /**
@@ -90,7 +90,7 @@ public class AreaController extends _CommonController {
         // 都道府県検索(地域)画面表示
         model.addAttribute("prefectureName", "/img/footer/footer_select_prefecture.png");
 
-        return "prefectureArea";
+        return "area/prefectureArea";
     }
 
     /**
@@ -126,7 +126,7 @@ public class AreaController extends _CommonController {
         // 駅検索(地域選択)画面表示
         model.addAttribute("stationName", "/img/footer/footer_select_train.png");
 
-        return "stationArea";
+        return "area/stationArea";
     }
 
     /**
@@ -150,7 +150,7 @@ public class AreaController extends _CommonController {
       model.addAttribute("resultList", resultList);
 
         // 検索結果（都道府県）画面表示
-        return "searchResult";
+        return "result/searchResult";
     }
 
     /**
@@ -174,7 +174,7 @@ public class AreaController extends _CommonController {
         model.addAttribute("resultList", resultList);
 
         // 検索結果（駅）画面表示
-        return "searchResult";
+        return "result/searchResult";
     }
 
 }

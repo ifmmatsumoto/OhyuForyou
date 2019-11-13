@@ -58,6 +58,6 @@ public class IllustSearchController {
         ResultList resultList = bathService.findBathList(cond);
         model.addAttribute("resultList", resultList);
 
-        return "searchResult";
+        return "result/searchResult";
     }
 }

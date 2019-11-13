@@ -1,7 +1,13 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
-    <script th:src="@{/js/jquery-migrate-3.0.0.min.js}"></script>
-    <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
-</head>
+<!-- ローディング -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" th:src="@{/js/common.js}"></script>
+<div id="is-loading"><div id="loading"><img th:src="@{/img/ojiji/ojiji_search.png}" alt="loading..." /></div></div>
+<header>
+    <!-- ヘッダー画像 -->
+    <a href="/oyfy"><img src="/oyfy/img/header.png" class="header" /></a>
+    <!-- 検索ボックス -->
+    <form th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
+        <input type="text" name="keyword" class="headSearch loading_inp" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit()" autocomplete="off" maxlength="60">
+        <button type="submit" class="sbtn loading"><i class="fas fa-search"></i></button>
+    </form>
+</header>
