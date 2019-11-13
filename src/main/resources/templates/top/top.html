@@ -12,26 +12,32 @@
 </head>
 <body>
     <div class="outer">
-        <div class="logo"><img th:src="@{/img/top_bg.png}" /></div>
+        <div class="logo"><img th:src="@{/img/top/top_bg.png}" /></div>
     </div>
-    <div class="container">
+    <div class="renga">
         <div class="menu">
             <ul>
                     <!-- イラスト検索 -->
-                    <li><a th:href="@{illust}" ><img th:src="@{/img/top_menu_illust.png}" /></a></li>
+                    <li><a th:href="@{illust}" ><img th:src="@{/img/top/top_menu_illust.png}" /></a></li>
                     <!-- 都道府県検索 -->
-                    <li><a th:href="@{/area(division=${1})}"><img th:src="@{/img/top_menu_prefecture.png}" /></a></li>
+                    <li><a th:href="@{/area(division=${1})}"><img th:src="@{/img/top/top_menu_prefecture.png}" /></a></li>
                     <!-- 駅検索 -->
-                    <li><a th:href="@{/area(division=${2})}"><img th:src="@{/img/top_menu_train.png}" /></a></li>
+                    <li><a th:href="@{/area(division=${2})}"><img th:src="@{/img/top/top_menu_train.png}" /></a></li>
             </ul>
-                <!-- おじじ画像 -->
-                <div class="ojiji"><img class="ojijiImg" th:src="@{/img/top_ojiji.png}" /></div>
         </div>
-        <div class="serach">
+    </div>
+    <!-- 浴槽画像 -->
+    <div class="yokuso">
+        <div class="ojiji"><img th:src="@{/img/top/top_ojiji_01.png}" /></div>
+        <div class="oke"><img th:src="@{/img/top/top_oke.png}" /></div>
+        <div class="ahiru"><img th:src="@{/img/top/top_ ahiru.png}" /></div>
+    </div>
+    <div class="container">
+        <div class="search">
             <!-- キーワード検索 -->
             <form id="keywordSearch" th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
                 <input type="text" name="keyword" class="headSearch" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit();" autocomplete="off" maxlength="60">
-                <img class="kerorin" src="/oyfy/img/button_search.png" onclick="searchKeyword();">
+                <img class="kerorin" src="/oyfy/img/top/button_search.png" onclick="searchKeyword();">
             </form>
             <!-- 現在値検索 -->
             <form id="cuurentLocationSearch" th:action="@{/nearbyBath}" th:object="${topForm}" method="post" enctype="multipart/form-data">

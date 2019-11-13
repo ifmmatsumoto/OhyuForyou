@@ -2,20 +2,38 @@
 
 /* 背景 */
 body {
- background-color: #2C90FF;
  height: 100vh;
+ background-color: #F9D7AF;
+ height: 260px;
+ background-image: linear-gradient(#eee 1px, transparent 0),
+                   linear-gradient(90deg, #eee 1px, transparent 0);
+ background-size: 40px 40px;
+
 }
 /* ロゴ */
 .outer {
  width: 100%;
  background-color: #fff;
  padding: 20px 0;
- border-bottom: solid 5px #bbb;
+ border-bottom: solid 5px #555;
+}
+/* レンガ */
+.renga {
+ position: relative;
+ width: 100%;
+ background-color: #555;
+ background-image: linear-gradient(335deg, #fff 23px, transparent 23px),
+ linear-gradient(155deg, #eee 23px, transparent 23px),
+ linear-gradient(335deg, #fff 23px, transparent 23px),
+ linear-gradient(155deg, #eee 23px, transparent 23px);
+ background-size: 58px 58px;
+ background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
 }
 /* コンテナ */
 .container {
- top: -150px;
  position: relative;
+ width: 100%;
+ top: -100px;
 }
 .logo {
  max-width: 780px;
@@ -29,6 +47,7 @@ body {
 .menu {
  position: relative;
  text-align: center;
+ top: -100px;
 }
 .menu ul {
  text-align: center;
@@ -41,17 +60,73 @@ body {
 /* メニュー画像 */
 .menu ul li a img {
  width: 25%;
+ max-width: 200px;
  transition: 1s ;
  transform: rotateY(0deg);
 }
 .menu ul li a img:hover {
  transform: rotateY(360deg);
 }
+/* 浴槽画像 */
+.yokuso {
+ width: 100%;
+ top: -105px;
+ min-height: 200px;
+ position: relative;
+ background-size: contain;
+ background-image: url('/oyfy/img/top/top_bath.png');
+ background-repeat: repeat-x;
+}
+.yokuso div {
+ margin: 0 auto;
+ position: absolute;
+}
+.yokuso div.ojiji {
+ bottom: 50px;
+ left: 40%;
+}
+.yokuso div.oke {
+ bottom: 70px;
+ left: 10%;
+}
+.yokuso div.ahiru {
+ bottom: 120px;
+ left: 80%;
+}
+.yokuso div.ojiji img {
+ width: 130px;
+ animation: ojiji 3s ease-in-out infinite;
+}
+.yokuso div.oke img {
+ width: 100px;
+ animation: yoko 3s ease-in-out infinite;
+}
+.yokuso div.ahiru img {
+ width: 50px;
+ animation: tate 3s ease-in-out infinite;
+}
+@keyframes ojiji {
+ 0% { transform: rotate(0deg); }
+ 25% { transform: rotate(3deg); }
+ 50% { transform: rotate(0deg); }
+ 75% { transform: rotate(-3deg); }
+ 100% { transform: rotate(0deg); }
+}
+@keyframes tate {
+ 0% {transform: scale(1) translate(0, 0);}
+ 50% {transform: scale(1) translate(0, 10px);}
+ 100% {transform: scale(1) translate(0, 0);}
+}
+@keyframes yoko {
+ 0% {transform: scale(1) translate(0, 0);}
+ 50% {transform: scale(1) translate(10px, 0);}
+ 100% {transform: scale(1) translate(0, 0);}
+}
+
 /* キーワード検索 */
-.serach {
+.search {
  position: relative;
  text-align: center;
- top: -100px;
 }
 .kerorin {
  width: 50px;
@@ -63,10 +138,6 @@ body {
 .headSearch {
  width: 80%;
  opacity: 0.9;
-}
-/* おじじ画像 */
-.ojijiImg {
- width: 100%;
 }
 /* 現時点検索ボタン */
 #cuurentLocationSearch {
@@ -90,19 +161,32 @@ body {
 
 /* スマートフォン向けレイアウト */
 @media screen and (max-width:767px) {
+ .menu {
+  top: -70px;
+ }
  .outer {
   padding: 0;
   border-bottom: none;
  }
- /* ロゴ */
  .logo img {
  padding: 0;
  border: none;
  }
- /* コンテナ */
  .container {
-  top: -50px    ;
+  top: -50px;
+ }
+ .yokuso {
   width: 100%;
+  top: -80px;
+ }
+ .yokuso .ojiji img {
+  width: 100px;
+ }
+ .yokuso .ahiru img {
+  width: 100px;
+ }
+ .yokuso .oke img {
+  width: 100px;
  }
  .serach {
   top: -14vw;
