@@ -7,7 +7,7 @@
     <a href="/oyfy"><img src="/oyfy/img/header.png" class="header" /></a>
     <!-- 検索ボックス -->
     <form th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
-        <input type="text" name="keyword" class="headSearch" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit()" autocomplete="off" maxlength="60">
-        <button type="submit" class="sbtn"><i class="fas fa-search"></i></button>
+        <input type="text" name="keyword" class="headSearch loading_inp" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit()" autocomplete="off" maxlength="60">
+        <button type="submit" class="sbtn loading"><i class="fas fa-search"></i></button>
     </form>
 </header>
