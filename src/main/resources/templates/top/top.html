@@ -20,12 +20,12 @@
     <div class="renga">
         <div class="menu">
             <ul>
-                    <!-- イラスト検索 -->
-                    <li><a th:href="@{illust}" ><img th:src="@{/img/top/top_menu_illust.png}" /></a></li>
-                    <!-- 都道府県検索 -->
-                    <li><a th:href="@{/area(division=${1})}"><img th:src="@{/img/top/top_menu_prefecture.png}" /></a></li>
                     <!-- 駅検索 -->
                     <li><a th:href="@{/area(division=${2})}"><img th:src="@{/img/top/top_menu_train.png}" /></a></li>
+                    <!-- 都道府県検索 -->
+                    <li><a th:href="@{/area(division=${1})}"><img th:src="@{/img/top/top_menu_prefecture.png}" /></a></li>
+                    <!-- イラスト検索 -->
+                    <li><a th:href="@{illust}" ><img th:src="@{/img/top/top_menu_illust.png}" /></a></li>
             </ul>
         </div>
     </div>

@@ -24,4 +24,11 @@ public class BathForm extends _Common_Form {
     private String dispBath24hFlg;
     /** タグ一覧 */
     private List<Tag> tagList;
+    /** 投稿者 */
+    private String newyorker;
+    /** レビュー */
+    private String review;
+    /** コメント一覧 */
+//    private List<Comment> commentList;
+
 }

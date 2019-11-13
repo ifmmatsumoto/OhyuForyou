@@ -111,6 +111,15 @@
 	    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCoBXsawQdlQwF0Hc0ZK67LfJR-2iqc1jc&callback=initMap"></script>
     </section>
     <a class="back" href="javascript:history.back();">戻る</a>
+
+  <!-- レビュー登録フォーム -->
+  <form th:action="@{/bath/regist}" id="bathForm" name="bathForm" th:object="${bathForm}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="bathId" th:value="${bathForm.bath.bathId}" />
+    <input type="text" name="newyorker" value="" />
+    <textarea rows="10" name="review"></textarea>
+    <a href="javascript:bathForm.submit()">登　録</a>
+  </form>
+
 </div>
 
 <!-- 共通フッター -->
