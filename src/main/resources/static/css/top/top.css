@@ -76,6 +76,8 @@ body {
  background-size: contain;
  background-image: url('/oyfy/img/top/top_bath.png');
  background-repeat: repeat-x;
+ position: relative;
+ overflow: hidden;
 }
 .yokuso div {
  margin: 0 auto;
@@ -121,6 +123,59 @@ body {
  0% {transform: scale(1) translate(0, 0);}
  50% {transform: scale(1) translate(10px, 0);}
  100% {transform: scale(1) translate(0, 0);}
+}
+
+/* 湯気 */
+.steam {
+ position: absolute;
+ z-index: 2;
+ width: 100%;
+ top: 180px;
+ left: 0px;
+ animation: steam_up 20s infinite linear;
+ transition: all 1s;
+}
+.steam img {
+ width: 100%;
+}
+.steam2 {
+ z-index: 3;
+ position: absolute;
+ width: 100%;
+ top: 180px;
+ left: 50px;
+ animation: steam_up 22s 10s infinite linear;
+ transition: all 1s;
+}
+.steam2 img {
+ width: 100%;
+}
+@keyframes steam_up {
+ 0% {
+  filter: blur(10px);
+  transform: rotateY(0deg);
+  transform: scale(1, 1);
+  opacity: 0.2;
+ }
+ 13% {
+  opacity: 0.2;
+ }
+ 33% {
+  opacity: 0.4;
+  transform: rotateY(40deg);
+  transform: scale(0.6, 1.2);
+ }
+ 66% {
+  transform: rotateY(2deg);
+  transform: scaleY(1.2, 0.4);
+ }
+ 100% {
+  filter: blur(16px);
+  transform: rotateY(50deg);
+  transform: scaleY(1.4, 1.2);
+  opacity: 0;
+  top: -400px;
+ }
 }
 
 /* キーワード検索 */
