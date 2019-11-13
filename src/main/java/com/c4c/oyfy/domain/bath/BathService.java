@@ -66,6 +66,10 @@ public class BathService {
     }
 
     public ResultList findNearbyBath(TopForm currentLocationForm) {
-        return bathRepository.findNearbyBath(currentLocationForm);
+
+        ResultList resultList = bathRepository.findNearbyBath(currentLocationForm);
+        resultList.setKeyword("現在地");
+        resultList.setKeywordList(Arrays.asList("近くの銭湯"));
+        return resultList;
     }
 }
