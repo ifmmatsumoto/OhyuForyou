@@ -93,6 +93,7 @@ footer {
   right: 25px;
  }
  footer {
+  width: 100%;
   position: relative;
  }
 }
