@@ -30,13 +30,13 @@ import com.oyfy.dbflute.cbean.*;
  *     bath_tag
  *
  * [referrer table]
- *     bath_tag
+ *     bath_tag, review
  *
  * [foreign property]
  *     bathTag
  *
  * [referrer property]
- *     bathTagList
+ *     bathTagList, reviewList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -93,6 +93,40 @@ public class LoaderOfBath {
     public NestedReferrerLoaderGateway<LoaderOfBathTag> loadBathTag(ReferrerConditionSetupper<BathTagCB> refCBLambda) {
         myBhv().loadBathTag(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerBathTag = refLs);
         return hd -> hd.handle(new LoaderOfBathTag().ready(_referrerBathTag, _selector));
+    }
+
+    protected List<Review> _referrerReview;
+
+    /**
+     * Load referrer of reviewList by the set-upper of referrer. <br>
+     * review by bath_id, named 'reviewList'.
+     * <pre>
+     * <span style="color: #0000C0">bathBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">bathList</span>, <span style="color: #553000">bathLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">bathLoader</span>.<span style="color: #CC4747">loadReview</span>(<span style="color: #553000">reviewCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">reviewCB</span>.setupSelect...
+     *         <span style="color: #553000">reviewCB</span>.query().set...
+     *         <span style="color: #553000">reviewCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">reviewLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    reviewLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (Bath bath : <span style="color: #553000">bathList</span>) {
+     *     ... = bath.<span style="color: #CC4747">getReviewList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setBathId_InScope(pkList);
+     * cb.query().addOrderBy_BathId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<LoaderOfReview> loadReview(ReferrerConditionSetupper<ReviewCB> refCBLambda) {
+        myBhv().loadReview(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerReview = refLs);
+        return hd -> hd.handle(new LoaderOfReview().ready(_referrerReview, _selector));
     }
 
     // ===================================================================================

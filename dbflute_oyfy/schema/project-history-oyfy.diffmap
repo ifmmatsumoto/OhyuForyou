@@ -1,4 +1,61 @@
 map:{
+    ; 2019/11/13 21:53:28 = map:{
+        ; diffDate = 2019/11/13 21:53:28
+        ; tableCount = map:{
+            ; next = 4
+            ; previous = 3
+        }
+        ; diffAuthor = s13m1
+        ; diffGitBranch = develop
+        ; tableDiff = map:{
+            ; review = map:{
+                ; tableName = review
+                ; diffType = ADD
+            }
+            ; bath = map:{
+                ; tableName = bath
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; bath_type = map:{
+                        ; columnName = bath_type
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "10"
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; bath_24h_flg = map:{
+                        ; columnName = bath_24h_flg
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "0"
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; del_flg = map:{
+                        ; columnName = del_flg
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "0"
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+            }
+        }
+    }
     ; 2019/10/30 17:38:05 = map:{
         ; diffDate = 2019/10/30 17:38:05
         ; diffAuthor = haraguchi

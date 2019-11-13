@@ -12,21 +12,21 @@ import com.oyfy.dbflute.cbean.cq.bs.*;
 import com.oyfy.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of bath.
+ * The condition-query for in-line of review.
  * @author DBFlute(AutoGenerator)
  */
-public class BathCIQ extends AbstractBsBathCQ {
+public class ReviewCIQ extends AbstractBsReviewCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsBathCQ _myCQ;
+    protected BsReviewCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BathCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsBathCQ myCQ) {
+    public ReviewCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsReviewCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -61,58 +61,22 @@ public class BathCIQ extends AbstractBsBathCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
+    protected ConditionValue xgetCValueReviewId() { return _myCQ.xdfgetReviewId(); }
     protected ConditionValue xgetCValueBathId() { return _myCQ.xdfgetBathId(); }
-    public String keepBathId_ExistsReferrer_BathTagList(BathTagCQ sq)
-    { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepBathId_ExistsReferrer_ReviewList(ReviewCQ sq)
-    { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepBathId_NotExistsReferrer_BathTagList(BathTagCQ sq)
-    { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepBathId_NotExistsReferrer_ReviewList(ReviewCQ sq)
-    { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepBathId_SpecifyDerivedReferrer_BathTagList(BathTagCQ sq)
-    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepBathId_SpecifyDerivedReferrer_ReviewList(ReviewCQ sq)
-    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepBathId_QueryDerivedReferrer_BathTagList(BathTagCQ sq)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepBathId_QueryDerivedReferrer_BathTagListParameter(Object vl)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepBathId_QueryDerivedReferrer_ReviewList(ReviewCQ sq)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepBathId_QueryDerivedReferrer_ReviewListParameter(Object vl)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue xgetCValueBathNameJa() { return _myCQ.xdfgetBathNameJa(); }
-    protected ConditionValue xgetCValueBathNameEn() { return _myCQ.xdfgetBathNameEn(); }
-    protected ConditionValue xgetCValueBathImage() { return _myCQ.xdfgetBathImage(); }
-    protected ConditionValue xgetCValueBathAddressJa() { return _myCQ.xdfgetBathAddressJa(); }
-    protected ConditionValue xgetCValueBathAddressEn() { return _myCQ.xdfgetBathAddressEn(); }
-    protected ConditionValue xgetCValueBathTel() { return _myCQ.xdfgetBathTel(); }
-    protected ConditionValue xgetCValueBathDetail() { return _myCQ.xdfgetBathDetail(); }
-    protected ConditionValue xgetCValueBathFee() { return _myCQ.xdfgetBathFee(); }
-    protected ConditionValue xgetCValueBathType() { return _myCQ.xdfgetBathType(); }
-    protected ConditionValue xgetCValueBath24hFlg() { return _myCQ.xdfgetBath24hFlg(); }
-    protected ConditionValue xgetCValueBathTimeSt() { return _myCQ.xdfgetBathTimeSt(); }
-    protected ConditionValue xgetCValueBathTimeEd() { return _myCQ.xdfgetBathTimeEd(); }
-    protected ConditionValue xgetCValueBathNearStation() { return _myCQ.xdfgetBathNearStation(); }
-    protected ConditionValue xgetCValueBathPlaceLat() { return _myCQ.xdfgetBathPlaceLat(); }
-    protected ConditionValue xgetCValueBathPlaceLon() { return _myCQ.xdfgetBathPlaceLon(); }
-    protected ConditionValue xgetCValueBathTemperatureUp() { return _myCQ.xdfgetBathTemperatureUp(); }
-    protected ConditionValue xgetCValueBathTemperatureLow() { return _myCQ.xdfgetBathTemperatureLow(); }
-    protected ConditionValue xgetCValueBathHoliday() { return _myCQ.xdfgetBathHoliday(); }
-    protected ConditionValue xgetCValueDelFlg() { return _myCQ.xdfgetDelFlg(); }
+    protected ConditionValue xgetCValueNewyorker() { return _myCQ.xdfgetNewyorker(); }
+    protected ConditionValue xgetCValueReview() { return _myCQ.xdfgetReview(); }
     protected ConditionValue xgetCValueCreateDate() { return _myCQ.xdfgetCreateDate(); }
     protected ConditionValue xgetCValueUpdateDate() { return _myCQ.xdfgetUpdateDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(BathCQ sq)
+    public String keepScalarCondition(ReviewCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
-    public String keepSpecifyMyselfDerived(BathCQ sq)
+    public String keepSpecifyMyselfDerived(ReviewCQ sq)
     { throwIICBOE("(Specify)MyselfDerived"); return null;}
-    public String keepQueryMyselfDerived(BathCQ sq)
+    public String keepQueryMyselfDerived(ReviewCQ sq)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
     public String keepQueryMyselfDerivedParameter(Object vl)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
-    public String keepMyselfExists(BathCQ sq)
+    public String keepMyselfExists(ReviewCQ sq)
     { throwIICBOE("MyselfExists"); return null;}
 
     protected void throwIICBOE(String name)
@@ -122,6 +86,6 @@ public class BathCIQ extends AbstractBsBathCQ {
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return BathCB.class.getName(); }
-    protected String xinCQ() { return BathCQ.class.getName(); }
+    protected String xinCB() { return ReviewCB.class.getName(); }
+    protected String xinCQ() { return ReviewCQ.class.getName(); }
 }

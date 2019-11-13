@@ -34,13 +34,13 @@ import com.oyfy.dbflute.exentity.*;
  *     bath_tag
  *
  * [referrer table]
- *     bath_tag
+ *     bath_tag, review
  *
  * [foreign property]
  *     bathTag
  *
  * [referrer property]
- *     bathTagList
+ *     bathTagList, reviewList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -130,10 +130,10 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     /** bath_fee: {INT(10)} */
     protected Integer _bathFee;
 
-    /** bath_type: {NotNull, INT(10)} */
+    /** bath_type: {INT(10), default=[10]} */
     protected Integer _bathType;
 
-    /** bath_24h_flg: {NotNull, INT(10)} */
+    /** bath_24h_flg: {INT(10), default=[0]} */
     protected Integer _bath24hFlg;
 
     /** bath_time_st: {TIME(8)} */
@@ -160,7 +160,7 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     /** bath_holiday: {INT(10)} */
     protected Integer _bathHoliday;
 
-    /** del_flg: {NotNull, INT(10)} */
+    /** del_flg: {INT(10), default=[0]} */
     protected Integer _delFlg;
 
     /** create_date: {DATETIME(19)} */
@@ -238,6 +238,26 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         _bathTagList = bathTagList;
     }
 
+    /** review by bath_id, named 'reviewList'. */
+    protected List<Review> _reviewList;
+
+    /**
+     * [get] review by bath_id, named 'reviewList'.
+     * @return The entity list of referrer property 'reviewList'. (NotNull: even if no loading, returns empty list)
+     */
+    public List<Review> getReviewList() {
+        if (_reviewList == null) { _reviewList = newReferrerList(); }
+        return _reviewList;
+    }
+
+    /**
+     * [set] review by bath_id, named 'reviewList'.
+     * @param reviewList The entity list of referrer property 'reviewList'. (NullAllowed)
+     */
+    public void setReviewList(List<Review> reviewList) {
+        _reviewList = reviewList;
+    }
+
     protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
@@ -271,6 +291,8 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         { sb.append(li).append(xbRDS(_bathTag, "bathTag")); }
         if (_bathTagList != null) { for (BathTag et : _bathTagList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "bathTagList")); } } }
+        if (_reviewList != null) { for (Review et : _reviewList)
+        { if (et != null) { sb.append(li).append(xbRDS(et, "reviewList")); } } }
         return sb.toString();
     }
     protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
@@ -316,6 +338,8 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
         { sb.append(dm).append("bathTag"); }
         if (_bathTagList != null && !_bathTagList.isEmpty())
         { sb.append(dm).append("bathTagList"); }
+        if (_reviewList != null && !_reviewList.isEmpty())
+        { sb.append(dm).append("reviewList"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
@@ -509,9 +533,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_type: {NotNull, INT(10)} <br>
+     * [get] bath_type: {INT(10), default=[10]} <br>
      * 銭湯種別(10:銭湯 20:スーパー銭湯)
-     * @return The value of the column 'bath_type'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'bath_type'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getBathType() {
         checkSpecifiedProperty("bathType");
@@ -519,9 +543,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_type: {NotNull, INT(10)} <br>
+     * [set] bath_type: {INT(10), default=[10]} <br>
      * 銭湯種別(10:銭湯 20:スーパー銭湯)
-     * @param bathType The value of the column 'bath_type'. (basically NotNull if update: for the constraint)
+     * @param bathType The value of the column 'bath_type'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBathType(Integer bathType) {
         registerModifiedProperty("bathType");
@@ -529,9 +553,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] bath_24h_flg: {NotNull, INT(10)} <br>
+     * [get] bath_24h_flg: {INT(10), default=[0]} <br>
      * 24時間フラグ(1:24時間営業)
-     * @return The value of the column 'bath_24h_flg'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'bath_24h_flg'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getBath24hFlg() {
         checkSpecifiedProperty("bath24hFlg");
@@ -539,9 +563,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] bath_24h_flg: {NotNull, INT(10)} <br>
+     * [set] bath_24h_flg: {INT(10), default=[0]} <br>
      * 24時間フラグ(1:24時間営業)
-     * @param bath24hFlg The value of the column 'bath_24h_flg'. (basically NotNull if update: for the constraint)
+     * @param bath24hFlg The value of the column 'bath_24h_flg'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBath24hFlg(Integer bath24hFlg) {
         registerModifiedProperty("bath24hFlg");
@@ -709,9 +733,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] del_flg: {NotNull, INT(10)} <br>
+     * [get] del_flg: {INT(10), default=[0]} <br>
      * 削除フラグ(1:削除済み)
-     * @return The value of the column 'del_flg'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'del_flg'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getDelFlg() {
         checkSpecifiedProperty("delFlg");
@@ -719,9 +743,9 @@ public abstract class BsBath extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] del_flg: {NotNull, INT(10)} <br>
+     * [set] del_flg: {INT(10), default=[0]} <br>
      * 削除フラグ(1:削除済み)
-     * @param delFlg The value of the column 'del_flg'. (basically NotNull if update: for the constraint)
+     * @param delFlg The value of the column 'del_flg'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDelFlg(Integer delFlg) {
         registerModifiedProperty("delFlg");

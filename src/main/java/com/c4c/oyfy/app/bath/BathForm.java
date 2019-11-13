@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.c4c.oyfy.app._Common_Form;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.Review;
 import com.oyfy.dbflute.exentity.Tag;
 
 import lombok.Data;
@@ -28,7 +29,7 @@ public class BathForm extends _Common_Form {
     private String newyorker;
     /** レビュー */
     private String review;
-    /** コメント一覧 */
-//    private List<Comment> commentList;
+    /** レビュー一覧 */
+    private List<Review> reviewList;
 
 }

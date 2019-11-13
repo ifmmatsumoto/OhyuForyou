@@ -508,7 +508,7 @@ dl.procedurelist dd.column pre {
 		<td class="namecell" data-name="bath"><a href="#bath" title="type=TABLE, primaryKey={bath_id}, nameLength=4, columnCount=22">bath</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#bath_tag" class="additionalfk" title="FK_BATH_ID">bath_tag</a></td>
-		<td class="relcell"><a href="#bath_tag" title="FK_BATH_ID">bath_tag</a></td>
+		<td class="relcell"><a href="#bath_tag" title="FK_BATH_ID">bath_tag</a>, <a href="#review" title="FK_REVIEW_ID">review</a></td>
 		<td class="commentcell bath_comment"><pre>銭湯</pre></td>
 		<td class="subcell">Bath</td>
 		<td class="subcell">2019/06/13</td>
@@ -525,6 +525,16 @@ dl.procedurelist dd.column pre {
 	</tr>
 	<tr>
 		<td class="rownumcell">3</td>
+		<td class="namecell" data-name="review"><a href="#review" title="type=TABLE, primaryKey={review_id}, nameLength=6, columnCount=6">review</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#bath" title="FK_REVIEW_ID">bath</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell review_comment"><pre>レビュー</pre></td>
+		<td class="subcell">Review</td>
+		<td class="subcell">2019/11/13</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
 		<td class="namecell" data-name="tag"><a href="#tag" title="type=TABLE, primaryKey={tag_id}, nameLength=3, columnCount=6">tag</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
@@ -555,6 +565,7 @@ bath
 		<th>Name</th>
 		<th>Type</th>
 		<th>Size</th>
+		<th>Default</th>
 		<th>ForeignTable</th>
 		<th>ReferrerTable</th>
 		<th>Classification</th>
@@ -575,8 +586,9 @@ bath
 		<td class=" columnnamecell" id="bath_bath_id">bath_id</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell"><a href="#bath_tag" class="additionalfk" title="FK_BATH_ID">bath_tag</a>&nbsp;</td>
-		<td class="relcell"><a href="#bath_tag" title="FK_BATH_ID">bath_tag</a>&nbsp;</td>
+		<td class="relcell"><a href="#bath_tag" title="FK_BATH_ID">bath_tag</a>,<br><a href="#review" title="FK_REVIEW_ID">review</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>銭湯ID</pre></td>
 		<td class="subcell">bathId</td>
@@ -593,6 +605,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_name_ja">bath_name_ja</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -611,6 +624,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_name_en">bath_name_en</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -629,6 +643,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_image">bath_image</td>
 		<td class="typecell">LONGTEXT</td>
 		<td class="sizecell"> 2147483647 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -647,6 +662,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_address_ja">bath_address_ja</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -665,6 +681,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_address_en">bath_address_en</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -683,6 +700,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_tel">bath_tel</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 15 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -701,6 +719,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_detail">bath_detail</td>
 		<td class="typecell">TEXT</td>
 		<td class="sizecell"> 65535 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -719,6 +738,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_fee">bath_fee</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -733,10 +753,11 @@ bath
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
+		<td class="flgcell"> &nbsp;</td>
 		<td class=" columnnamecell" id="bath_bath_type">bath_type</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 10</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -751,10 +772,11 @@ bath
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
+		<td class="flgcell"> &nbsp;</td>
 		<td class=" columnnamecell" id="bath_bath_24h_flg">bath_24h_flg</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 0</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -773,6 +795,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_time_st">bath_time_st</td>
 		<td class="typecell">TIME</td>
 		<td class="sizecell"> 8 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -791,6 +814,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_time_ed">bath_time_ed</td>
 		<td class="typecell">TIME</td>
 		<td class="sizecell"> 8 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -809,6 +833,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_near_station">bath_near_station</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 255 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -827,6 +852,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_place_lat">bath_place_lat</td>
 		<td class="typecell">DOUBLE</td>
 		<td class="sizecell"> 9, 6 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -845,6 +871,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_place_lon">bath_place_lon</td>
 		<td class="typecell">DOUBLE</td>
 		<td class="sizecell"> 9, 6 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -863,6 +890,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_temperature_up">bath_temperature_up</td>
 		<td class="typecell">FLOAT</td>
 		<td class="sizecell"> 12 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -881,6 +909,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_temperature_low">bath_temperature_low</td>
 		<td class="typecell">FLOAT</td>
 		<td class="sizecell"> 12 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -899,6 +928,7 @@ bath
 		<td class=" columnnamecell" id="bath_bath_holiday">bath_holiday</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -913,10 +943,11 @@ bath
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
+		<td class="flgcell"> &nbsp;</td>
 		<td class=" columnnamecell" id="bath_del_flg">del_flg</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> 0</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -935,6 +966,7 @@ bath
 		<td class=" columnnamecell" id="bath_create_date">create_date</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -953,6 +985,7 @@ bath
 		<td class=" columnnamecell" id="bath_update_date">update_date</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
+		<td class="defvalcell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -1044,6 +1077,145 @@ bath_tag
 		<td class="commentcell"><pre>タグID</pre></td>
 		<td class="subcell">tagId</td>
 		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="review" title="type=TABLE, primaryKey={review_id}, nameLength=6, columnCount=6">
+review
+&nbsp;<span class="tablefirstdatetitle">since 2019/11/13</span>
+</h2>
+<div class="tablecomment review_comment" data-name="review"><pre>レビュー</pre></div>
+<input type="hidden" value="review">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="review-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="review_review_id">review_id</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レビューID</pre></td>
+		<td class="subcell">reviewId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_REVIEW_ID(bath_id)">o</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="review_bath_id">bath_id</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#bath" title="FK_REVIEW_ID">bath</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>銭湯ID</pre></td>
+		<td class="subcell">bathId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="review_newyorker">newyorker</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>投稿者</pre></td>
+		<td class="subcell">newyorker</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="review_review">review</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レビュー</pre></td>
+		<td class="subcell">review</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="review_create_date">create_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>作成日時</pre></td>
+		<td class="subcell">createDate</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="review_update_date">update_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>更新日時</pre></td>
+		<td class="subcell">updateDate</td>
+		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -1814,6 +1986,29 @@ function StoreClient() {
 				}
 				, 'tag_id': {
 					'databaseComment': 'タグID'
+				}
+			}
+		}
+		, 'review': {
+			'databaseComment': 'レビュー'
+			, 'columns': {
+				'review_id': {
+					'databaseComment': 'レビューID'
+				}
+				, 'bath_id': {
+					'databaseComment': '銭湯ID'
+				}
+				, 'newyorker': {
+					'databaseComment': '投稿者'
+				}
+				, 'review': {
+					'databaseComment': 'レビュー'
+				}
+				, 'create_date': {
+					'databaseComment': '作成日時'
+				}
+				, 'update_date': {
+					'databaseComment': '更新日時'
 				}
 			}
 		}

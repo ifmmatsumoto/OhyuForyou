@@ -97,7 +97,7 @@ public class BathDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, true, true, true, "INT", 10, 0, null, null, false, null, null, "bathTag", "bathTagList", null, false);
+    protected final ColumnInfo _columnBathId = cci("bath_id", "bath_id", null, null, Integer.class, "bathId", null, true, true, true, "INT", 10, 0, null, null, false, null, null, "bathTag", "bathTagList,reviewList", null, false);
     protected final ColumnInfo _columnBathNameJa = cci("bath_name_ja", "bath_name_ja", null, null, String.class, "bathNameJa", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathNameEn = cci("bath_name_en", "bath_name_en", null, null, String.class, "bathNameEn", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathImage = cci("bath_image", "bath_image", null, null, String.class, "bathImage", null, false, false, false, "LONGTEXT", 2147483647, 0, null, null, false, null, null, null, null, null, false);
@@ -106,8 +106,8 @@ public class BathDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnBathTel = cci("bath_tel", "bath_tel", null, null, String.class, "bathTel", null, false, false, false, "VARCHAR", 15, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathDetail = cci("bath_detail", "bath_detail", null, null, String.class, "bathDetail", null, false, false, false, "TEXT", 65535, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathFee = cci("bath_fee", "bath_fee", null, null, Integer.class, "bathFee", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBathType = cci("bath_type", "bath_type", null, null, Integer.class, "bathType", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBath24hFlg = cci("bath_24h_flg", "bath_24h_flg", null, null, Integer.class, "bath24hFlg", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBathType = cci("bath_type", "bath_type", null, null, Integer.class, "bathType", null, false, false, false, "INT", 10, 0, null, "10", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBath24hFlg = cci("bath_24h_flg", "bath_24h_flg", null, null, Integer.class, "bath24hFlg", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTimeSt = cci("bath_time_st", "bath_time_st", null, null, java.time.LocalTime.class, "bathTimeSt", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTimeEd = cci("bath_time_ed", "bath_time_ed", null, null, java.time.LocalTime.class, "bathTimeEd", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathNearStation = cci("bath_near_station", "bath_near_station", null, null, String.class, "bathNearStation", null, false, false, false, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
@@ -116,7 +116,7 @@ public class BathDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnBathTemperatureUp = cci("bath_temperature_up", "bath_temperature_up", null, null, java.math.BigDecimal.class, "bathTemperatureUp", null, false, false, false, "FLOAT", 12, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathTemperatureLow = cci("bath_temperature_low", "bath_temperature_low", null, null, java.math.BigDecimal.class, "bathTemperatureLow", null, false, false, false, "FLOAT", 12, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBathHoliday = cci("bath_holiday", "bath_holiday", null, null, Integer.class, "bathHoliday", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDelFlg = cci("del_flg", "del_flg", null, null, Integer.class, "delFlg", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDelFlg = cci("del_flg", "del_flg", null, null, Integer.class, "delFlg", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
     protected final ColumnInfo _columnCreateDate = cci("create_date", "create_date", null, null, java.time.LocalDateTime.class, "createDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnUpdateDate = cci("update_date", "update_date", null, null, java.time.LocalDateTime.class, "updateDate", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
 
@@ -166,12 +166,12 @@ public class BathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathFee() { return _columnBathFee; }
     /**
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10), default=[10]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBathType() { return _columnBathType; }
     /**
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBath24hFlg() { return _columnBath24hFlg; }
@@ -216,7 +216,7 @@ public class BathDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnBathHoliday() { return _columnBathHoliday; }
     /**
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDelFlg() { return _columnDelFlg; }
@@ -297,6 +297,14 @@ public class BathDbm extends AbstractDBMeta {
     public ReferrerInfo referrerBathTagList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBathId(), BathTagDbm.getInstance().columnBathId());
         return cri("FK_BATH_ID", "bathTagList", this, BathTagDbm.getInstance(), mp, false, "bath");
+    }
+    /**
+     * review by bath_id, named 'reviewList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerReviewList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBathId(), ReviewDbm.getInstance().columnBathId());
+        return cri("FK_REVIEW_ID", "reviewList", this, ReviewDbm.getInstance(), mp, false, "bath");
     }
 
     // ===================================================================================

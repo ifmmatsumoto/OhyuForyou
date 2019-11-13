@@ -82,16 +82,30 @@ public class BsBathCQ extends AbstractBsBathCQ {
     public Map<String, BathTagCQ> xdfgetBathId_ExistsReferrer_BathTagList() { return xgetSQueMap("bathId_ExistsReferrer_BathTagList"); }
     public String keepBathId_ExistsReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_ExistsReferrer_BathTagList", sq); }
 
+    public Map<String, ReviewCQ> xdfgetBathId_ExistsReferrer_ReviewList() { return xgetSQueMap("bathId_ExistsReferrer_ReviewList"); }
+    public String keepBathId_ExistsReferrer_ReviewList(ReviewCQ sq) { return xkeepSQue("bathId_ExistsReferrer_ReviewList", sq); }
+
     public Map<String, BathTagCQ> xdfgetBathId_NotExistsReferrer_BathTagList() { return xgetSQueMap("bathId_NotExistsReferrer_BathTagList"); }
     public String keepBathId_NotExistsReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_NotExistsReferrer_BathTagList", sq); }
 
+    public Map<String, ReviewCQ> xdfgetBathId_NotExistsReferrer_ReviewList() { return xgetSQueMap("bathId_NotExistsReferrer_ReviewList"); }
+    public String keepBathId_NotExistsReferrer_ReviewList(ReviewCQ sq) { return xkeepSQue("bathId_NotExistsReferrer_ReviewList", sq); }
+
     public Map<String, BathTagCQ> xdfgetBathId_SpecifyDerivedReferrer_BathTagList() { return xgetSQueMap("bathId_SpecifyDerivedReferrer_BathTagList"); }
     public String keepBathId_SpecifyDerivedReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_SpecifyDerivedReferrer_BathTagList", sq); }
+
+    public Map<String, ReviewCQ> xdfgetBathId_SpecifyDerivedReferrer_ReviewList() { return xgetSQueMap("bathId_SpecifyDerivedReferrer_ReviewList"); }
+    public String keepBathId_SpecifyDerivedReferrer_ReviewList(ReviewCQ sq) { return xkeepSQue("bathId_SpecifyDerivedReferrer_ReviewList", sq); }
 
     public Map<String, BathTagCQ> xdfgetBathId_QueryDerivedReferrer_BathTagList() { return xgetSQueMap("bathId_QueryDerivedReferrer_BathTagList"); }
     public String keepBathId_QueryDerivedReferrer_BathTagList(BathTagCQ sq) { return xkeepSQue("bathId_QueryDerivedReferrer_BathTagList", sq); }
     public Map<String, Object> xdfgetBathId_QueryDerivedReferrer_BathTagListParameter() { return xgetSQuePmMap("bathId_QueryDerivedReferrer_BathTagList"); }
     public String keepBathId_QueryDerivedReferrer_BathTagListParameter(Object pm) { return xkeepSQuePm("bathId_QueryDerivedReferrer_BathTagList", pm); }
+
+    public Map<String, ReviewCQ> xdfgetBathId_QueryDerivedReferrer_ReviewList() { return xgetSQueMap("bathId_QueryDerivedReferrer_ReviewList"); }
+    public String keepBathId_QueryDerivedReferrer_ReviewList(ReviewCQ sq) { return xkeepSQue("bathId_QueryDerivedReferrer_ReviewList", sq); }
+    public Map<String, Object> xdfgetBathId_QueryDerivedReferrer_ReviewListParameter() { return xgetSQuePmMap("bathId_QueryDerivedReferrer_ReviewList"); }
+    public String keepBathId_QueryDerivedReferrer_ReviewListParameter(Object pm) { return xkeepSQuePm("bathId_QueryDerivedReferrer_ReviewList", pm); }
 
     /**
      * Add order-by as ascend. <br>
@@ -275,14 +289,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10), default=[10]}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathType_Asc() { regOBA("bath_type"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_type: {NotNull, INT(10)}
+     * bath_type: {INT(10), default=[10]}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_BathType_Desc() { regOBD("bath_type"); return this; }
@@ -295,14 +309,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_Bath24hFlg_Asc() { regOBA("bath_24h_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * bath_24h_flg: {NotNull, INT(10)}
+     * bath_24h_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_Bath24hFlg_Desc() { regOBD("bath_24h_flg"); return this; }
@@ -475,14 +489,14 @@ public class BsBathCQ extends AbstractBsBathCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_DelFlg_Asc() { regOBA("del_flg"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * del_flg: {NotNull, INT(10)}
+     * del_flg: {INT(10), default=[0]}
      * @return this. (NotNull)
      */
     public BsBathCQ addOrderBy_DelFlg_Desc() { regOBD("del_flg"); return this; }
