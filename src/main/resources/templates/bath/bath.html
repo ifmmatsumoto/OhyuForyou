@@ -17,6 +17,7 @@
 <div class="container">
     <p class="bathNameJa"  th:text="${bathForm.bath.bathNameJa}"/>
     <p class="bathNameEn" th:text="${bathForm.bath.bathNameEn}"/>
+    <img th:if="${bathForm.bath.bathImage == null}" th:src="@{/img/noimage.png}" class="bathImg noImg" />
     <img th:if="${bathForm.bath.bathImage != null}" th:src="${bathForm.bath.bathImage}" class="bathImg" />
     <section class="list">
         <table>

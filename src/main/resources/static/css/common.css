@@ -74,6 +74,9 @@ header form {
  padding-bottom: 170px;/* footerの高さを確保 */
  box-sizing: border-box;
 }
+.noImg {
+ max-width: 200px !important;
+}
 /* フッター */
 footer {
  max-width: 780px;
