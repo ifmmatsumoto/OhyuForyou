@@ -26,6 +26,19 @@ function initMap() {
 // レビュー投稿
 function registReview() {
 	if(window.confirm('レビューを投稿します。よろしいですか？')) {
+		// クッキーに保存
+		document.cookie = 'name='+document.bathForm.newyorker.value;
 		document.bathForm.submit();
 	}
 }
+
+// Cookieから投稿者名を取得して初期入力する
+(window.onload = function() {
+	var r = document.cookie.split(';');
+	r.forEach(function(value) {
+	    var content = value.split('=');
+	    if(content[0] == 'name') {
+	    	document.getElementById('newyorker').value = content[1];
+	    }
+	})
+});
