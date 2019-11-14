@@ -84,7 +84,6 @@ public class AdminController {
     public String regist(AdminForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
         if (!form.getInputImage().isEmpty()) {
             try {
-                // TODO ここで拡張子判定
                 byte[] b = getByteArray(form.getInputImage().getInputStream());
                 String bathImgStr = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(b);
                 form.bath.setBathImage(bathImgStr);
@@ -121,27 +120,31 @@ public class AdminController {
         return "admin/admin";
     }
 
-    /**InputStreamをバイト配列に変換*/
+    /**
+     * InputStreamをバイト配列に変換する
+     * @param is
+     * @return
+     */
     private byte[] getByteArray(InputStream is) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         OutputStream os = new BufferedOutputStream(b);
-    int c;
-    try{
-    while((c=is.read())!=-1){
-    os.write(c);
-    }
-    }catch(IOException e) {
-    e.printStackTrace();
-    }finally{
-    if(os!=null){
-    try{
-    os.flush();
-    os.close();
-    }catch(IOException e){
-    e.printStackTrace();
-    }
-    }
-    }
-    return b.toByteArray();
+        int c;
+        try {
+            while((c=is.read())!=-1) {
+                os.write(c);
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(os!=null) {
+                try{
+                    os.flush();
+                    os.close();
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return b.toByteArray();
     }
 }
