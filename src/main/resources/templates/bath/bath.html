@@ -110,15 +110,37 @@
 	    </table>
 	    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCoBXsawQdlQwF0Hc0ZK67LfJR-2iqc1jc&callback=initMap"></script>
     </section>
-    <a class="back" href="javascript:history.back();">戻る</a>
 
-  <!-- レビュー登録フォーム -->
-  <form th:action="@{/bath/regist}" id="bathForm" name="bathForm" th:object="${bathForm}" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="bathId" th:value="${bathForm.bath.bathId}" />
-    <input type="text" name="newyorker" value="" />
-    <textarea rows="10" name="review"></textarea>
-    <a href="javascript:bathForm.submit()">登　録</a>
-  </form>
+    <p class="reviewTitle">レビュー一覧</p>
+    <p th:if="${#lists.isEmpty(bathForm.reviewList)}">レビューは未登録です</p>
+    <div th:if="!${#lists.isEmpty(bathForm.reviewList)}" class="reviewList">
+	    <dl th:each="review:${bathForm.reviewList}" th:object="${review}" class="reviewDetail">
+	        <dt class="newyorkerInfo">
+	             <label th:text="*{newyorker}" class="newyorker"></label>
+	             <label th:text="*{#temporals.format(createDate, 'yyyy/MM/dd HH:mm')}" class="createDate"></label>
+	        </dt>
+	        <dd class="reviewInfo">
+	            <label th:text="*{review}" class="review"></label>
+	        </dd>
+	    </dl>
+    </div>
+    <p class="reviewTitle"></p>
+	<form th:action="@{/bath/regist}" id="bathForm" name="bathForm" th:object="${bathForm}" method="post" enctype="multipart/form-data" class="reviewForm">
+	   <section class="list">
+	        <table>
+                <tr>
+                    <th class="review">レビュー投稿</th>
+                    <td class="review">
+                        <input type="text" name="newyorker" value="" placeholder="お名前" />
+                        <textarea rows="5" name="review" placeholder="レビュー内容"></textarea>
+    			        <input type="hidden" name="bathId" th:value="${bathForm.bath.bathId}" />
+	       		        <div class="registBtn"><a href="#bathForm" onclick="registReview()" >投稿</a></div>
+			        </td>
+                </tr>
+            </table>
+	    </section>
+	</form>
+    <a class="back" href="javascript:history.back();">戻る</a>
 
 </div>
 
