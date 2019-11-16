@@ -12,6 +12,7 @@ import com.c4c.oyfy.app.search.Conditions;
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.app.top.TopForm;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.Review;
 import com.oyfy.dbflute.exentity.Tag;
 @Service
 @Transactional
@@ -71,5 +72,21 @@ public class BathService {
         resultList.setKeyword("現在地");
         resultList.setKeywordList(Arrays.asList("近くの銭湯"));
         return resultList;
+    }
+
+    /**
+     * レビュー登録
+     * @param review
+     */
+    public void registReview(Review review) {
+        bathRepository.registReview(review);
+    }
+
+    /**
+     * 銭湯IDを元にコメントを取得
+     * @return
+     */
+    public List<Review> findReviewList(int bathId) {
+        return bathRepository.findReviewList(bathId);
     }
 }

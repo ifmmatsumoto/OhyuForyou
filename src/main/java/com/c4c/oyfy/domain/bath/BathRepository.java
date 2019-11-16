@@ -5,6 +5,7 @@ import java.util.List;
 import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.app.top.TopForm;
 import com.oyfy.dbflute.exentity.Bath;
+import com.oyfy.dbflute.exentity.Review;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -41,4 +42,16 @@ public interface BathRepository {
 
     public ResultList findNearbyBath(TopForm currentLocationForm);
 
+    /**
+     * レビュー登録
+     * @return
+     */
+    public void registReview(Review review);
+
+    /**
+     * 銭湯IDを元にコメントを取得
+     * @param bathId
+     * @return
+     */
+    public List<Review> findReviewList(int bathId);
 }
