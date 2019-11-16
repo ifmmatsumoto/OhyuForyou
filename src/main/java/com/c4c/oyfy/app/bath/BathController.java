@@ -69,7 +69,7 @@ public class BathController {
         bathService.registReview(review);
 
         // 銭湯詳細画面表示
-        return "bath/regist";
+        return this.bath(form, model, req, res);
     }
 
 }
