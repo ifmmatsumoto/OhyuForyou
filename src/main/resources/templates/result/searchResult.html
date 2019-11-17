@@ -54,6 +54,7 @@
 		            <a th:href="@{/bath(bathId=*{bathId})}">
 		                <span class="bath">
 		                    <!-- サムネイル画像 -->
+                            <img class="bathImg" th:if="*{bathImage == null}" th:src="@{/img/noimage.png}" />
 		                    <img class="bathImg" th:if="*{bathImage != null}" th:src="*{bathImage}" />
 		                    <span class="bathInfo">
 		                        <!-- 銭湯名 -->

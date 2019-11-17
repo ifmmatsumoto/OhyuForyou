@@ -44,7 +44,10 @@ div.searchCount {
 /* 銭湯画像 */
 .bathImg {
  border-radius: 5px 5px 0 0;
- max-width: 100%;
+ width: 100%;
+ height: 177px;
+ object-fit: contain;
+ max-height: 177px;
 }
 /* 銭湯 和名 */
 .bathNameJa {
@@ -150,6 +153,8 @@ i.fa {
  .bathImg {
   display: block;
   width: 100%;
+  height: unset;
+  max-height: unset;
  }
  div.bathList a span.bathImage img {
   width: 97%;
