@@ -18,10 +18,12 @@ import com.c4c.oyfy.util.OyfyConst;
 import com.oyfy.dbflute.cbean.BathCB;
 import com.oyfy.dbflute.exbhv.BathBhv;
 import com.oyfy.dbflute.exbhv.BathTagBhv;
+import com.oyfy.dbflute.exbhv.ReviewBhv;
 import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exbhv.pmbean.NearbyBathPmb;
 import com.oyfy.dbflute.exentity.Bath;
 import com.oyfy.dbflute.exentity.BathTag;
+import com.oyfy.dbflute.exentity.Review;
 import com.oyfy.dbflute.exentity.Tag;
 
 
@@ -34,6 +36,8 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     TagBhv tagBhv;
     @Autowired
     BathTagBhv bathTagBhv;
+    @Autowired
+    ReviewBhv reviewBhv;
 
     /**
      * キーワードを元に銭湯リストを取得
@@ -177,5 +181,28 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         resultList.setPage(bathBhv.outsideSql().selectPage(pmb));
 
         return resultList;
+    }
+
+    /**
+     * コメント登録
+     * @param review
+     */
+    @Override
+    public void registReview(Review review) {
+        reviewBhv.insert(review);
+    }
+
+    /**
+     * 銭湯IDを元にコメント一覧を取得
+     * @param bathId
+     * @return
+     */
+    @Override
+    public List<Review> findReviewList(int bathId) {
+        ListResultBean<Review> reviewList = reviewBhv.selectList(cb -> {
+            cb.query().setBathId_Equal(bathId);
+            cb.query().addOrderBy_CreateDate_Asc();
+        });
+        return reviewList;
     }
 }

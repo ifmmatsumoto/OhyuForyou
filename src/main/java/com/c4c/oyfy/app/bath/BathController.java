@@ -1,6 +1,8 @@
 package com.c4c.oyfy.app.bath;
 
 
+import java.time.LocalDateTime;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.domain.bath.BathService;
+import com.oyfy.dbflute.exentity.Review;
 
 @Controller
 @RequestMapping("/bath")
@@ -38,7 +41,7 @@ public class BathController {
 		form.setTagList(bathService.findTagList(form.getBathId()));
 
 		// TODO コメント取得処理
-//        form.setCommentList(bathService.findCommentList(form.getBathId())); ↑の処理を参考にコメント取得処理つくる
+        form.setReviewList(bathService.findReviewList(form.getBathId()));
 
 		// 銭湯詳細画面表示
 		return "bath/bath";
@@ -55,19 +58,22 @@ public class BathController {
      */
     @RequestMapping(value = "regist", method = RequestMethod.POST)
     public String regist(BathForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-        System.out.println("銭湯登録"); // TODO
+        System.out.println("レビュー登録"); // TODO
         // TODO レビュー登録処理
-        System.out.println(form.getBathId());
-        System.out.println(form.getNewyorker());
-        System.out.println(form.getReview());
+        Review review = new Review();
+        review.setBathId(form.getBathId());
+        review.setNewyorker(form.getNewyorker());
+        review.setReview(form.getReview());
+        review.setCreateDate(LocalDateTime.now());
+        review.setUpdateDate(LocalDateTime.now());
 
         // TODO 入力チェック
 
         // TODO AdminController を参考に登録処理を作る
-//        bathService.registReview(review);
+        bathService.registReview(review);
 
         // 銭湯詳細画面表示
-        return "bath/bath";
+        return this.bath(form, model, req, res);
     }
 
 }
