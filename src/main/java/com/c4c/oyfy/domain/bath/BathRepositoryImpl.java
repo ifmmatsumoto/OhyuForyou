@@ -201,6 +201,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
     public List<Review> findReviewList(int bathId) {
         ListResultBean<Review> reviewList = reviewBhv.selectList(cb -> {
             cb.query().setBathId_Equal(bathId);
+            cb.query().addOrderBy_CreateDate_Asc();
         });
         return reviewList;
     }

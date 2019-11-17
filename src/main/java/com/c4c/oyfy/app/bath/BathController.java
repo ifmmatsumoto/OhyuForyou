@@ -1,6 +1,8 @@
 package com.c4c.oyfy.app.bath;
 
 
+import java.time.LocalDateTime;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -62,6 +64,8 @@ public class BathController {
         review.setBathId(form.getBathId());
         review.setNewyorker(form.getNewyorker());
         review.setReview(form.getReview());
+        review.setCreateDate(LocalDateTime.now());
+        review.setUpdateDate(LocalDateTime.now());
 
         // TODO 入力チェック
 
