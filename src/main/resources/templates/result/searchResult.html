@@ -54,7 +54,7 @@
 		            <a th:href="@{/bath(bathId=*{bathId})}">
 		                <span class="bath">
 		                    <!-- サムネイル画像 -->
-                            <img class="bathImg" th:if="*{bathImage == null}" th:src="@{/img/noimage.png}" />
+                            <img class="bathImg" th:if="*{bathImage == null}" th:src="@{/img/bath/noimage.png}" />
 		                    <img class="bathImg" th:if="*{bathImage != null}" th:src="*{bathImage}" />
 		                    <span class="bathInfo">
 		                        <!-- 銭湯名 -->
@@ -69,9 +69,9 @@
 		                            </span>
 		                            <!-- 銭湯種別 -->
 		                            <span th:switch="*{bathType}" class="bathType">
-		                                <label th:case="10"><img class="bathTypeImg" src="/oyfy/img/bath_sento.png" /></label>
-                                        <label th:case="20"><img class="bathTypeImg" src="/oyfy/img/bath_super.png" /></label>
-                                        <label th:case="30"><img class="bathTypeImg" src="/oyfy/img/bath_onsen.png" /></label>
+		                                <label th:case="10"><img class="bathTypeImg" src="/oyfy/img/bath/bath_sento.png" /></label>
+                                        <label th:case="20"><img class="bathTypeImg" src="/oyfy/img/bath/bath_super.png" /></label>
+                                        <label th:case="30"><img class="bathTypeImg" src="/oyfy/img/bath/bath_onsen.png" /></label>
 		                            </span>
 		                            <!-- 営業時間 -->
 		                            <span class="bathTime">
