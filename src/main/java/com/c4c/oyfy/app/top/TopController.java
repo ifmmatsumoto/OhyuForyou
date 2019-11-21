@@ -33,9 +33,6 @@ public class TopController extends _CommonController {
      */
     @RequestMapping
     public String top(TopForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-
-        System.out.println("TOP画面表示"); // TODO
-
         // TOP画面表示
         return "top/top";
     }
@@ -52,7 +49,6 @@ public class TopController extends _CommonController {
      */
     @RequestMapping("keyword")
     public String keyword(TopForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-        System.out.println("キーワード検索"); // TODO
         // 検索条件をセット
         Conditions cond = new Conditions();
         cond.setKeyword(form.getKeyword());

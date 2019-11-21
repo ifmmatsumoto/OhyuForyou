@@ -52,11 +52,11 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         // ページ情報を含めた検索結果
         ResultList resultList = new ResultList();
 
-        // キーワードが未入力の場合は全検索 TODO キーワード入力時と合わせてできないか確認
+        // キーワードが未入力の場合は全検索
         if (StringUtils.isEmpty(keyword)) {
             resultList.setPage(bathBhv.selectPage(cb -> {
                 cb.query().setDelFlg_Equal(0);
-                // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
+                // 料金From～Toによる絞り込み (片方指定とかできてもいいかも)
                 if(feeFrom != null && feeTo != null) {
                     cb.query().setBathFee_RangeOf(feeFrom, feeTo, op -> op.getCalculationRange());
 
@@ -91,11 +91,9 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
                 : tagList.stream().map(tag -> {
                     return tag.getTagId();
                 }).collect(Collectors.toList());
-
-        // TODO OR検索になってる
         resultList.setPage(bathBhv.selectPage(cb -> {
             cb.query().setDelFlg_Equal(0);
-            // 料金From～Toによる絞り込み TODO 片方指定とかできてもいいかも
+            // 料金From～Toによる絞り込み (片方指定とかできてもいいかも)
             if(feeFrom != null && feeTo != null) {
                 cb.query().setBathFee_RangeOf(feeFrom, feeTo, op -> op.getCalculationRange());
             }

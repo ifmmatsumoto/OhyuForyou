@@ -64,9 +64,6 @@ public class AdminController {
     @ResponseBody
     @RequestMapping(value = "detail", method = RequestMethod.POST)
     public Bath bath(AdminForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-
-        System.out.println("銭湯詳細画面表示"); // TODO
-
         // 銭湯詳細情報を取得して返す
         return bathService.findBathDetail(form.bath.getBathId());
     }

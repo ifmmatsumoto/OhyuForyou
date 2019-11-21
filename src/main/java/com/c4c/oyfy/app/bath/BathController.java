@@ -34,13 +34,12 @@ public class BathController {
 	 */
 	@RequestMapping
 	public String bath(BathForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-		System.out.println("銭湯詳細画面表示"); // TODO
 		// 銭湯IDから銭湯詳細情報を取得してFormにセット
 		BathHelper.toForm(form, bathService.findBathDetail(form.getBathId()));
 		// タグ一覧を取得してFormにセット
 		form.setTagList(bathService.findTagList(form.getBathId()));
 
-		// TODO コメント取得処理
+		// レビュー取得処理
         form.setReviewList(bathService.findReviewList(form.getBathId()));
 
 		// 銭湯詳細画面表示
@@ -58,8 +57,7 @@ public class BathController {
      */
     @RequestMapping(value = "regist", method = RequestMethod.POST)
     public String regist(BathForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
-        System.out.println("レビュー登録"); // TODO
-        // TODO レビュー登録処理
+        // レビュー登録処理
         Review review = new Review();
         review.setBathId(form.getBathId());
         review.setNewyorker(form.getNewyorker());
@@ -69,7 +67,7 @@ public class BathController {
 
         // TODO 入力チェック
 
-        // TODO AdminController を参考に登録処理を作る
+        // レビュー登録処理
         bathService.registReview(review);
 
         // 銭湯詳細画面表示
