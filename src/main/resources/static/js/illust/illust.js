@@ -40,6 +40,9 @@ function addName() {
     $(".itemList").each(function(i, o){
         $(o).attr('name', 'illustItemList'+'['+ i + ']' + '.tagNameJa')
       });
+    // 料金も一緒に追加しちゃう
+    $('#fee_low').val($('#slider').slider( 'values', 0 ));
+    $('#fee_high').val($('#slider').slider( 'values', 1 ));
     $('form').submit();
 };
 
