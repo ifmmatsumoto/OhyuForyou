@@ -51,7 +51,6 @@ input[type=checkbox] {
   transform: scale(1.5);
 }
 
-#station-name-list {
- display:none;
- color: #0099FF;
+td.station-name-list {
+  color: #0099FF;
 }

@@ -31,12 +31,12 @@
                 <table th:each="line : ${stationForm.line}" id=search_station class="table table-bordered">
                     <tr>
                         <td class="line-name" align="center">
-                            <span id="btn-inner" >▼</span>
+                            <span>▼</span>
                             <div class="line-name-text" th:text="${line.key}"></div>
                         </td>
                     </tr>
                     <tr>
-                        <td id="station-name-list">
+                        <td class="station-name-list">
                             <div>
                             <input id="all" name="lineCheck" type="checkbox"> 全選択
                             </div>
@@ -60,5 +60,4 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
 <script type="text/javascript" th:src="@{/js/area/station.js}"></script>
-<script src="docs/assets/js/application.js"></script>
 </html>

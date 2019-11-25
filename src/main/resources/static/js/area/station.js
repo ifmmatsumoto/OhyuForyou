@@ -1,147 +1,147 @@
-/**
- *
- */
-function searchStation() {
-    const targetTable = document.getElementById('search_station');
+//初期設定、表示/非表示処理
+$(function() {
 
-    var targetDocument = document.getElementsByClassName('line-name');
-    var targetCheckBox = targetDocument[0].getElementsByTagName("input");
+    // 初期化
+    var stockId = 0
 
-    for (var i = 0, rowLen = targetTable.rows.length; i < rowLen; i++) {
+    var tables = document.getElementsByClassName('table table-bordered');
 
-        var targetTr = targetTable.rows[i];
+    //table毎に処理をさせる
+    for (var i = 0, tableLen = tables.length; i < tableLen; i++) {
+
+        var changeIdTable = $('table').get(i);
+        changeIdTable.setAttribute('id', 'search_station' + i);
+
+        var targetTable = document.getElementById('search_station' + i);
+
+        var targetSpan = targetTable.getElementsByTagName("span")[0];
+
+        // ▼▲ボタンのidを指定
+        targetSpan.setAttribute('id', 'lineNames' + i);
+
+        targetSpan.classList.add('lineNames' + i);
+
+        var targetTr = targetTable.rows[1];
         targetTr.classList.add('stationsRow' + i);
 
         // 路線列のtdのnameを設定
         // tr内のtdをループ。cellsコレクションで行内セル位置取得。
-        for (var j = 0, colLen = targetTable.rows[i].cells.length; j < colLen; j++) {
+        var targetTd = targetTable.rows[1].cells[0];
+        targetTd.setAttribute('id', 'stationNames' + i);
 
-            // 駅名を出力するtdに対してクラス名を追加
-            if (j = 1) {
-                var targetTd = targetTable.rows[i].cells[j];
-                targetTd.classList.add('stations' + i);
+        var switchTd = targetTable.rows[0].cells[0];
+        switchTd.setAttribute('id', 'lineNames' + i);
+
+        targetTextArea = switchTd.getElementsByTagName("div")[0];
+
+        // 路線名表示箇所のidを指定
+        targetTextArea.setAttribute('id', 'lineNames' + i);
+
+        // tr直下の子要素（路線名が表示されるtd）
+        var inputObject = $(".stationsRow" + i)[0].getElementsByTagName("input");
+
+        // 初期表示では駅名を表示するtdをすべて非表示にする
+        $('#stationNames' + i).css({'display':'none'});
+
+        // 駅名checkboxの数を取得
+        var checkboxLen = inputObject.length;
+
+        for (var k = 0, checkboxLen; k < checkboxLen; k++) {
+
+            if(k==0) {
+                stockId = stockId + 1;
+
+                // 全選択チェックボックスのidを設定する
+                inputObject[k].setAttribute("id", "all_" + stockId);
             }
-
-            // tr直下の子要素（路線名が表示されるtd）
-            var trObject = $(".stationsRow" + i).children('[id=all]');
-
-            // trObject配下にある子要素に存在するinput要素
-            var inputObject = trObject.prevObject[0].children[0]
-                    .getElementsByTagName("input");
-
-            // trObject配下にある2番目の子要素に存在するinput要素
-            var stationRow = trObject.prevObject[0].children[1]
-                    .getElementsByTagName("input");
-
-            // 駅名checkboxの数を取得
-            var checkboxLow = stationRow.length;
-
-            // checkbox分ループ
-            for (var k = 0, checkboxLow; k < checkboxLow; k++) {
-                stationRow[k].setAttribute("name", "stationNames");
+            else {
+                // 1table分の「全選択チェックボックス」以外に対してnameを設定
+                inputObject[k].setAttribute("name", "stations" + stockId);
             }
-
         }
     }
-    $('form').submit();
-};
+        $('td.line-name').on('click', function switchDisplay(event){
+            preName = event.target.id;
 
-// jqueryのセレクタ値を取得
-function getClassName(n) {
-    var targetTable = document.getElementById('search_station');
-    var targetClassName = document.getElementsByClassName('stations' + n);
+            replaceName = preName.replace('line' , 'station');
 
-//    var findClassName = targetClassName[0].getAttribute("class", "stations0");
-
-//    return findClassName;
-};
-
-//tableのrowの数を取得
-$(function() {
-    const targetTable = document.getElementById('search_station');
-
-    var targetDocument = document.getElementsByClassName('line-name');
-    var targetCheckBox = targetDocument[0].getElementsByTagName("input");
-
-    for (var i = 0, rowLen = targetTable.rows.length; i < rowLen; i++) {
-
-        var targetTr = targetTable.rows[i];
-        targetTr.classList.add('stationsRow' + i);
-
-        // 路線列のtdのnameを設定
-        // tr内のtdをループ。cellsコレクションで行内セル位置取得。
-        for (var j = 0, colLen = targetTable.rows[i].cells.length; j < colLen; j++) {
-            // 駅名を出力するtdに対してクラス名を追加
-            if (j = 1) {
-                var targetTd = targetTable.rows[i].cells[j];
-//                targetTd.classList.add('stations' + i);
-            }
-
-            // tr直下の子要素（路線名が表示されるtd）
-            var trObject = $(".stationsRow" + i).children('[id=all]');
-
-            // trObject配下にある子要素に存在するinput要素
-//            var inputObject = trObject.prevObject[0].children[0]
-//                    .getElementsByTagName("input");
-//
-//            inputObject.lineCheck.setAttribute("name", "stations" + i);
-
-            // trObject配下にある2番目の子要素に存在するinput要素
-//            var stationRow = trObject.prevObject[0].children[1]
-//                    .getElementsByTagName("input");
-
-            // 駅名checkboxの数を取得
-//            var checkboxLow = stationRow.length;
-
-            // checkbox分ループ
-//            for (var k = 0, checkboxLow; k < checkboxLow; k++) {
-//                stationRow[k].setAttribute("name", "stations" + i);
-//            }
-
-        }
-    }
-});
-
-// チェックボックスの全選択
-$(function() {
-
-    // 「全てにチェック」のチェックボックスをチェックしたら発動
-    $('[id=all]').change(function() {
-
-        allCheckerName = this.name;
-        agumentName = allCheckerName.substr(-1, 1);
-
-        // 対象のtdクラス名を取得する
-//        var tdName = getClassName(agumentName);
-
-//        targetCheckBox = 'input[name=' + '"' + tdName + '"' + ']'
-
-        // もし「全てにチェック」のチェックが入ったら
-        if ($(this).prop('checked')) {
-
-            // チェックを付ける
-//            $(targetCheckBox).prop('checked', true);
-
-            // もしチェックが外れたら
-        } else {
-
-            // チェックを外す
-//            $(targetCheckBox).prop('checked', false);
-        }
-
-    });
-});
-
-//表示、非表示処理
-$(function() {
-        $('td.line-name').on('click', function switchDisplay(){
-            if($('#station-name-list').css('display') == 'none') {
-                $('#station-name-list').css('display','block');
-                $('#btn-inner').text('▲');
+            if($('#' + replaceName).css('display') == 'none') {
+                $('#' + replaceName).css('display', '');
+                $('span.' + replaceName).text('▲');
             }
             else{
-                $('#station-name-list').css({'display':'none'});
-                $('#btn-inner').text('▼');
+                $('#' + replaceName).css({'display':'none'});
+                $('span.' + replaceName).text('▼');
             }
         });
 });
+
+//チェックボックスの全選択クリック動作
+$(function() {
+    $('td.station-name-list').on('click', function allChecker(event){
+        var allCheckId = event.target.id;
+        doCheck(allCheckId);
+    });
+});
+
+//全選択処理
+function doCheck(baseId) {
+
+	baseIdLen = baseId.length;
+
+    if(baseIdLen == 5) {
+     // 駅数が1桁
+     agumentName = baseId.substr(-1, 1);
+    }
+    else {
+     // 駅数が2桁
+     agumentName = baseId.substr(-2, 2);
+    }
+
+    targetCheckBox = 'input[name=' + '"stations' + agumentName + '"' + ']'
+
+    // もし「全てにチェック」のチェックが入ったら
+    if ($('#' + baseId).prop('checked')) {
+        // チェックを付ける
+        $(targetCheckBox).prop('checked', true);
+        // もしチェックが外れたら
+    } else {
+        // チェックを外す
+        $(targetCheckBox).prop('checked', false);
+    }
+
+    var result = true;
+    return result;
+};
+
+/**
+ * 検索処理実行時
+ */
+function searchStation() {
+
+//    var tables = document.getElementsByClassName('table table-bordered');
+//
+//    //table毎に処理をさせる
+//    for (var i = 0, tableLen = tables.length; i < tableLen; i++) {
+//
+//        var targetTable = document.getElementById('search_station' + i);
+//
+//        var targetTr = targetTable.rows[1];
+//
+//        // tr内のtdをループ。cellsコレクションで行内セル位置取得。
+//        var targetTd = targetTable.rows[1].cells[0];
+//
+//        // tr直下の子要素（路線名が表示されるtd）
+//        var inputObject = $(".stationsRow" + i)[0].getElementsByTagName("input");
+//
+//        // 駅名checkboxの数を取得
+//        var checkboxLow = inputObject.length;
+//    }
+
+//    // checkbox分ループ
+//    for (var k = 0, checkboxLow; k < checkboxLow; k++) {
+//        stationRow[k].setAttribute("name", "stationNames");
+//    }
+
+    $('form').submit();
+};
