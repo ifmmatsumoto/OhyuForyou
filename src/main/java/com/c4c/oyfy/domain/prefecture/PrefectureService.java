@@ -16,7 +16,7 @@ public class PrefectureService {
         System.out.println("areacode" + AreaCode);
 
         /** 地域検索API リクエストURL */
-        String URL = "http://www.land.mlit.go.jp/webland/api/CitySearch?area=" + AreaCode;
+        String URL = "https://www.land.mlit.go.jp/webland/api/CitySearch?area=" + AreaCode;
 
         System.out.println(URL);
 

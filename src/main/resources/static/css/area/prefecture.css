@@ -50,7 +50,6 @@ div.prefecture-name-text {
   padding-top: 10px;
 }
 
-
 input[type=checkbox] {
   transform: scale(1.5);
 }
@@ -60,12 +59,9 @@ input[type=checkbox] {
 }
 
 #area-name-list {
- visibility:hidden;
  color: #0099FF;
 }
 
-footer {
-  margin-top: auto;
-  min-height: 100vh;
-  flex-direction: column;
+#form {
+  min-hight :250px;
 }

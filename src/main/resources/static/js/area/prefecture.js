@@ -26,13 +26,17 @@ $(function() {
 
 // 表示、非表示処理
 $(function() {
+        $('#area-name-list').css({'visibility':'hidden'});
+        $('#form').css({'max-height':'65vh'});
         $('td.prefecture-name').on('click', function switchDisplay(){
-            if($('#area-name-list').css('visibility') == 'visible') {
-                $('#area-name-list').css('visibility','hidden');
+            if($('#area-name-list').css('visibility') == 'hidden') {
+                $('#area-name-list').css('visibility','');
+                $('#form').css({'max-height':''});
                 $('#btn-inner').text('▲');
             }
             else{
-                $('#area-name-list').css({'visibility':'visible'});
+                $('#area-name-list').css({'visibility':'hidden'});
+                $('#form').css({'max-height':'65vh'});
                 $('#btn-inner').text('▼');
             }
         });

@@ -37,7 +37,6 @@ public class AreaController extends _CommonController {
     @Autowired
     BathService bathService;
 
-
     /**
      * 駅/都道府県検索(日本)画面表示
      * @param form
@@ -50,7 +49,7 @@ public class AreaController extends _CommonController {
     @RequestMapping
     public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
-        System.out.println("検索(日本)画面表示");
+
         //取得した区分から遷移先を変更する
         if (form.division == Division.STATION.id()) {
             form.setAction(Division.STATION.str());
@@ -77,8 +76,6 @@ public class AreaController extends _CommonController {
     @RequestMapping("prefecture")
     public String area(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
-
-        System.out.println("都道府県検索(地域)画面表示");
 
         // 日本地図画面から都道府県コードを取得する
         PrefectureDto prefectureDto = prefectureService.findPrefectureList(form.getAreaCode());
