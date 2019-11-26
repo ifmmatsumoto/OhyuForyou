@@ -61,11 +61,6 @@ body {
 .menu ul li a img {
  width: 25%;
  max-width: 200px;
- transition: 1s ;
- transform: rotateY(0deg);
-}
-.menu ul li a img:hover {
- transform: rotateY(360deg);
 }
 /* 浴槽画像 */
 .yokuso {
