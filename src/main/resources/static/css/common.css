@@ -156,3 +156,30 @@ footer {
  margin: 10px;
 }
 
+.checkbox_wrap {
+ cursor: pointer;
+ color: #000;
+}
+input[type=checkbox] {
+ display: none;
+}
+.checkbox_wrap > .display_content {
+ border: 1px solid black;
+ display: inline-block;
+ height: 1em;
+ width: 1em;
+ position: relative;
+ color: #000;
+ margin-right: 5px;
+ top: 4px;
+}
+.checkbox_wrap > input[type="checkbox"]:checked + .display_content::before {
+ content: "✓";
+ color: #000;
+ top: -4px;
+ position: absolute;
+}
+.checkLabel {
+ color: #000;
+ margin-left: 0px;
+}

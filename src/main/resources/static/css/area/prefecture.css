@@ -31,7 +31,6 @@ td.prefecture-name {
 span {
  text-decoration: none;
  display: block;
- margin-left: 20px;
  float: left;
  color: #F8F8FF;
 }
@@ -44,17 +43,15 @@ div.prefecture-name-text {
 }
 /* 全選択チェックボックス */
 .all {
- padding: 2px;
+ padding: 5px;
 }
 #area-name {
   display: flex;
   float: left;
 }
-input[type=checkbox] {
- transform: scale(1.5);
- margin-right: 5px;
+label {
+ margin-bottom: 0;
 }
-
 #area-name-list {
  display: none;
  border: none;
@@ -62,7 +59,9 @@ input[type=checkbox] {
 }
 /* 都道府県チェックボックス */
 .prefectures {
- display: inline-block;
  margin-bottom: 0;
- padding: 2px;
+ padding: 5px;
+}
+.table th, .table td {
+ padding: 5px;
 }

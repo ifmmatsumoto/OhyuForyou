@@ -34,10 +34,11 @@
                         <div class="prefecture-name-text" th:text="${prefectureForm.areaName}"></div>
                     </td>
                     <td id=area-name-list>
-                        <div class="all"><input type="checkbox" id="all">全選択</div>
-                        <p class="prefectures" th:each="prefecture : ${prefectureForm.prefectureList}">
-                            <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
-                        </p>
+                        <div class="all"><label class="checkbox_wrap" style="display: block;"><input type="checkbox" id="all"><span class="display_content"></span>全選択</label></div>
+					    <label class="checkbox_wrap prefectures" th:each="prefecture : ${prefectureForm.prefectureList}" style="display: inline-block;">
+					        <input type="checkbox" name="prefectureNames" th:value="${prefecture.name}"><span class="display_content"></span>
+					        <span th:text="${prefecture.name}" class="checkLabel"></span>
+					    </label>
                     </td>
                 </tr>
             </table>

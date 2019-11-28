@@ -16,7 +16,7 @@ $(function() {
     	var stations = document.getElementsByClassName(this.className.split(' ')[1]);
         for (i=0; i<stations.length; i++) {
         	// 全選択のチェック状態に合わせる
-        	stations[i].checked = this.children[0].checked;
+        	stations[i].checked = this.children[0].children[0].checked;
         }
     });
 });

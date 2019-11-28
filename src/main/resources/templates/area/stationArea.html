@@ -34,10 +34,12 @@
                         <div class="line-name-text" th:text="${line.key}"></div>
                     </td>
                     <td class="station-name-list" style="display: none;" onclick="event.cancelBubble=true">
-                        <div class="all" th:classappend="${line.key}"><input name="lineCheck" type="checkbox">全選択</div>
-                        <p class="stations" th:each="stationList : ${line.value}">
-                            <input th:class="${line.key}" type="checkbox" name="stationNames" th:text="${stationList.name}" th:value="${stationList.name}">
-                        </p>
+                        <div class="all" th:classappend="${line.key}"><label class="checkbox_wrap" style="display: block;"><input type="checkbox" id="all" name="lineCheck"><span class="display_content"></span>全選択</label></div>
+                        <label class="checkbox_wrap stations" th:each="stationList : ${line.value}" style="display: inline-block;">
+                            <input type="checkbox" name="stationNames" th:value="${stationList.name}" th:class="${line.key}"><span class="display_content"></span>
+                            <span th:text="${stationList.name}" class="checkLabel"></span>
+                        </label>
+
                     </td>
                 </tr>
             </table>
