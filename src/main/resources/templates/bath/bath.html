@@ -122,8 +122,6 @@
     </section>
 
     <p class="reviewTitle">レビュー一覧</p>
-    <span th:errors="*{newyorker}" th:if="${#fields.hasErrors('newyorker')}">Content Error</span>
-    <span th:errors="*{review}" th:if="${#fields.hasErrors('review')}">Content Error</span>
     <p th:if="${#lists.isEmpty(bathForm.reviewList)}">レビューは未登録です</p>
     <div th:if="!${#lists.isEmpty(bathForm.reviewList)}" class="reviewList">
 	    <dl th:each="review:${bathForm.reviewList}" th:object="${review}" class="reviewDetail">
@@ -144,7 +142,9 @@
                     <th class="review">レビュー投稿</th>
                     <td class="review">
                         <input type="text" id="newyorker" name="newyorker" value="" placeholder="お名前" />
+                        <span class="text-danger" th:errors="*{newyorker}" th:if="${#fields.hasErrors('newyorker')}">Content Error</span>
                         <textarea rows="5" name="review" placeholder="レビュー内容"></textarea>
+                        <span class="text-danger" th:errors="*{review}" th:if="${#fields.hasErrors('review')}">Content Error</span>
     			        <input type="hidden" name="bathId" th:value="${bathForm.bath.bathId}" />
 	       		        <div class="registBtn"><a href="#bathForm" onclick="registReview()" >投稿</a></div>
 			        </td>

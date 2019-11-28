@@ -59,6 +59,14 @@ public class BathController {
      */
     @RequestMapping(value = "regist", method = RequestMethod.POST)
     public String regist(@Valid BathForm form, BindingResult result, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+        // バリデーション
+        if (result.hasErrors()) {
+            BathHelper.toForm(form, bathService.findBathDetail(form.getBathId()));
+            form.setTagList(bathService.findTagList(form.getBathId()));
+            form.setReviewList(bathService.findReviewList(form.getBathId()));
+            return "bath/bath";
+        }
+
         // レビュー登録処理
         Review review = new Review();
         review.setBathId(form.getBathId());
@@ -66,11 +74,6 @@ public class BathController {
         review.setReview(form.getReview());
         review.setCreateDate(LocalDateTime.now());
         review.setUpdateDate(LocalDateTime.now());
-
-        // TODO 入力チェック
-        if (result.hasErrors()) {
-            return "regist";
-        }
 
         // レビュー登録処理
         bathService.registReview(review);
