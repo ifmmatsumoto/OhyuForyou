@@ -7,6 +7,7 @@
     <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
     <link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
     <link rel="stylesheet" media="all" th:href="@{/css/area/station.css}" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script type="text/javascript" th:src="@{/js/common.js}"></script>
     <script type="text/javascript" th:src="@{/js/top/top.js}"></script>
@@ -20,43 +21,32 @@
     <meta name="msapplication-square310x310logo" content="/oyfy/img/favicon.png"/>
     <meta name="msapplication-TileColor" content="#FAA500"/>
 </head>
-<!-- 共通ヘッダー -->
-<div th:replace="common/header"></div>
 <body>
+    <!-- 共通ヘッダー -->
+    <div th:replace="common/header"></div>
     <div  class="container">
         <form id="form" class="form-inline" action="#" th:action="@{/area/stationSearch}" th:object="${stationSearchForm}" method="post">
-            <div class="row">
-                <div class="search-prefecture" id="selected-prefecture" th:text="'選択中の県名：' + ${stationForm.areaName}">
-                </div>
-                <table th:each="line : ${stationForm.line}" id=search_station class="table table-bordered">
-                    <tr>
-                        <td class="line-name" align="center">
-                            <span>▼</span>
-                            <div class="line-name-text" th:text="${line.key}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="station-name-list">
-                            <div>
-                            <input id="all" name="lineCheck" type="checkbox"> 全選択
-                            </div>
-                            <div class="station-name" th:each="stationList : ${line.value}">
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="stationNames" th:text="${stationList.name}" th:value="${stationList.name}">
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="row col-md-12 justify-content-center">
-                <input type="button" class="btn btn-primary btn-lg" onclick="searchStation();" value="駅名検索">
-            </div>
+	        <div class="search-prefecture" id="selected-prefecture" th:text="'選択中の県名：' + ${stationForm.areaName}"></div>
+            <table th:each="line : ${stationForm.line}" id=search_station class="table table-bordered">
+                <tr class="head">
+                    <td class="line-name" align="center">
+                        <span>▼</span>
+                        <div class="line-name-text" th:text="${line.key}"></div>
+                    </td>
+                    <td class="station-name-list" style="display: none;" onclick="event.cancelBubble=true">
+                        <div class="all" th:classappend="${line.key}"><input name="lineCheck" type="checkbox">全選択</div>
+                        <p class="stations" th:each="stationList : ${line.value}">
+                            <input th:class="${line.key}" type="checkbox" name="stationNames" th:text="${stationList.name}" th:value="${stationList.name}">
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <div id="search" class="search"><a href="#search" class="loading" onclick="searchStation()">駅名検索</a></div>
         </form>
     </div>
+</body>
 <!-- 共通フッター -->
 <div th:replace="common/footer"></div>
-</body>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
 <script type="text/javascript" th:src="@{/js/area/station.js}"></script>

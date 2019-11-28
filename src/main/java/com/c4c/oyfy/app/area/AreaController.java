@@ -129,13 +129,14 @@ public class AreaController extends _CommonController {
      */
     @RequestMapping("/prefectureSearch")
     public String searchPrefecture(PrefectureForm form, Model model) {
-
-      // 検索結果一覧画面表示
-      Conditions cond = new Conditions();
-      cond.setKeyword(String.join(" ", form.prefectureNames));
-      model.addAttribute("resultList", bathService.findBathList(cond));
-
-        // 検索結果（都道府県）画面表示
+        // 検索結果一覧画面表示
+        Conditions cond = new Conditions();
+        if(form.prefectureNames != null) {
+            cond.setKeyword(String.join(" ", form.prefectureNames));
+        } else {
+            cond.setKeyword("未選択");
+        }
+        model.addAttribute("resultList", bathService.findBathList(cond));
         return "result/searchResult";
     }
 
@@ -150,13 +151,14 @@ public class AreaController extends _CommonController {
      */
     @RequestMapping("/stationSearch")
     public String searchStation(StationForm form, Model model) {
-
         // 検索結果一覧画面表示
         Conditions cond = new Conditions();
-        cond.setKeyword(String.join(" ", form.stationNames));
+        if(form.stationNames != null) {
+            cond.setKeyword(String.join(" ", form.stationNames));
+        } else {
+            cond.setKeyword("未選択");
+        }
         model.addAttribute("resultList", bathService.findBathList(cond));
-
-        // 検索結果（駅）画面表示
         return "result/searchResult";
     }
 

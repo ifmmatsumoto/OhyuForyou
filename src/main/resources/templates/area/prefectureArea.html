@@ -7,6 +7,7 @@
     <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.css}" />
     <link rel="stylesheet" media="all" th:href="@{/css/common.css}" />
     <link rel="stylesheet" media="all" th:href="@{/css/area/prefecture.css}" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script type="text/javascript" th:src="@{/js/common.js}"></script>
     <script type="text/javascript" th:src="@{/js/top/top.js}"></script>
@@ -25,35 +26,25 @@
     <div th:replace="common/header"></div>
     <div  class="container">
         <form id="form" class="form-inline" action="#" th:action="@{/area/prefectureSearch}" th:object="${prefectureSearchForm}" method="post">
-            <div class="search-prefecture" id="selected-prefecture" th:text="'選択中の県名：' + ${prefectureForm.areaName}">
-            </div>
+            <div class="search-prefecture" id="selected-prefecture" th:text="'選択中の県名：' + ${prefectureForm.areaName}"></div>
             <table class="table table-bordered">
                 <tr>
                     <td class="prefecture-name" align="center">
                         <span id="btn-inner" >▼</span>
-                            <div class="prefecture-name-text" th:text="${prefectureForm.areaName}">
-                            </div>
+                        <div class="prefecture-name-text" th:text="${prefectureForm.areaName}"></div>
                     </td>
-                </tr>
-                <tr>
                     <td id=area-name-list>
-                        <div>
-                            <input type="checkbox" id="all"> 全選択
-                        </div>
-                        <div id="area-name" th:each="prefecture : ${prefectureForm.prefectureList}">
-                            <label class="form-check">
-                                <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
-                            </label>
-                        </div>
+                        <div class="all"><input type="checkbox" id="all">全選択</div>
+                        <p class="prefectures" th:each="prefecture : ${prefectureForm.prefectureList}">
+                            <input class="form-check-input" type="checkbox" name="prefectureNames" th:text="${prefecture.name}" th:value="${prefecture.name}">
+                        </p>
                     </td>
                 </tr>
             </table>
-            <div id="button-area" class="row col-md-12 justify-content-center">
-                <input type="button" class="btn btn-primary btn-lg" onclick="searchPrefecture();" value="地域名検索">
-            </div>
+            <div id="search" class="search"><a href="#search" class="loading" onclick="searchPrefecture()">地域名検索</a></div>
         </form>
     </div>
-  </body>
+</body>
 <!-- 共通フッター -->
 <div th:replace="common/footer"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
