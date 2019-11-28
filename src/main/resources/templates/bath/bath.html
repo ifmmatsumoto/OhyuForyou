@@ -122,6 +122,8 @@
     </section>
 
     <p class="reviewTitle">レビュー一覧</p>
+    <span th:errors="*{newyorker}" th:if="${#fields.hasErrors('newyorker')}">Content Error</span>
+    <span th:errors="*{review}" th:if="${#fields.hasErrors('review')}">Content Error</span>
     <p th:if="${#lists.isEmpty(bathForm.reviewList)}">レビューは未登録です</p>
     <div th:if="!${#lists.isEmpty(bathForm.reviewList)}" class="reviewList">
 	    <dl th:each="review:${bathForm.reviewList}" th:object="${review}" class="reviewDetail">
@@ -150,7 +152,7 @@
             </table>
 	    </section>
 	</form>
-    <a class="back" href="javascript:history.back();"><img width="100px" th:src="@{/img/top/ojiji_back.png}" /></a>
+    <a class="back" href="javascript:history.back();"><img class="backBtn" th:src="@{/img/top/ojiji_back.png}" /></a>
 
 </div>
 

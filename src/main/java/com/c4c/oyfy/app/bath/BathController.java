@@ -5,10 +5,12 @@ import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -56,7 +58,7 @@ public class BathController {
      * @throws OyfyException
      */
     @RequestMapping(value = "regist", method = RequestMethod.POST)
-    public String regist(BathForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+    public String regist(@Valid BathForm form, BindingResult result, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
         // レビュー登録処理
         Review review = new Review();
         review.setBathId(form.getBathId());
@@ -66,6 +68,9 @@ public class BathController {
         review.setUpdateDate(LocalDateTime.now());
 
         // TODO 入力チェック
+        if (result.hasErrors()) {
+            return "regist";
+        }
 
         // レビュー登録処理
         bathService.registReview(review);
@@ -73,5 +78,4 @@ public class BathController {
         // 銭湯詳細画面表示
         return this.bath(form, model, req, res);
     }
-
 }

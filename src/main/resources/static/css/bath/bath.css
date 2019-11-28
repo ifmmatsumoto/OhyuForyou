@@ -82,6 +82,11 @@ label {
  display: block;
  text-align: left;
 }
+.backBtn {
+ margin: 30px 0 0 0;
+ width: 100px;
+}
+
 /* アイコン */
 table tr td {
  position: relative;
