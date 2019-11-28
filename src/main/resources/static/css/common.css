@@ -183,3 +183,6 @@ input[type=checkbox] {
  color: #000;
  margin-left: 0px;
 }
+.table th, .table td {
+ padding: 5px;
+}
