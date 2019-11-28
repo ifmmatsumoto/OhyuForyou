@@ -1,4 +1,4 @@
-package com.c4c.oyfy.app.dto;
+package com.c4c.oyfy.app.area.api;
 
 import java.io.Serializable;
 import java.util.List;

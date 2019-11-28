@@ -55,8 +55,9 @@ $(function() {
                 inputObject[k].setAttribute("id", "all_" + stockId);
             }
             else {
+            	// TODO これがあると駅選択できない
                 // 1table分の「全選択チェックボックス」以外に対してnameを設定
-                inputObject[k].setAttribute("name", "stations" + stockId);
+//                inputObject[k].setAttribute("name", "stations" + stockId);
             }
         }
     }

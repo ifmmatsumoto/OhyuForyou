@@ -9,18 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
-import com.c4c.oyfy.app.dto.LineDto;
-import com.c4c.oyfy.app.dto.PrefectureDto;
-import com.c4c.oyfy.app.dto.PrefectureDto.Prefecture;
-import com.c4c.oyfy.app.dto.StationDto;
-import com.c4c.oyfy.app.dto.StationDto.Response.Station;
+import com.c4c.oyfy.app.area.api.LineDto;
+import com.c4c.oyfy.app.area.api.PrefectureDto;
+import com.c4c.oyfy.app.area.api.PrefectureDto.Prefecture;
+import com.c4c.oyfy.app.area.api.StationDto;
+import com.c4c.oyfy.app.area.api.StationDto.Response.Station;
 import com.c4c.oyfy.app.search.Conditions;
-import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.domain.bath.BathService;
 import com.c4c.oyfy.domain.prefecture.PrefectureService;
 import com.c4c.oyfy.domain.station.StationService;
@@ -47,17 +45,16 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping
-    public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
-            throws OyfyException {
+    public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
 
         //取得した区分から遷移先を変更する
         if (form.division == Division.STATION.id()) {
             form.setAction(Division.STATION.str());
-            model.addAttribute("stationName", "/img/footer/footer_select_train.png");
+            form.setStationName("/img/footer/footer_select_train.png");
         }
         if (form.division == Division.PREFECTUR.id()) {
             form.setAction(Division.PREFECTUR.str());
-            model.addAttribute("prefectureName", "/img/footer/footer_select_prefecture.png");
+            form.setPrefectureName("/img/footer/footer_select_prefecture.png");
         }
 
         // 駅/都道府県検索(日本)画面表示
@@ -79,14 +76,11 @@ public class AreaController extends _CommonController {
 
         // 日本地図画面から都道府県コードを取得する
         PrefectureDto prefectureDto = prefectureService.findPrefectureList(form.getAreaCode());
-
         List<Prefecture> prefectureList = prefectureDto.getData();
-
         form.setPrefectureList(prefectureList);
 
         // 都道府県検索(地域)画面表示
-        model.addAttribute("prefectureName", "/img/footer/footer_select_prefecture.png");
-
+        form.setPrefectureName("/img/footer/footer_select_prefecture.png");
         return "area/prefectureArea";
     }
 
@@ -116,13 +110,11 @@ public class AreaController extends _CommonController {
             StationDto stationDto = stationService.findStationList(line);
             List<Station> stationList = stationDto.getResponse().getStation();
             lineMap.put(line, stationList);
-            System.out.println("路線名" + line);
         }
         form.setLine(lineMap);
 
         // 駅検索(地域選択)画面表示
-        model.addAttribute("stationName", "/img/footer/footer_select_train.png");
-
+        form.setStationName("/img/footer/footer_select_train.png");
         return "area/stationArea";
     }
 
@@ -136,15 +128,12 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("/prefectureSearch")
-    public String searchPrefecture(@ModelAttribute PrefectureSearchForm form, Model model) {
+    public String searchPrefecture(PrefectureForm form, Model model) {
 
       // 検索結果一覧画面表示
       Conditions cond = new Conditions();
-      String keyWord = PrefectureHelper.toKeyWord(form);
-      cond.setKeyword(keyWord);
-
-      ResultList resultList = bathService.findBathList(cond);
-      model.addAttribute("resultList", resultList);
+      cond.setKeyword(String.join(" ", form.prefectureNames));
+      model.addAttribute("resultList", bathService.findBathList(cond));
 
         // 検索結果（都道府県）画面表示
         return "result/searchResult";
@@ -160,15 +149,12 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("/stationSearch")
-    public String searchStation(@ModelAttribute StationSearchForm form, Model model) {
+    public String searchStation(StationForm form, Model model) {
 
         // 検索結果一覧画面表示
         Conditions cond = new Conditions();
-        String keyWord = StationHelper.toKeyWord(form);
-        cond.setKeyword(keyWord);
-
-        ResultList resultList = bathService.findBathList(cond);
-        model.addAttribute("resultList", resultList);
+        cond.setKeyword(String.join(" ", form.stationNames));
+        model.addAttribute("resultList", bathService.findBathList(cond));
 
         // 検索結果（駅）画面表示
         return "result/searchResult";

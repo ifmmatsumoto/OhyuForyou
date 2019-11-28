@@ -7,10 +7,6 @@ import lombok.Data;
 @Data
 public class IllustSearchForm {
 
-    // インスタンスを作らないためにプリミティブ型にしてる
-    // どうパフォーマンスに影響するのかはよくわからない
-    // プリミティブで対応できるならそっちのほうがいいらしい
-    // Effective Javaより。勘違いかも
     int fee_low;
     int fee_high;
 

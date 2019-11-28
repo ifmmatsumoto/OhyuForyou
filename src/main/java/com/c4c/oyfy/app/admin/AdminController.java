@@ -84,7 +84,6 @@ public class AdminController {
                 byte[] b = getByteArray(form.getInputImage().getInputStream());
                 String bathImgStr = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(b);
                 form.bath.setBathImage(bathImgStr);
-                System.out.println(bathImgStr);
             } catch (Exception e) {
                 throw new OyfyException();
             }

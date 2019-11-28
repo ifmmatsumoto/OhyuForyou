@@ -7,6 +7,11 @@ import org.springframework.util.StringUtils;
 import com.oyfy.dbflute.exentity.Tag;
 
 public class IllustHelper {
+    /**
+     * entityをformに変換する
+     * @param entityList
+     * @return
+     */
     public static IllustSearchForm toForm(List<Tag> entityList) {
         IllustSearchForm formList = new IllustSearchForm();
 
@@ -35,6 +40,11 @@ public class IllustHelper {
          return formList;
     }
 
+    /**
+     * 選択したタグを検索キーワードに整形する
+     * @param form
+     * @return
+     */
     public static String toKeyWord(IllustSearchForm form) {
         List<IllustItemForm> illustList = form.getIllustItemList();
         StringBuilder sb = new StringBuilder();
@@ -45,6 +55,9 @@ public class IllustHelper {
         return sb.toString();
     }
 
+    /**
+     * タグ表示用
+     */
     public enum ImgPath {
         ILLUST("illust", "/oyfy/img/illust/"),
         OJIJI("ojiji", "/oyfy/img/ojiji/"),

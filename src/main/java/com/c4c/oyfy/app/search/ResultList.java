@@ -6,6 +6,9 @@ import org.dbflute.cbean.result.PagingResultBean;
 
 import lombok.Data;
 
+/**
+ * 検索結果
+ */
 @Data
 public class ResultList {
     /** 検索キーワード */

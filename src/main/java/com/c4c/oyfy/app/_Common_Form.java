@@ -17,4 +17,10 @@ public class _Common_Form {
     /** 表示ページ(初期値) */
     @Builder.Default
     protected int page = 1;
+    /** フッター画像切り替え 駅 */
+    protected String stationName;
+    /** フッター画像切り替え 都道府県 */
+    protected String prefectureName;
+    /** フッター画像切り替え イラスト */
+    protected String illustName;
 }

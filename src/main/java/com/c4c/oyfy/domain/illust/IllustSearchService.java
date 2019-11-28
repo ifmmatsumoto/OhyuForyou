@@ -15,6 +15,10 @@ public class IllustSearchService {
 
     @Autowired
     public IllustSearchRepository illustSearchRepository;
+    /**
+     * イラストタグ検索
+     * @return
+     */
     public List<Tag> findAllTag() {
         return illustSearchRepository.findAllTag();
     }

@@ -9,13 +9,15 @@ import com.oyfy.dbflute.exbhv.TagBhv;
 import com.oyfy.dbflute.exentity.Tag;
 
 @Repository
-public class IllustSearchRepositoryImpl implements IllustSearchRepository{
+public class IllustSearchRepositoryImpl implements IllustSearchRepository {
 
     @Autowired
     public TagBhv tagBhv;
 
+    /**
+     * イラストタグ検索
+     */
     public List<Tag> findAllTag() {
-       return tagBhv.selectList(cb ->{
-        });
+        return tagBhv.selectList(cb -> {});
     }
 }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
 import com.c4c.oyfy.app.search.Conditions;
-import com.c4c.oyfy.app.search.ResultList;
 import com.c4c.oyfy.domain.bath.BathService;
 
 @Controller
@@ -54,18 +53,22 @@ public class TopController extends _CommonController {
         cond.setKeyword(form.getKeyword());
         cond.setPage(form.getPage());
         // キーワード検索
-        ResultList resultList = bathService.findBathList(cond);
-        model.addAttribute("resultList", resultList);
+        model.addAttribute("resultList", bathService.findBathList(cond));
 
         // 検索結果一覧画面表示
         return "result/searchResult";
     }
 
+    /**
+     * 現在地検索
+     * @param form
+     * @param model
+     * @return
+     */
     @RequestMapping(path = "nearbyBath", method = RequestMethod.POST)
     public String searchNearbyBath(TopForm form, Model model) {
         form.setDistance(3);// 半径
-        ResultList resultList = bathService.findNearbyBath(form);
-        model.addAttribute("resultList", resultList);
+        model.addAttribute("resultList", bathService.findNearbyBath(form));
         return "result/searchResult";
     }
 }
