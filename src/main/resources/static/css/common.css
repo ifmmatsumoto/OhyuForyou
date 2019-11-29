@@ -186,3 +186,10 @@ input[type=checkbox] {
 .table th, .table td {
  padding: 5px;
 }
+/* システムメッセージ */
+.okMsg {
+  color: green;
+}
+.ngMsg {
+  color: red;
+}

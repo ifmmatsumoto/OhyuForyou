@@ -164,11 +164,3 @@ section.regist input[type="checkbox"]:checked + .checkbox-parts::after {
 #bathDetail {
   width: 100%;
 }
-
-/* システムメッセージ */
-.okMsg {
-  color: green;
-}
-.ngMsg {
-  color: red;
-}

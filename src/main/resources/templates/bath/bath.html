@@ -135,14 +135,20 @@
 	    </dl>
     </div>
     <p class="reviewTitle"></p>
+    <p th:text="${bathForm.okMsg}" class="okMsg" />
 	<form th:action="@{/bath/regist}" id="bathForm" name="bathForm" th:object="${bathForm}" method="post" enctype="multipart/form-data" class="reviewForm">
-	   <section class="list">
+        <input type="text" th:value="${}" />
+        <!-- 投稿メッセージがある場合はページ内リンク -->
+        <script th:if="${bathForm.okMsg != null || #arrays.length(#fields.allErrors()) > 0}">location.href = "#bathForm";</script>
+  	    <section class="list">
 	        <table>
                 <tr>
                     <th class="review">レビュー投稿</th>
                     <td class="review">
-                        <input type="text" id="newyorker" name="newyorker" value="" placeholder="お名前" />
-                        <textarea rows="5" name="review" placeholder="レビュー内容"></textarea>
+                        <span class="text-danger" th:errors="*{newyorker}" th:if="${#fields.hasErrors('newyorker')}">Content Error</span>
+                        <input type="text" id="newyorker" name="newyorker" th:value="${bathForm.newyorker}" value="" placeholder="お名前" />
+                        <span class="text-danger" th:errors="*{review}" th:if="${#fields.hasErrors('review')}">Content Error</span>
+                        <textarea rows="5" name="review" placeholder="レビュー内容" th:field="${bathForm.review}"></textarea>
     			        <input type="hidden" name="bathId" th:value="${bathForm.bath.bathId}" />
 	       		        <div class="registBtn"><a href="#bathForm" onclick="registReview()" >投稿</a></div>
 			        </td>
@@ -150,8 +156,7 @@
             </table>
 	    </section>
 	</form>
-    <a class="back" href="javascript:history.back();">戻る</a>
-
+    <a class="back" href="javascript:history.back();"><img class="backBtn" th:src="@{/img/top/ojiji_back.png}" /></a>
 </div>
 
 <!-- 共通フッター -->
