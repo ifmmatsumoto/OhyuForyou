@@ -137,7 +137,6 @@
     <p class="reviewTitle"></p>
     <p th:text="${bathForm.okMsg}" class="okMsg" />
 	<form th:action="@{/bath/regist}" id="bathForm" name="bathForm" th:object="${bathForm}" method="post" enctype="multipart/form-data" class="reviewForm">
-        <input type="text" th:value="${}" />
         <!-- 投稿メッセージがある場合はページ内リンク -->
         <script th:if="${bathForm.okMsg != null || #arrays.length(#fields.allErrors()) > 0}">location.href = "#bathForm";</script>
   	    <section class="list">
