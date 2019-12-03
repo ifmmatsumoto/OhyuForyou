@@ -23,4 +23,10 @@ public class PrefectureForm extends _Common_Form {
     List<Prefecture> prefectureList;
     /** 都道府県選択値 */
     String[] prefectureNames;
+    /** フッター画像切り替え 駅 */
+    protected String stationName;
+    /** フッター画像切り替え 都道府県 */
+    protected String prefectureName;
+    /** フッター画像切り替え イラスト */
+    protected String illustName;
 }

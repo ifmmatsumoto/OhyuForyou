@@ -11,32 +11,33 @@ div.search-prefecture {
  width: 95%;
  color: #777777;
  background-color: #fff;
- border: 4px solid #B09A69;
+ border: 4px solid #95E3F9;
  border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
 }
 
 #selected-prefecture {
  line-height: 1;
  padding: 8px 0 5px 8px;
- margin-bottom: 50px;
+ margin-bottom: 10px;
 }
 
 /* 路線名表示列色 */
 td.line-name {
- background-color: #668ad8;
+ background-color: #B09A69;
  width: 100%;
  display: block;
+}
+.table-bordered th, .table-bordered td {
+ border: 1px solid #000;
 }
 span {
  text-decoration: none;
  display: block;
  float: left;
- color: #F8F8FF;
 }
 
 /* 駅名テキスト色 */
 div.line-name-text {
-  color: #F8F8FF;
 }
 /* 全選択チェックボックス */
 .all {
@@ -55,6 +56,5 @@ input[type=checkbox] {
 
 td.area-name-list {
  display: none;
- border: none;
  text-align: justify;
 }

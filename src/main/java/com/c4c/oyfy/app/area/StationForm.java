@@ -20,4 +20,10 @@ public class StationForm extends _Common_Form {
     private List<Station> station;
     /** 駅リスト選択値 */
     String[] stationNames;
+    /** フッター画像切り替え 駅 */
+    protected String stationName;
+    /** フッター画像切り替え 都道府県 */
+    protected String prefectureName;
+    /** フッター画像切り替え イラスト */
+    protected String illustName;
 }

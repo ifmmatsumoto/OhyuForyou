@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.c4c.oyfy.OyfyException;
 import com.c4c.oyfy.app._CommonController;
@@ -45,20 +46,22 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping
-    public String prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
+    public ModelAndView prefecture(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res) throws OyfyException {
 
         //取得した区分から遷移先を変更する
+        ModelAndView mav = new ModelAndView();
         if (form.division == Division.STATION.id()) {
             form.setAction(Division.STATION.str());
-            form.setStationName("/img/footer/footer_select_train.png");
+            mav.addObject("stationName", "/img/footer/footer_select_train.png");
         }
         if (form.division == Division.PREFECTUR.id()) {
             form.setAction(Division.PREFECTUR.str());
-            form.setPrefectureName("/img/footer/footer_select_prefecture.png");
+            mav.addObject("prefectureName", "/img/footer/footer_select_prefecture.png");
         }
 
         // 駅/都道府県検索(日本)画面表示
-        return "area/area";
+        mav.setViewName("area/area");
+        return mav;
     }
 
     /**

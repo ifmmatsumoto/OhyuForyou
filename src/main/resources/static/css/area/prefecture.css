@@ -18,26 +18,26 @@ div.search-prefecture {
 #selected-prefecture {
  line-height: 1;
  padding: 8px 0 5px 8px;
- margin-bottom: 50px;
+ margin-bottom: 10px;
 }
 
 /* 県名表示列色 */
 td.prefecture-name {
- background-color: #668ad8;
+ background-color: #95E3F9;
  text-align: center;
  display: block;
 }
-
+.table-bordered th, .table-bordered td {
+ border: 1px solid #000;
+}
 span {
  text-decoration: none;
  display: block;
  float: left;
- color: #F8F8FF;
 }
 
 /* 県名テキスト色 */
 div.prefecture-name-text {
- color: #F8F8FF;
  font-size: 20px;
  display: inline-block;
 }
@@ -54,7 +54,6 @@ label {
 }
 #area-name-list {
  display: none;
- border: none;
  text-align: justify;
 }
 /* 都道府県チェックボックス */
