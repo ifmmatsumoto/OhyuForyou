@@ -30,11 +30,11 @@
         <div class="menu">
             <ul>
                     <!-- 駅検索 -->
-                    <li><a th:href="@{/area(division=${2})}"><img th:src="@{/img/top/top_menu_train.png}" /></a></li>
+                    <li><a th:href="@{/area(division=${2})}"><img class="kanban" th:src="@{/img/top/top_menu_train.png}" /></a></li>
                     <!-- 都道府県検索 -->
-                    <li><a th:href="@{/area(division=${1})}"><img th:src="@{/img/top/top_menu_prefecture.png}" /></a></li>
+                    <li><a th:href="@{/area(division=${1})}"><img class="kanban" th:src="@{/img/top/top_menu_prefecture.png}" /></a></li>
                     <!-- イラスト検索 -->
-                    <li><a th:href="@{illust}" ><img th:src="@{/img/top/top_menu_illust.png}" /></a></li>
+                    <li><a th:href="@{illust}" ><img class="kanban" th:src="@{/img/top/top_menu_illust.png}" /></a></li>
             </ul>
         </div>
     </div>
@@ -51,7 +51,7 @@
         <div class="search">
             <!-- キーワード検索 -->
             <form id="keywordSearch" th:action="@{/keyword}" th:object="${TopForm}" method="post" enctype="multipart/form-data">
-                <input type="text" name="keyword" class="headSearch loading_inp" placeholder="銭湯　おじじ　検索" onEnter="document.form.submit();" autocomplete="off" maxlength="60">
+                <input type="text" name="keyword" class="headSearch loading_inp" placeholder="タオル　ドライヤー　24時間" onEnter="document.form.submit();" autocomplete="off" maxlength="60">
                 <a href="#" id="clickSubmit" class="loading" onclick="searchKeyword()">検索</a>
             </form>
             <!-- 現在値検索 -->

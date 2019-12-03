@@ -32,7 +32,7 @@ header form {
 .headSearch {
  font-family: cursive;
  border: 1px solid #acacac;
- color: #fff;
+ color: #000;
  padding: 0 20px;
  opacity: 0.7;
  border-radius: 10px;
@@ -45,7 +45,7 @@ header form {
  -moz-transition: all .3s;
  font-size: 16px;
  outline: none;
- background-color: #acacac;
+ background-color: #fff;
 }
 /* ヘッダー検索ボックスプレースホルダー */
 *::-webkit-input-placeholder { color: #ddd; }
