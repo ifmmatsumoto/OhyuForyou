@@ -11,7 +11,7 @@ div.search-prefecture {
  width: 95%;
  color: #777777;
  background-color: #fff;
- border: 4px solid #95E3F9;
+ border: 4px solid #B09A69;
  border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
 }
 
@@ -23,7 +23,7 @@ div.search-prefecture {
 
 /* 路線名表示列色 */
 td.line-name {
- background-color: #B09A69;
+ background-color: #95E3F9;
  width: 100%;
  display: block;
 }
@@ -46,7 +46,7 @@ div.line-name-text {
 /* 駅チェックボックス */
 .stations {
  display: inline-block;
- margin-bottom: 0;
+ margin: 0 10px 0 0;
  padding: 2px;
 }
 input[type=checkbox] {

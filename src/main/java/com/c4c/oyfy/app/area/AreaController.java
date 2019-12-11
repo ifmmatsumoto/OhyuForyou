@@ -74,7 +74,7 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("prefecture")
-    public String area(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
+    public ModelAndView area(PrefectureForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
         // 日本地図画面から都道府県コードを取得する
@@ -83,8 +83,10 @@ public class AreaController extends _CommonController {
         form.setPrefectureList(prefectureList);
 
         // 都道府県検索(地域)画面表示
-        form.setPrefectureName("/img/footer/footer_select_prefecture.png");
-        return "area/prefectureArea";
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("prefectureName", "/img/footer/footer_select_prefecture.png");
+        mav.setViewName("area/prefectureArea");
+        return mav;
     }
 
     /**
@@ -97,7 +99,7 @@ public class AreaController extends _CommonController {
      * @throws OyfyException
      */
     @RequestMapping("station")
-    public String station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
+    public ModelAndView station(StationForm form, Model model, HttpServletRequest req, HttpServletResponse res)
             throws OyfyException {
 
         // 都道府県名から路線リストを取得
@@ -117,8 +119,10 @@ public class AreaController extends _CommonController {
         form.setLine(lineMap);
 
         // 駅検索(地域選択)画面表示
-        form.setStationName("/img/footer/footer_select_train.png");
-        return "area/stationArea";
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("stationName", "/img/footer/footer_select_train.png");
+        mav.setViewName("area/stationArea");
+        return mav;
     }
 
     /**
