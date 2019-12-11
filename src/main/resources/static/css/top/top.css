@@ -98,10 +98,12 @@ body {
 .yokuso div.oke img {
  width: 100px;
  animation: yoko 3s ease-in-out infinite;
+ filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
 }
 .yokuso div.ahiru img {
  width: 50px;
  animation: tate 3s ease-in-out infinite;
+ filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
 }
 @keyframes ojiji {
  0% { transform: rotate(0deg); }
@@ -193,6 +195,7 @@ body {
 .headSearch {
  width: 80%;
  opacity: 0.9;
+ filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
 }
 #keywordSearch {
  text-align: center;
@@ -221,6 +224,7 @@ body {
 .kerorin {
  width: 100px;
  cursor: pointer;
+ filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
 }
 .kerorin:hover {
  opacity: 0.5;
