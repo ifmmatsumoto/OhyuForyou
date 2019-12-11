@@ -55,9 +55,10 @@
                 <a href="#" id="clickSubmit" class="loading" onclick="searchKeyword()">検索</a>
             </form>
             <!-- 現在値検索 -->
-            <form id="cuurentLocationSearch" th:action="@{/nearbyBath}" th:object="${topForm}" method="post" enctype="multipart/form-data">
+            <form id="cuurentLocationSearch" th:action="@{/nearbyBath}" th:object="${topForm}" method="get" enctype="multipart/form-data">
                 <input type="hidden" th:field="*{latitude}" />
                 <input type="hidden" th:field="*{longitude}"/>
+                <input type="hidden" th:field="*{page}"/>
                 <img class="kerorin loading" src="/oyfy/img/top/button_search.png" onclick="getCuurentLocation();">
             </form>
         </div>
