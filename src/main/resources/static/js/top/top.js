@@ -6,7 +6,6 @@ function getCuurentLocation() {
 function searchNearnyBath(position) {
     document.getElementById('latitude').value = position.coords.latitude;
     document.getElementById('longitude').value = position.coords.longitude;
-    document.getElementById('page').value = position.coords.longitude;
 
     $('#cuurentLocationSearch').submit();
 }

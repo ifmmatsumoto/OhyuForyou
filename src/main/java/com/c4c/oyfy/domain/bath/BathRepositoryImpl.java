@@ -56,8 +56,10 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         if (StringUtils.isEmpty(keyword)) {
             resultList.setPage(bathBhv.selectPage(cb -> {
                 cb.query().setDelFlg_Equal(0);
+                // 料金From～Toによる絞り込み (片方指定とかできてもいいかも)
                 if(feeFrom != null && feeTo != null) {
                     cb.query().setBathFee_RangeOf(feeFrom, feeTo, op -> op.getCalculationRange());
+
                 }
                 cb.paging(PAGE_SIZE, page); // 表示件数, 表示ページ数
             }));
@@ -84,7 +86,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         List<Integer> dummyIntegerList = new ArrayList<>();
         dummyIntegerList.add(-1);
 
-        List<Integer> bathTagIdList = tagList.size() == 0
+        List<Integer> bathTagIdList = (tagList == null || tagList.size() == 0)
                 ? dummyIntegerList
                 : tagList.stream().map(tag -> {
                     return tag.getTagId();
@@ -173,7 +175,7 @@ public class BathRepositoryImpl extends OyfyConst implements BathRepository {
         pmb.setBath_place_lat(BigDecimal.valueOf(form.getLatitude()));
         pmb.setBath_place_lon(BigDecimal.valueOf(form.getLongitude()));
         pmb.setDistance(form.getDistance());
-        pmb.paging(PAGE_SIZE, form.getPage());
+        pmb.paging(PAGE_SIZE, 1);
         resultList.setPage(bathBhv.outsideSql().selectPage(pmb));
 
         return resultList;
